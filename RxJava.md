@@ -31,7 +31,7 @@
 
 ## map() 介紹
 
-我們最常用的是把 `List<TextView>` 轉成 `List<String>`，你可能會把整個 textViews 取出 text 然後抄一份：
+我們最常用的是把 `List<TextView>` 轉成 `List<String>`，你可能會把整個 textViews 一一取出 `toString()` 然後抄一份：
 
 ```java
 
@@ -42,7 +42,7 @@ for (TextView textView : textViews) {
 }
 ```
 
-萬一 textViews 有一萬筆，最終你其實在存取 strings 通常不會全部都用到，這樣就太浪費了。所以我們拿出牛仔精神 `Cow - Copy-On-Write`，先寫好轉換程式，當拿到那筆在去轉換，當然缺點是 textViews 要一直拿著，要稍微留意一下。我們先想像一下，寫一個名稱叫做 MapList 的類別，先把 textViews 拿著，然後人家跟 MapList 取出來的時候再去跑轉換程式。這裡我們開放一個 ```map(Mappable)``` 來讓人家時把轉換程式給我們 (Mappable)。
+萬一 textViews 有一萬筆，最終你其實在存取 strings 通常不會全部都用到，這樣就太浪費了。所以我們拿出牛仔精神 `Cow - Copy-On-Write`，先寫好轉換程式，當拿到那筆在去轉換，當然缺點是 textViews 要一直拿著，要稍微留意一下。我們先想像一下，寫一個名稱叫做 MapList 的類別，先把 textViews 拿著，在取出的時候，再去跑轉換程式。這裡我們開放一個 ```map(Mappable)``` 好把轉換程式交給我們 (Mappable)。
 
 ```java
 List<String> strings = new MapList<TextView, String>(textViews) // 先把 textViews 拿著
