@@ -64,8 +64,6 @@ Iterator<String> strings = Observable.from(textViews).map(new Func1<TextView, St
 ```
 
 不過 RxJava 這邊只有提供到 ```Iterator``` ，你可以寫一個 IteratorOnlyList 把這個 iterator 包起來，方便傳遞，雖然很多操作都殘缺。
-```
-
 
 
 
