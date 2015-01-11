@@ -70,12 +70,3 @@ Iterator<String> strings = Observable.from(textViews).map(new Func1<TextView, St
 
 
 
-
-
-
-
-
-
-
-
-
