@@ -1,6 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* about
+* About
 * RxJava
 
