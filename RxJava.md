@@ -4,6 +4,16 @@
 
 可以接龍的 callback/listener.
 
+## 名詞解釋
+
+Observable<T> 一份工作 task 一個未來 future , T 產品.
+
+Observer<T> onEvent, Listener.
+
+Subscription 訂單, 描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。
+
+
+
 寫一個讚計數器:
 
 ```java
