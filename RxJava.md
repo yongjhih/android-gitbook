@@ -29,7 +29,7 @@ while (it.hasNext()) {
 After:
 
 ```
-Observable<Profile> installedFriends = Observable.from(getFriends()).filter((f) -> f.getInstalled());
+Observable<Profile> installedFriends = Observable.from(getFriends()).filter(f -> f.getInstalled());
 
 List<Profile> installedFriendList = installedFriends.toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
 ```
