@@ -12,6 +12,28 @@
 
 直接看 code 來對照學習，先可以動，再來一一解釋運作原理。
 
+只列出安裝同個 app 的朋友：
+
+Before:
+
+採取把沒安裝的移除：
+
+```
+List<Profile> friends = getFriends();
+Iterator<Profile> it = friends.iterator();
+while (it.hasNext()) {
+    if (!f.getInstalled()) it.remove();
+}
+```
+
+After:
+
+```
+Observable<Profile> installedFriends = Observable.from(getFriends()).filter((f) -> f.getInstalled());
+
+List<Profile> installedFriendList = installedFriends.toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
+```
+
 ## 如何導入套用與改變撰寫
 
 既有長時間存取的函式改成 Observable ：
