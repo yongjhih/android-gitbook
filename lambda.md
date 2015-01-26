@@ -41,3 +41,5 @@ After:
 ```java
 Runnable = () -> println("yo");
 ```
+
+如果你要在 Android 上使用，請參考 gradle-retrolambda 。
