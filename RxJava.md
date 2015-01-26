@@ -6,13 +6,37 @@
 
 可以接龍的 callback/listener.
 
-
+*注意：這邊直接使用 lambda 的表達式，如果你還不清楚，請跳轉到 *
 
 ## 做中學
 
 直接看 code 來對照學習，先可以動，再來一一解釋運作原理。
 
+## 如何導入套用與改變撰寫
 
+既有長時間存取的函式改成 Observable ：
+
+```java
+Observable<File> file = Observable.defer(() -> Observable.just(download()));
+```
+
+## Android 應該養成的習慣與注意事項
+
+應該使用 ```AndroidObservable.bindFragment(fragment, observable)``` 來包裝你的 observable ，來避免操作 fragment 生命週期外的物件。例如：
+
+```java
+Observable.defer(() -> Observable.just(download())).subscribe(file -> {
+    textView.setText(file);
+});
+```
+
+如果你下載 download() 很久，然後離開了這個 fragment 後，才下載結束，這樣操作了 textView 就很有可能爆掉。你應該改成：
+
+```java
+AndroidObservable.bindFragment(fragment, Observable.defer(() -> Observable.just(download()))).subscribe(file -> {
+    textView.setText(file);
+});
+```
 
 ## map() 介紹
 
