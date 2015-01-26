@@ -2,5 +2,5 @@
 
 * [Introduction](README.md)
 * [RxJava](RxJava.md)
-* Lambda
+* [Lambda](lambda.md)
 
