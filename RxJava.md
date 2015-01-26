@@ -6,7 +6,7 @@
 
 可以接龍的 callback/listener.
 
-*注意：這邊直接使用 lambda &Lambda; 的表達式，如果你還不清楚，請跳轉到 [Lambda](lambda.md)*
+*注意：這邊直接使用 lambda &lambda; 的表達式，如果你還不清楚，請跳轉到 [Lambda](lambda.md)*
 
 ## 做中學
 
