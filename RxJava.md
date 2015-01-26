@@ -2,42 +2,17 @@
 
 \#Promise \#RxJava \#Reactive \#Functional
 
+透過 FRP(Functional Reactive Programming) 概念，有效避免巢狀 callback 增加可讀性以及減少 ```List<item>``` 的轉換成本。
+
 可以接龍的 callback/listener.
 
-## 名詞解釋
-
-Observable<T> 一份工作 task 一個未來 future , T 產品.
-
-Observer<T> onEvent, Listener.
-
-Subscription 訂單, 描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。
 
 
+## 做中學
 
-寫一個讚計數器:
+直接看 code 來對照學習，先可以動，再來一一解釋運作原理。
 
-```java
-        ViewObservable.clicks(findViewById(R.id.like_button))
-            .map(new Func1<OnClickEvent, Integer>() {
-                @Override
-                public Integer call(OnClickEvent clickEvent) {
-                    return 1;
-                }
-            })
-            .scan(new Func2<Integer, Integer, Integer>() {
-                @Override
-                public Integer call(Integer increamnet, Integer current) {
-                    return increament + current;
-                }
-            })
-            .subscribe(new Action1<Integer>() {
-                @Override
-                public void call(Integer likes) {
-                    TextView likesView = (TextView) findViewById(R.id.likes_view);
-                    textView.setText(likes.toString());
-                }
-            });
-```
+
 
 ## map() 介紹
 
@@ -76,5 +51,38 @@ Iterator<String> strings = Observable.from(textViews).map(new Func1<TextView, St
 不過 RxJava 這邊只有提供到 ```Iterator``` ，你可以寫一個 IteratorOnlyList 把這個 iterator 包起來，方便傳遞，雖然很多操作都殘缺。
 
 
+## 名詞解釋
 
+Observable<T> 一份工作 task 一個未來 future , T 產品.
 
+Observer<T> onEvent, Listener.
+
+Subscription 訂單, 描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。
+
+寫一個讚計數器:
+
+```java
+        ViewObservable.clicks(findViewById(R.id.like_button))
+            .map(new Func1<OnClickEvent, Integer>() {
+                @Override
+                public Integer call(OnClickEvent clickEvent) {
+                    return 1;
+                }
+            })
+            .scan(new Func2<Integer, Integer, Integer>() {
+                @Override
+                public Integer call(Integer increamnet, Integer current) {
+                    return increament + current;
+                }
+            })
+            .subscribe(new Action1<Integer>() {
+                @Override
+                public void call(Integer likes) {
+                    TextView likesView = (TextView) findViewById(R.id.likes_view);
+                    textView.setText(likes.toString());
+                }
+            });
+```
+
+## See Also
+我的小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
