@@ -1,1 +1,3 @@
-透過 FRP(Functional Reactive Programming) 概念，有效避免巢狀 callback 增加可讀性以及減少 ```List<item>``` 的轉換成本。
+# Andrew Chen (yongjhih) 的技術手記
+
+內容主要以 Android App 開發的相關技術手記。
