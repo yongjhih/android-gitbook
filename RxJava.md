@@ -4,7 +4,8 @@
 
 一個 FRP 的實現，透過 FRP(Functional Reactive Programming) 概念。短期效用：有效避免巢狀 callback 增加可讀性以及減少 ```List<item>``` 的轉換成本。
 
-*注意：這邊直接使用 lambda &lambda; 的表達式，如果你還不清楚，請跳轉到 [Lambda](lambda.md)*
+1. *注意：這邊直接使用 lambda &lambda; 的表達式，如果你還不清楚，請跳轉到 [Lambda](lambda.md)*
+2. *java8.stream 也實現了 Reactive。*
 
 ## 做中學
 
