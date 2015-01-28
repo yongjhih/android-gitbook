@@ -2,9 +2,7 @@
 
 \#Promise \#RxJava \#Reactive \#Functional
 
-透過 FRP(Functional Reactive Programming) 概念，有效避免巢狀 callback 增加可讀性以及減少 ```List<item>``` 的轉換成本。
-
-可以接龍的 callback/listener.
+一個 FRP 的實現，透過 FRP(Functional Reactive Programming) 概念。短期效用：有效避免巢狀 callback 增加可讀性以及減少 ```List<item>``` 的轉換成本。
 
 *注意：這邊直接使用 lambda &lambda; 的表達式，如果你還不清楚，請跳轉到 [Lambda](lambda.md)*
 
