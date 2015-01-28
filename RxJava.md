@@ -105,6 +105,10 @@ Observer<T> onEvent, Listener.
 
 Subscription 訂單, 描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。
 
+subscribe() 下訂。
+
+## 附錄：Android View 範例
+
 寫一個讚計數器:
 
 ```java
