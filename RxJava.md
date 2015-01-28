@@ -105,7 +105,7 @@ Observer<T> onEvent, Listener.
 
 Subscription 訂單, 描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。
 
-subscribe() 下訂。
+subscribe 下訂。
 
 ## 附錄：Android View 範例
 
@@ -135,4 +135,5 @@ subscribe() 下訂。
 ```
 
 ## See Also
-我的小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
+
+小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
