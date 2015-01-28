@@ -42,4 +42,6 @@ After:
 Runnable = () -> println("yo");
 ```
 
-如果你要在 Android 上使用，請參考 gradle-retrolambda 。
+如果你要在 Android 上使用，請參考 [gradle-retrolambda](https://github.com/evant/gradle-retrolambda) 。
+
+
