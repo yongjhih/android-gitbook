@@ -85,13 +85,15 @@ List<String> strings = new MapList<TextView, String>(textViews) // 先把 textVi
 
 這是我們自己寫一個 MapList 類別來達成，但是現在其實利用 RxJava 就可以辦到了。
 
-```java
-List<String> strings = Observable.from(textViews)
-    .map(textView -> textView.getText().toString())
-    .toList()
-    .toBlocking()
-    .single();
 ```
+List<String> strings = new IteratorOnlyList(Observable.from(textViews)
+    .map(textView -> textView.getText().toString())
+    .toBlocking()
+    .getIterator());
+```
+
+不過為了維持 lazy ，又 RxJava 這邊只有提供到 ```Iterator``` ，所以我們沒有使用 `toList().toBlocking().single()`，你可以寫一個 IteratorOnlyList 把這個 iterator 包起來，方便傳遞，雖然很多操作都殘缺。
+
 
 ## 名詞解釋
 
