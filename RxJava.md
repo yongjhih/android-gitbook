@@ -15,8 +15,6 @@
 
 Before:
 
-採取把沒安裝的移除：
-
 ```
 List<Profile> friends = getFriends();
 Iterator<Profile> it = friends.iterator();
