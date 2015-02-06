@@ -1,5 +1,6 @@
 # Andrew Chen (yongjhih) 的技術手記
 
+內容主要以 Android App 開發的相關技術手記。
+
 ![](https://www.gitbook.com/cover/book/yongjhih/feed.jpg)
 
-內容主要以 Android App 開發的相關技術手記。
