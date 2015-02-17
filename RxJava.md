@@ -82,8 +82,9 @@ Observable<Profile> installedFriends = Observable.from(getFriends())
     .filter(p -> p.getInstalled());
 Observable<String> installedFriendNames = installedFriends
     .map(p -> p.getDisplayName());
-List<String> installedFriendNameList = installedFriendNames.take(100)
-.toList().toBlocking.single(); // 拿個 100 筆
+List<String> installedFriendNameList = installedFriendNames
+    .take(100)
+    .toList().toBlocking.single(); // 拿個 100 筆
 ```
 
 ## 如何導入套用與改變撰寫
