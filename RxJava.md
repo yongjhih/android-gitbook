@@ -67,7 +67,7 @@ for (Profile p : getFriends()) {
 After:
 
 ```java
-List<String> installedFriendNameList Observable.from(getFriends())
+List<String> installedFriendNameList = Observable.from(getFriends())
     .filter(p -> p.getInstalled())
     .map(p -> p.getDisplayName())
     .toList().toBlocking().single();
