@@ -48,7 +48,7 @@ After:
 ```java
 List<String> friendNames = Observable.from(installedFriendList)
     .map(p -> p.getDisplayName())
-    .toList().toBlocking.single();
+    .toList().toBlocking().single();
 ```
 
 一次達成的寫法，列出安裝同個 app 朋友的名字：
