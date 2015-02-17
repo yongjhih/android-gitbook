@@ -73,7 +73,7 @@ List<String> installedFriendNameList = Observable.from(getFriends())
     .toList().toBlocking().single();
 ```
 
-首先，你可以發現你可以維持一樣的寫法，再來如果你把界面都維持 Observable 來傳遞，你可以決定哪時候才去開跑，以及拿幾筆才作幾筆過濾與轉換，有效避免無謂的全數過濾與轉換。(promise, lazy)
+首先，你可以發現你可以維持一樣的寫法，再來如果你把界面都維持 Observable 來傳遞，你可以決定哪時候才去開跑，以及拿幾筆才作幾筆過濾與轉換，有效避免無謂的全數過濾與轉換。
 
 可以拆解：
 
