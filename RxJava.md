@@ -57,7 +57,7 @@ List<String> friendNames = Observable.from(installedFriendList)
 Before:
 
 ```java
-// 這邊要改變寫法，不再沿用 List 來沿用 loop
+// 這邊要改變寫法，沿用 loop
 List<String> friendNames = new ArrayList<>();
 for (Profile p : getFriends()) {
     if (p.getInstalled()) friendNames.add(p.getDisplayName());
