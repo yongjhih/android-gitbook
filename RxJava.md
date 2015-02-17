@@ -15,7 +15,7 @@
 
 Before:
 
-```
+```java
 List<Profile> friends = getFriends();
 Iterator<Profile> it = friends.iterator();
 while (it.hasNext()) {
@@ -25,11 +25,56 @@ while (it.hasNext()) {
 
 After:
 
-```
+```java
 Observable<Profile> installedFriends = Observable.from(getFriends()).filter(f -> f.getInstalled());
 
 List<Profile> installedFriendList = installedFriends.toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
 ```
+
+列出朋友名字：
+
+Before:
+
+```java
+List<String> friendNames = new ArrayList<>();
+
+for (Profile p : installedFriendList) {
+    friendNames.add(p.getDisplayName());
+}
+```
+
+After:
+
+```java
+List<String> friendNames = Observable.from(installedFriendList)
+    .map(p -> p.getDisplayName())
+    .toList().toBlocking.single();
+```
+
+一次達成的寫法，列出安裝同個 app 朋友的名字：
+
+
+Before:
+
+```java
+// 這邊要改變寫法，不再沿用 List 來沿用 loop
+List<String> friendNames = new ArrayList<>();
+for (Profile p : getFriends()) {
+    if (p.getInstalled()) friendNames.add(p.getDisplayName());
+}
+```
+
+After:
+
+```java
+Observable<Profile> installedFriends = Observable.from(getFriends())
+    .filter(f -> f.getInstalled());
+Observable<String> installedFriendNames = installedFriends
+    .map(p -> p.getDisplayName());
+List<String> installedFriendNameList = installedFriendNames.toList().toBlocking.single(); // 這裡才開始做事
+```
+
+首先，你可以發現你可以維持一樣的寫法，再來如果你把界面都維持 Observable 來傳遞，你可以決定哪時候才去開跑，有效避免無謂的 loop 。(promise, lazy)
 
 ## 如何導入套用與改變撰寫
 
