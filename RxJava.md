@@ -26,7 +26,7 @@ while (it.hasNext()) {
 After:
 
 ```java
-Observable<Profile> installedFriends = Observable.from(getFriends()).filter(f -> f.getInstalled());
+Observable<Profile> installedFriends = Observable.from(getFriends()).filter(p -> p.getInstalled());
 
 List<Profile> installedFriendList = installedFriends.toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
 ```
@@ -58,13 +58,22 @@ Before:
 
 ```java
 // 這邊要改變寫法，沿用 loop
-List<String> friendNames = new ArrayList<>();
+List<String> installedFriendNameList = new ArrayList<>();
 for (Profile p : getFriends()) {
     if (p.getInstalled()) friendNames.add(p.getDisplayName());
 }
 ```
 
 After:
+
+```java
+List<String> installedFriendNameList Observable.from(getFriends())
+    .filter(p -> p.getInstalled())
+    .map(p -> p.getDisplayName())
+    .toList().toBlocking.single();
+```
+
+我們可以拆解：
 
 ```java
 Observable<Profile> installedFriends = Observable.from(getFriends())
