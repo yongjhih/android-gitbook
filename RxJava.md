@@ -70,7 +70,7 @@ After:
 List<String> installedFriendNameList Observable.from(getFriends())
     .filter(p -> p.getInstalled())
     .map(p -> p.getDisplayName())
-    .toList().toBlocking.single();
+    .toList().toBlocking().single();
 ```
 
 我們可以拆解：
