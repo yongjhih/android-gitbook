@@ -77,7 +77,7 @@ List<String> installedFriendNameList = Observable.from(getFriends())
 
 ```java
 Observable<Profile> installedFriends = Observable.from(getFriends())
-    .filter(f -> f.getInstalled());
+    .filter(p -> p.getInstalled());
 Observable<String> installedFriendNames = installedFriends
     .map(p -> p.getDisplayName());
 List<String> installedFriendNameList = installedFriendNames.toList().toBlocking.single(); // 這裡才開始做事
