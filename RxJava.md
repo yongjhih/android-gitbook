@@ -201,8 +201,6 @@ public Observable<ParseUser> getParseUser(Activity activity) {
             }
         });
     })
-    
-    return subject.asObservable();
 }
 ```
 
