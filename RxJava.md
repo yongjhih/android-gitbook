@@ -75,6 +75,7 @@ for (Profile p : installedFriendList) {
 
 ```java
 // 你可改變寫法，以沿用 loop
+
 List<String> installedFriendNameList = new ArrayList<>();
 for (Profile p : getFriends()) {
     if (p.getInstalled()) friendNames.add(p.getDisplayName());
