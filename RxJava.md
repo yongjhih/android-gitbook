@@ -188,7 +188,8 @@ public Observable<ParseUser> getParseUser(Activity activity) {
 
 ```java
 public Observable<ParseUser> getParseUser(Activity activity) {
-    final Subject<ParseUser, ParseUser> subject = new SerializedSubject<>(PublishSubject.create());
+    //final Subject<ParseUser, ParseUser> subject = new SerializedSubject<>(PublishSubject.create()); // crossover thread
+    final PublishSubject<ParseUser> = PublishSubject.create();
     ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
         @Override
         public void done(final ParseUser parseUser, ParseException err) {
