@@ -262,6 +262,12 @@ List<String> strings = new IteratorOnlyList(Observable.from(textViews)
 
 ## 排序 toSortedList()
 
+## 分組 groupBy()
+
+## 分段 window()
+
+## 快取 cache()
+
 ## 名詞解釋
 
 Observable<T> 一份工作 task 一個未來 future , T 產品.
