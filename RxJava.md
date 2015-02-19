@@ -262,23 +262,4 @@ ViewObservable.clicks(findViewById(R.id.like_button))
 
 小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
 
-## paste
 
-```java
-new AsyncTask<String, Void, File>() {
-    @Override
-    public File doInBackground(String... urls) {
-        try {
-            HttpRequest request =  HttpRequest.get(urls[0]);
-            File file = null;
-            if (request.ok()) {
-                file = File.createTempFile("download", ".tmp");
-                request.receive(file);
-            }
-            return file;
-        } catch (HttpRequestException exception) {
-            return null;
-        }
-    }
-}.execute();
-```
