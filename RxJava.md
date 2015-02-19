@@ -268,7 +268,7 @@ Observable<User> getUser(Activity activity) {
 ## 去除重複資料 distinct()
 
 ```java
-getPostedUsers(Observable<Post> posts) {
+Observable<User> getPostedUsers(Observable<Post> posts) {
     return posts.map(post -> post.getUser())
         .distinct(user -> user.getObjectId());
 }
@@ -277,7 +277,7 @@ getPostedUsers(Observable<Post> posts) {
 ## 多方合併 concat(), merge()
 
 ```java
-getActivityUsers(Observable<Post> posts, Observable<Comment> comments) {
+Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> comments) {
     return Observable.merge(posts.map(post -> post.getUser()),
         comments.map(comment -> comment.getUser()))
         .distinct(user -> user.getObjectId());
