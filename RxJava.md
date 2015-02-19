@@ -258,9 +258,30 @@ List<String> strings = new IteratorOnlyList(Observable.from(textViews)
 
 ## 組合資料 zip()
 
+```java
+Observable<User> getUser(Activity activity) {
+    Observable.zip(getFbUser(activity), getParseUser(activity),
+        (fbUser, parseUser) -> getUser(fbUser, parseUser));
+}
+```
+
 ## 去除重複資料 distinct()
 
+```java
+getPostedUsers(Observable<Post> posts) {
+    return posts.distinct(post -> post.getUser().getObjectId());
+}
+```
+
 ## 多方合併 concat(), merge()
+
+```java
+getActivityUsers(Observable<Post> posts, Observable<Comment> comments) {
+    return Observable.merge(posts.map(post -> post.getUser()),
+        comments.map(comment -> comment.getUser())
+    ).distinct(user -> user.getObjectId());
+}
+```
 
 ## 排序 toSortedList()
 
