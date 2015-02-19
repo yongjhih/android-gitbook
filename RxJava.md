@@ -269,7 +269,8 @@ Observable<User> getUser(Activity activity) {
 
 ```java
 getPostedUsers(Observable<Post> posts) {
-    return posts.distinct(post -> post.getUser().getObjectId());
+    return posts.map(post -> post.getUser())
+        .distinct(user -> user.getObjectId());
 }
 ```
 
@@ -278,8 +279,8 @@ getPostedUsers(Observable<Post> posts) {
 ```java
 getActivityUsers(Observable<Post> posts, Observable<Comment> comments) {
     return Observable.merge(posts.map(post -> post.getUser()),
-        comments.map(comment -> comment.getUser())
-    ).distinct(user -> user.getObjectId());
+        comments.map(comment -> comment.getUser()))
+        .distinct(user -> user.getObjectId());
 }
 ```
 
