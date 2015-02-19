@@ -164,8 +164,6 @@ Observable<File> file = Observable.defer(() -> Observable.just(download()));
 
 ### 既有的 callback 改成 Observable
 
-1. 基本款
-
 ```java
 public Observable<ParseUser> getParseUser(Activity activity) {
     return Observable.create(sub -> {
@@ -184,7 +182,7 @@ public Observable<ParseUser> getParseUser(Activity activity) {
 }
 ```
 
-2. 操作 Subject ，通常為了跨執行緒廣播，例如做一條 EventBus 。而這邊僅為舉例如何使用 subject 方式。
+另一種方法， Subject ，通常為了跨執行緒廣播，例如做一條 EventBus 。而這邊僅為舉例如何使用 subject 方式。
 
 ```java
 public Observable<ParseUser> getParseUser(Activity activity) {
