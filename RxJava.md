@@ -110,11 +110,19 @@ List<String> getInstalledFriendNameList(List<Profile> friends) {
 可以拆解：
 
 ```java
-Observable<Profile> installedFriends = Observable.from(getFriends())
-    .filter(p -> p.getInstalled());
-Observable<String> installedFriendNames = installedFriends
-    .map(p -> p.getDisplayName());
-List<String> installedFriendNameList = installedFriendNames
+Observable<Profile> getInstalledFriendObs(List<Profile> friends) {
+    return Observable.from(getFriends()).filter(p -> p.getInstalled());
+}
+
+Observable<Profile> getFriendNameObs(Observable<Profile> friends) {
+    return getInstalledFriendObs().filter(p -> p.getInstalled());
+}
+
+Observable<Profile> getInstalledFriendNameObs(List<Profile> friends) {
+    return getFriendNameObs(getInstalledFriendObs(friends));
+}
+
+getInstalledFriendNameObs(friends)
     .take(100)
     .toList().toBlocking.single(); // 拿個 100 筆
 ```
