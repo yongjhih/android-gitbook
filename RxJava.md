@@ -11,6 +11,8 @@
 
 直接看 code 來對照，再來一一解釋運作原理。
 
+### 有效解決重複的 loop 增進效能，維持同個 loop
+
 只列出安裝同個 app 的朋友：
 
 Before:
@@ -85,6 +87,33 @@ Observable<String> installedFriendNames = installedFriends
 List<String> installedFriendNameList = installedFriendNames
     .take(100)
     .toList().toBlocking.single(); // 拿個 100 筆
+```
+
+### 拉平巢狀 callback 增加易讀性
+
+Before:
+
+```java
+loginFacebook(activity, fbUser -> {
+    getFbProfile(fbUser, fbProfile -> {
+        loginParse(fbProfile, parseUser -> {
+            getParseProfile(fbProfile, parseProfile -> {
+                logonListener.onLogon(parseProfile);
+            })
+        })
+    })
+})
+```
+
+After:
+
+```java
+Observable.just(activity)
+    .flatMap(activity -> getFbUser(activity))
+    .flatMap(fbUser -> getFbProfile(fbUser))
+    .flatMap(fbProfile -> getParseUser(fbProfile))
+    .flatMap(parseUser -> getParseProfile(parseUser))
+    .subscribe(parseProfile -> logonListener.onLogon(parseProfile));
 ```
 
 ## 如何導入套用與改變撰寫
