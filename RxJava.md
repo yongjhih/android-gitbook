@@ -268,6 +268,8 @@ List<String> strings = new IteratorOnlyList(Observable.from(textViews)
 
 ## 快取 cache()
 
+## 重試 retry()
+
 ## 名詞解釋
 
 Observable<T> 一份工作 task 一個未來 future , T 產品.
