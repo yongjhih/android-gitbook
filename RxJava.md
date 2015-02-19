@@ -22,7 +22,7 @@ List<Profile> getInstalledFriendList(/* @Writable */List<Profile> friends) {
         if (!f.getInstalled()) it.remove();
     }
 
-    reeturn installedFriendList;
+    return installedFriendList;
 }
 ```
 
