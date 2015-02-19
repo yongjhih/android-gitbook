@@ -18,19 +18,28 @@
 Before:
 
 ```java
-List<Profile> installedFriendList = getFriends();
-Iterator<Profile> it = friends.iterator();
-while (it.hasNext()) {
-    if (!f.getInstalled()) it.remove();
+List<Profile> getInstalledFriendList(/* @Writable */List<Profile> friends) {
+    List<Profile> installedFriendList = friends;
+    Iterator<Profile> it = friends.iterator();
+
+    while (it.hasNext()) {
+        if (!f.getInstalled()) it.remove();
+    }
+
+    reeturn installedFriendList;
 }
 ```
 
 After:
 
 ```java
-Observable<Profile> installedFriends = Observable.from(getFriends()).filter(p -> p.getInstalled());
+Observable<Profile> getInstalledFriendObs(List<Profile> friends) {
+    return Observable.from(friends).filter(p -> p.getInstalled());
+}
 
-List<Profile> installedFriendList = installedFriends.toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
+List<Profile> getInstalledFriendList(List<Profile> friends) {
+    return getInstalledFriendObs().toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
+}
 ```
 
 列出朋友名字：
@@ -38,19 +47,27 @@ List<Profile> installedFriendList = installedFriends.toList().toBlocking().singl
 Before:
 
 ```java
-List<String> friendNames = new ArrayList<>();
+List<String> getFriendNameList(List<Profile> friends) {
+    List<String> friendNameList = new ArrayList<>();
 
-for (Profile p : installedFriendList) {
-    friendNames.add(p.getDisplayName());
+    for (Profile p : friends) {
+        friendNames.add(p.getDisplayName());
+    }
+
+    return friendNameList;
 }
 ```
 
 After:
 
 ```java
-List<String> friendNames = Observable.from(installedFriendList)
-    .map(p -> p.getDisplayName())
-    .toList().toBlocking().single();
+Observable<String> getFriendNameObs(List<Profile> friends) {
+    return Observable.from(friends).map(p -> p.getDisplayName())
+}
+
+List<String> getFriendNameList(List<Profile> friends) {
+    return getFriendNameObs(friends).toList().toBlocking().single();
+}
 ```
 
 一次達成的寫法，列出安裝同個 app 朋友的名字：
@@ -60,25 +77,19 @@ Before:
 
 ```java
 // 如果不改變寫法，會跑兩個 loop
-
-List<Profile> installedFriendList = getFriends();
-Iterator<Profile> it = friends.iterator();
-while (it.hasNext()) {
-    if (!f.getInstalled()) it.remove();
-}
-
-List<String> friendNames = new ArrayList<>();
-for (Profile p : installedFriendList) {
-    friendNames.add(p.getDisplayName());
+List<String> getInstalledFriendNameList(List<Profile> friends) {
+    return getFriendNameList(getInstalledFriendList());
 }
 ```
 
 ```java
 // 你可改變寫法，以沿用 loop
-
-List<String> installedFriendNameList = new ArrayList<>();
-for (Profile p : getFriends()) {
-    if (p.getInstalled()) friendNames.add(p.getDisplayName());
+List<String> getInstalledFriendNameList(List<Profile> friends) {
+    List<String> installedFriendNameList = new ArrayList<>();
+    for (Profile p : getFriends()) {
+        if (p.getInstalled()) friendNames.add(p.getDisplayName());
+    }
+    return installedFriendNameList;
 }
 ```
 
@@ -86,11 +97,12 @@ After:
 
 ```java
 // 而 Observable 不用刻意改變寫法，直接組起來就好：
-
-List<String> installedFriendNameList = Observable.from(getFriends())
-    .filter(p -> p.getInstalled())
-    .map(p -> p.getDisplayName())
-    .toList().toBlocking().single();
+List<String> getInstalledFriendNameList(List<Profile> friends) {
+    return Observable.from(getFriends())
+        .filter(p -> p.getInstalled())
+        .map(p -> p.getDisplayName())
+        .toList().toBlocking().single();
+}
 ```
 
 首先，你可以發現你可以維持一樣的寫法，再來如果你把界面都維持 Observable 來傳遞，你可以決定哪時候才去開跑，以及拿幾筆才作幾筆過濾與轉換，有效避免無謂的全數過濾與轉換。
