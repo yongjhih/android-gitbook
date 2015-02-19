@@ -7,7 +7,7 @@
 1. *注意：這邊直接使用 lambda &lambda; 的表達式，如果你還不清楚，請跳轉到 [Lambda](lambda.md)*
 2. *java8.stream 也實現了 Reactive。*
 
-### 有效解決重複的 loop 增進效能，維持同個 loop
+## 有效解決重複的 loop 增進效能，維持同個 loop
 
 只列出安裝同個 app 的朋友：
 
@@ -123,7 +123,7 @@ getInstalledFriendNameObs(friends)
     .toList().toBlocking.single(); // 拿個 100 筆
 ```
 
-### 拉平巢狀 callback 增加易讀性
+## 拉平巢狀 callback 增加易讀性
 
 Before:
 
