@@ -7,10 +7,6 @@
 1. *注意：這邊直接使用 lambda &lambda; 的表達式，如果你還不清楚，請跳轉到 [Lambda](lambda.md)*
 2. *java8.stream 也實現了 Reactive。*
 
-## 做中學
-
-直接看 code 來對照，再來一一解釋運作原理。
-
 ### 有效解決重複的 loop 增進效能，維持同個 loop
 
 只列出安裝同個 app 的朋友：
