@@ -164,6 +164,8 @@ Observable<File> file = Observable.defer(() -> Observable.just(download()));
 
 ### 既有的 callback 改成 Observable
 
+1.
+
 ```java
 public Observable<ParseUser> getParseUser(Activity activity) {
     final Subject<ParseUser, ParseUser> subject = new SerializedSubject<>(PublishSubject.create());
@@ -178,6 +180,28 @@ public Observable<ParseUser> getParseUser(Activity activity) {
             }
         }
     });
+    return subject.asObservable();
+}
+```
+
+2.
+
+```java
+public Observable<ParseUser> getParseUser(Activity activity) {
+    return Observable.create(sub -> {
+        ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
+            @Override
+            public void done(final ParseUser parseUser, ParseException err) {
+                if (err != null) {
+                    sub.onError(err);
+                } else {
+                    sub.onNext(parseUser);
+                    sub.onCompleted();
+                }
+            }
+        });
+    })
+    
     return subject.asObservable();
 }
 ```
@@ -240,7 +264,7 @@ List<String> strings = new IteratorOnlyList(Observable.from(textViews)
 
 Observable<T> 一份工作 task 一個未來 future , T 產品.
 
-Observer<T> onEvent, Listener.
+Subscriber/Observer<T> onEvent, Listener. 提貨券.
 
 subscribe 下訂。
 
