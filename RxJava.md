@@ -260,6 +260,8 @@ List<String> strings = new IteratorOnlyList(Observable.from(textViews)
 
 ## 去除重複資料 distinct()
 
+## 多方合併 concat(), merge()
+
 ## 排序 toSortedList()
 
 ## 分組 groupBy()
