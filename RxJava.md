@@ -102,7 +102,7 @@ loginFacebook(activity, fbUser -> {
             })
         })
     })
-})
+});
 ```
 
 After:
