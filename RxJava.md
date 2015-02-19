@@ -127,14 +127,19 @@ Observable<File> file = Observable.defer(() -> Observable.just(download()));
 ### 既有的 callback 改成 Observable
 
 ```java
-public Observable<FbUser> getFbUser(Activity activity) {
-    final Subject<FbUser, FbUser> subject = new SerializedSubject<>(PublishSubject.create());
-
-    loginFacebook(activity, fbUser -> { // LoginListener.onLogin(FbUSer)
-        subject.onNext(fbUser);
-        subject.onCompleted();
+public Observable<ParseUser> getParseUser(Activity activity) {
+    final Subject<ParseUser, ParseUser> subject = new SerializedSubject<>(PublishSubject.create());
+    ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
+        @Override
+        public void done(final ParseUser parseUser, ParseException err) {
+            if (err != null) {
+                subject.onError(err);
+            } else {
+                subject.onNext(parseUser);
+                subject.onCompleted();
+            }
+        }
     });
-
     return subject.asObservable();
 }
 ```
