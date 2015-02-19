@@ -215,13 +215,13 @@ Subscription 訂單, 描述這是怎樣的工作，以及中間需要的製程�
 寫一個讚計數器:
 
 ```java
-        ViewObservable.clicks(findViewById(R.id.like_button))
-            .map(clickEvent -> 1)
-            .scan((increamnet, current) -> increament + current)
-            .subscribe(likes -> {
-                TextView likesView = (TextView) findViewById(R.id.likes_view);
-                textView.setText(likes.toString());
-            });
+ViewObservable.clicks(findViewById(R.id.like_button))
+    .map(clickEvent -> 1)
+    .scan((increamnet, current) -> increament + current)
+    .subscribe(likes -> {
+        TextView likesView = (TextView) findViewById(R.id.likes_view);
+        textView.setText(likes.toString());
+    });
 ```
 
 ## See Also
