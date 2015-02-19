@@ -159,13 +159,18 @@ Observable.just(activity)
 ### 既有長時間存取的函式改成 Observable
 
 ```java
-Observable<File> file = Observable.defer(() -> Observable.just(download()));
+
+File download(String url) { ... return file; }
+
+Observable<File> downloadObs(String url) {
+    return Observable.defer(() -> Observable.just(download(url)));
+}
 ```
 
 ### 既有的 callback 改成 Observable
 
 ```java
-public Observable<ParseUser> getParseUser(Activity activity) {
+Observable<ParseUser> getParseUser(Activity activity) {
     return Observable.create(sub -> {
         ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
             @Override
@@ -185,7 +190,7 @@ public Observable<ParseUser> getParseUser(Activity activity) {
 另一種方法， Subject ，通常為了跨執行緒廣播，例如做一條 EventBus 。而這邊僅為舉例如何使用 subject 方式。
 
 ```java
-public Observable<ParseUser> getParseUser(Activity activity) {
+Observable<ParseUser> getParseUserFromFacebook(Activity activity) {
     //final Subject<ParseUser, ParseUser> subject = new SerializedSubject<>(PublishSubject.create()); // crossover thread
     final PublishSubject<ParseUser> = PublishSubject.create();
     ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
