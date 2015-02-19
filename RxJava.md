@@ -164,27 +164,7 @@ Observable<File> file = Observable.defer(() -> Observable.just(download()));
 
 ### 既有的 callback 改成 Observable
 
-1.
-
-```java
-public Observable<ParseUser> getParseUser(Activity activity) {
-    final Subject<ParseUser, ParseUser> subject = new SerializedSubject<>(PublishSubject.create());
-    ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
-        @Override
-        public void done(final ParseUser parseUser, ParseException err) {
-            if (err != null) {
-                subject.onError(err);
-            } else {
-                subject.onNext(parseUser);
-                subject.onCompleted();
-            }
-        }
-    });
-    return subject.asObservable();
-}
-```
-
-2.
+1. 基本款
 
 ```java
 public Observable<ParseUser> getParseUser(Activity activity) {
@@ -201,6 +181,26 @@ public Observable<ParseUser> getParseUser(Activity activity) {
             }
         });
     })
+}
+```
+
+2. 操作 Subject ，通常為了跨執行緒廣播，例如做一條 EventBus ，subject 應該要傳遞出去。這邊反而沒那個必要了。
+
+```java
+public Observable<ParseUser> getParseUser(Activity activity) {
+    final Subject<ParseUser, ParseUser> subject = new SerializedSubject<>(PublishSubject.create());
+    ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
+        @Override
+        public void done(final ParseUser parseUser, ParseException err) {
+            if (err != null) {
+                subject.onError(err);
+            } else {
+                subject.onNext(parseUser);
+                subject.onCompleted();
+            }
+        }
+    });
+    return subject.asObservable();
 }
 ```
 
