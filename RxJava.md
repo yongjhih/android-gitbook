@@ -118,10 +118,25 @@ Observable.just(activity)
 
 ## 如何導入套用與改變撰寫
 
-既有長時間存取的函式改成 Observable ：
+### 既有長時間存取的函式改成 Observable
 
 ```java
 Observable<File> file = Observable.defer(() -> Observable.just(download()));
+```
+
+### 既有的 callback 改成 Observable
+
+```java
+public Observable<FbUser> getFbUser(Activity activity) {
+    final Subject<FbUser, FbUser> subject = new SerializedSubject<>(PublishSubject.create());
+
+    loginFacebook(activity, fbUser -> { // LoginListener.onLogin(FbUSer)
+        subject.onNext(fbUser);
+        subject.onCompleted();
+    });
+
+    return subject.asObservable();
+}
 ```
 
 ## Android 應該養成的習慣與注意事項
@@ -207,3 +222,24 @@ Subscription 訂單, 描述這是怎樣的工作，以及中間需要的製程�
 ## See Also
 
 小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
+
+## paste
+
+```java
+new AsyncTask<String, Void, File>() {
+    @Override
+    public File doInBackground(String... urls) {
+        try {
+            HttpRequest request =  HttpRequest.get(urls[0]);
+            File file = null;
+            if (request.ok()) {
+                file = File.createTempFile("download", ".tmp");
+                request.receive(file);
+            }
+            return file;
+        } catch (HttpRequestException exception) {
+            return null;
+        }
+    }
+}.execute();
+```
