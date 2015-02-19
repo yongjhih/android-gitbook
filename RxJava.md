@@ -246,7 +246,15 @@ subscribe 下訂。
 
 Subscription 訂單, 描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。下訂之後產生出來的訂單，這個訂單可以用來取消訂單來中止生產。
 
+## 動手玩
 
+```bash
+git clone https://github.com/yongjhih/RxJava-GroupByTest
+cd RxJava-GroupByTest
+./gradlew -PmainClass=com.github.yongjhih.GroupByTest execute
+```
+
+修改 src/main/java/com/github/yongjhih/GroupByTest.java 內容就可以自己玩了。
 
 ## 附錄：Android View 範例
 
