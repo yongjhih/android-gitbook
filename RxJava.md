@@ -117,7 +117,11 @@ Observable<Profile> getFriendNameObs(Observable<Profile> friends) {
 Observable<Profile> getInstalledFriendNameObs(List<Profile> friends) {
     return getFriendNameObs(getInstalledFriendObs(friends));
 }
+```
 
+只做 100 筆過濾與轉換：
+
+```java
 getInstalledFriendNameObs(friends)
     .take(100)
     .toList().toBlocking.single(); // 拿個 100 筆
