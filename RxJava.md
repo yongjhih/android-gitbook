@@ -184,7 +184,7 @@ public Observable<ParseUser> getParseUser(Activity activity) {
 }
 ```
 
-2. 操作 Subject ，通常為了跨執行緒廣播，例如做一條 EventBus ，subject 應該要傳遞出去。這邊僅為舉例如何改成 subject 方式。
+2. 操作 Subject ，通常為了跨執行緒廣播，例如做一條 EventBus ，subject 應該要傳遞出去。這邊僅為舉例如何使用 subject 方式。
 
 ```java
 public Observable<ParseUser> getParseUser(Activity activity) {
