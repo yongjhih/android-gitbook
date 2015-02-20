@@ -226,7 +226,7 @@ AndroidObservable.bindFragment(fragment, Observable.defer(() -> Observable.just(
 });
 ```
 
-## map() 介紹
+## 轉換 map()
 
 我們最常用的是把 `List<TextView>` 轉成 `List<String>`，你可能會把整個 textViews 一一取出 `toString()` 然後抄一份：
 
