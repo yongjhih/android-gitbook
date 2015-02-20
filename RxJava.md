@@ -103,7 +103,7 @@ List<String> getInstalledFriendNameList(List<Profile> friends) {
 
 首先，你可以發現你可以維持一樣的寫法，再來如果你把界面都維持 Observable 來傳遞，你可以決定哪時候才去開跑，以及拿幾筆才作幾筆過濾與轉換，有效避免無謂的全數過濾與轉換。
 
-把介面維持 Observable 傳遞：
+把界面維持 Observable 傳遞：
 
 ```java
 Observable<Profile> getInstalledFriendObs(List<Profile> friends) {
@@ -259,7 +259,9 @@ List<String> strings = new IteratorOnlyList(Observable.from(textViews)
     .getIterator());
 ```
 
-不過為了維持 lazy ，又 RxJava 這邊只有提供到 Iterator ，所以我們沒有使用 `toList().toBlocking().single()`，你可以寫一個 IteratorOnlyList 把這個 iterator 包起來，方便傳遞，雖然很多操作都殘缺。
+如果你想維持 List 界面，為了維持 lazy ，又 RxJava 這邊只有提供到 Iterator ，所以我們沒有使用 `toList().toBlocking().single()`，你可以寫一個 IteratorOnlyList 把這個 iterator 包起來，方便傳遞，雖然很多操作都殘缺。
+
+盡可能改用 Observable 作為界面。
 
 ## 組合資料 zip()
 
