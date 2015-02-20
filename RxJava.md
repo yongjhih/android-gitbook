@@ -138,7 +138,7 @@ loginFacebook(activity, fbUser -> {
     getFbProfile(fbUser, fbProfile -> {
         loginParse(fbProfile, parseUser -> {
             getParseProfile(fbProfile, parseProfile -> {
-                logonListener.onLogon(parseProfile);
+                loginListener.onLogin(parseProfile);
             })
         })
     })
@@ -153,7 +153,7 @@ Observable.just(activity)
     .flatMap(fbUser -> getFbProfile(fbUser))
     .flatMap(fbProfile -> getParseUser(fbProfile))
     .flatMap(parseUser -> getParseProfile(parseUser))
-    .subscribe(parseProfile -> logonListener.onLogon(parseProfile));
+    .subscribe(parseProfile -> loginListener.onLogin(parseProfile));
 ```
 
 ## 如何導入套用與改變撰寫
@@ -172,7 +172,7 @@ Observable<File> downloadObs(String url) {
 ### 既有的 callback 改成 Observable
 
 ```java
-Observable<ParseUser> getParseUser(Activity activity) {
+Observable<ParseUser> loginParseWithFacebook(Activity activity) {
     return Observable.create(sub -> {
         ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
             @Override
@@ -192,7 +192,7 @@ Observable<ParseUser> getParseUser(Activity activity) {
 另一種方法， Subject ，通常為了跨執行緒廣播，例如做一條 EventBus 。而這邊僅為舉例如何使用 subject 方式。
 
 ```java
-Observable<ParseUser> getParseUserFromFacebook(Activity activity) {
+Observable<ParseUser> loginParseWithFacebook(Activity activity) {
     //final Subject<ParseUser, ParseUser> subject = new SerializedSubject<>(PublishSubject.create()); // crossover thread
     final PublishSubject<ParseUser> = PublishSubject.create();
     ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
