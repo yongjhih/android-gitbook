@@ -31,12 +31,12 @@ List<Profile> getInstalledFriendList(/* @Writable */List<Profile> friends) {
 After:
 
 ```java
-Observable<Profile> getInstalledFriendObs(Observable<Profile> friendObs) {
-    return friendObs.filter(p -> p.getInstalled());
+Observable<Profile> getInstalledFriendObs(List<Profile> friends) {
+    return Observable.from(friends).filter(p -> p.getInstalled());
 }
 
 List<Profile> getInstalledFriendList(List<Profile> friends) {
-    return getInstalledFriendObs(Observable.from(friends)).toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
+    return getInstalledFriendObs(friends).toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
 }
 ```
 
@@ -59,12 +59,12 @@ List<String> getFriendNameList(List<Profile> friends) {
 After:
 
 ```java
-Observable<String> getFriendNameObs(Observable<Profile> friendObs) {
-    return friendObs.map(p -> p.getDisplayName());
+Observable<String> getFriendNameObs(List<Profile> friends) {
+    return Observable.from(friends).map(p -> p.getDisplayName());
 }
 
 List<String> getFriendNameList(List<Profile> friends) {
-    return getFriendNameObs(Observable.from(friends)).toList().toBlocking().single();
+    return getFriendNameObs(friends).toList().toBlocking().single();
 }
 ```
 
