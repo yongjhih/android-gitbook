@@ -108,8 +108,8 @@ List<String> getInstalledFriendNameList(List<Profile> friends) {
 把界面維持 Observable 傳遞：
 
 ```java
-Observable<Profile> getInstalledFriendObs(List<Profile> friends) {
-    return Observable.from(friends).filter(p -> p.getInstalled());
+Observable<Profile> getInstalledFriendObs(Observable<Profile> friendObs) {
+    return friendObs.filter(p -> p.getInstalled());
 }
 
 Observable<Profile> getFriendNameObs(Observable<Profile> friendObs) {
@@ -117,7 +117,7 @@ Observable<Profile> getFriendNameObs(Observable<Profile> friendObs) {
 }
 
 Observable<Profile> getInstalledFriendNameObs(List<Profile> friends) {
-    return getFriendNameObs(getInstalledFriendObs(friends));
+    return getFriendNameObs(getInstalledFriendObs(Observable.from(friends)));
 }
 ```
 
