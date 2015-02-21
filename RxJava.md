@@ -113,7 +113,7 @@ Observable<Profile> getInstalledFriendObs(List<Profile> friends) {
 }
 
 Observable<Profile> getFriendNameObs(Observable<Profile> friendObs) {
-    return friendObs().map(p -> p.getDisplayName());
+    return friendObs.map(p -> p.getDisplayName());
 }
 
 Observable<Profile> getInstalledFriendNameObs(List<Profile> friends) {
