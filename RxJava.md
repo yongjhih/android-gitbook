@@ -74,7 +74,7 @@ List<String> getFriendNameList(List<Profile> friends) {
 Before:
 
 ```java
-// 如果不改變寫法，會跑兩個 loop
+// 如果不改變寫法，會整整跑完兩個 loop
 List<String> getInstalledFriendNameList(List<Profile> friends) {
     return getFriendNameList(getInstalledFriendList());
 }
