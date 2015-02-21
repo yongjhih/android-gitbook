@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 ...
     
     /**
-     * Add support for inflating the &lt;fragment> tag.
+     * Add support for inflating the <fragment> tag.
      */
     @Nullable
     @Override
