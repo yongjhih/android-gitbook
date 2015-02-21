@@ -84,7 +84,7 @@ List<String> getInstalledFriendNameList(List<Profile> friends) {
 // 你可改變寫法，以沿用 loop
 List<String> getInstalledFriendNameList(List<Profile> friends) {
     List<String> installedFriendNameList = new ArrayList<>();
-    for (Profile p : getFriends()) {
+    for (Profile p : friends) {
         if (p.getInstalled()) friendNames.add(p.getDisplayName());
     }
     return installedFriendNameList;
@@ -96,7 +96,7 @@ After:
 ```java
 // 而 Observable 不用刻意改變寫法，直接組起來就好：
 List<String> getInstalledFriendNameList(List<Profile> friends) {
-    return Observable.from(getFriends())
+    return Observable.from(friends)
         .filter(p -> p.getInstalled())
         .map(p -> p.getDisplayName())
         .toList().toBlocking().single();
@@ -109,7 +109,7 @@ List<String> getInstalledFriendNameList(List<Profile> friends) {
 
 ```java
 Observable<Profile> getInstalledFriendObs(List<Profile> friends) {
-    return Observable.from(getFriends()).filter(p -> p.getInstalled());
+    return Observable.from(friends).filter(p -> p.getInstalled());
 }
 
 Observable<Profile> getFriendNameObs(Observable<Profile> friends) {
