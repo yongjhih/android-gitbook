@@ -4,7 +4,6 @@
 
 google guava, jsr, apache common, google common, android support
 
-##
 
 ```java
 import android.support.annotation.NonNull;
