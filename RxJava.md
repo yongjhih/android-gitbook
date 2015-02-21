@@ -59,12 +59,12 @@ List<String> getFriendNameList(List<Profile> friends) {
 After:
 
 ```java
-Observable<String> getFriendNameObs(List<Profile> friends) {
-    return Observable.from(friends).map(p -> p.getDisplayName())
+Observable<String> getFriendNameObs(Observable<Profile> friendObs) {
+    return friendObs.map(p -> p.getDisplayName());
 }
 
 List<String> getFriendNameList(List<Profile> friends) {
-    return getFriendNameObs(friends).toList().toBlocking().single();
+    return getFriendNameObs(Observable.from(friends)).toList().toBlocking().single();
 }
 ```
 
