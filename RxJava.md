@@ -35,8 +35,9 @@ Observable<Profile> getInstalledFriendObs(List<Profile> friends) {
     return Observable.from(friends).filter(p -> p.getInstalled());
 }
 
+// 如果你堅持一定要傳遞 List
 List<Profile> getInstalledFriendList(List<Profile> friends) {
-    return getInstalledFriendObs(friends).toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
+    return getInstalledFriendObs(friends).toList().toBlocking().single();
 }
 ```
 
@@ -63,6 +64,7 @@ Observable<String> getFriendNameObs(List<Profile> friends) {
     return Observable.from(friends).map(p -> p.getDisplayName());
 }
 
+// 如果你堅持一定要傳遞 List
 List<String> getFriendNameList(List<Profile> friends) {
     return getFriendNameObs(friends).toList().toBlocking().single();
 }
