@@ -101,7 +101,7 @@ List<String> getInstalledFriendNameList(List<Profile> friends) {
     return Observable.from(friends)
         .filter(p -> p.getInstalled())
         .map(p -> p.getDisplayName())
-        .toList().toBlocking().single();
+        .toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
 }
 ```
 
