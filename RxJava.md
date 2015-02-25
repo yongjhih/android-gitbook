@@ -151,12 +151,12 @@ After:
 
 ```java
 Observable<FbUser> loginFacebook(activity) {
-    return Observable.create(sub -> {       // +
+    return Observable.create(sub -> {
         loginFacebook(activity, fbUser -> {
-            sub.onNext(fbUser);             // +
-            sub.onCompleted();              // +
+            sub.onNext(fbUser);
+            sub.onCompleted();
         }
-    });                                     // +
+    });
 }
 
 Observable<FbProfile> getFbProfile(FbUser fbUser) { ... }
