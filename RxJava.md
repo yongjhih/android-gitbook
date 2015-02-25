@@ -336,6 +336,7 @@ Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> co
 首先你要認識基本操作元件：Observable<Result> ， 如果你知道 AsyncTask<Input, Progress, Result> 或者 Future<Result>  基本上差不多。先看這個例子：
 
 ```java
+// AsyncTask 版本
 AsyncTask<Void, Void, String> helloAsync = new AsyncTask<>() {
     @Override public String doInBackground(Void... voids) {
         return "Hello, world!";
@@ -344,6 +345,7 @@ AsyncTask<Void, Void, String> helloAsync = new AsyncTask<>() {
 ```
 
 ```java
+// Future 版本
 FutureTask<String> helloFuture =
     new FutureTask<>(new Callable<String>() {
         @Override public String call() {
@@ -353,6 +355,7 @@ FutureTask<String> helloFuture =
 ```
 
 ```java
+// Observable 版本
 Observable<String> helloObs = Observable.create(
     new Observable.OnSubscribe<String>() {
         @Override
@@ -363,7 +366,7 @@ Observable<String> helloObs = Observable.create(
     }
 );
 
-// lambda 版本：
+// Observable lambda 版本：
 Observable<String> helloObs = Observable.create(sub -> {
         sub.onNext("Hello, world!");
         sub.onCompleted();
