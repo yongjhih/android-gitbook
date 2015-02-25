@@ -393,10 +393,10 @@ helloObs.subscribe(string -> System.out.println(string), e -> e.printStackTrace(
 helloObs.subscribe(string -> System.out.println(string), e -> e.printStackTrace(), () -> System.out.println("onCompleted"));
 ```
 
-我們再稍微回到 Observable.create() , 如果你的原料早就準備好了，我們的 helloObs 可以寫成：
+我們再稍微回到 Observable.create() , 如果你的原料早就準備好了，我們可以寫成：
 
 ```java
-Observable<String> helloObs = Observable.just("Hello, world!");
+Observable.just("Hello, world!").subscribe(string -> System.out.println(string));
 ```
 
 ## 名詞解釋
