@@ -2,6 +2,8 @@
 
 \#Promise \#RxJava \#Reactive \#Functional
 
+## 前言
+
 RxJava, Reactive Java,
 一個 Java FRP (Functional Reactive Programming) 的實現。
 
@@ -11,6 +13,8 @@ RxJava, Reactive Java,
 
 1. *注意：這邊直接使用 lambda &lambda; 的表達式，如果你還不清楚，請跳轉到 [Lambda](lambda.md)*
 2. *java8.stream 也實現了 Reactive。*
+
+先看一些範例對照後，我們再來討論 RxJava 基本使用概念與方法。
 
 ## 有效解決重複的 loop 增進效能，維持同個 loop
 
@@ -74,7 +78,6 @@ List<String> getFriendNameList(List<Profile> friends) {
 ```
 
 一次達成的寫法，列出安裝同個 app 朋友的名字：
-
 
 Before:
 
@@ -326,19 +329,58 @@ Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> co
 
 ## 重試 retry()
 
+## 如何使用
+
+在我們看過一些對照組之後，大致上瞭解未來在使用上會呈現什麼樣貌。所以我們開始回頭學學，如何開始使用 RxJava 。
+
+首先你要認識基本操作元件：Observable<Result> ， 如果你知道 AsyncTask<Input, Progress, Result> 或者 Future<Result>  基本上差不多。先看這個例子：
+
+```java
+AsyncTask<Void, Void, String> helloAsync = new AsyncTask<>() {
+    @Override public String doInBackground(Void... voids) {
+        return "Hello, world!";
+    }
+}
+```
+
+```java
+FutureTask<String> helloFuture =
+    new FutureTask<>(new Callable<String>() {
+        @Override public String call() {
+            return "Hello, world!";
+        }
+    });
+```
+
+```java
+Observable<String> helloObs = Observable.create(
+    new Observable.OnSubscribe<String>() {
+        @Override
+        public void call(Subscriber<? super String> sub) {
+            sub.onNext("Hello, world!");
+            sub.onCompleted(); // 因為 Observable 支援複數的關係，所以需要 onCompleted() ，到時候再細說。
+        }
+    }
+);
+
+// lambda 版本：
+Observable<String> helloObs = Observable.create(sub -> {
+        sub.onNext("Hello, world!");
+        sub.onCompleted();
+    });
+```
+
+這邊都有個共通點，延遲執行，用 callback function 包起來傳遞，到時候才跑。
+
 ## 名詞解釋
 
-Observable<T> 一份工作 task 一個未來 future , T 產品.
+Observable<T> 一份工作 task 一個未來 future , T 產品. 相當於 AsyncTask<INPUT, PROGRESS, T>, Future<T>
 
 Subscriber/Observer<T> onEvent, Listener. 提貨券.
 
 subscribe 下訂。
 
 Subscription 訂單, 描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。下訂之後產生出來的訂單，這個訂單可以用來取消訂單來中止生產。
-
-## 什麼是 RxJava, FRP, Observable
-
-Reactive Java
 
 ## 動手玩
 
