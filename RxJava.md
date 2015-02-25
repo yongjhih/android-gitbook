@@ -412,11 +412,17 @@ Observable.just("Hello, world!")
 
 ```java
 Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html")
-    .map(url -> {
-        return new OkHttpClient().newCall(new Request.Builder().url(url).build())
-            .execute().body().string();
-    })
-    .subscribe());
+    .map(url -> download(url))
+    .subscribeOn(Schedulers.io()) // 把加工過程丟到背景去做
+    .subscribe(file -> System.out.println(file));
+```
+
+```java
+Observable.from(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
+    "http://yongjhih.gitbooks.io/feed/content/README.html"))
+    .map(url -> download(url))
+    .subscribeOn(Schedulers.io()) // 把加工過程丟到背景去做
+    .subscribe(file -> System.out.println(file));
 ```
 
 ## 名詞解釋
