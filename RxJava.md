@@ -150,6 +150,19 @@ loginFacebook(activity, fbUser -> {
 After:
 
 ```java
+Observable<FbUser> loginFacebook(activity) {
+    return Observable.create(sub -> {
+        fbUser -> {
+            sub.onNext(fbUser);
+            sub.onCompleted();
+        }
+    });
+}
+
+Observable<FbProfile> getFbProfile(FbUser fbUser) { ... }
+Observable<ParseUser> loginParse(FbProfile fbProfile) { ... }
+Observable<ParseProfile> getParseProfile(ParseUser parseUser) { ... }
+
 Observable.just(activity)
     .flatMap(activity -> loginFacebook(activity))
     .flatMap(fbUser -> getFbProfile(fbUser))
