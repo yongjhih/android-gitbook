@@ -413,9 +413,8 @@ Observable.just("Hello, world!")
 ```java
 Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html")
     .map(url -> {
-        return new OkHttpClient().newCall(new Request.Builder()
-        .url(url).build())
-        .execute().body().string();
+        return new OkHttpClient().newCall(new Request.Builder().url(url).build())
+            .execute().body().string();
     })
     .subscribe());
 ```
