@@ -382,7 +382,7 @@ Subscriber<String> helloSubscriber = new Subscriber<>() {
     @Override public void onError(Throwable e) { }
 };
 
-helloObs.subscribe(helloSubscriber);
+helloObs.subscribe(helloSubscriber); // 你可以下訂(subscribe()) ，產品出產時就會通知你了(Subscriber)
 ```
 
 ## 名詞解釋
