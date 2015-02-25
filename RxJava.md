@@ -2,7 +2,10 @@
 
 \#Promise \#RxJava \#Reactive \#Functional
 
-一個 FRP 的實現，透過 FRP(Functional Reactive Programming) 概念。短期效用：有效避免巢狀 callback 增加可讀性以及減少 ```List<item>``` 的轉換成本。
+RxJava, Reactive Java,
+一個 Java FRP (Functional Reactive Programming) 的實現。
+
+短期效用：有效避免巢狀 callback 增加可讀性以及減少 ```List<item>``` 的轉換成本。
 
 鑑於 RxJava 太少範例可以參考，才開始撰寫這篇文章，而這篇文章的技術來源大多是閱讀 RxJava 源碼、測試程式源碼以及其 github Wiki 而來。如果有謬誤之處，歡迎用各種方式聯絡我。基本上，本人極其懶惰，採取開放共筆。
 
@@ -332,6 +335,10 @@ Subscriber/Observer<T> onEvent, Listener. 提貨券.
 subscribe 下訂。
 
 Subscription 訂單, 描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。下訂之後產生出來的訂單，這個訂單可以用來取消訂單來中止生產。
+
+## 什麼是 RxJava, FRP, Observable
+
+Reactive Java
 
 ## 動手玩
 
