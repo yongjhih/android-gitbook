@@ -399,6 +399,14 @@ helloObs.subscribe(string -> System.out.println(string), e -> e.printStackTrace(
 Observable.just("Hello, world!").subscribe(string -> System.out.println(string));
 ```
 
+接下來是簡單的加工：
+```java
+Observable.just("Hello, world!")
+    .map(string -> "andrew: " + string) // "andrew: Hello, world!"
+    .map(string -> string.length())
+    .subscribe(length -> System.out.println(length)); // 21
+```
+
 ## 名詞解釋
 
 Observable<T> 一份工作 task 一個未來 future , T 產品. 相當於 AsyncTask<INPUT, PROGRESS, T>, Future<T>
