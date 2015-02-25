@@ -404,7 +404,7 @@ Observable.just("Hello, world!").subscribe(string -> System.out.println(string))
 Observable.just("Hello, world!")
     .map(string -> "andrew: " + string) // "andrew: Hello, world!"
     .map(string -> string.length())
-    .subscribe(length -> System.out.println(length)); // 21
+    .subscribe(length -> System.out.println(length)); // 21, 請不要真的去算長度, 此處僅示意.
 ```
 
 ## 名詞解釋
