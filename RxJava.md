@@ -393,6 +393,12 @@ helloObs.subscribe(string -> System.out.println(string), e -> e.printStackTrace(
 helloObs.subscribe(string -> System.out.println(string), e -> e.printStackTrace(), () -> System.out.println("onCompleted"));
 ```
 
+我們再稍微回到 Observable.create() , 如果你的原料早就準備好了，我們的 helloObs 可以寫成：
+
+```java
+Observable<String> helloObs = Observable.just("Hello, world!");
+```
+
 ## 名詞解釋
 
 Observable<T> 一份工作 task 一個未來 future , T 產品. 相當於 AsyncTask<INPUT, PROGRESS, T>, Future<T>
