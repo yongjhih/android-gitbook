@@ -377,12 +377,17 @@ Observable<String> helloObs = Observable.create(sub -> {
 
 ```java
 Subscriber<String> helloSubscriber = new Subscriber<>() {
-    @Override public void onNext(String s) { System.out.println(s); }
+    @Override public void onNext(String string) { System.out.println(string); }
     @Override public void onCompleted() { }
     @Override public void onError(Throwable e) { }
 };
 
-helloObs.subscribe(helloSubscriber); // 你可以下訂(subscribe()) ，產品出產時就會通知你了(Subscriber)
+helloObs.subscribe(helloSubscriber); // 你可以下訂(subscribe()) ，產品出產時就會通知你了(Subscriber)。
+```
+
+```java
+// lambda 版本
+helloObs.subscribe(string -> System.out.println(string));
 ```
 
 ## 名詞解釋
