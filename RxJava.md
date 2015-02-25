@@ -153,7 +153,7 @@ After:
 
 ```java
 // wrap callback functions in Observable
-Observable<FbUser> loginFacebook(Activity, activity) {
+Observable<FbUser> loginFacebook(Activity activity) {
     return Observable.create(sub -> {
         loginFacebook(activity, fbUser -> {
             sub.onNext(fbUser);
