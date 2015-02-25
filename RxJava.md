@@ -127,8 +127,8 @@ Observable<Profile> getInstalledFriendNameObs(List<Profile> friends) {
 
 ```java
 getInstalledFriendNameObs(friends)
-    .take(100)
-    .toList().toBlocking().single(); // 拿個 100 筆
+    .take(100) // 拿個 100 筆
+    .toList().toBlocking().single();
 ```
 
 ## 拉平巢狀 callback 增加易讀性
