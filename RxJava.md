@@ -151,9 +151,9 @@ After:
 
 ```java
 Observable.just(activity)
-    .flatMap(activity -> getFbUser(activity))
+    .flatMap(activity -> loginFacebook(activity))
     .flatMap(fbUser -> getFbProfile(fbUser))
-    .flatMap(fbProfile -> getParseUser(fbProfile))
+    .flatMap(fbProfile -> loginParse(fbProfile))
     .flatMap(parseUser -> getParseProfile(parseUser))
     .subscribe(parseProfile -> loginListener.onLogin(parseProfile));
 ```
