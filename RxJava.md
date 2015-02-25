@@ -152,7 +152,7 @@ void login(Activity activity, LoginListenr loginListener) {
 After:
 
 ```java
-// wrap callback functions in Observable
+// wrap callback functions in Observable<?>
 Observable<FbUser> loginFacebook(Activity activity) {
     return Observable.create(sub -> {
         loginFacebook(activity, fbUser -> {
