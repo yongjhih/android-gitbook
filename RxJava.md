@@ -418,6 +418,7 @@ Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html")
 ```
 
 ```java
+// 如果原料是複數，但是加工時，要單數一個一個處理，請改用 Observable.from() ，如果你用 Observable.just() 那就會拿到一個 List ，你可以使用 flatMap(list -> Observable.from(list)) 來攤平轉成單數。
 Observable.from(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
     "http://yongjhih.gitbooks.io/feed/content/README.html"))
     .map(url -> download(url))
