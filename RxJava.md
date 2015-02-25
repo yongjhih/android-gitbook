@@ -443,7 +443,7 @@ Observable.from(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.h
     .subscribe(file -> System.out.println(file));
 ```
 
-如果原料是複數，但是加工時，要單數一個一個處理，請改用 Observable.from() ，如果你用 Observable.just() 那就會拿到一個 List 。其實有個方法可以途中攤平， flatMap(list -> Observable.from(list)) 來攤平轉成單數：
+如果原料是複數，但是加工時，要單數一個一個處理，改用 Observable.from() 會比較好操作，如果你用 Observable.just() 那就會拿到一個 List 。其實有個方法可以途中攤平， flatMap(list -> Observable.from(list)) 來攤平轉成單數：
 
 ```java
 Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
