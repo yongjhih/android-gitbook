@@ -370,7 +370,17 @@ Observable<String> helloObs = Observable.create(sub -> {
     });
 ```
 
-這邊都有個共通點，延遲執行，用 callback function 包起來傳遞，到時候才跑。
+這些 AsyncTask, Future, Observable 都是生產者，定義出資料的產生，接下來，當產品生出來的時候通知你。所以我們補上 listener ，RxJava 稱之為 Subscriber：
+
+```java
+Subscriber<String> helloSubscriber = new Subscriber<>() {
+    @Override public void onNext(String s) { System.out.println(s); }
+    @Override public void onCompleted() { }
+    @Override public void onError(Throwable e) { }
+};
+
+helloObs.subscribe(helloSubscriber);
+```
 
 ## 名詞解釋
 
