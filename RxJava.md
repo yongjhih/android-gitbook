@@ -136,26 +136,29 @@ getInstalledFriendNameObs(friends)
 Before:
 
 ```java
-loginFacebook(activity, fbUser -> {
-    getFbProfile(fbUser, fbProfile -> {
-        loginParse(fbProfile, parseUser -> {
-            getParseProfile(fbProfile, parseProfile -> {
-                loginListener.onLogin(parseProfile);
+void login(Activity activity, LoginListenr loginListener) {
+    loginFacebook(activity, fbUser -> {
+        getFbProfile(fbUser, fbProfile -> {
+            loginParse(fbProfile, parseUser -> {
+                getParseProfile(fbProfile, parseProfile -> {
+                    loginListener.onLogin(parseProfile);
+                });
             });
         });
     });
-});
+}
 ```
 
 After:
 
 ```java
-Observable<FbUser> loginFacebook(activity) {
+// wrap callback functions in Observable
+Observable<FbUser> loginFacebook(Activity, activity) {
     return Observable.create(sub -> {
         loginFacebook(activity, fbUser -> {
             sub.onNext(fbUser);
             sub.onCompleted();
-        }
+        });
     });
 }
 
@@ -163,12 +166,14 @@ Observable<FbProfile> getFbProfile(FbUser fbUser) { ... }
 Observable<ParseUser> loginParse(FbProfile fbProfile) { ... }
 Observable<ParseProfile> getParseProfile(ParseUser parseUser) { ... }
 
-Observable.just(activity)
-    .flatMap(activity -> loginFacebook(activity))
-    .flatMap(fbUser -> getFbProfile(fbUser))
-    .flatMap(fbProfile -> loginParse(fbProfile))
-    .flatMap(parseUser -> getParseProfile(parseUser))
-    .subscribe(parseProfile -> loginListener.onLogin(parseProfile));
+void login(Activity activity, LoginListenr loginListener) {
+    Observable.just(activity)
+        .flatMap(activity -> loginFacebook(activity))
+        .flatMap(fbUser -> getFbProfile(fbUser))
+        .flatMap(fbProfile -> loginParse(fbProfile))
+        .flatMap(parseUser -> getParseProfile(parseUser))
+        .subscribe(parseProfile -> loginListener.onLogin(parseProfile));
+}
 ```
 
 ## 如何導入套用與改變撰寫
