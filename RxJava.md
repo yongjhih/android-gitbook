@@ -333,7 +333,7 @@ Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> co
 
 在我們看過一些對照組之後，大致上瞭解未來在使用上會呈現什麼樣貌。所以我們開始回頭學學，如何開始使用 RxJava 。
 
-首先你要認識基本操作元件：Observable<Result> ， 如果你知道 AsyncTask<Input, Progress, Result> 或者 Future<Result>  基本上差不多。先看這個例子：
+首先你要認識基本操作元件：Observable<Result> ， 如果你知道 AsyncTask<Input, Progress, Result> 或者 FutureTask<Result>  基本上差不多。先看這個例子：
 
 ```java
 // AsyncTask 版本
@@ -345,7 +345,7 @@ AsyncTask<Void, Void, String> helloAsync = new AsyncTask<>() {
 ```
 
 ```java
-// Future 版本
+// FutureTask 版本
 FutureTask<String> helloFuture =
     new FutureTask<>(new Callable<String>() {
         @Override public String call() {
@@ -373,7 +373,7 @@ Observable<String> helloObs = Observable.create(sub -> {
     });
 ```
 
-這些 AsyncTask, Future, Observable 都是生產者，定義出資料的產生，接下來，當產品生出來的時候通知你。所以我們補上 listener ，RxJava 稱之為 Subscriber：
+這些 AsyncTask, FutureTask, Observable 都是生產者，定義出資料的產生，接下來，當產品生出來的時候通知你。所以我們補上 listener ，RxJava 稱之為 Subscriber：
 
 ```java
 Subscriber<String> helloSubscriber = new Subscriber<>() {
