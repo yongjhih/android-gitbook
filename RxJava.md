@@ -417,12 +417,44 @@ Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html")
     .subscribe(file -> System.out.println(file));
 ```
 
+如果你有很多網址要下載，你可能會這樣做：
+
 ```java
-// 如果原料是複數，但是加工時，要單數一個一個處理，請改用 Observable.from() ，如果你用 Observable.just() 那就會拿到一個 List ，你可以使用 flatMap(list -> Observable.from(list)) 來攤平轉成單數。
+Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
+    "http://yongjhih.gitbooks.io/feed/content/README.html"))
+    .map(urls -> {
+        List<File> files = new ArrayList<>();
+        for (String url : urls) files.add(download(url));
+        return files;
+    })
+    .subscribeOn(Schedulers.io())
+    .subscribe(files -> {
+        for (File file : files) System.out.println(file);
+    });
+```
+
+但是這種情況，你應該使用 Observable.from() ：
+
+```java
 Observable.from(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
     "http://yongjhih.gitbooks.io/feed/content/README.html"))
     .map(url -> download(url))
-    .subscribeOn(Schedulers.io()) // 把加工過程丟到背景去做
+    .subscribeOn(Schedulers.io())
+    .subscribe(file -> System.out.println(file));
+```
+
+如果原料是複數，但是加工時，要單數一個一個處理，請改用 Observable.from() ，如果你用 Observable.just() 那就會拿到一個 List 。其實有個方法可以途中攤平， flatMap(list -> Observable.from(list)) 來攤平轉成單數：
+
+```java
+Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
+    "http://yongjhih.gitbooks.io/feed/content/README.html"))
+    .map(urls -> {
+        List<File> files = new ArrayList<>();
+        for (String url : urls) files.add(download(url));
+        return files;
+    })
+    .flatMap(files -> Observable.from(files)) // 可以這裡才攤平
+    .subscribeOn(Schedulers.io())
     .subscribe(file -> System.out.println(file));
 ```
 
