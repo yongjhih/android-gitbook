@@ -361,5 +361,3 @@ ViewObservable.clicks(findViewById(R.id.like_button))
 
 * 範例：https://speakerdeck.com/jakewharton/2014-1?slide=13
 * 小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
-
-
