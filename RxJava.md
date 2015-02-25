@@ -166,7 +166,7 @@ Observable<FbProfile> getFbProfile(FbUser fbUser) { ... }
 Observable<ParseUser> loginParse(FbProfile fbProfile) { ... }
 Observable<ParseProfile> getParseProfile(ParseUser parseUser) { ... }
 
-void login(Activity activity, LoginListenr loginListener) {
+void login(Activity activity, LoginListener loginListener) {
     Observable.just(activity)
         .flatMap(activity -> loginFacebook(activity))
         .flatMap(fbUser -> getFbProfile(fbUser))
