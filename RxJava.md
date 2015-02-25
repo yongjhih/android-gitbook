@@ -141,9 +141,9 @@ loginFacebook(activity, fbUser -> {
         loginParse(fbProfile, parseUser -> {
             getParseProfile(fbProfile, parseProfile -> {
                 loginListener.onLogin(parseProfile);
-            })
-        })
-    })
+            });
+        });
+    });
 });
 ```
 
@@ -151,12 +151,12 @@ After:
 
 ```java
 Observable<FbUser> loginFacebook(activity) {
-    return Observable.create(sub -> {
-        fbUser -> {
-            sub.onNext(fbUser);
-            sub.onCompleted();
+    return Observable.create(sub -> {       // +
+        loginFacebook(activity, fbUser -> {
+            sub.onNext(fbUser);             // +
+            sub.onCompleted();              // +
         }
-    });
+    });                                     // +
 }
 
 Observable<FbProfile> getFbProfile(FbUser fbUser) { ... }
