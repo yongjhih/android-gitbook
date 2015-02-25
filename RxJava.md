@@ -385,7 +385,7 @@ Subscriber<String> helloSubscriber = new Subscriber<>() {
 helloObs.subscribe(helloSubscriber); // 你可以下訂(subscribe()) ，產品出產時就會通知你了(Subscriber)。
 ```
 
-通常我們會用 subscribe(Action1<? super T> onNext, Action1<Throwable> onError), Action1<? super T> onCompleted) 來搭配 lambda ，寫起來會比較簡便：
+通常我們會用 `subscribe(Action1<? super T> onNext, Action1<Throwable> onError), Action1<? super T> onCompleted)` 來搭配 lambda ，寫起來會比較簡便：
 
 ```java
 helloObs.subscribe(string -> System.out.println(string));
