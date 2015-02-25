@@ -400,11 +400,24 @@ Observable.just("Hello, world!").subscribe(string -> System.out.println(string))
 ```
 
 接下來是簡單的加工：
+
 ```java
 Observable.just("Hello, world!")
     .map(string -> "andrew: " + string) // "andrew: Hello, world!"
     .map(string -> string.length())
     .subscribe(length -> System.out.println(length)); // 21, 請不要真的去算長度, 此處僅示意.
+```
+
+換一個比較實際的例子：
+
+```java
+Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html")
+    .map(url -> {
+        return new OkHttpClient().newCall(new Request.Builder()
+        .url(url).build())
+        .execute().body().string();
+    })
+    .subscribe());
 ```
 
 ## 名詞解釋
