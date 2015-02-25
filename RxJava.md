@@ -389,6 +389,7 @@ helloObs.subscribe(helloSubscriber); // 你可以下訂(subscribe()) ，產品�
 
 ```java
 helloObs.subscribe(string -> System.out.println(string));
+helloObs.subscribe(string -> System.out.println(string), e -> e.printStackTrace());
 helloObs.subscribe(string -> System.out.println(string), e -> e.printStackTrace(), () -> System.out.println("onCompleted"));
 ```
 
