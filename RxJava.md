@@ -400,7 +400,7 @@ cd RxJava-retrofit-github-sample
 ./gradlew execute
 ```
 
-修改 src/main/java/com/github/yongjhih/GroupByTest.java 內容就可以自己玩了。
+修改 src/main/java/com/github/yongjhih/Main.java 內容就可以自己玩了。
 
 ## 附錄：Android View 範例
 
