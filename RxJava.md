@@ -395,9 +395,9 @@ Subscription 訂單, 描述這是怎樣的工作，以及中間需要的製程�
 ## 動手玩
 
 ```bash
-git clone https://github.com/yongjhih/RxJava-GroupByTest
-cd RxJava-GroupByTest
-./gradlew -PmainClass=com.github.yongjhih.GroupByTest execute
+git clone https://github.com/yongjhih/RxJava-retrofit-github-sample
+cd RxJava-retrofit-github-sample
+./gradlew execute
 ```
 
 修改 src/main/java/com/github/yongjhih/GroupByTest.java 內容就可以自己玩了。
