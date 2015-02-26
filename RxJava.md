@@ -309,7 +309,7 @@ Observable<User> getPostedUsers(Observable<Post> posts) {
 }
 ```
 
-## 多方合併 concat(), merge()
+## 多方合併 merge(), concatWith()
 
 ```java
 Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> comments) {
@@ -460,13 +460,15 @@ Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.h
 
 ## 名詞解釋
 
+描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。
+
 Observable<T> 一份工作 task 一個未來 future , T 產品. 相當於 AsyncTask<INPUT, PROGRESS, T>, Future<T>
 
 Subscriber/Observer<T> onEvent, Listener. 提貨券.
 
 subscribe 下訂。
 
-Subscription 訂單, 描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。下訂之後產生出來的訂單，這個訂單可以用來取消訂單來中止生產。
+Subscription 訂單, subscribe 下訂之後產生出來的訂單，這個訂單可以用來取消訂單來中止生產。
 
 ## 動手玩
 
