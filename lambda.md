@@ -54,6 +54,46 @@ Runnable = () -> println("yo");
 Before:
 
 ```java
+void save(ParseUser user) {
+    // SaveCallback 是 abstract class 且只有一個 abstract method: "void done(ParseException e);"
+    user.save(new SaveCallback() {
+        @Override public void done(ParseException e) {
+            e.printStackTrace();
+        }
+    });
+}
+```
+
+After:
+
+```java
+void save(ParseUser user) {
+    user.save(e -> e.printStackTrace());
+}
+```
+
+```java
+public class Callbacks {
+    ...
+    public interface ISaveCallback {
+        void done(ParseException e);
+    }
+
+    public static SaveCallback save(ISaveCallback callback) {
+        return new SaveCallback() {
+            @Override public void done(ParseException e) {
+                callback.done(e);
+            }
+        };
+    }
+}
+```
+
+另一個實際的例子：
+
+Before:
+
+```java
 Observable<ParseUser> getParseUsers() {
     Observable<List<ParseUser>> userList = Observable.create(sub -> {
         // FindCallback 是 abstract class 且只有一個 abstract method: "void done(List<T> users, e);"
@@ -94,6 +134,7 @@ Observable<ParseUser> getParseUsers() {
 
 ```java
 public class Callbacks {
+    ...
     public interface IFindCallback<T> {
         void done(List<T> list, ParseException e);
     }
