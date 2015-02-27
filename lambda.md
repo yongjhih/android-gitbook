@@ -68,6 +68,7 @@ Observable<ParseUser> getParseUsers() {
             }
         });
     });
+    return userList.flatMap(l -> Observable.from(l));
 }
 ```
 
@@ -85,6 +86,7 @@ Observable<ParseUser> getParseUsers() {
             }
         }));
     });
+    return userList.flatMap(l -> Observable.from(l));
 }
 ```
 
