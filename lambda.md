@@ -99,7 +99,7 @@ Observable<ParseUser> getParseUsers() {
         // FindCallback 是 abstract class 且只有一個 abstract method: "void done(List<T> users, e);"
         ParseUser.getQuery().findInBackground(new FindCallback<ParseUser>() {
             @Override public void done(List<ParseUser> users, ParseException e) {
-                if(e != null) {
+                if (e != null) {
                     sub.onError(e);
                 } else {
                     sub.onNext(users);
@@ -118,7 +118,7 @@ After:
 Observable<ParseUser> getParseUsers() {
     Observable<List<ParseUser>> userList = Observable.create(sub -> {
         ParseUser.getQuery().findInBackground(Callbacks.find((users, e) -> {
-            if(e != null) {
+            if (e != null) {
                 sub.onError(e);
             } else {
                 sub.onNext(users);
