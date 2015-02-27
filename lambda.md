@@ -49,7 +49,7 @@ Runnable = () -> println("yo");
 
 筆者測試過，目前是不行的。
 
-這裡筆者有想到一招替代方案，寫個 abstrac class creator 來幫忙做到，例如：
+這裡筆者有想到一招替代方案，寫個 abstract class creator 來幫忙，例如：
 
 Before:
 
