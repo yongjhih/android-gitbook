@@ -91,8 +91,8 @@ Observable<ParseUser> getParseUsers() {
 
 ```java
 public class Callbacks {
-    public interface IFindCallback<E> {
-        void done(List<E> list, ParseException e);
+    public interface IFindCallback<T> {
+        void done(List<T> list, ParseException e);
     }
 
     public static <T extends ParseObject> FindCallback<T> find(IFindCallback<T> callback) {
