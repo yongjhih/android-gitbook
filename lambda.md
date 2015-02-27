@@ -56,6 +56,7 @@ Before:
 ```java
 Observable<ParseUser> getParseUsers() {
     Observable<List<ParseUser>> userList = Observable.create(sub -> {
+        // FindCallback 是 abstrac class 且只有一個 abstract method: "void done(List<T> users, e);"
         ParseUser.getQuery().findInBackground(new FindCallback<ParseUser>() {
             @Override public void done(List<ParseUser> users, ParseException e) {
                 if(e != null) {
