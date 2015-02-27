@@ -68,7 +68,7 @@ After:
 
 ```java
 void save(ParseUser user) {
-    user.save(e -> e.printStackTrace());
+    user.save(Callbacks.save(e -> e.printStackTrace()));
 }
 ```
 
