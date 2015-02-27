@@ -419,7 +419,7 @@ Observable.just("Hello, world!")
 ```java
 Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html")
     .map(url -> download(url))
-    .subscribeOn(Schedulers.io()) // 把加工過程丟到背景去做
+    .subscribeOn(Schedulers.io()) // 把生產加工過程丟到背景去做
     .subscribe(file -> System.out.println(file));
 ```
 
