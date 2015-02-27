@@ -72,7 +72,7 @@ void save(ParseUser user) {
 }
 ```
 
-寫一個 Callbacks.save() 來幫忙生 abstract SaveCallback：
+寫一個可以吃 lambda 的 Callbacks.save() 來幫忙生 abstract SaveCallback：
 
 ```java
 public class Callbacks {
@@ -132,7 +132,7 @@ Observable<ParseUser> getParseUsers() {
 }
 ```
 
-寫一個 Callbacks.find() 來幫忙生 abstract FindCallback：
+寫一個可以吃 lambda 的 Callbacks.find() 來幫忙生 abstract FindCallback：
 
 ```java
 public class Callbacks {
