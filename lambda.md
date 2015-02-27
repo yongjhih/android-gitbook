@@ -73,7 +73,24 @@ Observable<ParseUser> getParseUsers() {
 After:
 
 ```java
-public class CallbackUtils {
+Observable<ParseUser> getParseUsers() {
+    Observable<List<ParseUser>> userList = Observable.create(sub -> {
+        ParseUser.getQuery().findInBackground(Callbacks.find((users, e) -> {
+            if(e != null) {
+                sub.onError(e);
+            } else {
+                sub.onNext(users);
+                sub.onCompleted();
+            }
+        }));
+    });
+}
+```
+
+寫一個 Callbacks 類別來幫忙生 abstract FindCallback：
+
+```java
+public class Callbacks {
     public interface IFindCallback<E> {
         void done(List<E> list, ParseException e);
     }
@@ -85,4 +102,5 @@ public class CallbackUtils {
             }
         };
     }
+}
 ```
