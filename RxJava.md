@@ -236,6 +236,8 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
 }
 ```
 
+## Android 應該養成的習慣與注意事項
+
 應該使用 ```AndroidObservable.bindFragment(fragment, observable)``` 來包裝你的 observable ，來避免操作 fragment 生命週期外的物件。例如：
 
 ```java
