@@ -215,7 +215,7 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
 }
 ```
 
-另一種方法， Subject ，通常為了跨執行緒廣播，例如做一條 EventBus 。而這邊僅為舉例如何使用 subject 方式。
+另一種方法，Subject ：
 
 ```java
 Observable<ParseUser> loginParseWithFacebook(Activity activity) {
@@ -235,6 +235,8 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
     return subject.asObservable();
 }
 ```
+
+轉型成 Subject 通常為了可從多方進貨用途，例如做一條 EventBus 廣播系統。
 
 ## Android 應該養成的習慣與注意事項
 
