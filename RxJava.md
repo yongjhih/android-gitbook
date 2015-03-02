@@ -505,7 +505,6 @@ ViewObservable.clicks(findViewById(R.id.like_button))
 ## See Also
 
 * https://speakerdeck.com/jakewharton/2014-1?slide=13
-* 小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
 * http://slides.com/yaroslavheriatovych/frponandroid
 
 一些 Rx 開源：
@@ -520,3 +519,5 @@ ViewObservable.clicks(findViewById(R.id.like_button))
 * https://github.com/evant/rxloader
 * https://github.com/vyshane/rex-weather
 * https://github.com/ReactiveX/RxNetty
+ 
+* 小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
