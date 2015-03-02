@@ -290,7 +290,7 @@ List<String> strings = new IteratorOnlyList(Observable.from(textViews)
 
 如果你想維持 List 界面，為了維持 lazy ，又 RxJava 這邊只有提供到 Iterator ，所以我們沒有使用 `toList().toBlocking().single()`，你可以寫一個 IteratorOnlyList 把這個 iterator 包起來，方便傳遞，雖然很多操作都殘缺。
 
-盡可能改用 Observable 作為界面。
+盡可能還是改用 Observable 作為界面。
 
 ## 組合資料 zip()
 
