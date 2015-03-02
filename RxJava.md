@@ -236,10 +236,6 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
 }
 ```
 
-轉型成 Subject 通常為了可從多方進貨與多方出貨用途，例如做一條 EventBus 廣播系統。
-
-## Android 應該養成的習慣與注意事項
-
 應該使用 ```AndroidObservable.bindFragment(fragment, observable)``` 來包裝你的 observable ，來避免操作 fragment 生命週期外的物件。例如：
 
 ```java
