@@ -76,7 +76,6 @@ void save(ParseUser user) {
 
 ```java
 public class Callbacks {
-    ...
     public interface ISaveCallback {
         void done(ParseException e);
     }
@@ -85,66 +84,6 @@ public class Callbacks {
         return new SaveCallback() {
             @Override public void done(ParseException e) {
                 callback.done(e);
-            }
-        };
-    }
-}
-```
-
-另一個實際的例子：
-
-Before:
-
-```java
-Observable<ParseUser> getParseUsers() {
-    Observable<List<ParseUser>> userList = Observable.create(sub -> {
-        // FindCallback 是 abstract class 且只有一個 abstract method: "void done(List<T> users, e);"
-        ParseUser.getQuery().findInBackground(new FindCallback<ParseUser>() {
-            @Override public void done(List<ParseUser> users, ParseException e) {
-                if (e != null) {
-                    sub.onError(e);
-                } else {
-                    sub.onNext(users);
-                    sub.onCompleted();
-                }
-            }
-        });
-    });
-    return userList.flatMap(l -> Observable.from(l));
-}
-```
-
-After:
-
-```java
-Observable<ParseUser> getParseUsers() {
-    Observable<List<ParseUser>> userList = Observable.create(sub -> {
-        ParseUser.getQuery().findInBackground(Callbacks.find((users, e) -> {
-            if (e != null) {
-                sub.onError(e);
-            } else {
-                sub.onNext(users);
-                sub.onCompleted();
-            }
-        }));
-    });
-    return userList.flatMap(l -> Observable.from(l));
-}
-```
-
-寫一個可以吃 lambda 的 Callbacks.find() 來幫忙生 abstract FindCallback：
-
-```java
-public class Callbacks {
-    ...
-    public interface IFindCallback<T> {
-        void done(List<T> list, ParseException e);
-    }
-
-    public static <T extends ParseObject> FindCallback<T> find(IFindCallback<T> callback) {
-        return new FindCallback<T>() {
-            @Override public void done(List<T> list, ParseException e) {
-                callback.done(list, e);
             }
         };
     }
