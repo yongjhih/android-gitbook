@@ -512,3 +512,4 @@ ViewObservable.clicks(findViewById(R.id.like_button))
 * https://github.com/ogaclejapan/RxBinding
 * https://github.com/mcharmas/Android-ReactiveLocation
 * https://github.com/square/sqlbrite
+* https://github.com/pardom/Ollie
