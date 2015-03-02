@@ -280,8 +280,7 @@ List<String> strings = new MapList<TextView, String>(textViews) // 先把 textVi
     });
 ```
 
-這是我們自己寫一個 MapList 類別來達成，但是現在其實利用 RxJava 就可以辦到了。
-
+這是我們自己寫一個 MapList 類別來達成，而現在有了 RxJava： 
 ```
 List<String> strings = new IteratorOnlyList(Observable.from(textViews)
     .map(textView -> textView.getText().toString())
