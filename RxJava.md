@@ -515,3 +515,4 @@ ViewObservable.clicks(findViewById(R.id.like_button))
 * https://github.com/pardom/Ollie
 * https://github.com/eccyan/RxJava-Optional
 * https://github.com/frankiesardo/ReactiveContent
+* https://github.com/evant/rxloader
