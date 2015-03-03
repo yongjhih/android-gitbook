@@ -352,7 +352,6 @@ retry(3)
 
 使用 Handler `retryWhen(final Func1<? super Observable<? extends Throwable>, ? extends Observable<?>> notificationHandler)`，例如，隨著重試次數延後重試時間:
 
-
 ```java
 Observable.create((Subscriber<? super String> s) -> {
     s.onError(new RuntimeException("always fails"));
