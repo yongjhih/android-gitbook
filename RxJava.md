@@ -328,9 +328,11 @@ Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> co
 
 ## 重試 retry()
 
+如果發生 exception 重試.
+
 最常用的是 `retry(Func2<Integer, Throwable, Boolean> predicate)`
 
-如果是 NullPointerException 才重試
+如果是 NullPointerException 才重試:
 
 ```java
 retry((c, e)) -> e instanceof NullPointerException);
