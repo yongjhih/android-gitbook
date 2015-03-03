@@ -332,27 +332,23 @@ Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> co
 
 如果是 NullPointerException 才重試
 
-```
-retry((c, e)) -> e instanceof NullPointerException);
-```
-
-```
+```java
 retry((c, e)) -> e instanceof NullPointerException);
 ```
 
 一直重試：
 
-```
+```java
 retry() 
 ```
 
 重試 3 次：
 
-```
+```java
 retry(3) 
 ```
 
-使用 Handler`retryWhen(final Func1<? super Observable<? extends Throwable>, ? extends Observable<?>> notificationHandler)` ：
+使用 Handler `retryWhen(final Func1<? super Observable<? extends Throwable>, ? extends Observable<?>> notificationHandler)` ：
 
 ```java
 Observable.create((Subscriber<? super String> s) -> {
