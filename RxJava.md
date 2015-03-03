@@ -336,6 +336,35 @@ Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> co
 retry((c, e)) -> e instanceof NullPointerException);
 ```
 
+```
+retry((c, e)) -> e instanceof NullPointerException);
+```
+
+一直重試：
+
+```
+retry() 
+```
+
+重試 3 次：
+
+```
+retry(3) 
+```
+
+使用 Handler`retryWhen(final Func1<? super Observable<? extends Throwable>, ? extends Observable<?>> notificationHandler)` ：
+
+```java
+Observable.create((Subscriber<? super String> s) -> {
+    s.onError(new RuntimeException("always fails"));
+}).retryWhen(attempt -> {
+    return attempt.zipWith(Observable.range(1, 3), (n, i) -> i).flatMap(i -> {
+        System.out.println("delay retry by " + i + " second(s)");
+        return Observable.timer(i, TimeUnit.SECONDS);
+    });
+}).toBlocking().subscribe(System.out::println);
+```
+
 ## 如何使用
 
 在我們看過一些對照組之後，大致上瞭解未來在使用上會呈現什麼樣貌。所以我們開始回頭學學，如何開始使用 RxJava 。
