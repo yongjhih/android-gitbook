@@ -318,51 +318,6 @@ Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> co
 }
 ```
 
-## 排序 toSortedList()
-
-## 分組 groupBy()
-
-## 分段 window()
-
-## 快取 cache()
-
-## 重試 retry()
-
-如果發生 exception 重試.
-
-最常用的是 `retry(Func2<Integer, Throwable, Boolean> predicate)`
-
-如果是 NullPointerException 才重試:
-
-```java
-retry((c, e)) -> e instanceof NullPointerException);
-```
-
-一直重試：
-
-```java
-retry() 
-```
-
-重試 3 次：
-
-```java
-retry(3)
-```
-
-使用 Handler `retryWhen(final Func1<? super Observable<? extends Throwable>, ? extends Observable<?>> notificationHandler)`，例如，隨著重試次數延後重試時間:
-
-```java
-Observable.create((Subscriber<? super String> s) -> {
-    s.onError(new RuntimeException("always fails"));
-}).retryWhen(attempt -> {
-    return attempt.zipWith(Observable.range(1, 3), (n, i) -> i).flatMap(i -> {
-        System.out.println("delay retry by " + i + " second(s)");
-        return Observable.timer(i, TimeUnit.SECONDS);
-    });
-}).toBlocking().subscribe(System.out::println);
-```
-
 ## 如何使用
 
 在我們看過一些對照組之後，大致上瞭解未來在使用上會呈現什麼樣貌。所以我們開始回頭學學，如何開始使用 RxJava 。
@@ -523,6 +478,64 @@ cd RxJava-retrofit-github-sample
 ## Subject
 
 碼頭，多方進貨與多方出貨，例如做一條 EventBus 廣播系統。
+
+## Exception 處理
+
+如果發生 exception 重試.
+
+最常用的是 `retry(Func2<Integer, Throwable, Boolean> predicate)`
+
+如果是 NullPointerException 才重試:
+
+```java
+retry((c, e)) -> e instanceof NullPointerException);
+```
+
+一直重試：
+
+```java
+retry() 
+```
+
+重試 3 次：
+
+```java
+retry(3)
+```
+
+使用 Handler `retryWhen(final Func1<? super Observable<? extends Throwable>, ? extends Observable<?>> notificationHandler)`，例如，隨著重試次數延後重試時間:
+
+```java
+Observable.create((Subscriber<? super String> s) -> {
+    s.onError(new RuntimeException("always fails"));
+}).retryWhen(attempt -> {
+    return attempt.zipWith(Observable.range(1, 3), (n, i) -> i).flatMap(i -> {
+        System.out.println("delay retry by " + i + " second(s)");
+        return Observable.timer(i, TimeUnit.SECONDS);
+    });
+}).toBlocking().subscribe(System.out::println);
+```
+
+忽略 exception：
+
+`.onErrorResumeNext(e -> Observable.empty());`
+
+或傳個假資料
+
+```java
+.flatMap(parseUser -> {
+    return Observable.zip(createChannel(parseUser), createFriendRole(parseUser), (user, user2) -> user)
+        .onErrorResumeNext(e -> Observable.just(parseUser));
+})
+```
+
+## 排序 toSortedList()
+
+## 分組 groupBy()
+
+## 分段 window()
+
+## 快取 cache()
 
 ## 附錄：Android View 範例
 
