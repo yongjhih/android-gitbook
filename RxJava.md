@@ -328,6 +328,8 @@ Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> co
 
 ## 重試 retry()
 
+
+
 ## 如何使用
 
 在我們看過一些對照組之後，大致上瞭解未來在使用上會呈現什麼樣貌。所以我們開始回頭學學，如何開始使用 RxJava 。
