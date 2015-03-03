@@ -485,6 +485,10 @@ cd RxJava-retrofit-github-sample
 
 修改 src/main/java/com/github/yongjhih/Main.java 內容就可以自己玩了。
 
+## Subject
+
+碼頭，多方進貨與多方出貨，例如做一條 EventBus 廣播系統。
+
 ## 附錄：Android View 範例
 
 寫一個讚計數器:
