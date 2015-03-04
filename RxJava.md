@@ -580,7 +580,9 @@ Observable.create((Subscriber<? super String> s) -> {
 
 忽略 exception：
 
-`.onErrorResumeNext(e -> Observable.empty());`
+```java
+.onErrorResumeNext(e -> Observable.empty()); // onCompleted()
+```
 
 或傳個替代資料：
 
