@@ -236,7 +236,7 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
 }
 ```
 
-p.s. *但是以這邊用 Subject 有點小差異，就是還沒 subscribe 就已經跑 callback 。所以這邊用 ReplaySubject 來記住進貨。*
+p.s. *這邊的 Subject 方法 與 Observable.create() 方法其實有差異， ，還沒 subscribe 就已經開跑。所以這邊用 ReplaySubject 來記住進貨。*
 
 ## Android 應該養成的習慣與注意事項
 
