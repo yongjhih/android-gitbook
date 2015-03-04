@@ -467,6 +467,10 @@ Observable<List<Integer>> = Observable.range(1, 10).toList(); // 這就是一個
 ```
 
 ```java
+List<Integer> integers = Observable.range(1, 10).toList().toBlocking().single(); // pass
+```
+
+```java
 Integer i = Observable.range(1, 10).toBlocking().take(1); // pass
 ```
 
@@ -474,9 +478,6 @@ Integer i = Observable.range(1, 10).toBlocking().take(1); // pass
 Integer i = Observable.range(1, 10).toBlocking().single(); // exception
 ```
 
-```java
-List<Integer> integers = Observable.range(1, 10).toList().toBlocking().single(); // pass
-```
 
 ## 名詞解釋
 
