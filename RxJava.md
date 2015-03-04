@@ -454,7 +454,7 @@ Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.h
     .subscribe(file -> System.out.println(file));
 ```
 
-## toBlocking().single()
+## 片語 toBlocking().single()
 
 這行會卡住，直到拿到一個為止。
 
