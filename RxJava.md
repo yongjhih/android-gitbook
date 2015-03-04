@@ -454,6 +454,26 @@ Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.h
     .subscribe(file -> System.out.println(file));
 ```
 
+## toBlocking().single()
+
+這行會卡住，直到拿到一個為止。
+
+與 toBlocking().take(1) 有何不同。single() 與 take(1) 最大的不同是，single() 只能被使用在單數的 Observable 上，否則會噴 exception 。
+
+怎樣會是單數的 Observable ？例如：
+
+```java
+Observable<List<Integer>> = Observable.range(1, 10).toList(); // 這就是一個單數的 Observable
+```
+
+```java
+Integer i = Observable.range(1, 10).toBlocking().take(1); // pass
+```
+
+```java
+Integer i = Observable.range(1, 10).toBlocking().single(); // exception
+```
+
 ## 名詞解釋
 
 描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。
