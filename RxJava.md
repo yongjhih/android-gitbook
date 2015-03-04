@@ -219,7 +219,6 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
 
 ```java
 Observable<ParseUser> loginParseWithFacebook(Activity activity) {
-    //final Subject<ParseUser, ParseUser> subject = new SerializedSubject<>(ReplaySubject.create()); // crossover thread
     ReplaySubject<ParseUser> subject = ReplaySubject.create();
     ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
         @Override
