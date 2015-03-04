@@ -509,7 +509,7 @@ retry(3)
 ```java
 Observable.create((Subscriber<? super String> s) -> {
     s.onError(new RuntimeException("always fails"));
-}).retryWhen(attempt -> {
+}).retryWhen(attempt -> { // 每次的 exception 都會進來 ，當作 Observable<Throwable>.subscribe(e -> {}) 來看待
     return attempt.zipWith(Observable.range(1, 3), (n, i) -> i).flatMap(i -> {
         System.out.println("delay retry by " + i + " second(s)");
         return Observable.timer(i, TimeUnit.SECONDS);
