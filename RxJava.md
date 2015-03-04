@@ -533,7 +533,7 @@ public void onLikeClick(View view) {
 public void onResume() {
     super.onResume();
     
-    mCountSubject.asObservable().map(view -> 1)
+    mLikeCountSubject.asObservable().map(view -> 1)
         .scan((count, i) -> count + i)
         .subscribe(count -> likeText.setText(count.toString()));
 }
