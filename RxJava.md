@@ -521,7 +521,7 @@ Observable.create((Subscriber<? super String> s) -> {
 
 `.onErrorResumeNext(e -> Observable.empty());`
 
-或傳個替代資料
+或傳個替代資料：
 
 ```java
 .flatMap(parseUser -> {
