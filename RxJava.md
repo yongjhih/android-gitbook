@@ -599,7 +599,7 @@ Observable.create((Subscriber<? super String> s) -> {
 
 ## 快取 cache()
 
-## 附錄：Android View 範例
+## 附錄：Android View Observable 範例
 
 寫一個讚計數器:
 
