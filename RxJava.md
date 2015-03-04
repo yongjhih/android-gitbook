@@ -502,7 +502,24 @@ cd RxJava-retrofit-github-sample
 
 ## Subject
 
-碼頭，多方進貨與多方出貨，例如做一條 EventBus 廣播系統。
+多方進貨，相當於把 Observable.OnSubscriber ，讓其他人可以塞資料。
+
+Before:
+
+```
+Observable.just("hello, world!").subscribe(System.out::println);
+```
+
+After:
+
+```
+Subject<String> subject = PublishSubject.create();
+subject.asObservable().subscribe(System.out::println);
+
+subject.onNext("hello, world!");
+```
+
+http://reactivex.io/documentation/subject.html
 
 ## Exception 處理
 
