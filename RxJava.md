@@ -474,6 +474,10 @@ Integer i = Observable.range(1, 10).toBlocking().take(1); // pass
 Integer i = Observable.range(1, 10).toBlocking().single(); // exception
 ```
 
+```java
+List<Integer> integers = Observable.range(1, 10).toList().toBlocking().single(); // pass
+```
+
 ## 名詞解釋
 
 描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。
