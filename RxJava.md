@@ -519,7 +519,7 @@ subject.asObservable().subscribe(System.out::println);
 subject.onNext("hello, world!");
 ```
 
-找一個實際的例子：
+找一個實際點的例子：
 
 ```
 Subject<View> mCountSubject = PublishSubject.create();
