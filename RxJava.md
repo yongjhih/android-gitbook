@@ -458,7 +458,7 @@ Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.h
 
 這行會卡住，直到拿到一個為止。
 
-與 toBlocking().take(1) 有何不同。single() 與 take(1) 最大的不同是，single() 只能被使用在單數的 Observable 上，否則會噴 exception 。
+與 toBlocking().take(1) 有何不同。single() 與 take(1) 最大的不同是，single() 只能使用在單數的 Observable 上，否則會噴 exception 。
 
 怎樣會是單數的 Observable ？例如：
 
