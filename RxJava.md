@@ -219,8 +219,8 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
 
 ```java
 Observable<ParseUser> loginParseWithFacebook(Activity activity) {
-    //final Subject<ParseUser, ParseUser> subject = new SerializedSubject<>(PublishSubject.create()); // crossover thread
-    PublishSubject<ParseUser> subject = PublishSubject.create();
+    //final Subject<ParseUser, ParseUser> subject = new SerializedSubject<>(ReplaySubject.create()); // crossover thread
+    ReplaySubject<ParseUser> subject = ReplaySubject.create();
     ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
         @Override
         public void done(final ParseUser parseUser, ParseException err) {
@@ -235,6 +235,8 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
     return subject.asObservable();
 }
 ```
+
+p.s. *但是以這邊用 Subject 有點小差異，就是還沒 subscribe 就已經跑 callback 。所以這邊用 ReplaySubject 。*
 
 ## Android 應該養成的習慣與注意事項
 
