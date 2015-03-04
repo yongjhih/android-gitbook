@@ -513,7 +513,7 @@ Observable.just("hello, world!").subscribe(System.out::println);
 After:
 
 ```
-Subject<String> subject = PublishSubject.create();
+Subject<String, String> subject = PublishSubject.create();
 subject.asObservable().subscribe(System.out::println);
 
 subject.onNext("hello, world!");
