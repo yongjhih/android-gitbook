@@ -522,13 +522,14 @@ subject.onNext("hello, world!");
 找一個實際點的例子：
 
 ```
-Subject<View> mCountSubject = PublishSubject.create();
+Subject<View> mLikeCountSubject = PublishSubject.create();
 
 @OnClick(R.id.like_button)
-public void onClick(View view) {
-    mCountSubject.onNext(view);
+public void onLikeClick(View view) {
+    mLikeCountSubject.onNext(view);
 }
 
+@Override
 public void onResume() {
     super.onResume();
     
