@@ -199,7 +199,7 @@ Observable<File> downloadObs(String url) {
 
 ```java
 Observable<ParseUser> loginParseWithFacebook(Activity activity) {
-    return Observable.create(sub -> {
+    return Observable.create(sub -> { // Observable.OnSubscriber
         ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
             @Override
             public void done(final ParseUser parseUser, ParseException err) {
@@ -235,7 +235,7 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
 }
 ```
 
-p.s. *這邊的 Subject 方法 與 Observable.create() 方法其實有差異， ，還沒 subscribe 就已經開跑。所以這邊用 ReplaySubject 來記住進貨。*
+p.s. *這邊的 Subject 方法 與 Observable.create() 方法其實有差異， Observable.create() 內的 OnSubscriber 直到 subscribe() 才會執行。但 Subject 方法會馬上跑，所以這邊用 ReplaySubject 來記住進貨。*
 
 ## Android 應該養成的習慣與注意事項
 
