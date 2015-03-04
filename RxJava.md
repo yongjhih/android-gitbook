@@ -519,6 +519,25 @@ subject.asObservable().subscribe(System.out::println);
 subject.onNext("hello, world!");
 ```
 
+找一個實際的例子：
+
+```
+Subject<View> mCountSubject = PublishSubject.create();
+
+@OnClick(R.id.like_button)
+public void onClick(View view) {
+    mCountSubject.onNext(view);
+}
+
+public void onResume() {
+    super.onResume();
+    
+    mCountSubject.asObservable().map(view -> 1)
+        .scan((count, i) -> count + i)
+        .subscribe(count -> likeText.setText(count.toString()));
+}
+```
+
 http://reactivex.io/documentation/subject.html
 
 ## Exception 處理
@@ -586,7 +605,7 @@ Observable.create((Subscriber<? super String> s) -> {
 ```java
 ViewObservable.clicks(findViewById(R.id.like_button))
     .map(clickEvent -> 1)
-    .scan((increamnet, current) -> increament + current)
+    .scan((count, i) -> count + i)
     .subscribe(likes -> {
         TextView likesView = (TextView) findViewById(R.id.likes_view);
         textView.setText(likes.toString());
