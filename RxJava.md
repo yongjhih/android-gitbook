@@ -219,7 +219,7 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
 
 ```java
 Observable<ParseUser> loginParseWithFacebook(Activity activity) {
-    ReplaySubject<ParseUser> subject = ReplaySubject.create();
+    Subject<ParseUser, ParseUser> subject = ReplaySubject.create();
     ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
         @Override
         public void done(final ParseUser parseUser, ParseException err) {
