@@ -6,6 +6,9 @@
     "pluginsConfig": {
         "disqus": {
             "shortName": "yongjhih-gitbook"
+        },
+        "ga": {
+            "token": "UA-60405492-1"
         }
     }
 }
