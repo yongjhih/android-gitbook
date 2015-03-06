@@ -508,13 +508,13 @@ cd RxJava-retrofit-github-sample
 
 Before:
 
-```
+```java
 Observable.just("hello, world!").subscribe(System.out::println);
 ```
 
 After:
 
-```
+```java
 Subject<String, String> subject = PublishSubject.create();
 subject.asObservable().subscribe(System.out::println);
 
@@ -523,7 +523,7 @@ subject.onNext("hello, world!");
 
 找一個實際點的例子：
 
-```
+```java
 Subject<View> mLikeCountSubject = PublishSubject.create();
 
 @OnClick(R.id.like_button)
