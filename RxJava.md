@@ -617,6 +617,60 @@ ViewObservable.clicks(findViewById(R.id.like_button))
     });
 ```
 
+## 透過 Observable 實現 Java8 Optional
+
+在沒有 Optional 的狀況下：
+
+Before:
+
+```java
+String displayName(ParseUser parseUser) {
+    String displayName = parseUser.getString("displayName");
+    if (displayName == null) {
+        displayName = "Unnamed"
+    }
+    return displayName;
+}
+```
+
+After:
+
+```java
+String displayName(ParseUser parseUser) {
+    return parseUser.ofNullable(parseUser.getString("displayName")).orElse("Unnamed");
+}
+```
+
+```java
+public class Optional {
+    public static <T> Observable<T> of(T data){
+        if (data == null) {
+            throw new NullPointerException();
+        } else {
+            return Observable.just(data);
+        }
+    }
+ 
+    public static <T> Observable<T> ofNullable(T data){
+        if (data == null) {
+            return Observable.empty();
+        } else {
+            return Observable.just(data);
+        }
+    }
+ 
+    public static <T> T get(Observable<T> observable){
+        return observable.toBlocking().single();
+    }
+ 
+    public static <T> T orElse(Observable<T> observable, T defaultValue){
+        return observable.defaultIfEmpty(defaultValue).toBlocking().single();
+    }
+}
+```
+
+OptionalObservable: https://gist.github.com/yongjhih/25017ac41efb4634c2ab
+
 ## See Also
 
 * https://speakerdeck.com/jakewharton/2014-1?slide=13
