@@ -637,7 +637,7 @@ After:
 
 ```java
 String displayName(ParseUser parseUser) {
-    return Optional.orElse(parseUser.ofNullable(parseUser.getString("displayName")), "Unnamed");
+    return Optional.orElse(Optional.ofNullable(parseUser.getString("displayName")), "Unnamed");
 }
 ```
 
