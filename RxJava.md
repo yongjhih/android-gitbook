@@ -627,7 +627,7 @@ Before:
 String displayName(ParseUser parseUser) {
     String displayName = parseUser.getString("displayName");
     if (displayName == null) {
-        displayName = "Unnamed"
+        displayName = "Unnamed";
     }
     return displayName;
 }
