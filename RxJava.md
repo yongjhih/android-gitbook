@@ -642,7 +642,7 @@ String displayName(ParseUser parseUser) {
 ```
 
 ```java
-public static class Optional<T> {
+public class Optional<T> {
     Observable<T> obs;
 
     public Optional(Observable<T> obs) {
