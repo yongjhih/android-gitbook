@@ -637,34 +637,40 @@ After:
 
 ```java
 String displayName(ParseUser parseUser) {
-    return Optional.orElse(Optional.ofNullable(parseUser.getString("displayName")), "Unnamed");
+    return Optional.ofNullable(parseUser.getString("displayName")).orElse("Unnamed");
 }
 ```
 
 ```java
-public class Optional {
-    public static <T> Observable<T> of(T data){
+public static class Optional<T> {
+    Observable<T> obs;
+
+    public Optional(Observable<T> obs) {
+        this.obs = obs;
+    }
+
+    public static <T> Optional<T> of(T data){
         if (data == null) {
             throw new NullPointerException();
         } else {
-            return Observable.just(data);
+            return new Optional<T>(Observable.just(data));
         }
     }
- 
-    public static <T> Observable<T> ofNullable(T data){
+
+    public static <T> Optional<T> ofNullable(T data){
         if (data == null) {
-            return Observable.empty();
+            return new Optional<T>(Observable.empty());
         } else {
-            return Observable.just(data);
+            return new Optional<T>(Observable.just(data));
         }
     }
- 
-    public static <T> T get(Observable<T> observable){
-        return observable.toBlocking().single();
+
+    public T get(){
+        return obs.toBlocking().single();
     }
- 
-    public static <T> T orElse(Observable<T> observable, T defaultValue){
-        return observable.defaultIfEmpty(defaultValue).toBlocking().single();
+
+    public T orElse(T defaultValue){
+        return obs.defaultIfEmpty(defaultValue).toBlocking().single();
     }
 }
 ```
