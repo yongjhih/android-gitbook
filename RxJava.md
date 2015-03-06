@@ -634,5 +634,6 @@ ViewObservable.clicks(findViewById(R.id.like_button))
 * https://github.com/evant/rxloader
 * https://github.com/vyshane/rex-weather
 * https://github.com/ReactiveX/RxNetty
+* http://sys1yagi.hatenablog.com/entry/2015/01/26/183000
  
 * 小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
