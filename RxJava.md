@@ -649,27 +649,27 @@ public class Optional<T> {
         this.obs = obs;
     }
 
-    public static <T> Optional<T> of(T data){
-        if (data == null) {
+    public static <T> Optional<T> of(T value) {
+        if (value == null) {
             throw new NullPointerException();
         } else {
-            return new Optional<T>(Observable.just(data));
+            return new Optional<T>(Observable.just(value));
         }
     }
 
-    public static <T> Optional<T> ofNullable(T data){
-        if (data == null) {
+    public static <T> Optional<T> ofNullable(T value) {
+        if (value == null) {
             return new Optional<T>(Observable.empty());
         } else {
-            return new Optional<T>(Observable.just(data));
+            return new Optional<T>(Observable.just(value));
         }
     }
 
-    public T get(){
+    public T get() {
         return obs.toBlocking().single();
     }
 
-    public T orElse(T defaultValue){
+    public T orElse(T defaultValue) {
         return obs.defaultIfEmpty(defaultValue).toBlocking().single();
     }
 }
