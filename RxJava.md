@@ -675,7 +675,7 @@ public class Optional<T> {
 }
 ```
 
-官方比較複雜的範例，當各類別傳遞已作成 Optional 界面：
+Oracle 官方比較複雜的範例，當各類別傳遞已作成 Optional 界面：
 
 Before:
 
