@@ -317,6 +317,25 @@ Observable<User> getPostedUsers(Observable<Post> posts) {
 
 列出貼文以及留言的使用者：
 
+Before:
+
+```java
+List<User> getActivityUsers(Collection<Post> posts, Collection<Comment> comments) {
+    Map<Integer, User> users = new HashMap<>();
+    for (Post post : posts) {
+        User user = post.getUser();
+        users.put(user.getObjectId(), user);
+    }
+    for (Comment comment : comments) {
+        User user = comment.getUser();
+        users.put(user.getObjectId(), user);
+    }
+    return new ArrayList<User>(users.values());
+}
+```
+
+After:
+
 ```java
 Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> comments) {
     return Observable.merge(posts.map(post -> post.getUser()),
