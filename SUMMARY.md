@@ -11,5 +11,5 @@
 * MVVM
 * Mockito
 * Retrofit
-* ORM
+* Orm - ActiveAndroid, DBFlow, Ollie
 
