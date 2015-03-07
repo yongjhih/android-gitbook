@@ -344,7 +344,7 @@ Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> co
 }
 ```
 
-`merge()` 與 `concatWith()` 最大的差異是， `merge()` 是併發同時進貨 ，`concatWith` 則是排隊等到前面進貨完才換下一位。
+`merge()` 與 `concatWith()` 最大的差異是， `merge()` 是併發同時進貨 ，所以會交錯，而 `concatWith` 則是排隊等到前面進貨完才換下一位。
 
 優先列出貼文的使用者後，才列出留言的使用者：
 
