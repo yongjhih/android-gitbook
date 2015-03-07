@@ -677,6 +677,8 @@ public class Optional<T> {
 
 官方比較複雜的範例，當各類別傳遞已作成 Optional 界面：
 
+Before:
+
 ```java
 String version = "UNKNOWN";
 if (computer != null) {
@@ -688,12 +690,11 @@ if (computer != null) {
     }
   }
 }
-
 ```
 
 *P.S. Groovy 語言: `String version = computer?.getSoundcard()?.getUSB()?.getVersion();`*
 
-OptionalObservable: https://gist.github.com/yongjhih/25017ac41efb4634c2ab
+Optional Observable: https://gist.github.com/yongjhih/25017ac41efb4634c2ab
 
 ## See Also
 
