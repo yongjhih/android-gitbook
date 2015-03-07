@@ -689,10 +689,9 @@ if (computer != null) {
   }
 }
 
-// Groovy 語言:
-// String version = computer?.getSoundcard()?.getUSB()?.getVersion();
-// 其他作法，三元運算子
 ```
+
+*P.S. Groovy 語言: `String version = computer?.getSoundcard()?.getUSB()?.getVersion();`*
 
 OptionalObservable: https://gist.github.com/yongjhih/25017ac41efb4634c2ab
 
