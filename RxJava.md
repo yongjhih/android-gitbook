@@ -701,7 +701,7 @@ After:
 // Optional 版本
 String getVersion(Computer computer) {
   return computer.flatMap(Computer::getSoundcard)
-    flatMap(Soundcard::getUSB)
+    .flatMap(Soundcard::getUSB)
     .map(USB::getVersion)
     .orElse("UNKNOWN");
 }
@@ -718,7 +718,7 @@ public class Soundcard {
 
 }
 
-public class USB{
+public class USB {
   public String getVersion(){ ... }
 }
 ```
