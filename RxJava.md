@@ -675,6 +675,25 @@ public class Optional<T> {
 }
 ```
 
+官方比較複雜的範例，當各類別傳遞已作成 Optional 界面：
+
+```java
+String version = "UNKNOWN";
+if (computer != null) {
+  Soundcard soundcard = computer.getSoundcard();
+  if (soundcard != null) {
+    USB usb = soundcard.getUSB();
+    if (usb != null) {
+      version = usb.getVersion();
+    }
+  }
+}
+
+// Groovy 語言:
+// String version = computer?.getSoundcard()?.getUSB()?.getVersion();
+// 其他作法，三元運算子
+```
+
 OptionalObservable: https://gist.github.com/yongjhih/25017ac41efb4634c2ab
 
 ## See Also
@@ -696,5 +715,6 @@ OptionalObservable: https://gist.github.com/yongjhih/25017ac41efb4634c2ab
 * https://github.com/ReactiveX/RxNetty
 * http://sys1yagi.hatenablog.com/entry/2015/01/26/183000
 * http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html
+* http://java.dzone.com/articles/java-8-elvis-operator
  
 * 小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
