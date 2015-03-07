@@ -707,19 +707,17 @@ String getVersion(Computer computer) {
 }
 
 public class Computer {
-  private Optional<Soundcard> soundcard;  
-  public Optional<Soundcard> getSoundcard() { ... }
-  ...
+  private Soundcard soundcard;  
+  public Optional<Soundcard> soundcard() { return Optional.ofNullable(soundcard); }
 }
 
 public class Soundcard {
-  private Optional<USB> usb;
-  public Optional<USB> getUSB() { ... }
-
+  private USB usb;
+  public Optional<USB> usb() { return Optional.ofNullable(usb); }
 }
 
 public class USB {
-  public String getVersion(){ ... }
+  public String getVersion() { return "3.0" }
 }
 ```
 
