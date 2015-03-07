@@ -680,15 +680,46 @@ public class Optional<T> {
 Before:
 
 ```java
-String version = "UNKNOWN";
-if (computer != null) {
-  Soundcard soundcard = computer.getSoundcard();
-  if (soundcard != null) {
-    USB usb = soundcard.getUSB();
-    if (usb != null) {
-      version = usb.getVersion();
+String getVersion(Computer computer) {
+  String version = "UNKNOWN";
+  if (computer != null) {
+    Soundcard soundcard = computer.getSoundcard();
+    if (soundcard != null) {
+      USB usb = soundcard.getUSB();
+      if (usb != null) {
+        version = usb.getVersion();
+      }
     }
   }
+  return version;
+}
+```
+
+After:
+
+```java
+// Optional 版本
+String getVersion(Computer computer) {
+  return computer.flatMap(Computer::getSoundcard)
+    flatMap(Soundcard::getUSB)
+    .map(USB::getVersion)
+    .orElse("UNKNOWN");
+}
+
+public class Computer {
+  private Optional<Soundcard> soundcard;  
+  public Optional<Soundcard> getSoundcard() { ... }
+  ...
+}
+
+public class Soundcard {
+  private Optional<USB> usb;
+  public Optional<USB> getUSB() { ... }
+
+}
+
+public class USB{
+  public String getVersion(){ ... }
 }
 ```
 
