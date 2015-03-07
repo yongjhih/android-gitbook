@@ -11,4 +11,5 @@
 * MVVM
 * Mockito
 * Retrofit
+* ORM
 
