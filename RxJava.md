@@ -713,7 +713,6 @@ public class Computer {
   public Optional<Soundcard> soundcard() { return Optional.ofNullable(soundcard); }
   public Soundcard getSoundcard() { return soundcard; }
 }
-}
 
 public class Soundcard {
   private Usb usb;
