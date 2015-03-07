@@ -701,6 +701,9 @@ Optional Observable: https://gist.github.com/yongjhih/25017ac41efb4634c2ab
 * https://speakerdeck.com/jakewharton/2014-1?slide=13
 * http://slides.com/yaroslavheriatovych/frponandroid
 * http://en.wikipedia.org/wiki/Null_coalescing_operator
+* http://sys1yagi.hatenablog.com/entry/2015/01/26/183000
+* http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html
+* http://java.dzone.com/articles/java-8-elvis-operator
 
 一些 Rx 開源：
 
@@ -714,8 +717,5 @@ Optional Observable: https://gist.github.com/yongjhih/25017ac41efb4634c2ab
 * https://github.com/evant/rxloader
 * https://github.com/vyshane/rex-weather
 * https://github.com/ReactiveX/RxNetty
-* http://sys1yagi.hatenablog.com/entry/2015/01/26/183000
-* http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html
-* http://java.dzone.com/articles/java-8-elvis-operator
  
 * 小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
