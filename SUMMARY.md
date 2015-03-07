@@ -7,4 +7,5 @@
 * AutoValue
 * ButterKnife
 * json to POJO
+* MVVM
 
