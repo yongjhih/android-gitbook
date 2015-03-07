@@ -728,7 +728,9 @@ public class Usb {
 
 *P.S. Groovy 語言: `String version = computer?.getSoundcard()?.getUSB()?.getVersion();`*
 
-Optional Observable: https://gist.github.com/yongjhih/25017ac41efb4634c2ab
+如果真的要用 RxJava Optional 請用專門的專案  https://github.com/eccyan/RxJava-Optional
+
+這邊僅是教學需要。 (https://gist.github.com/yongjhih/25017ac41efb4634c2ab)
 
 ## See Also
 
