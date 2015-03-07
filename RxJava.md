@@ -737,7 +737,6 @@ public class Usb {
 * https://speakerdeck.com/jakewharton/2014-1?slide=13
 * http://slides.com/yaroslavheriatovych/frponandroid
 * http://en.wikipedia.org/wiki/Null_coalescing_operator
-* http://sys1yagi.hatenablog.com/entry/2015/01/26/183000
 * http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html
 * http://java.dzone.com/articles/java-8-elvis-operator
 
