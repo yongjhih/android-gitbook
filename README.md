@@ -12,10 +12,7 @@ retrofit
 
 retrolambda
 
-cardslib
-
 dagger2
 
-android-simple-facebook
-
-ActiveAndroid
+AutoValue
+AutoParcel
