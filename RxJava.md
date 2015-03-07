@@ -700,9 +700,9 @@ After:
 ```java
 // Optional 版本
 String getVersion(Computer computer) {
-  return computer.flatMap(Computer::getSoundcard)
-    .flatMap(Soundcard::getUSB)
-    .map(USB::getVersion)
+  return computer.flatMap(Computer::soundcard)
+    .flatMap(Soundcard::usb)
+    .map(Usb::version)
     .orElse("UNKNOWN");
 }
 
@@ -713,10 +713,10 @@ public class Computer {
 
 public class Soundcard {
   private USB usb;
-  public Optional<USB> usb() { return Optional.ofNullable(usb); }
+  public Optional<Usb> usb() { return Optional.ofNullable(usb); }
 }
 
-public class USB {
+public class Usb {
   public String getVersion() { return "3.0" }
 }
 ```
