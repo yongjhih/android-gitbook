@@ -20,3 +20,5 @@ MVVM
 Mockito
 
 Orm
+
+json to POJO
