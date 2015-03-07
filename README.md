@@ -8,11 +8,15 @@ RxJava
 
 Butterknife
 
-retrofit
-
-retrolambda
-
 dagger2
 
+retrofit
+
 AutoValue
+
 AutoParcel
+
+MVVM
+Mockito
+
+Orm
