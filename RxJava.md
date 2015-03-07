@@ -700,6 +700,7 @@ Optional Observable: https://gist.github.com/yongjhih/25017ac41efb4634c2ab
 
 * https://speakerdeck.com/jakewharton/2014-1?slide=13
 * http://slides.com/yaroslavheriatovych/frponandroid
+* http://en.wikipedia.org/wiki/Null_coalescing_operator
 
 一些 Rx 開源：
 
