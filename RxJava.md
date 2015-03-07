@@ -685,7 +685,7 @@ String getVersion(Computer computer) {
   if (computer != null) {
     Soundcard soundcard = computer.getSoundcard();
     if (soundcard != null) {
-      USB usb = soundcard.getUSB();
+      USB usb = soundcard.getUsb();
       if (usb != null) {
         version = usb.getVersion();
       }
@@ -709,11 +709,14 @@ String getVersion(Computer computer) {
 public class Computer {
   private Soundcard soundcard;  
   public Optional<Soundcard> soundcard() { return Optional.ofNullable(soundcard); }
+  public Soundcard getSoundcard() { return soundcard; }
+}
 }
 
 public class Soundcard {
-  private USB usb;
+  private Usb usb;
   public Optional<Usb> usb() { return Optional.ofNullable(usb); }
+  public Usb getUsb() { return usb; }
 }
 
 public class Usb {
