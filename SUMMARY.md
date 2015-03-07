@@ -4,4 +4,5 @@
 * [RxJava](RxJava.md)
 * [Lambda](lambda.md)
 * Dagger2
+* AutoValue
 
