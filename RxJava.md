@@ -454,6 +454,37 @@ Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.h
     .subscribe(file -> System.out.println(file));
 ```
 
+## 產生器與流量控制
+
+原料無中生有。
+
+印出 0 到 10:
+
+Before:
+
+```java
+for (int i = 0; i <= 10; i++) {
+    System.out.println(i);
+}
+```
+
+After:
+
+```java
+Observable.range(1, 10).forEach(i -> System.out.println(i));
+```
+
+這邊第一次使用 `forEach()` ，僅差 `subscribe()` 會回傳 `Subscription` ，`Subscription` 是用來停止生產的。
+
+秒針：
+
+```java
+// 計秒器
+Subscription subscription = Observable.interval(1, TimeUnit.SECONDS).subscribe(l -> System.out.println(l));
+
+Observable.just(sub).delay(10, TimeUnit.SECONDS).subscribe(s -> s.unsubscribe()); // 10 秒後停掉計秒器
+```
+
 ## 片語 toBlocking().single()
 
 這行會卡住，直到拿到一個為止。
