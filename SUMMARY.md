@@ -10,4 +10,5 @@
    * Jackson
 * MVVM
 * Mockito
+* Retrofit
 
