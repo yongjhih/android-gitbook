@@ -328,7 +328,7 @@ List<User> getActivityUsers(Collection<Post> posts, Collection<Comment> comments
         User user = comment.getUser();
         users.put(user.getObjectId(), user);
     }
-    return new ArrayList<User>(users.values());
+    return new ArrayList<>(users.values());
 }
 ```
 
