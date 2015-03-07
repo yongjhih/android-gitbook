@@ -311,8 +311,6 @@ Observable<User> getPostedUsers(Observable<Post> posts) {
 }
 ```
 
-
-
 ## 多方合併 merge(), concatWith()
 
 列出貼文以及留言的使用者：
