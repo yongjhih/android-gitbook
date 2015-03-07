@@ -721,7 +721,8 @@ public class Soundcard {
 }
 
 public class Usb {
-  public String getVersion() { return "3.0" }
+  String version = "3.0";
+  public String getVersion() { return version; }
 }
 ```
 
