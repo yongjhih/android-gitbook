@@ -642,6 +642,8 @@ String displayName(ParseUser parseUser) {
 ```
 
 ```java
+// Optional 實現:
+
 public class Optional<T> {
     Observable<T> obs;
 
