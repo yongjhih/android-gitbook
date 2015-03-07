@@ -302,6 +302,8 @@ Observable<User> getUser(Activity activity) {
 
 ## 去除重複資料 distinct()
 
+列出有發文的使用者：
+
 ```java
 Observable<User> getPostedUsers(Observable<Post> posts) {
     return posts.map(post -> post.getUser())
@@ -309,12 +311,28 @@ Observable<User> getPostedUsers(Observable<Post> posts) {
 }
 ```
 
+
+
 ## 多方合併 merge(), concatWith()
+
+列出貼文以及留言的使用者：
 
 ```java
 Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> comments) {
     return Observable.merge(posts.map(post -> post.getUser()),
         comments.map(comment -> comment.getUser()))
+        .distinct(user -> user.getObjectId());
+}
+```
+
+merge 與 concatWith 最大的差異是， merge() 是併發同時進貨 ，concatWith 則是排隊等到前面進貨完才換下一位。
+
+優先列出貼文的使用者後，才列出留言的使用者：
+
+```java
+Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> comments) {
+    return posts.map(post -> post.getUser())
+        .concatWith(comments.map(comment -> comment.getUser()))
         .distinct(user -> user.getObjectId());
 }
 ```
