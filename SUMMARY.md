@@ -6,4 +6,5 @@
 * Dagger2
 * AutoValue
 * ButterKnife
+* json to POJO
 
