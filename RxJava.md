@@ -611,7 +611,7 @@ http://reactivex.io/documentation/subject.html
 
 ## Exception 處理
 
-如果發生 exception 重試.
+如果發生 exception 重試，會重新進貨，從頭再跑一輪。
 
 最常用的是 `retry(Func2<Integer, Throwable, Boolean> predicate)`
 
@@ -638,7 +638,7 @@ retry(3)
 ```java
 Observable.create((Subscriber<? super String> s) -> {
     s.onError(new RuntimeException("always fails"));
-}).retryWhen(attempt -> { // 每次的 exception 都會進來 ，當作 Observable<Throwable>.subscribe(e -> {}) 來看待
+}).retryWhen(attempt -> {
     return attempt.zipWith(Observable.range(1, 3), (n, i) -> i).flatMap(i -> {
         System.out.println("delay retry by " + i + " second(s)");
         return Observable.timer(i, TimeUnit.SECONDS);
