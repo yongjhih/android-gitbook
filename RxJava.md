@@ -695,7 +695,7 @@ After:
 
 ```java
 <T> Transformer<T, T> mainAsync() {  
-    return observable -> observable.subscribeOn(Schedulers.io())
+    return obs -> obs.subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread());
 }
 ```
@@ -717,7 +717,7 @@ After:
 
 ```java
 <T> Transformer<T, T> amount() {  
-    return observable -> map(o -> 1)
+    return obs -> obs.map(o -> 1)
         .scan((count, i) -> count + i);
 }
 ```
@@ -725,7 +725,7 @@ After:
 ```java
 public class Composes {
     @SuppressWarnings("unchecked")
-    private static final Transformer MAIN_ASYNC = observable -> observable.subscribeOn(Schedulers.io())
+    private static final Transformer MAIN_ASYNC = obs -> obs.subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread());
         
     @SuppressWarnings("unchecked")
@@ -734,7 +734,7 @@ public class Composes {
     }
     
     @SuppressWarnings("unchecked")
-    private static final Transformer AMOUNT = observable -> map(o -> 1)
+    private static final Transformer AMOUNT = obs -> obs.map(o -> 1)
         .scan((count, i) -> count + i);
         
     @SuppressWarnings("unchecked")
