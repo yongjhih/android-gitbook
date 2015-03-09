@@ -722,6 +722,28 @@ After:
 }
 ```
 
+```java
+public class Composes {
+    @SuppressWarnings("unchecked")
+    private static final Transformer MAIN_ASYNC = observable -> observable.subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread());
+        
+    @SuppressWarnings("unchecked")
+    public static final <T> Transformer<T, T> mainAsync() {
+        return MAIN_ASYNC;
+    }
+    
+    @SuppressWarnings("unchecked")
+    private static final Transformer AMOUNT = observable -> map(o -> 1)
+        .scan((count, i) -> count + i);
+        
+    @SuppressWarnings("unchecked")
+    public static final <T> Transformer<T, T> amount() {
+        return AMOUNT;
+    }
+}
+```
+
 ## 附錄：Android View Observable 範例
 
 寫一個讚計數器:
