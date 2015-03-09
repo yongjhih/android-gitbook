@@ -547,6 +547,10 @@ Integer i = Observable.range(1, 10).toBlocking().single(); // exception
 
 ## 名詞解釋
 
+Observable 觀測所
+Subscriber 訂閱者
+Observer 觀察員
+
 描述這是怎樣的工作，以及中間需要的製程，希望產生出什麼產品。
 
 Observable<T> 一份工作 task 一個未來 future , T 產品. 相當於 AsyncTask<INPUT, PROGRESS, T>, Future<T>
