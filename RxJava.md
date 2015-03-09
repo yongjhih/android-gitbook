@@ -676,6 +676,8 @@ Observable.create((Subscriber<? super String> s) -> {
 
 ## 利用 compose(Transformer) 重用常用的流程組合
 
+Compose/Transformer 0.20 版本(2014.8)
+
 先丟背景等等回來前景:
 
 Before:
