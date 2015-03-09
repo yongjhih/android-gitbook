@@ -670,6 +670,30 @@ Observable.create((Subscriber<? super String> s) -> {
 
 ## 快取 cache()
 
+## 利用 Transformer 重用常用的流程組合
+
+先丟背景等等回來前景:
+
+Before:
+
+```java
+.observeOn(AndroidScheduler.mainThread())
+.subscribeOn(Schedulers.io))
+```
+
+After:
+
+```java
+.compose(mainAsync())
+```
+
+```java
+<T> Transformer<T, T> mainAsync() {  
+    return observable -> observable.subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread());
+}
+```
+
 ## 附錄：Android View Observable 範例
 
 寫一個讚計數器:
