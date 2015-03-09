@@ -718,7 +718,7 @@ After:
 ```java
 <T> Transformer<T, T> amount() {  
     return observable -> map(o -> 1)
-        .scan((count, i) -> count + i)
+        .scan((count, i) -> count + i);
 }
 ```
 
