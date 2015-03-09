@@ -694,6 +694,28 @@ After:
 }
 ```
 
+計數器:
+
+Before:
+
+```java
+.map(o -> 1)
+.scan((count, i) -> count + i)
+```
+
+After:
+
+```java
+.compose(amount())
+```
+
+```java
+<T> Transformer<T, T> amount() {  
+    return observable -> map(o -> 1)
+        .scan((count, i) -> count + i)
+}
+```
+
 ## 附錄：Android View Observable 範例
 
 寫一個讚計數器:
