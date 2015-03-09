@@ -670,7 +670,7 @@ Observable.create((Subscriber<? super String> s) -> {
 
 ## 快取 cache()
 
-## 利用 Transformer 重用常用的流程組合
+## 利用 .compose(Transformer) 重用常用的流程組合
 
 先丟背景等等回來前景:
 
