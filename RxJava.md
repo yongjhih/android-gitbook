@@ -239,7 +239,7 @@ p.s. *這邊的 Subject 方法 與 Observable.create() 方法其實有差異， 
 
 ## Android 應該養成的習慣與注意事項
 
-應該使用 ```AndroidObservable.bindFragment(fragment, observable)``` 來包裝你的 observable ，來避免操作 fragment 生命週期外的物件。例如：
+應該使用 ```AppObservable.bindFragment(fragment, observable)```[^1] 來包裝你的 observable ，來避免操作 fragment 生命週期外的物件。例如：
 
 ```java
 Observable.defer(() -> Observable.just(download())).subscribe(file -> {
@@ -895,3 +895,5 @@ public class Usb {
 * https://github.com/ReactiveX/RxNetty
  
 * 小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
+
+[^1] `rx.android.observables.AndroidObservable` has changed to `rx.android.app.AppObservable` (Version 0.24 – January 3rd 2015)
