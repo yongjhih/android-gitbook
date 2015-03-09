@@ -250,7 +250,7 @@ Observable.defer(() -> Observable.just(download())).subscribe(file -> {
 如果你下載 download() 很久，然後離開了這個 fragment 後，才下載結束，這樣操作了 textView 就很有可能爆掉。你應該改成：
 
 ```java
-AndroidObservable.bindFragment(fragment, Observable.defer(() -> Observable.just(download()))).subscribe(file -> {
+AppObservable.bindFragment(fragment, Observable.defer(() -> Observable.just(download()))).subscribe(file -> {
     textView.setText(file);
 });
 ```
