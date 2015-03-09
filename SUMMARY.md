@@ -8,6 +8,7 @@
 * ButterKnife
 * json to POJO
    * Jackson
+   * LoganSquare
 * MVVM
 * Mockito
 * Retrofit
