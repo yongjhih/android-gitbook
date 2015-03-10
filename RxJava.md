@@ -237,24 +237,6 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
 
 p.s. *這邊的 Subject 方法 與 Observable.create() 方法其實有差異， Observable.create() 內的 OnSubscriber 直到 subscribe() 才會執行。但 Subject 方法會馬上跑，所以這邊用 ReplaySubject 來記住進貨。*
 
-## Android 應該養成的習慣與注意事項
-
-應該使用 ```AppObservable.bindFragment(fragment, observable)```[^1] 來包裝你的 observable ，來避免操作 fragment 生命週期外的物件。例如：
-
-```java
-Observable.defer(() -> Observable.just(download())).subscribe(file -> {
-    textView.setText(file);
-});
-```
-
-如果你下載 download() 很久，然後離開了這個 fragment 後，才下載結束，這樣操作了 textView 就很有可能爆掉。你應該改成：
-
-```java
-AppObservable.bindFragment(fragment, Observable.defer(() -> Observable.just(download()))).subscribe(file -> {
-    textView.setText(file);
-});
-```
-
 ## 轉換 map()
 
 我們經常把 `List<A>` 轉成 `List<B>`，如： `List<TextView>` 轉成 `List<String>`，你可能會把整個 textViews 一一取出 `toString()` 然後抄一份：
