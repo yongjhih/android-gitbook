@@ -656,6 +656,10 @@ Observable.create((Subscriber<? super String> s) -> {
 
 ## 快取 cache()
 
+## debounce()
+
+## 逾時 timeout()
+
 ## 利用 compose(Transformer) 重用常用的流程組合
 
 Compose/Transformer 0.20 版本(2014.8)
