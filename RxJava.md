@@ -274,22 +274,28 @@ List<String> strings = new IteratorOnlyList(Observable.from(textViews)
 
 盡可能還是改用 Observable 作為界面吧。
 
-## 組合資料 zip()
-
-```java
-Observable<User> getUser(Activity activity) {
-    Observable.zip(getFbUser(activity), getParseUser(activity),
-        (fbUser, parseUser) -> getUser(fbUser, parseUser));
-}
-```
-
 ## 去除重複資料 distinct()
 
 列出有發文的使用者：
 
+Before:
+
 ```java
-Observable<User> getPostedUsers(Observable<Post> posts) {
-    return posts.map(post -> post.getUser())
+List<User> getPostedUsers(List<Post> posts) {
+    Map<String, User> users = new HashMap<>();
+    for (Post post : posts) {
+        User user = post.getUser();
+        users.put(user.getObjectId(), user);
+    }
+    return new ArrayList<>(users.values());
+}
+```
+
+After:
+
+```java
+Observable<User> getPostedUsers(List<Post> posts) {
+    return Observable.from(posts).map(post -> post.getUser())
         .distinct(user -> user.getObjectId());
 }
 ```
@@ -302,7 +308,7 @@ Before:
 
 ```java
 List<User> getActivityUsers(Collection<Post> posts, Collection<Comment> comments) {
-    Map<Integer, User> users = new HashMap<>();
+    Map<String, User> users = new HashMap<>();
     for (Post post : posts) {
         User user = post.getUser();
         users.put(user.getObjectId(), user);
@@ -552,6 +558,15 @@ cd RxJava-retrofit-github-sample
 ```
 
 修改 src/main/java/com/github/yongjhih/Main.java 內容就可以自己玩了。
+
+## 組合資料 zip()
+
+```java
+Observable<User> getUser(Activity activity) {
+    Observable.zip(getFbUser(activity), getParseUser(activity),
+        (fbUser, parseUser) -> getUser(fbUser, parseUser));
+}
+```
 
 ## Subject
 
