@@ -437,12 +437,16 @@ Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html")
     .subscribe(file -> System.out.println(file));
 ```
 
-如果你有很多網址要下載，你可能會這樣做：
+如果你有很多網址要下載，你可能會想到：
 
 ```java
-Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
-    "http://yongjhih.gitbooks.io/feed/content/README.html"))
-    .map(urls -> {
+Observable<List<String>> urlList = Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html");
+```
+
+你可以留意到這時 Observable 產線上是 `List<String>` 了。所以你可能會這樣做：
+
+```java
+    urlList.map(list -> {
         List<File> files = new ArrayList<>();
         for (String url : urls) files.add(download(url));
         return files;
@@ -456,9 +460,12 @@ Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.h
 但是這種情況，你應該使用 Observable.from() ：
 
 ```java
-Observable.from(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
-    "http://yongjhih.gitbooks.io/feed/content/README.html"))
-    .map(url -> download(url))
+Observable<String> urls = Observable.from(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
+    "http://yongjhih.gitbooks.io/feed/content/README.html"));
+```
+
+```java
+urls.map(url -> download(url))
     .subscribeOn(Schedulers.io())
     .subscribe(file -> System.out.println(file));
 ```
