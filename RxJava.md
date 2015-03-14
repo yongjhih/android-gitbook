@@ -5,7 +5,7 @@
 ## 前言
 
 RxJava, Reactive Java,
-一個 Java FRP (Functional Reactive Programming) 的實現。可以接龍 的 callback 。
+一個 Java FRP (Functional Reactive Programming) 的實現。接龍 callbacks。
 
 短期效用：有效避免巢狀 callback 增加可讀性以及減少 ```List<item>``` 的轉換成本。
 
