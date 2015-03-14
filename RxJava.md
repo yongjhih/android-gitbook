@@ -253,12 +253,32 @@ for (TextView textView : textViews) {
 萬一 textViews 有一萬筆，最終你其實在存取 strings 通常不會全部都用到，這樣就太浪費了。所以我們拿出牛仔精神 `Cow - Copy-On-Write`(Lazy/CallByNeed)，先寫好轉換程式，當拿到那筆再去轉換，當然缺點是 textViews 要一直拿著，要稍微留意一下。我們先想像一下，寫一個名稱叫做 MapList 的類別，先把 textViews 拿著，在取出的時候 (@Override public E get(int index))，再去跑轉換程式。這裡我們開放一個 `map(Mappable)` 好把轉換程式交給我們 (Mappable)。
 
 ```java
-List<String> strings = new MapList<TextView, String>(textViews) // 先把 textViews 拿著
-    .map(new Mappable<TextView, String> {
-        @Override public String map(TextView view) { // 再取出時，會請我們轉換
-           return textView.getText().toString();
-        }
-    });
+MapList<T, R> extends ArrayList<R> { // @Unmodifitable
+    List<T> list;
+    Mappable<T, R> mapper;
+    
+    public MapList(List<T> list) {
+        super();
+        this.list = list;
+    }
+    
+    @Override public R get(int i) {
+        return mapper.map(list.get(i));
+    }
+    
+    public MapList<T, R> map(Mappable<T, R> mapper) {
+        this.mapper = mapper;
+        return this;
+    }
+    
+    public interface Mappable<T, R> {
+        R map(T t);
+    }
+}
+```
+
+```java
+List<String> strings = new MapList<TextView, String>(textViews).map(textView -> textView.getText().toString());
 ```
 
 這是我們自己寫一個 MapList 類別來達成，而現在有了 RxJava： 
