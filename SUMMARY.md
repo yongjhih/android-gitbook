@@ -14,5 +14,4 @@
 * Retrofit
 * Orm - ActiveAndroid, DBFlow, Ollie
 * gradle
-* RxJs
 
