@@ -15,4 +15,5 @@
 * Retrofit
 * Orm - ActiveAndroid, DBFlow, Ollie
 * gradle
+* flow + mortar
 
