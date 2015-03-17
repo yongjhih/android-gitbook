@@ -4,7 +4,7 @@
 * [RxJava](RxJava.md)
 * [Lambda](lambda.md)
 * Dagger2
-* AutoValue
+* [AutoValue](autovalue.md)
 * ButterKnife
 * json to POJO
    * Jackson
