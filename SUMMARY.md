@@ -10,9 +10,9 @@
    * Jackson
    * LoganSquare
 * MVVM
+* Clean rchitecture
 * Mockito
 * Retrofit
 * Orm - ActiveAndroid, DBFlow, Ollie
 * gradle
-* Clean rchitecture
 
