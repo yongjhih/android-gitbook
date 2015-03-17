@@ -16,5 +16,5 @@
 * Orm - ActiveAndroid, DBFlow, Ollie
 * gradle
 * flow + mortar
-* Android Support Annotations
+* [Android Support Annotations](android_support_annotations.md)
 
