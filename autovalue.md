@@ -72,6 +72,10 @@ public abstract class Foo {
 
 ```java
 Foo andrew = Foo.create("Andrew", 1);
+Foo andrew1 = Foo.create("Andrew", 1);
+Foo andrew2 = Foo.create("Andrew", 2);
+System.out.println(andrew.equals(andrew1));
+System.out.println(andrew.equals(andrew2));
 ```
 
 ## Android Parcelable
