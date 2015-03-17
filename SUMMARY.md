@@ -3,8 +3,8 @@
 * [Introduction](README.md)
 * [RxJava](RxJava.md)
 * [Lambda](lambda.md)
-* Dagger2
 * [AutoValue](autovalue.md)
+* Dagger2
 * ButterKnife
 * json to POJO
    * Jackson
