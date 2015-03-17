@@ -1,7 +1,7 @@
 # AutoValue
 
 
-一個透過 Annotation Programming 簡化撰寫 Model 的編譯時期函式庫。
+一個透過 Annotation Programming 簡化撰寫 Serializable Model 的編譯時期函式庫。
 
 Before:
 
@@ -21,6 +21,31 @@ public class Foo {
   public Foo(String text, int number) {
     this.text = text;
     this.number = number;
+  }
+  
+  @Override
+  public String toString() {
+    return "Foo{"
+      + "text=" + text
+      + ", number=" + number
+      + "}";
+  }
+  
+  @Override
+  public boolean equals(Object o) {
+    if (o == this) {
+      return true;
+    }
+    if (o instanceof Foo) {
+      Foo that = (Foo) o;
+      return (this.text.equals(that.text()))
+        && (this.number == that.number());
+    }
+    return false;
+  }
+  
+  @Override int hashCode() {
+    return Objects.hashCode(text, number);
   }
 }
 ```
