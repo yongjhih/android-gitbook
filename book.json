@@ -1,8 +1,7 @@
 {
     "plugins": [
         "disqus",
-        "ga",
-        "share"
+        "ga"
     ],
     "pluginsConfig": {
         "disqus": {
