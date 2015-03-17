@@ -73,3 +73,20 @@ public abstract class Foo {
 ```java
 Foo andrew = Foo.create("Andrew", 1);
 ```
+
+## Android Parcelable
+
+另外推薦 [frankiesardo/auto-parcel](https://github.com/frankiesardo/auto-parcel) :
+
+```java
+@AutoParcel
+abstract class SomeModel implements Parcelable {
+  abstract String name();
+  abstract List<SomeSubModel> subModels();
+  abstract Map<String, OtherSubModel> modelsMap();
+
+  static SomeModel create(String name, List<SomeSubModel> subModels, Map<String, OtherSubModel> modelsMap) {
+    return new AutoParcel_SomeModel(name, subModels, modelsMap);
+  }
+}
+```
