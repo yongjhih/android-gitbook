@@ -1,6 +1,5 @@
 # AutoValue
 
-
 一個透過 Annotation Programming 簡化撰寫 identity Model 的編譯時期函式庫。
 
 Before:
