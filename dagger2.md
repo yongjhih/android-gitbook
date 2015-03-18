@@ -4,7 +4,7 @@ DI 工具
 
 ## 什麼是 DI
 
-DI, Dependency Injection (相依性注入) ，筆者個人口語化稱之為「配件」
+DI, Dependency Injection (相依性注入) ，行前準備/著裝/要件
 
 在沒有的 DI 概念下：
 
@@ -53,30 +53,66 @@ class CoffeeMaker {
 
 Dagger2 自動 DI:
 
+咖啡機沖泡出一杯風味十足的咖啡：
+
 ```java
 Coffee coffee = Dagger_CoffeeApp_Coffee.builder().build();
 coffee.maker().brew();
 ```
 
+咖啡記加熱加壓沖泡：
+
+```
+Coffee -> CoffeeMaker -> DripCoffeeModule ----------------------> Heater
+                            \-> PumpModule -> ThermosiphonPump /
+```
+
+咖啡機：
+
 ```java
-@Singleton // 共用一組器具
-@Component(modules = DripCoffeeModule.class) // 需要澆熱水器具
+@Singleton // 共用咖啡機
+@Component(modules = DripCoffeeModule.class) // 高壓熱水裝置
 public interface Coffee {
-    CoffeeMaker maker(); // 咖啡機
+    CoffeeMaker maker();
 }
 ```
 
+咖啡機需要把水加熱、加壓後沖泡：
+
 ```java
-@Module(includes = PumpModule.class) // 需要加壓器具
-class DripCoffeeModule {
+class CoffeeMaker {
+  private final Lazy<Heater> heater; // 加熱器
+  private final Pump pump;
+
+  // 準備幫浦與加熱器
+  @Inject CoffeeMaker(Lazy<Heater> heater, Pump pump) {
+    this.heater = heater;
+    this.pump = pump;
+  }
+
+  // 沖泡
+  public void brew() {
+    heater.get().on(); // 加熱
+    pump.pump(); // 加壓
+    System.out.println(" [_]P coffee! [_]P ");
+    heater.get().off();
+  }
+}
+```
+
+高壓熱水裝置需要加壓器具，
+
+```java
+@Module(includes = PumpModule.class) // 一同準備加壓器具
+class DripCoffeeModule { // 加壓與加熱
   @Provides @Singleton Heater provideHeater() { // 提供加熱器具
-    return new ElectricHeater(); // 電熱器具
+    return new ElectricHeater(); // 提供電熱器具
   }
 }
 ```
 
 ```java
-@Module(complete = false, library = true)
+@Module(complete = false, library = true) // complete = false 需要借用加熱器具
 class PumpModule { // 幫浦加壓器具
   @Provides Pump providePump(Thermosiphon pump) { // 利用熱虹吸管來提供幫浦器具
     return pump;
