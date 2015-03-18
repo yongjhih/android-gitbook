@@ -82,8 +82,6 @@ cd dagger2-sample
 
 ## 範例
 
-為了沿用 api 與 client 所以須從外部提供。
-
 Before:
 
 ```java
