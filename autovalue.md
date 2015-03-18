@@ -14,7 +14,7 @@ public class Foo {
   }
 
   public int number() {
-    return numbert;
+    return number;
   }
   
   public Foo(String text, int number) {
