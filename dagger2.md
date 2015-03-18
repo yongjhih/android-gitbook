@@ -54,22 +54,8 @@ class CoffeeMaker {
 自動 DI:
 
 ```java
-public class CoffeeMaker {
-    protected Heater heater;
-    protected Pump pump;
-    
-    @Inject
-    public CoffeeMaker(Heater heater, Pump pump) {
-        this.heater = heater;
-        this.pump = pump;
-    }
-    
-    public void brew() {
-        heater.heat(); // 加熱
-        pump.pump(); // 加壓
-        System.out.println("CoffeeMaker", " [_]P coffee! [_]P ");
-    }
-}
+Coffee coffee = Dagger_CoffeeApp_Coffee.builder().build();
+coffee.maker().brew();
 ```
 
 ## 動手玩
