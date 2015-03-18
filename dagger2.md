@@ -64,7 +64,7 @@ public class CoffeeMaker {
         this.pump = pump;
     }
     
-    public void brew() { // 沖泡
+    public void brew() {
         heater.heat(); // 加熱
         pump.pump(); // 加壓
         System.out.println("CoffeeMaker", " [_]P coffee! [_]P ");
