@@ -51,11 +51,54 @@ class CoffeeMaker {
     public void brew() { /* ... */ }
 ```
 
-自動 DI:
+Dagger2 自動 DI:
 
 ```java
 Coffee coffee = Dagger_CoffeeApp_Coffee.builder().build();
 coffee.maker().brew();
+```
+
+```java
+@Singleton // 共用一組器具
+@Component(modules = DripCoffeeModule.class) // 需要澆熱水器具
+public interface Coffee {
+    CoffeeMaker maker(); // 咖啡機
+}
+```
+
+```java
+@Module(includes = PumpModule.class) // 需要加壓器具
+class DripCoffeeModule {
+  @Provides @Singleton Heater provideHeater() { // 提供加熱器具
+    return new ElectricHeater(); // 電熱器具
+  }
+}
+```
+
+```java
+@Module(complete = false, library = true)
+class PumpModule { // 幫浦加壓器具
+  @Provides Pump providePump(Thermosiphon pump) { // 利用熱虹吸管來提供幫浦器具
+    return pump;
+  }
+}
+```
+
+```java
+class Thermosiphon implements Pump {
+  private final Heater heater;
+
+  @Inject
+  Thermosiphon(Heater heater) { // 索取加熱器來加壓
+    this.heater = heater;
+  }
+
+  @Override public void pump() {
+    if (heater.isHot()) {
+      System.out.println("=> => pumping => =>");
+    }
+  }
+}
 ```
 
 ## 動手玩
