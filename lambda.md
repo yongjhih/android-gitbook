@@ -15,13 +15,19 @@ view.setOnClickListener(new View.OnClickListener() {
 After:
 
 ```java
-view.setOnClickListener(v -> println("yo"));
+view.setOnClickListener(v -> System.out.println(v));
+```
+
+or
+
+```java
+view.setOnClickListener(System.out::println);
 ```
 
 * 當 interface 只有一個 method 需要實作時，就不需要特別再說是哪個 method name 了。包含 interface name 就可以整個省略。只剩下參數名稱要寫而已，如果怕參數型別有混淆之虞可寫上型別：
 
 ```java
-view.setOnClickListener((View v) -> println("yo"));
+view.setOnClickListener((View v) -> println(v));
 ```
 
 * 如果沒有參數：
