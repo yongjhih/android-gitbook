@@ -71,9 +71,9 @@ Coffee -> CoffeeMaker -> DripCoffeeModule ----------------------> Heater
 
 ```java
 @Singleton // 共用咖啡機
-@Component(modules = DripCoffeeModule.class) // 高壓熱水裝置
+@Component(modules = DripCoffeeModule.class) // 高壓熱水裝置提供幫浦與加熱器
 public interface Coffee {
-    CoffeeMaker maker();
+    CoffeeMaker maker(); // 需要幫浦與加熱器
 }
 ```
 
@@ -104,9 +104,9 @@ class CoffeeMaker {
 
 ```java
 @Module(includes = PumpModule.class) // 一同準備加壓器具
-class DripCoffeeModule { // 加壓與加熱
-  @Provides @Singleton Heater provideHeater() { // 提供加熱器具
-    return new ElectricHeater(); // 提供電熱器具
+class DripCoffeeModule { // 高溫高壓
+  @Provides @Singleton Heater provideHeater() { // 提供共用的加熱器具
+    return new ElectricHeater(); // 電熱器具
   }
 }
 ```
