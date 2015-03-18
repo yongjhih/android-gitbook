@@ -2,6 +2,10 @@
 
 DI 工具
 
+# 範例
+
+為了沿用 api 與 client 所以須從外部提供。
+
 Before:
 
 ```java
@@ -29,7 +33,7 @@ for (Tweet tweet : timeline.get()) {
 }
 ```
 
-為了沿用 api 與 client 所以須從外部提供。
+隱藏相依前置作業，透過 builder 來獲得末端物件。
 
 After:
 
