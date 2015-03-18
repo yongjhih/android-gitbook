@@ -280,3 +280,4 @@ public interface TwitterComponent {
 ## See Also
 
 * https://speakerdeck.com/jakewharton/dependency-injection-with-dagger-2-devoxx-2014
+* http://google.github.io/dagger/
