@@ -490,7 +490,7 @@ urls.map(url -> download(url))
     .subscribe(file -> System.out.println(file));
 ```
 
-如果原料是 List，但是加工時，想要一個一個處理，用 Observable.from() 會比較好操作，如果你用 Observable.just() 那就會拿到一個 List 。其實有個方法可以途中攤平， `.flatMap(list -> Observable.from(list))` 來攤平：
+如果原料是 List，但是加工時，想要一個一個處理，用 Observable.from() 會比較好操作，如果你用 Observable.just() 那就會拿到一個 List 。其實有個方法可以展開： `.flatMap(list -> Observable.from(list))`：
 
 ```java
 Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
@@ -500,9 +500,22 @@ Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.h
         for (String url : urls) files.add(download(url));
         return files;
     })
-    .flatMap(files -> Observable.from(files)) // 可以這裡才攤平
+    .flatMap(files -> Observable.from(files)) // 可以這裡才展開
     .subscribeOn(Schedulers.io())
     .subscribe(file -> System.out.println(file));
+```
+
+`map()` 是轉換產線上的物件 ， flatMap() 是轉換 `Observable<Object>` 的方法，舉個例子：
+
+```java
+Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html")
+    .flatMap(url -> downloadObs(url))
+    .map(file -> file.size())
+    .susbscirbe(size -> Systen.out.println(size));
+```
+
+```java
+Observable<File> downloadObs(String url) { ... }
 ```
 
 ## 產生器與流量控制
