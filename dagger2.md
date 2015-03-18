@@ -67,7 +67,7 @@ public class CoffeeMaker {
     public void brew() { // 沖泡
         heater.heat(); // 加熱
         pump.pump(); // 加壓
-        System.out.println("CoffeeMaker", "[_]P coffee!");
+        System.out.println("CoffeeMaker", " [_]P coffee! [_]P ");
     }
 }
 ```
