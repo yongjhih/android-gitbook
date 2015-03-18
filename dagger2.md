@@ -21,12 +21,14 @@ class CoffeeMaker { // 咖啡機
     
     CoffeeMaker() {
         this.heater = new ElectricHeater(); // 電熱器
-        this.pump = new Thermosiphon(heater); // 熱虹吸管
+        this.pump = new Thermosiphon(heater); // 虹吸幫浦
     }
     
     public void brew() { /* ... */ }
 }
 ```
+
+缺點是每杯咖啡都要生產電熱器與幫浦，太浪費了，一點都不環保。
 
 手動 DI:
 
