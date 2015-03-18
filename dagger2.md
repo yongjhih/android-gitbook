@@ -2,7 +2,56 @@
 
 DI 工具
 
-# 範例
+## 什麼是 DI
+
+DI, Dependency Injection (相依性注入) ，筆者個人口語化稱之為「配件」
+
+在沒有的 DI 概念下：
+
+Before:
+
+```java
+Coffee coffee = new CoffeeMaker().makeCoffee();
+```
+
+```java
+class CoffeeMaker { // 咖啡機
+    private final Heater heater; // 加熱器
+    private final Pump pump; // 幫浦
+    
+    CoffeeMaker() {
+        this.heater = new ElectricHeater(); // 電熱器
+        this.pump = new Thermosiphon(heater); // 熱虹吸管
+    }
+    
+    Coffee makeCoffee() { /* ... */ }
+}
+```
+
+手動 DI:
+
+After:
+
+```java
+Heater heater = new ElectricHeater();
+Pump pump = new Thermosiphon(heater);
+Coffee coffee = new CoffeeMaker(heater, pump).makeCoffee();
+```
+
+```java
+class CoffeeMaker {
+    private final Heater heater;
+    private final Pump pump;
+    
+    CoffeeMaker(Heater heater, Pump pump) {
+        this.heater = heater;
+        this.pump = pump;
+    }
+    
+    Coffee makeCoffee() { /* ... */ }
+```
+
+## 範例
 
 為了沿用 api 與 client 所以須從外部提供。
 
