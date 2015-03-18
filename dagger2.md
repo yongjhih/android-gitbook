@@ -11,7 +11,7 @@ DI, Dependency Injection (相依性注入) ，筆者個人口語化稱之為「�
 Before:
 
 ```java
-Coffee coffee = new CoffeeMaker().makeCoffee();
+new CoffeeMaker().brew(); // 沖泡
 ```
 
 ```java
@@ -24,7 +24,7 @@ class CoffeeMaker { // 咖啡機
         this.pump = new Thermosiphon(heater); // 熱虹吸管
     }
     
-    Coffee makeCoffee() { /* ... */ }
+    public void brew() { /* ... */ }
 }
 ```
 
@@ -35,7 +35,7 @@ After:
 ```java
 Heater heater = new ElectricHeater();
 Pump pump = new Thermosiphon(heater);
-Coffee coffee = new CoffeeMaker(heater, pump).makeCoffee();
+new CoffeeMaker(heater, pump).brew();
 ```
 
 ```java
@@ -48,7 +48,7 @@ class CoffeeMaker {
         this.pump = pump;
     }
     
-    Coffee makeCoffee() { /* ... */ }
+    public void brew() { /* ... */ }
 ```
 
 自動 DI:
