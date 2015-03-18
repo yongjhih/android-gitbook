@@ -6,6 +6,8 @@ DI 工具
 
 DI, Dependency Injection (相依性注入) ，行前準備/著裝/要件
 
+咖啡機沖泡出一杯風味十足的咖啡：
+
 在沒有的 DI 概念下：
 
 Before:
@@ -38,6 +40,7 @@ After:
 Heater heater = new ElectricHeater();
 Pump pump = new Thermosiphon(heater);
 new CoffeeMaker(heater, pump).brew();
+new CoffeeMaker(heater, pump).brew();
 ```
 
 ```java
@@ -53,20 +56,20 @@ class CoffeeMaker {
     public void brew() { /* ... */ }
 ```
 
-Dagger2 自動 DI:
+這樣至少電熱器與幫浦都重覆使用了。
 
-咖啡機沖泡出一杯風味十足的咖啡：
+但是這樣我們還要管理電熱器與幫浦，所以利用 Dagger2 自動 DI 來管理那些要件:
 
 ```java
 Coffee coffee = Dagger_CoffeeApp_Coffee.builder().build();
 coffee.maker().brew();
 ```
 
-咖啡記加熱加壓沖泡：
+咖啡機要加熱加壓沖泡，相依要件關係圖：
 
 ```
-Coffee -> CoffeeMaker -> DripCoffeeModule ----------------------> Heater
-                            \-> PumpModule -> ThermosiphonPump /
+CoffeeMaker -> DripCoffeeModule ----------------------> Heater
+                  \-> PumpModule -> ThermosiphonPump /
 ```
 
 咖啡機：
