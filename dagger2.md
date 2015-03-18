@@ -29,9 +29,44 @@ for (Tweet tweet : timeline.get()) {
 }
 ```
 
-為了沿用 api 與 client 所以必須從外部提供 。
+為了沿用 api 與 client 所以必須從外部提供。
 
 After:
+
+```java
+@Module
+public class NetworkModule {
+    @Provides @Singleton
+    OkHttpClient provideOkHttpClient() {
+        return new OkHttpClient();
+    }
+    
+    @Provides @Singleton
+    TwitterApi provideTwitterApi(OkHttpClient client) {
+        return new TwitterApi(client);
+    }
+}
+```
+
+```java
+public class TwitterModule {
+    private final String user;
+
+    public TwitterModule(String user) {
+        this.user = user;
+    }
+    
+    @Provides @singleton
+    Tweeter provideTweeter(TwitterApi api) {
+        return new Tweeter(api, user);
+    }
+    
+    @Provides @Singleton
+    Timeline provideTimeline(TweeterApi api) {
+        return new Timeliner(api, user);
+    }
+}
+```
 
 ## See Also
 
