@@ -51,6 +51,27 @@ class CoffeeMaker {
     Coffee makeCoffee() { /* ... */ }
 ```
 
+自動 DI:
+
+```java
+public class CoffeeMaker {
+    protected Heater heater;
+    protected Pump pump;
+    
+    @Inject
+    public CoffeeMaker(Heater heater, Pump pump) {
+        this.heater = heater;
+        this.pump = pump;
+    }
+    
+    public void brew() { // 沖泡
+        heater.heat(); // 加熱
+        pump.pump(); // 加壓
+        System.out.println("CoffeeMaker", "[_]P coffee!");
+    }
+}
+```
+
 ## 範例
 
 為了沿用 api 與 client 所以須從外部提供。
