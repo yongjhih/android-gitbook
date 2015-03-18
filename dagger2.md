@@ -29,9 +29,35 @@ for (Tweet tweet : timeline.get()) {
 }
 ```
 
-為了沿用 api 與 client 所以必須從外部提供。
+為了沿用 api 與 client 所以須從外部提供。
 
 After:
+
+```java
+TwitterComponent component = Dagger_TwitterComponent.builder()
+    .twitterModule(new TwitterModule("Andrew Chen"))
+    .build();
+    
+Tweeter tweeter = component.tweeter();
+Timeliner timeline = component.timeline();
+
+for (Tweet tweet : timeline.get()) {
+    System.out.println(tweet);
+}
+
+TwitterComponent component2 = Dagger_TwitterComponent.builder()
+    .twitterModule(new TwitterModule("Andrew Chen2"))
+    .build();
+    
+Tweeter tweeter2 = component.tweeter();
+Timeliner timeline2 = component.timeline();
+
+for (Tweet tweet : timeline.get()) {
+    System.out.println(tweet);
+}
+```
+
+連帶修改:
 
 ```java
 @Module
@@ -40,10 +66,17 @@ public class NetworkModule {
     OkHttpClient provideOkHttpClient() {
         return new OkHttpClient();
     }
+}
+```
+
+```java
+@Singleton
+public class TwitterApi {
+    private final OkHttpClient client;
     
-    @Provides @Singleton
-    TwitterApi provideTwitterApi(OkHttpClient client) {
-        return new TwitterApi(client);
+    @Inject
+    public TwitterApi(OkHttpClient client) {
+        this.client = client;
     }
 }
 ```
@@ -56,7 +89,7 @@ public class TwitterModule {
         this.user = user;
     }
     
-    @Provides @singleton
+    @Provides @Singleton
     Tweeter provideTweeter(TwitterApi api) {
         return new Tweeter(api, user);
     }
@@ -65,6 +98,18 @@ public class TwitterModule {
     Timeline provideTimeline(TweeterApi api) {
         return new Timeliner(api, user);
     }
+}
+```
+
+```java
+@Singleton
+@Component(modules = {
+    NetworkModule.class,
+    TwitterModule.class
+})
+public interface TwitterComponent {
+    Tweeter tweeter();
+    Timeline timeline();
 }
 ```
 
