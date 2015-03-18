@@ -113,7 +113,7 @@ public class TwitterModule {
     
     @Provides
     Timeline provideTimeline(TweeterApi api) {
-        return new Timeliner(api, user);
+        return new Timeline(api, user);
     }
 }
 ```
