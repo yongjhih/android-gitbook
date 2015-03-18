@@ -6,6 +6,8 @@ DI 工具
 
 DI, Dependency Injection (相依性注入) ，行前準備/著裝/要件
 
+![CoffeeMaker](http://upload.wikimedia.org/wikipedia/commons/2/23/KBG741S-AO.jpg)
+
 咖啡機沖泡出一杯風味十足的咖啡：
 
 在沒有的 DI 概念下：
