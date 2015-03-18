@@ -72,6 +72,14 @@ public class CoffeeMaker {
 }
 ```
 
+## 動手玩
+
+```bash
+git clone https://github.com/yongjhih/dagger2-sample
+cd dagger2-sample
+./gradlew execute
+```
+
 ## 範例
 
 為了沿用 api 與 client 所以須從外部提供。
