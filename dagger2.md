@@ -70,7 +70,7 @@ for (Tweet tweet : timeline.get()) {
 ```java
 @Module
 public class NetworkModule {
-    @Provides @Singleton
+    @Provides @Singleton // @Singleto 註明沿用同一個, @Provides 註明可提供 OkHttpClient
     OkHttpClient provideOkHttpClient() {
         return new OkHttpClient();
     }
@@ -82,7 +82,7 @@ public class NetworkModule {
 public class TwitterApi {
     private final OkHttpClient client;
     
-    @Inject
+    @Inject // 註明由相依提供 OkHttpClient
     public TwitterApi(OkHttpClient client) {
         this.client = client;
     }
@@ -91,7 +91,7 @@ public class TwitterApi {
 
 ```java
 @Singleton
-@Component(modules = NetworkModule.class)
+@Component(modules = NetworkModule.class) // 由哪些 modules 組成
 public interface ApiComponent {
     TwitterApi api();
 }
