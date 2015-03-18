@@ -38,23 +38,27 @@ for (Tweet tweet : timeline.get()) {
 After:
 
 ```java
-TwitterComponent component = Dagger_TwitterComponent.builder()
+ApiComponent apiComponent = Dagger_ApiComponent.create();
+
+TwitterComponent twitterComponent = Dagger_TwitterComponent.builder()
+    .apiComponent(apiComponent)
     .twitterModule(new TwitterModule("Andrew Chen"))
     .build();
     
-Tweeter tweeter = component.tweeter();
-Timeliner timeline = component.timeline();
+Tweeter tweeter = twitterComponent.tweeter();
+Timeliner timeline = twitterComponent.timeline();
 
 for (Tweet tweet : timeline.get()) {
     System.out.println(tweet);
 }
 
 TwitterComponent component2 = Dagger_TwitterComponent.builder()
+    .apiComponent(apiComponent)
     .twitterModule(new TwitterModule("Andrew Chen2"))
     .build();
     
-Tweeter tweeter2 = component.tweeter();
-Timeliner timeline2 = component.timeline();
+Tweeter tweeter2 = component2.tweeter();
+Timeliner timeline2 = component2.timeline();
 
 for (Tweet tweet : timeline.get()) {
     System.out.println(tweet);
@@ -86,6 +90,15 @@ public class TwitterApi {
 ```
 
 ```java
+@Singleton
+@Component(modules = NetworkModule.class)
+public interface ApiComponent {
+    TwitterApi api();
+}
+```
+
+```java
+@Module
 public class TwitterModule {
     private final String user;
 
@@ -93,12 +106,12 @@ public class TwitterModule {
         this.user = user;
     }
     
-    @Provides @Singleton
+    @Provides
     Tweeter provideTweeter(TwitterApi api) {
         return new Tweeter(api, user);
     }
     
-    @Provides @Singleton
+    @Provides
     Timeline provideTimeline(TweeterApi api) {
         return new Timeliner(api, user);
     }
@@ -106,11 +119,10 @@ public class TwitterModule {
 ```
 
 ```java
-@Singleton
-@Component(modules = {
-    NetworkModule.class,
-    TwitterModule.class
-})
+@Component(
+    dependencies = ApiComponent.class,
+    modules = TwitterModule.class
+)
 public interface TwitterComponent {
     Tweeter tweeter();
     Timeline timeline();
