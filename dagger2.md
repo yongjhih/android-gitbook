@@ -4,7 +4,7 @@ DI 工具
 
 ## 什麼是 DI
 
-DI, Dependency Injection (相依性注入) ，行前準備/著裝/要件
+DI, Dependency Injection (相依性注入) ，Anti-DIY, Auto-DIY 自動組裝，行前準備/著裝/組件/要件
 
 ![CoffeeMaker](http://upload.wikimedia.org/wikipedia/commons/2/23/KBG741S-AO.jpg)
 
@@ -58,11 +58,17 @@ class CoffeeMaker {
     }
     
     public void brew() { /* ... */ }
+}
 ```
 
 這樣至少電熱器與幫浦都重覆使用了。
 
-但是這樣我們還要管理電熱器與幫浦，所以利用 Dagger2 自動 DI 來管理那些要件，只要描述好要件相依，就可以：
+但是這樣我們要泡咖啡前，都要先準備電熱器與幫浦然後組裝成咖啡機後才開始泡咖啡。
+
+我們希望寫好咖啡機所需要的組件，請一個組裝工人幫我們組
+，以後只要說我現在要用咖啡機就馬上組裝好了，我們都不用自己 DIY。
+
+利用 Dagger2 自動 DI 來組裝那些要件，只要描述好要件相依，就可以：
 
 ```java
 Coffee coffee = Dagger_CoffeeApp_Coffee.create();
