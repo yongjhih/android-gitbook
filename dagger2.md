@@ -16,6 +16,7 @@ Before:
 
 ```java
 new CoffeeMaker().brew(); // 沖泡
+new CoffeeMaker().brew(); // 沖泡
 ```
 
 ```java
