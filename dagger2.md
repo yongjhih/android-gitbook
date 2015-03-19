@@ -102,8 +102,8 @@ class CoffeeMaker {
   public void brew() {
     heater.get().on(); // 加熱
     pump.pump(); // 加壓
-    System.out.println(" [_]P coffee! [_]P ");
-    heater.get().off();
+    System.out.println(" [_]P coffee! [_]P "); // 熱騰騰的咖啡出爐囉！
+    heater.get().off(); // 隨手關加熱器
   }
 }
 ```
