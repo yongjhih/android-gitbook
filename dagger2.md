@@ -117,7 +117,7 @@ public interface Coffee {
 }
 ```
 
-濾泡裝置需要加壓器具：
+濾泡裝置需要幫浦加壓器具：
 
 ```java
 @Module(includes = PumpModule.class) // 一同準備加壓器具
@@ -128,10 +128,12 @@ class DripCoffeeModule { // 濾泡裝置
 }
 ```
 
+幫浦：
+
 ```java
 @Module(complete = false, library = true) // complete = false 需要借用加熱器具
 class PumpModule { // 幫浦加壓器具
-  @Provides Pump providePump(Thermosiphon pump) { // 利用熱虹吸管來提供幫浦器具
+  @Provides Pump providePump(Thermosiphon pump) { // 利用熱虹吸管來提供幫浦能力
     return pump;
   }
 }
