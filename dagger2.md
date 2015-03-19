@@ -75,11 +75,11 @@ CoffeeMaker -> DripCoffeeModule ----------------------> Heater
                   \-> PumpModule -> ThermosiphonPump /
 ```
 
-咖啡機：
+濾泡式咖啡機：
 
 ```java
 @Singleton // 共用咖啡機
-@Component(modules = DripCoffeeModule.class) // 安裝高壓熱水沖泡裝置提供幫浦與加熱器
+@Component(modules = DripCoffeeModule.class) // 濾泡裝置(安裝著高壓熱水沖泡裝置提供幫浦與加熱器)
 public interface Coffee {
     CoffeeMaker maker(); // 需要幫浦與加熱器
 }
