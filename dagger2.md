@@ -89,7 +89,7 @@ CoffeeMaker -> DripCoffeeModule ----------------------> Heater
 @Singleton // 共用咖啡機
 @Component(modules = DripCoffeeModule.class) // 濾泡裝置(安裝著高壓熱水沖泡裝置提供幫浦與加熱器)
 public interface Coffee {
-    CoffeeMaker maker(); // 需要幫浦與加熱器
+    CoffeeMaker maker();
 }
 ```
 
