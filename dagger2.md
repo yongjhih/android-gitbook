@@ -79,8 +79,8 @@ coffee.maker().brew(); // 一直泡
 咖啡機要加熱加壓沖泡，相依要件關係圖：
 
 ```
-CoffeeMaker -> DripCoffeeModule ----------------------> Heater
-                  \-> PumpModule -> ThermosiphonPump /
+CoffeeMaker -> DripCoffeeModule -----------------------> Heater
+                  \-> PumpModule -> ThermosiphonPump -/
 ```
 
 濾泡式咖啡機：
