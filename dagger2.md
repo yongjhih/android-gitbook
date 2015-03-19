@@ -42,8 +42,8 @@ After:
 ```java
 Heater heater = new ElectricHeater();
 Pump pump = new Thermosiphon(heater);
-new CoffeeMaker(heater, pump).brew();
-new CoffeeMaker(heater, pump).brew();
+CoffeeMaker maker = new CoffeeMaker(heater, pump).brew();
+maker.brew();
 ```
 
 ```java
