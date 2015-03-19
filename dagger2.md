@@ -68,7 +68,8 @@ class CoffeeMaker {
 我們希望寫好咖啡機所需要的組件，請一個組裝工人幫我們組
 ，以後只要說我現在要用咖啡機就馬上組裝好了，我們都不用自己 DIY。
 
-利用 Dagger2 自動 DI 來組裝那些要件，只要描述好要件相依後就可以一直泡一直泡：
+利用 Dagger2 自動 DI 來組裝那些要件，只要描述好要件相依後，就可以一直泡一直泡：
+
 ```java
 Coffee coffee = Dagger_CoffeeApp_Coffee.create();
 coffee.maker().brew(); // 一直泡
