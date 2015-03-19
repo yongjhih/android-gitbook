@@ -117,11 +117,11 @@ public interface Coffee {
 }
 ```
 
-高壓熱水裝置需要加壓器具：
+濾泡裝置需要加壓器具：
 
 ```java
 @Module(includes = PumpModule.class) // 一同準備加壓器具
-class DripCoffeeModule { // 高壓熱水裝置
+class DripCoffeeModule { // 濾泡裝置
   @Provides @Singleton Heater provideHeater() { // 提供共用的加熱器具
     return new ElectricHeater(); // 電熱器具
   }
