@@ -64,7 +64,7 @@ class CoffeeMaker {
 但是這樣我們還要管理電熱器與幫浦，所以利用 Dagger2 自動 DI 來管理那些要件，只要描述好要件相依，就可以：
 
 ```java
-Coffee coffee = Dagger_CoffeeApp_Coffee.builder().build();
+Coffee coffee = Dagger_CoffeeApp_Coffee.create();
 coffee.maker().brew();
 ```
 
