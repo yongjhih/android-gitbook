@@ -15,8 +15,9 @@ DI, Dependency Injection (相依性注入) ，Anti-DIY, Auto-DIY 自動組裝，
 Before:
 
 ```java
-new CoffeeMaker().brew(); // 沖泡
-new CoffeeMaker().brew(); // 沖泡
+CoffeMaker maker = new CoffeeMaker();
+maker.brew(); // 沖泡
+maker.brew(); // 沖泡
 ```
 
 ```java
@@ -33,7 +34,7 @@ class CoffeeMaker { // 咖啡機
 }
 ```
 
-缺點是每杯咖啡都要生產整台咖啡機、電熱器與幫浦，太浪費了，一點都不環保。
+缺點是每杯咖啡生產的整台咖啡機、電熱器與幫浦，這些組件都無法延用到其他裝置身上，太浪費了，一點都不環保。
 
 手動 DI:
 
