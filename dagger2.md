@@ -8,7 +8,7 @@ DI, Dependency Injection (相依性注入) ，行前準備/著裝/要件
 
 ![CoffeeMaker](http://upload.wikimedia.org/wikipedia/commons/2/23/KBG741S-AO.jpg)
 
-沖泡出一杯風味十足的咖啡之前，你需要一台咖啡機：
+沖泡出一杯風味十足的咖啡之前，你需要一台濾泡式咖啡機：
 
 在沒有的 DI 概念下：
 
@@ -61,7 +61,7 @@ class CoffeeMaker {
 
 這樣至少電熱器與幫浦都重覆使用了。
 
-但是這樣我們還要管理電熱器與幫浦，所以利用 Dagger2 自動 DI 來管理那些要件:
+但是這樣我們還要管理電熱器與幫浦，所以利用 Dagger2 自動 DI 來管理那些要件，只要描述好要件相依，就可以：
 
 ```java
 Coffee coffee = Dagger_CoffeeApp_Coffee.builder().build();
