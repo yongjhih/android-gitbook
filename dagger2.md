@@ -84,17 +84,7 @@ CoffeeMaker -> DripCoffeeModule -----------------------> Heater
                   \-> PumpModule -> ThermosiphonPump -/
 ```
 
-濾泡式咖啡機：
-
-```java
-@Singleton // 共用咖啡機
-@Component(modules = DripCoffeeModule.class) // 濾泡裝置(安裝著高壓熱水沖泡裝置提供幫浦與加熱器)
-public interface Coffee {
-    CoffeeMaker maker();
-}
-```
-
-咖啡機需要把水加熱、加壓後沖泡：
+濾泡式咖啡機需要把水加熱、加壓後沖泡：
 
 ```java
 class CoffeeMaker {
@@ -114,6 +104,16 @@ class CoffeeMaker {
     System.out.println(" [_]P coffee! [_]P "); // 熱騰騰的咖啡出爐囉！
     heater.get().off(); // 隨手關加熱器
   }
+}
+```
+
+開始寫組裝說明書：
+
+```java
+@Singleton // 共用咖啡機
+@Component(modules = DripCoffeeModule.class) // 濾泡裝置(安裝著高壓熱水沖泡裝置提供幫浦與加熱器)
+public interface Coffee {
+    CoffeeMaker maker();
 }
 ```
 
