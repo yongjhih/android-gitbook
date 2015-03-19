@@ -139,6 +139,8 @@ class PumpModule { // 幫浦加壓器具
 }
 ```
 
+熱虹吸管幫浦：
+
 ```java
 class Thermosiphon implements Pump {
   private final Heater heater;
