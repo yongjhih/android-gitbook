@@ -101,7 +101,7 @@ class CoffeeMaker {
   private final Lazy<Heater> heater; // 加熱器
   private final Pump pump;
 
-  // 組裝幫浦與加熱器
+  // 準備幫浦與加熱器
   @Inject CoffeeMaker(Lazy<Heater> heater, Pump pump) {
     this.heater = heater;
     this.pump = pump;
