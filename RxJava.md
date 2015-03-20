@@ -16,7 +16,9 @@ RxJava, Reactive Java,
 
 先看一些範例對照後，了解樣貌之後，我們再來討論 RxJava 基本使用概念與方法。
 
-## 有效解決重複的 loop 增進效能，維持同個 loop
+## 有效解決重複的 Loop 提前打斷的能力。
+
+我們有一個 `List<Profile> friends` ，先假設有萬筆資料。
 
 只列出安裝同個 app 的朋友：
 
@@ -129,7 +131,7 @@ Observable<Profile> getInstalledFriendNameObs(List<Profile> friends) {
 }
 ```
 
-只做 100 筆過濾與轉換：
+這樣可以只做 100 筆過濾與轉換：
 
 ```java
 getInstalledFriendNameObs(friends)
