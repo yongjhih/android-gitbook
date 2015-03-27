@@ -18,86 +18,105 @@ RxJava, Reactive Java,
 
 ## 有效解決重複的 Loop 提前打斷的能力。
 
-我們有一個 `List<Profile> friends` ，先假設有萬筆資料。
+假設我們有萬名按照註冊時間排序的使用者 `List<User> users`，其中有千名女性使用者。
 
-只列出安裝同個 app 的朋友：
+列出女性使用者：
 
 Before:
 
 ```java
-List<Profile> getInstalledFriendList(/* @Writable */List<Profile> friends) {
-    List<Profile> installedFriendList = friends;
-    Iterator<Profile> it = friends.iterator();
+List<User> getFemaleList(/* @Writable */List<User> users) {
+    List<User> femaleList = users;
+    Iterator<User> it = users.iterator();
 
     while (it.hasNext()) {
-        if (!f.getInstalled()) it.remove();
+        if (it.getGender() != User.FEMALE) it.remove();
     }
 
-    return installedFriendList;
+    return femaleList;
 }
 ```
 
 After:
 
 ```java
-Observable<Profile> getInstalledFriendObs(List<Profile> friends) {
-    return Observable.from(friends).filter(p -> p.getInstalled());
+Observable<User> getFemaleObs(List<User> users) {
+    return Observable.from(users).filter(p -> p.getGender() == User.FEMALE);
 }
 
 // 如果你堅持一定要傳遞 List
-List<Profile> getInstalledFriendList(List<Profile> friends) {
-    return getInstalledFriendObs(friends).toList().toBlocking().single();
+List<User> getFemaleList(List<User> users) {
+    return getFemaleObs(users).toList().toBlocking().single();
 }
 ```
 
-列出朋友名字：
+列出最新一百名女性使用者：
 
 Before:
 
 ```java
-List<String> getFriendNameList(List<Profile> friends) {
-    List<String> friendNameList = new ArrayList<>();
+List<User> getFemaleList(List<User> users, int limit) {
+    return getFemaleList(users).subList(0, limit);
+}
 
-    for (Profile p : friends) {
-        friendNames.add(p.getDisplayName());
+getFemaleList(users, 100);
+```
+
+After:
+
+```java
+Observable<User> getFemaleObs(List<User> users, int limit) {
+    return getFemaleObs(users).take(limit);
+
+getFemaleObs(users, 100);
+```
+
+列出使用者名：
+
+Before:
+
+```java
+List<String> getDisplayNameList(List<User> users) {
+    List<String> nameList = new ArrayList<>();
+
+    for (User p : users) {
+        nameList.add(p.getDisplayName());
     }
 
-    return friendNameList;
+    return nameList;
 }
 ```
 
 After:
 
 ```java
-Observable<String> getFriendNameObs(List<Profile> friends) {
-    return Observable.from(friends).map(p -> p.getDisplayName());
+Observable<String> getDisplayNameObs(List<User> users) {
+    return Observable.from(users).map(p -> p.getDisplayName());
 }
 
 // 如果你堅持一定要傳遞 List
-List<String> getFriendNameList(List<Profile> friends) {
-    return getFriendNameObs(friends).toList().toBlocking().single();
+List<String> getDisplayNameObs(List<User> users) {
+    return getDisplayNameObs(users).toList().toBlocking().single();
 }
 ```
-
-一次達成的寫法，列出安裝同個 app 朋友的名字：
 
 Before:
 
 ```java
 // 如果不改變寫法，會整整跑完兩個 loop
-List<String> getInstalledFriendNameList(List<Profile> friends) {
-    return getFriendNameList(getInstalledFriendList());
+List<String> getFemaleList(List<User> users) {
+    return getDisplayNameList(getFemaleList());
 }
 ```
 
 ```java
 // 你可改變寫法，以沿用 loop
-List<String> getInstalledFriendNameList(List<Profile> friends) {
-    List<String> installedFriendNameList = new ArrayList<>();
-    for (Profile p : friends) {
-        if (p.getInstalled()) friendNames.add(p.getDisplayName());
+List<String> getFemaleList(List<User> users) {
+    List<String> names = new ArrayList<>();
+    for (User p : users) {
+        if (p.getInstalled()) names.add(p.getDisplayName());
     }
-    return installedFriendNameList;
+    return names;
 }
 ```
 
@@ -105,9 +124,9 @@ After:
 
 ```java
 // 而 Observable 不用刻意改變寫法，直接組起來就好：
-List<String> getInstalledFriendNameList(List<Profile> friends) {
-    return Observable.from(friends)
-        .filter(p -> p.getInstalled())
+List<String> getFemaleList(List<User> users) {
+    return Observable.from(users)
+        .filter(p -> p.getGender() == User.FEMALE)
         .map(p -> p.getDisplayName())
         .toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
 }
@@ -118,23 +137,23 @@ List<String> getInstalledFriendNameList(List<Profile> friends) {
 把界面維持 Observable 傳遞：
 
 ```java
-Observable<Profile> getInstalledFriendObs(Observable<Profile> friendObs) {
-    return friendObs.filter(p -> p.getInstalled());
+Observable<User> getFemaleObs(Observable<User> userObs) {
+    return userObs.filter(p -> p.getGender() == User.FEMALE);
 }
 
-Observable<Profile> getFriendNameObs(Observable<Profile> friendObs) {
-    return friendObs.map(p -> p.getDisplayName());
+Observable<User> getFriendNameObs(Observable<User> userObs) {
+    return userObs.map(p -> p.getDisplayName());
 }
 
-Observable<Profile> getInstalledFriendNameObs(List<Profile> friends) {
-    return getFriendNameObs(getInstalledFriendObs(Observable.from(friends)));
+Observable<User> getFemaleObs(List<User> users) {
+    return getFriendNameObs(getFemaleObs(Observable.from(users)));
 }
 ```
 
 這樣可以只做 100 筆過濾與轉換：
 
 ```java
-getInstalledFriendNameObs(friends)
+getFemaleObs(users)
     .take(100) // 拿個 100 筆
     .toList().toBlocking().single();
 ```
