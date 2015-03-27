@@ -59,6 +59,7 @@ List<User> getFemaleList(List<User> users, int limit) {
     return getFemaleList(users).subList(0, limit);
 }
 
+// 這裡會完整繞完萬名使用者，找出千名女性使用者後，抽出百名。
 getFemaleList(users, 100);
 ```
 
@@ -67,9 +68,13 @@ After:
 ```java
 Observable<User> getFemaleObs(List<User> users, int limit) {
     return getFemaleObs(users).take(limit);
+}
 
+// 這裡會蒐集到百名女性使用者後，即停止。
 getFemaleObs(users, 100);
 ```
+
+開始一點組合應用
 
 列出使用者名：
 
@@ -79,8 +84,8 @@ Before:
 List<String> getDisplayNameList(List<User> users) {
     List<String> nameList = new ArrayList<>();
 
-    for (User p : users) {
-        nameList.add(p.getDisplayName());
+    for (User user : users) {
+        nameList.add(user.getDisplayName());
     }
 
     return nameList;
@@ -100,33 +105,23 @@ List<String> getDisplayNameObs(List<User> users) {
 }
 ```
 
+列出前百名女性使用者名：
+
 Before:
 
 ```java
-// 如果不改變寫法，會整整跑完兩個 loop
 List<String> getFemaleList(List<User> users) {
-    return getDisplayNameList(getFemaleList());
-}
-```
-
-```java
-// 你可改變寫法，以沿用 loop
-List<String> getFemaleList(List<User> users) {
-    List<String> names = new ArrayList<>();
-    for (User p : users) {
-        if (p.getInstalled()) names.add(p.getDisplayName());
-    }
-    return names;
+    return getDisplayNameList(getFemaleList(users, 100));
 }
 ```
 
 After:
 
 ```java
-// 而 Observable 不用刻意改變寫法，直接組起來就好：
 List<String> getFemaleList(List<User> users) {
     return Observable.from(users)
         .filter(p -> p.getGender() == User.FEMALE)
+        .take(100)
         .map(p -> p.getDisplayName())
         .toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
 }
@@ -141,19 +136,19 @@ Observable<User> getFemaleObs(Observable<User> userObs) {
     return userObs.filter(p -> p.getGender() == User.FEMALE);
 }
 
-Observable<User> getFriendNameObs(Observable<User> userObs) {
+Observable<User> getDisplayNameObs(Observable<User> userObs) {
     return userObs.map(p -> p.getDisplayName());
 }
 
-Observable<User> getFemaleObs(List<User> users) {
-    return getFriendNameObs(getFemaleObs(Observable.from(users)));
+Observable<User> getFemaleNameObs(List<User> users) {
+    return getDisplayNameObs(getFemaleObs(Observable.from(users)));
 }
 ```
 
-這樣可以只做 100 筆過濾與轉換：
+100 筆過濾與轉換：
 
 ```java
-getFemaleObs(users)
+getFemaleNameObs(users)
     .take(100) // 拿個 100 筆
     .toList().toBlocking().single();
 ```
