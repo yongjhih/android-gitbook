@@ -74,6 +74,46 @@ Observable<User> getFemaleObs(List<User> users, int limit) {
 getFemaleObs(users, 100);
 ```
 
+我們可以從這裡看到差異，儘管你只要找出百名女性使用者，原本的寫法卻會繞完萬名使用者，找出所有女性使用者，再分割前一百名。
+而 RxJava 會聰明的找到第一百名女性使用者就馬上停止。原本的寫法要做到提前停止，就必須改寫：
+
+```java
+List<User> getFemaleList(/* @Writable */List<User> users) { ... }
+
+List<User> getFemaleList(List<User> users, int limit) {
+    //return getFemaleList(users).subList(0, limit);
+    List<User> femaleList = new ArrayList<>();
+
+    int i = 0;
+    for (User user : users) {
+        if (i >= limit) break;
+        if (user.getGender() == User.FEMALE) femaleList.add(user);
+        i++;
+    }
+
+    return femaleList;
+}
+
+// 比較靈活一點的寫法，提供 predicate function
+List<User> getFemaleList(List<User> users, Func2<Boolean, User, Integer> predicate) {
+    List<User> femaleList = new ArrayList<>();
+
+    int i = 0;
+    for (User user : users) {
+        if (!predicate.call(user, i)) break;
+        if (user.getGender() == User.FEMALE) femaleList.add(user);
+        i++;
+    }
+
+    return femaleList;
+}
+
+getFemaleList(users, 100);
+getFemaleList(users, (user, i) -> i <= 100);
+```
+
+而 RxJava 為了把靈活的方法套用在各個資料流身上，提供了 Observable 界面與其常用的 Operators 。
+
 開始一點組合應用
 
 列出使用者名：
