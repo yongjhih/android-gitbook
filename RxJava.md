@@ -942,10 +942,11 @@ public class Usb {
 
 * https://github.com/yongjhih/RxParse
 * https://github.com/ogaclejapan/RxBinding
-* https://github.com/mcharmas/Android-ReactiveLocation
-* https://github.com/square/sqlbrite
-* https://github.com/pardom/Ollie
 * https://github.com/eccyan/RxJava-Optional
+* https://github.com/square/sqlbrite
+* https://github.com/pushtorefresh/storio
+* https://github.com/mcharmas/Android-ReactiveLocation
+* https://github.com/pardom/Ollie
 * https://github.com/frankiesardo/ReactiveContent
 * https://github.com/evant/rxloader
 * https://github.com/vyshane/rex-weather
