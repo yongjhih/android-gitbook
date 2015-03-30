@@ -109,10 +109,10 @@ List<User> getFemaleList(List<User> users, Func2<Boolean, User, Integer> predica
 }
 
 getFemaleList(users, 100);
-getFemaleList(users, (user, i) -> i <= 100);
+getFemaleList(users, (user, i) -> i <= 100); // predicate Func2
 ```
 
-而 RxJava 為了把靈活的方法套用在各個資料流身上，提供了 Observable 界面與其常用的 Operators 。
+因此 RxJava 解決類似的問題，讓這種靈活的方法套用在各個資料流身上，，而提供了 Observable 界面。
 
 開始一點組合應用
 
