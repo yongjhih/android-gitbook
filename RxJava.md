@@ -114,7 +114,7 @@ getFemaleList(users, (user, i) -> i <= 100); // predicate Func2
 
 因此 RxJava 解決類似的問題，讓這種靈活的方法套用在各個資料流身上，而提供了 Observable 界面。
 
-開始一點組合應用
+接下來，開始一點組合應用：
 
 列出使用者名：
 
