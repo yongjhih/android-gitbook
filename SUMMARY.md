@@ -11,11 +11,11 @@
    * LoganSquare
 * MVVM
 * Clean architecture
-* Annotation Programming
 * Mockito
 * Retrofit
 * Orm - ActiveAndroid, DBFlow, Ollie
 * gradle
 * flow + mortar
+* Annotation Programming
 * [Android Support Annotations](android_support_annotations.md)
 
