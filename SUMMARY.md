@@ -5,6 +5,7 @@
 * [Lambda](lambda.md)
 * [AutoValue](autovalue.md)
 * [Dagger2](dagger2.md)
+* [Annotation Programming](annotation_programming.md)
 * ButterKnife
 * json to POJO
    * Jackson
@@ -16,6 +17,5 @@
 * Orm - ActiveAndroid, DBFlow, Ollie
 * gradle
 * flow + mortar
-* [Annotation Programming](annotation_programming.md)
 * [Android Support Annotations](android_support_annotations.md)
 
