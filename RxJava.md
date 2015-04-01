@@ -709,7 +709,7 @@ Observable<User> getUser(Activity activity) {
 
 ## Subject
 
-多方進貨，多方出貨。俗稱 Hot ，對應之前為 Cold 。
+相當於 Event Bus，多方進貨，多方出貨。開放式，俗稱 Hot ，對應之前封閉式的 Observable 為 Cold 。
 
 多方進貨，相當於把 Observable.OnSubscriber ，讓其他人可以塞資料。
 
