@@ -16,9 +16,38 @@ RxJava, Reactive Java,
 
 先看一些範例對照後，了解樣貌之後，我們再來討論 RxJava 基本使用概念與方法。
 
-## 有效解決重複的 Loop 提前打斷的能力。
+## 有效解決重複的 loop 增進效能，維持同個 loop
 
-假設我們有萬名按照註冊時間排序的使用者 `List<User> users`，其中有千名女性使用者。
+假設我們有一萬名年齡排序的使用者 `List<User> users`，其中有五千名女性使用者。
+
+列出使用者年齡：
+
+Before:
+
+```java
+List<Integer> getAgeList(List<User> users) {
+    List<Integer> ageList = new ArrayList<>();
+
+    for (User user : users) {
+        ageList.add(user.getAge());
+    }
+
+    return ageList;
+}
+```
+
+After:
+
+```java
+Observable<Integer> getAgeObs(List<User> users) {
+    return Observable.from(users).map(user -> user.getAge());
+}
+
+// 如果你堅持一定要傳遞 List
+List<Integer> getAgeList(List<User> users) {
+    return getAgeObs(users).toList().toBlocking().single();
+}
+```
 
 列出女性使用者：
 
@@ -50,7 +79,50 @@ List<User> getFemaleList(List<User> users) {
 }
 ```
 
-列出最新一百名女性使用者：
+組合一下就可以列出女性使用者年齡：
+
+Before:
+
+```java
+List<Integer> getFemaleAgeList(List<User> users) {
+    getAgeList(getFemaleList(users));
+}
+```
+
+你可以發現原本的寫法有個瑕疵，就是繞完一萬使用者，找出來五千名女性後，再繞一次這五千名女性，才詢問出年紀。也就是面面相覷這五千女性兩次。
+
+為了避免重複迴圈，你可改變寫法，以沿用 loop ：
+
+```java
+List<Integer> getFemaleAgeList(List<User> users) {
+    //getAgeList(getFemaleList(users));
+    List<Integer> ageList = new ArrayList<>();
+
+    for (User user : users) {
+        if (user.getGender() == User.FEMALE) {
+            ageList.add(user);
+        }
+    }
+
+    return ageList;
+}
+```
+
+而 Observable 不用刻意改變寫法，直接組起來就好：
+
+After:
+
+```java
+Observable<Integer> getFemaleAgeObs(List<User> users) {
+    return getFemaleObs(users).map(user -> user.getAge());
+}
+```
+
+你可以發現維持一樣的寫法，它會同時做兩件事情：過濾與轉換，避免重複的迴圈。
+
+## 拿多少做多少，不多也不少
+
+列出一百名女性使用者：
 
 Before:
 
@@ -75,7 +147,7 @@ getFemaleObs(users, 100);
 ```
 
 我們可以從這裡看到差異，儘管你只要找出百名女性使用者，原本的寫法卻會繞完萬名使用者，找出所有女性使用者，再分割前一百名。
-而 RxJava 會聰明的找到第一百名女性使用者就馬上停止。原本的寫法要做到提前停止，就必須改寫：
+而 Observable 會聰明的找到第一百名女性使用者就馬上停止。原本的寫法要做到提前停止，就必須改寫：
 
 ```java
 List<User> getFemaleList(/* @Writable */List<User> users) { ... }
@@ -116,36 +188,7 @@ getFemaleList(users, (user, i) -> i <= 100); // predicate Func2
 
 接下來，開始一點組合應用：
 
-列出使用者名：
-
-Before:
-
-```java
-List<String> getDisplayNameList(List<User> users) {
-    List<String> nameList = new ArrayList<>();
-
-    for (User user : users) {
-        nameList.add(user.getDisplayName());
-    }
-
-    return nameList;
-}
-```
-
-After:
-
-```java
-Observable<String> getDisplayNameObs(List<User> users) {
-    return Observable.from(users).map(p -> p.getDisplayName());
-}
-
-// 如果你堅持一定要傳遞 List
-List<String> getDisplayNameObs(List<User> users) {
-    return getDisplayNameObs(users).toList().toBlocking().single();
-}
-```
-
-列出前百名女性使用者名：
+列出前百名女性使用者年齡：
 
 Before:
 
@@ -160,29 +203,28 @@ After:
 ```java
 List<String> getFemaleList(List<User> users) {
     return Observable.from(users)
-        .filter(p -> p.getGender() == User.FEMALE)
+        .filter(user -> p.getGender() == User.FEMALE)
         .take(100)
-        .map(p -> p.getDisplayName())
+        .map(user -> p.getAge())
         .toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
 }
 ```
 
-首先，你可以發現你可以維持一樣的寫法，只要接起來就可以作用了。
 而且你可以之後才決定選幾筆，Observable 選幾筆才作幾筆過濾與轉換，有效避免無謂的全數過濾與轉換。
 
 你可以把界面維持 Observable 傳遞：
 
 ```java
 Observable<User> getFemaleObs(Observable<User> userObs) {
-    return userObs.filter(p -> p.getGender() == User.FEMALE);
+    return userObs.filter(user -> user.getGender() == User.FEMALE);
 }
 
-Observable<User> getDisplayNameObs(Observable<User> userObs) {
-    return userObs.map(p -> p.getDisplayName());
+Observable<User> getAgeObs(Observable<User> userObs) {
+    return userObs.map(user -> p.getAge());
 }
 
 Observable<User> getFemaleNameObs(List<User> users) {
-    return getDisplayNameObs(getFemaleObs(Observable.from(users)));
+    return getAgeObs(getFemaleObs(Observable.from(users)));
 }
 ```
 
