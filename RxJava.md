@@ -85,11 +85,11 @@ Before:
 
 ```java
 List<Integer> getFemaleAgeList(List<User> users) {
-    getAgeList(getFemaleList(users));
+    getAgeList(getFemaleList(users)); // 如果不改變寫法，會整整跑完兩個 loop
 }
 ```
 
-你可以發現原本的寫法有個瑕疵，就是繞完一萬使用者，找出來五千名女性後，再繞一次這五千名女性，才詢問出年紀。也就是面面相覷這五千女性兩次。
+你可以發現原本的寫法有個瑕疵，就是會先繞完一萬使用者，找出來五千名女性後，再繞一次這五千名女性，才詢問出年紀。也就是面面相覷這五千女性兩次。
 
 為了避免重複迴圈，你可改變寫法，以沿用 loop ：
 
@@ -194,7 +194,7 @@ Before:
 
 ```java
 List<String> getFemaleList(List<User> users) {
-    return getDisplayNameList(getFemaleList(users, 100));
+    return getAgeList(getFemaleList(users, 100));
 }
 ```
 
@@ -210,7 +210,7 @@ List<String> getFemaleList(List<User> users) {
 }
 ```
 
-而且你可以之後才決定選幾筆，Observable 選幾筆才作幾筆過濾與轉換，有效避免無謂的全數過濾與轉換。
+你可以之後才決定選幾筆，Observable 選幾筆才作幾筆過濾與轉換，有效避免無謂的全數過濾與轉換。
 
 你可以把界面維持 Observable 傳遞：
 
@@ -223,15 +223,15 @@ Observable<User> getAgeObs(Observable<User> userObs) {
     return userObs.map(user -> p.getAge());
 }
 
-Observable<User> getFemaleNameObs(List<User> users) {
+Observable<User> getFemaleAgeObs(List<User> users) {
     return getAgeObs(getFemaleObs(Observable.from(users)));
 }
 ```
 
-然後只選擇 100 筆過濾與轉換：
+只做 100 筆過濾與轉換(女性、年齡)：
 
 ```java
-getFemaleNameObs(users)
+getFemaleAgeObs(users)
     .take(100) // 拿個 100 筆
     .toList().toBlocking().single();
 ```
