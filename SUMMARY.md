@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [RxJava](RxJava.md)
+   * Annotation Programming
 * [Lambda](lambda.md)
 * [AutoValue](autovalue.md)
 * [Dagger2](dagger2.md)
