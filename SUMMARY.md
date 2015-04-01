@@ -2,7 +2,6 @@
 
 * [Introduction](README.md)
 * [RxJava](RxJava.md)
-   * Annotation Programming
 * [Lambda](lambda.md)
 * [AutoValue](autovalue.md)
 * [Dagger2](dagger2.md)
@@ -12,6 +11,7 @@
    * LoganSquare
 * MVVM
 * Clean architecture
+* Annotation Programming
 * Mockito
 * Retrofit
 * Orm - ActiveAndroid, DBFlow, Ollie
