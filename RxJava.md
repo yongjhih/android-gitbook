@@ -120,7 +120,7 @@ Observable<Integer> getFemaleAgeObs(List<User> users) {
 
 你可以發現維持一樣的寫法，它會同時做兩件事情：過濾與轉換，避免重複的迴圈。
 
-## 拿多少做多少，不多也不少
+## 提前打斷迴圈的能力，避免不必要的過濾與轉換
 
 列出一百名女性使用者：
 
@@ -336,7 +336,7 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
 
 p.s. *這邊的 Subject 方法 與 Observable.create() 方法其實有差異， Observable.create() 內的 OnSubscriber 直到 subscribe() 才會執行。但 Subject 方法會馬上跑，所以這邊用 ReplaySubject 來記住進貨。*
 
-## 拿多少做多少，例如常用的 map()
+## map()
 
 我們經常把 `List<T>` 轉成 `List<R>`，如： `List<TextView>` 轉成 `List<String>`，你可能會把整個 textViews 一一取出 `toString()` 然後抄一份：
 
