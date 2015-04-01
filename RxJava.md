@@ -193,19 +193,19 @@ getFemaleList(users, (user, i) -> i <= 100); // predicate Func2
 Before:
 
 ```java
-List<String> getFemaleList(List<User> users) {
-    return getAgeList(getFemaleList(users, 100));
+List<Integer> getFemaleAgeList(List<User> users, int limit) {
+    return getAgeList(getFemaleList(users, limit));
 }
 ```
 
 After:
 
 ```java
-List<String> getFemaleList(List<User> users) {
+List<Integer> getFemaleAgeList(List<User> users, int limit) {
     return Observable.from(users)
-        .filter(user -> p.getGender() == User.FEMALE)
-        .take(100)
-        .map(user -> p.getAge())
+        .filter(user -> user.getGender() == User.FEMALE)
+        .take(limit)
+        .map(user -> user.getAge())
         .toList().toBlocking().single(); // 如果你堅持一定要傳遞 List
 }
 ```
@@ -219,11 +219,11 @@ Observable<User> getFemaleObs(Observable<User> userObs) {
     return userObs.filter(user -> user.getGender() == User.FEMALE);
 }
 
-Observable<User> getAgeObs(Observable<User> userObs) {
+Observable<Integer> getAgeObs(Observable<User> userObs) {
     return userObs.map(user -> p.getAge());
 }
 
-Observable<User> getFemaleAgeObs(List<User> users) {
+Observable<Integer> getFemaleAgeObs(List<User> users) {
     return getAgeObs(getFemaleObs(Observable.from(users)));
 }
 ```
