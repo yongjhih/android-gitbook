@@ -170,7 +170,7 @@ List<String> getFemaleList(List<User> users) {
 首先，你可以發現你可以維持一樣的寫法，只要接起來就可以作用了。
 而且你可以之後才決定選幾筆，Observable 選幾筆才作幾筆過濾與轉換，有效避免無謂的全數過濾與轉換。
 
-把界面維持 Observable 傳遞：
+你可以把界面維持 Observable 傳遞：
 
 ```java
 Observable<User> getFemaleObs(Observable<User> userObs) {
@@ -186,7 +186,7 @@ Observable<User> getFemaleNameObs(List<User> users) {
 }
 ```
 
-100 筆過濾與轉換：
+然後只選擇 100 筆過濾與轉換：
 
 ```java
 getFemaleNameObs(users)
