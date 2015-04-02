@@ -7,6 +7,7 @@
 * [Dagger2](dagger2.md)
 * [Annotation Programming](annotation_programming.md)
 * [RecyclerView, TwoWayView](recyclerview_twowayview.md)
+* [Android Support Annotations](android_support_annotations.md)
 * ButterKnife
 * json to POJO
    * Jackson
@@ -18,5 +19,4 @@
 * Orm - ActiveAndroid, DBFlow, Ollie
 * gradle
 * flow + mortar
-* [Android Support Annotations](android_support_annotations.md)
 
