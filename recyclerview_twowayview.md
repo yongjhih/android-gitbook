@@ -1,13 +1,22 @@
 # RecyclerView, TwoWayView
 
-
 ```java
-ListRecyclerAdapter<String, IconViewHolder> listAdapter = ListRecyclerAdapter.create();
-listAdapter.createViewHolder((parent, viewType) -> new IconViewHolder(LayoutInflater.from(context).inflate(R.layout.item_icon, parent, false)));
-icons.setLayoutManager(new LinearLayoutManager(activity));
-icons.setAdapter(listAdapter);
-listAdapter.getList().addAll(Arrays.asList("http://example.com/a.png"));
-listAdapter.notifyDataSetChanged(); // TODO hook List.add(), List.addAll(), etc. modifitable operations
+@InjectView(R.id.icons)
+public RecyclerView icons;
+
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    ListRecyclerAdapter<String, IconViewHolder> listAdapter = ListRecyclerAdapter.create();
+    
+    listAdapter.createViewHolder((parent, viewType) -> new IconViewHolder(LayoutInflater.from(context).inflate(R.layout.item_icon, parent, false)));
+    
+    icons.setLayoutManager(new LinearLayoutManager(activity));
+    icons.setAdapter(listAdapter);
+    
+    listAdapter.getList().addAll(Arrays.asList("http://example.com/a.png"));
+    listAdapter.notifyDataSetChanged(); // TODO hook List.add(), List.addAll(), etc. modifitable operations
+}
 ```
 
 IconViewHolder:
