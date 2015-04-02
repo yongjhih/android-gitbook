@@ -11,7 +11,7 @@ public void onCreate(Bundle savedInstanceState) {
 
     final List<String> list = new ArrayList<>(Arrays.asList("http://example.com/a.png")));
     
-    RecyclerAdapter<IconViewHolder> listAdapter = new RecyclerAdapter<IconViewHolder>() {
+    RecyclerAdapter<IconViewHolder> listAdapter = new RecyclerAdapter<>() {
         @Override
         public IconViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new IconViewHolder(LayoutInflater.from(context).inflate(R.layout.item_icon, parent, false)));
