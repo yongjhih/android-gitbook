@@ -4,7 +4,7 @@ Before:
 
 ```java
 @InjectView(R.id.icons)
-public RecyclerView icons;
+RecyclerView icons;
 
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
