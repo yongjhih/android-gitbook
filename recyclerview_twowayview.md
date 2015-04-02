@@ -87,4 +87,5 @@ public class IconViewHolder extends BindViewHolder<String> {
 }
 ```
 
-https://gist.github.com/yongjhih/d8db8c69190293098eec
+* https://gist.github.com/yongjhih/d8db8c69190293098eec
+* http://stackoverflow.com/questions/26649406/nested-recycler-view-height-doesnt-wrap-its-content/28510031
