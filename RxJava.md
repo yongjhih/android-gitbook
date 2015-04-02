@@ -70,7 +70,7 @@ After:
 
 ```java
 Observable<User> getFemaleObs(List<User> users) {
-    return Observable.from(users).filter(p -> p.getGender() == User.FEMALE);
+    return Observable.from(users).filter(user -> user.getGender() == User.FEMALE);
 }
 
 // 如果你堅持一定要傳遞 List
