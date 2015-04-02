@@ -1,4 +1,11 @@
-# RecyclerView, TwoWayView
+# RecyclerView
+
+Before:
+
+```java
+```
+
+After:
 
 ```java
 @InjectView(R.id.icons)
