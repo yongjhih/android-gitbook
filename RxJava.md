@@ -18,7 +18,7 @@ RxJava, Reactive Java,
 
 ## 有效解決重複的 loop 增進效能，維持同個 loop
 
-假設我們有一萬名年齡排序的使用者 `List<User> users`，其中有五千名女性使用者。
+假設我們有一萬名按年齡排序的使用者 `List<User> users`，其中有五千名女性使用者。
 
 列出使用者年齡：
 
