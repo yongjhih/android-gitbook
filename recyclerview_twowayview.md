@@ -25,6 +25,9 @@ public void onCreate(Bundle savedInstanceState) {
     
     icons.setLayoutManager(new LinearLayoutManager(activity));
     icons.setAdapter(listAdapter);
+    
+    list.add("http://example.com/a.png");
+    listAdapter.notifyDataSetChanged();
 }
 ```
 
