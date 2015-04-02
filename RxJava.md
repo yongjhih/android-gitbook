@@ -186,7 +186,7 @@ getFemaleList(users, 100);
 getFemaleList(users, (user, i) -> i <= 100); // predicate Func2
 ```
 
-因此 RxJava 解決類似的問題，讓這種靈活的方法套用在各個資料流身上，而提供了 Observable 界面。
+這種靈活的方法套用在各個資料流身上，也就是 RxJava 所提供的 operators 。
 
 接下來，開始一點組合應用：
 
