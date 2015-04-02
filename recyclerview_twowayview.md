@@ -23,18 +23,17 @@ IconViewHolder:
 
 ```java
 public class IconViewHolder extends BindViewHolder<String> {
-        @InjectView(R.id.icon)
-        public SimpleDraweeView icon;
- 
-        public IconViewHolder(View itemView) {
-            super(itemView);
-            ButterKnife.inject(this, itemView);
-        }
- 
-        @Override
-        public void bind(int position, String item) {
-            avatar.setImageUIconViewHolderRI(Uri.parse(item));
-        }
+    @InjectView(R.id.icon)
+    public SimpleDraweeView icon;
+
+    public IconViewHolder(View itemView) {
+        super(itemView);
+        ButterKnife.inject(this, itemView);
+    }
+
+    @Override
+    public void bind(int position, String item) {
+        icon.setImageUIconViewHolderRI(Uri.parse(item));
     }
 }
 ```
