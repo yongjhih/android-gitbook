@@ -26,7 +26,7 @@ public void onCreate(Bundle savedInstanceState) {
     icons.setLayoutManager(new LinearLayoutManager(activity));
     icons.setAdapter(listAdapter);
     
-    list.add("http://example.com/a.png");
+    list.add("http://example.com/b.png");
     listAdapter.notifyDataSetChanged();
 }
 ```
@@ -55,13 +55,14 @@ public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     ListRecyclerAdapter<String, IconViewHolder> listAdapter = ListRecyclerAdapter.create();
+    listAdapter.getList().add("http://example.com/a.png");
     
     listAdapter.createViewHolder((parent, viewType) -> new IconViewHolder(LayoutInflater.from(context).inflate(R.layout.item_icon, parent, false)));
     
     icons.setLayoutManager(new LinearLayoutManager(activity));
     icons.setAdapter(listAdapter);
     
-    listAdapter.getList().addAll(Arrays.asList("http://example.com/a.png"));
+    listAdapter.getList().add("http://example.com/b.png");
     listAdapter.notifyDataSetChanged(); // TODO hook List.add(), List.addAll(), etc. modifitable operations
 }
 ```
