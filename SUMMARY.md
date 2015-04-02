@@ -18,5 +18,5 @@
 * gradle
 * flow + mortar
 * [Android Support Annotations](android_support_annotations.md)
-* [RecyclerView, TwoWayView](recyclerview,_twowayview.md)
+* [RecyclerView, TwoWayView](recyclerview_twowayview.md)
 
