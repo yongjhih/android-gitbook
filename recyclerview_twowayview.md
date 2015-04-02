@@ -42,6 +42,7 @@ public class IconViewHolder extends BindViewHolder<String> {
     }
 }
 ```
+有資料外漏的情形。
 
 使用筆者簡單寫的 `ListRecyclerAdapter<T, VH>`
 
