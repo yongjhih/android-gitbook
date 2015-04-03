@@ -19,21 +19,21 @@ Observable.range(1, 10).lift(new OperatorFrequency(1, TimeUnit.SECONDS)).subscri
 ```
 
 ```java
-public class OperatorTick<T> implements Operator<T, T> {
+public class OperatorFrequency<T> implements Operator<T, T> {
     private long interval;
     private TimeUnit unit;
  
-    public OperatorTick(long interval, TimeUnit unit) {
+    public OperatorFrequency(long interval, TimeUnit unit) {
         this.interval = interval;
         this.unit = unit;
     }
  
     @Override
     public Subscriber<? super T> call(final Subscriber<? super T> child) {
-        return new TickSubscriber<>(interval, unit, child);
+        return new FrequencySubscriber<>(interval, unit, child);
     }
  
-    static class TickSubscriber<T> extends Subscriber<T> {
+    static class FrequencySubscriber<T> extends Subscriber<T> {
         private long interval;
         private TimeUnit unit;
         private final Subscriber<? super T> child;
@@ -44,7 +44,7 @@ public class OperatorTick<T> implements Operator<T, T> {
         private Subscription subscription;
         private long zipCount = 0;
  
-        public TickSubscriber(long interval, TimeUnit unit, final Subscriber<? super T> child) {
+        public FrequencySubscriber(long interval, TimeUnit unit, final Subscriber<? super T> child) {
             super();
  
             this.interval = interval;
