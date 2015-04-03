@@ -84,11 +84,6 @@ public abstract class Subscriber<T> implements Observer<T>, Subscription {
     public abstract void onError(Throwable e);
     public abstract void onNext(T t);
     // }
-
-    // public interface Subscription {    
-    public void unsubscribe();
-    public boolean isUnsubscribed();
-    // }
 }
 ```
     
