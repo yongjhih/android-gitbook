@@ -68,16 +68,30 @@ https://gist.github.com/yongjhih/20ccfab5007ea6bc9f0d
 // R 是出去的型別
 public class OperatorFrequency<T> implements Operator<R, T> {
     @Override
-    public Subscriber<? super T> call(Subscriber<? super R> child) { ... }
+    public Subscriber<? super T> call(Subscriber<? super R> child) { ... } // child 下一站的窗口
 ```
 
 ```java
+// Operator 是一個簡單的介面，只要求回傳承辦口以及告知下一站窗口型別
 public interface Operator<R, T> extends Func1<Subscriber<? super R>, Subscriber<? super T>> { ... }
 ```
 
 ```java
-public abstract class Subscriber<T> implements Observer<T>, Subscription { ... }
+// Subscriber
+public abstract class Subscriber<T> implements Observer<T>, Subscription {
+    // public interface Observer<T> {
+    public abstract void onCompleted();
+    public abstract void onError(Throwable e);
+    public abstract void onNext(T t);
+    // }
+
+    // public interface Subscription {    
+    public void unsubscribe();
+    public boolean isUnsubscribed();
+    // }
+}
 ```
+    
 
 
 ## 每隔一段時間 frequency
