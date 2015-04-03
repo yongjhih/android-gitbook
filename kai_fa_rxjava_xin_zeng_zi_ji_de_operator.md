@@ -10,9 +10,58 @@ Observable.range(1, 10).lift(new OperatorToReversedList())
 // [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
 
+OperatorToReversedList.java
+
+```java
+public final class OperatorToReversedList<T> implements Operator<List<T>, T> {
+    @SuppressWarnings("unchecked")
+    public OperatorToReversedList() {
+    }
+ 
+    @Override
+    public Subscriber<? super T> call(final Subscriber<? super List<T>> o) {
+        return new Subscriber<T>(o) {
+ 
+            final List<T> list = new ArrayList<T>();
+ 
+            @Override
+            public void onStart() {
+                request(Long.MAX_VALUE);
+            }
+ 
+            @Override
+            public void onCompleted() {
+                try {
+                    Collections.reverse(list);
+ 
+                    o.onNext(list);
+                    o.onCompleted();
+                } catch (Throwable e) {
+                    onError(e);
+                }
+            }
+ 
+            @Override
+            public void onError(Throwable e) {
+                o.onError(e);
+            }
+ 
+            @Override
+            public void onNext(T value) {
+                list.add(value);
+            }
+ 
+        };
+    }
+}
+```
+
+https://gist.github.com/yongjhih/20ccfab5007ea6bc9f0d
+
+
 ## 每隔一段時間 frequency
 
-```
+```java
 Observable.range(1, 10).lift(new OperatorFrequency(1, TimeUnit.SECONDS))
     .subscribe(i -> System.out.println(i + ": " + System.currentTimeMillis()).subscribe());
 
@@ -27,6 +76,8 @@ Observable.range(1, 10).lift(new OperatorFrequency(1, TimeUnit.SECONDS))
 // 9: 1428053479338
 // 10: 1428053480338
 ```
+
+OperatorFrequency.java
 
 ```java
 public class OperatorFrequency<T> implements Operator<T, T> {
@@ -98,6 +149,8 @@ public class OperatorFrequency<T> implements Operator<T, T> {
     }
 }
 ```
+
+https://gist.github.com/yongjhih/ba24c9b3d025333ede17
 
 # See Also
 
