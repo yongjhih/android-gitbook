@@ -1,6 +1,5 @@
 # 開發 RxJava 新增自己的 Operator
 
-
 ## 倒序 Observable : OperatorToReversedList
 
 ```java
