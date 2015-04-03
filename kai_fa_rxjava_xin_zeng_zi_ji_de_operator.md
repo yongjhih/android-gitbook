@@ -79,6 +79,8 @@ public interface Operator<R, T> extends Func1<Subscriber<? super R>, Subscriber<
 ```java
 // Subscriber
 public abstract class Subscriber<T> implements Observer<T>, Subscription {
+    public abstract void onStart();
+
     // public interface Observer<T> {
     public abstract void onCompleted();
     public abstract void onError(Throwable e);
