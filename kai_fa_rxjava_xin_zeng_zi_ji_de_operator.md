@@ -2,34 +2,38 @@
 
 ## 倒序 Observable : OperatorToReversedList
 
+Before:
+
+```java
+Observable.range(1, 10).toList().doOnNext(list -> Collections.reverse(list))
+    .subscribe(System.out::println);
+// [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+```
+
+After:
+
 ```java
 Observable.range(1, 10).lift(new OperatorToReversedList())
     .subscribe(System.out::println);
-
-// [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
 
 OperatorToReversedList.java
 
 ```java
-public final class OperatorToReversedList<T> implements Operator<List<T>, T> {
-    @SuppressWarnings("unchecked")
-    public OperatorToReversedList() {
-    }
- 
+public final class OperatorToReversedList<T> implements Operator<List<T>, T> { // 進貨 <T> 操作員處理後出貨 <R extends List<T>>
     @Override
     public Subscriber<? super T> call(final Subscriber<? super List<T>> o) {
-        return new Subscriber<T>(o) {
+        return new Subscriber<T>(o) { // 回傳承辦窗口
  
             final List<T> list = new ArrayList<T>();
  
             @Override
-            public void onStart() {
+            public void onStart() { // 開始運作
                 request(Long.MAX_VALUE);
             }
  
             @Override
-            public void onCompleted() {
+            public void onCompleted() { // 上一站結束
                 try {
                     Collections.reverse(list);
  
@@ -41,12 +45,12 @@ public final class OperatorToReversedList<T> implements Operator<List<T>, T> {
             }
  
             @Override
-            public void onError(Throwable e) {
+            public void onError(Throwable e) { // 上一站出狀況
                 o.onError(e);
             }
  
             @Override
-            public void onNext(T value) {
+            public void onNext(T value) { // 傳遞給下一站
                 list.add(value);
             }
  
@@ -56,6 +60,24 @@ public final class OperatorToReversedList<T> implements Operator<List<T>, T> {
 ```
 
 https://gist.github.com/yongjhih/20ccfab5007ea6bc9f0d
+
+實現一個 Operator (操作員) 主要需要回傳一個 Subscriber (承辦窗口) 讓其他人可以塞資料給你，然後你處理完吐資料出去。
+
+```java
+// T 是進來的型別
+// R 是出去的型別
+public class OperatorFrequency<T> implements Operator<R, T> {
+    @Override
+    public Subscriber<? super T> call(Subscriber<? super R> child) { ... }
+```
+
+```java
+public interface Operator<R, T> extends Func1<Subscriber<? super R>, Subscriber<? super T>> { ... }
+```
+
+```java
+public abstract class Subscriber<T> implements Observer<T>, Subscription { ... }
+```
 
 
 ## 每隔一段時間 frequency
