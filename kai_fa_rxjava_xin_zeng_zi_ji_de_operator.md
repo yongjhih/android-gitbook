@@ -186,5 +186,5 @@ https://gist.github.com/yongjhih/ba24c9b3d025333ede17
 
 # See Also
 
-* https://github.com/yongjhih/RxJava-GroupByTest/blob/master/src/main/java/rx/internal/operators/OperatorGroupByGroup.java
 * https://github.com/yongjhih/RxJava-Operators/blob/master/src/main/java/com/github/yongjhih/Main.java
+* https://github.com/yongjhih/RxJava-GroupByTest/blob/master/src/main/java/rx/internal/operators/OperatorGroupByGroup.java
