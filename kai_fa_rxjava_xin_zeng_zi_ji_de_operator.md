@@ -94,7 +94,7 @@ public abstract class Subscriber<T> implements Observer<T>, Subscription {
     
 
 
-## 每隔一段時間 frequency
+## OperatorFrequency 每隔一段時間
 
 ```java
 Observable.range(1, 10).lift(new OperatorFrequency(1, TimeUnit.SECONDS))
