@@ -81,7 +81,7 @@ public class IconViewHolder extends BindViewHolder<String> {
     }
 
     @Override
-    public void bind(int position, String item) {
+    public void onBind(int position, String item) {
         icon.setImageUIconViewHolderRI(Uri.parse(item));
     }
 }
