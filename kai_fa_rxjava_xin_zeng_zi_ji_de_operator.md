@@ -13,9 +13,18 @@ Observable.range(1, 10).lift(new OperatorToReversedList()).subscribe(System.out:
 ## 每隔一段時間 frequency
 
 ```
-Observable.range(1, 10).lift(new OperatorFrequency(1, TimeUnit.SECONDS)).subscribe(i, System.out.println(i + ": " + System.currentTimemillis()));
+Observable.range(1, 10).lift(new OperatorFrequency(1, TimeUnit.SECONDS)).subscribe();
 
-// 
+// 1: 1428053481338
+// 2: 1428053482339
+// 3: 1428053483338
+// 4: 1428053474339
+// 5: 1428053475338
+// 6: 1428053476338
+// 7: 1428053477338
+// 8: 1428053478338
+// 9: 1428053479338
+// 10: 1428053480338
 ```
 
 ```java
