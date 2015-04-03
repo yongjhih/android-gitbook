@@ -4,7 +4,8 @@
 ## 倒序 Observable : OperatorToReversedList
 
 ```java
-Observable.range(1, 10).lift(new OperatorToReversedList()).subscribe(System.out::println);
+Observable.range(1, 10).lift(new OperatorToReversedList())
+    .subscribe(System.out::println);
 
 // [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
@@ -13,7 +14,8 @@ Observable.range(1, 10).lift(new OperatorToReversedList()).subscribe(System.out:
 ## 每隔一段時間 frequency
 
 ```
-Observable.range(1, 10).lift(new OperatorFrequency(1, TimeUnit.SECONDS)).subscribe();
+Observable.range(1, 10).lift(new OperatorFrequency(1, TimeUnit.SECONDS))
+    .subscribe(i -> System.out.println(i + ": " + System.currentTimeMillis()).subscribe());
 
 // 1: 1428053481338
 // 2: 1428053482339
