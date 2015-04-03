@@ -61,7 +61,7 @@ public final class OperatorToReversedList<T> implements Operator<List<T>, T> { /
 
 https://gist.github.com/yongjhih/20ccfab5007ea6bc9f0d
 
-實現一個 Operator (操作員) 主要需要回傳一個 Subscriber (承辦窗口) 讓其他人可以塞資料給你，然後你處理完吐資料出去。
+實現一個 Operator (操作員) 主要需要回傳一個 Subscriber (承辦窗口) 讓其他人可以塞資料給你，然後等你處理完吐資料出去。
 
 ```java
 // T 是進來的型別
