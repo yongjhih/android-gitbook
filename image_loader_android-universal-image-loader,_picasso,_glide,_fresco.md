@@ -56,9 +56,9 @@ glide 目前看起來 google 有些演講有提過
 glide 目前看起來 google 有些演講有提過
 
 
-## 附錄 - 虛擬網址 - NetworkPipeContentProvider
+## 附錄 - 虛擬網址 - Facebook 真實圖片轉址
 
-`https://graph.facebook.com/{id}/picture` 雖然有轉址能力，不過這裡為了教學所需，還是寫了一個 FacebookPictureProvider
+`https://graph.facebook.com/{id}/picture` 雖然本身有轉址能力，不過這裡為了教學所需，還是寫了一個 FacebookPictureProvider
 
 ImageLoader 大多支援 ContentProvider 網址，`content://` 所以我們可以利用它來做虛擬網址轉址。
 
