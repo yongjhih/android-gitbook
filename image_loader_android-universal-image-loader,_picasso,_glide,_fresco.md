@@ -86,7 +86,8 @@ public class FacebookPictureProvider extends NetworkPipeContentProvider {
     static class Picture {
         Data data;
         static class Data {
-            String url;
+            // "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/xxxxxxxxxxxxxxxx"
+            String url; 
         }
     }
 
