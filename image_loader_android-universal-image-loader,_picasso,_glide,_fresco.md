@@ -38,6 +38,13 @@ Picasso:
 Picasso.with(context).load("http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/125px-Flag_of_the_Republic_of_China.svg.png").into(mImageView);
 ```
 
+Glide:
+
+```java
+Glide.with(context).load("http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/125px-Flag_of_the_Republic_of_China.svg.png").into(mImageView);
+```
+
+
 
 而且還會很聰明的知道 ImageView 在可視範圍內才去做下載與解壓縮 bitmap 一旦離開就停止一切作業。而且依據 ImageView 的可視長寬作參考最適 cache
 
