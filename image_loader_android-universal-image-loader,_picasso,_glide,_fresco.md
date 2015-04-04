@@ -64,7 +64,7 @@ ImageLoader 大多支援 ContentProvider 網址，`content://` 所以我們可�
 
 例如:
 
-`https://graph.facebook.com/601234567/picture`:
+GET `https://graph.facebook.com/601234567/picture`:
 
 ```json
 {
