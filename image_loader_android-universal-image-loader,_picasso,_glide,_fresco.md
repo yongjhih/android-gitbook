@@ -16,9 +16,31 @@ AUIL 是因為在記憶體、儲存空間的快取策略還有其它有的沒有
 
 只有 fresco 需要更換 layout class 原因是因為它為了效能，操作較低階的畫布。
 
-## Android-Universal-Image-Loader
+常見的需求：
 
-常見的訂製：
+* 更換 OkHttp 下載器
+* 潤角、圓圖、顯示動畫
+* 支援 Exif 轉正，支援影片轉正
+
+## Fresco - facebook
+
+* ImagePipeLine - 更換 OkHttp 下載器 (有 bug ，[PR#21](https://github.com/facebook/fresco/pull/21) 中)
+
+## picasso - square
+
+* Factory -> 更換 OkHttp 下載器
+* Transformer -> 潤角、圓圖、顯示動畫
+
+## glide
+
+glide 目前看起來 google 有些演講有提過
+
+## See Also
+
+* Using okhttp backed for Volley - https://gist.github.com/bryanstern/4e8f1cb5a8e14c202750
+* https://github.com/facebook/fresco/pull/21
+
+## Android-Universal-Image-Loader
 
 * ImageDownloader -> 更換 OkHttp 下載器
 * ImageDisplayer -> 潤角、圓圖、顯示動畫
