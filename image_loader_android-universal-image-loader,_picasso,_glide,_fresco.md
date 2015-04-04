@@ -58,7 +58,9 @@ glide 目前看起來 google 有些演講有提過
 
 ## 附錄 - 虛擬網址 - NetworkPipeContentProvider
 
-https://graph.facebook.com/{id}/picture 雖然有轉址能力，不過這裡為了教學所需，還是寫了一個 FacebookPictureProvider
+`https://graph.facebook.com/{id}/picture` 雖然有轉址能力，不過這裡為了教學所需，還是寫了一個 FacebookPictureProvider
+
+ImageLoader 大多支援 ContentProvider 網址，`content://` 所以我們可以利用它來做虛擬網址轉址。
 
 ```java
 public class FacebookPictureProvider extends NetworkPipeContentProvider {
@@ -68,7 +70,7 @@ public class FacebookPictureProvider extends NetworkPipeContentProvider {
 
     // content://com.facebook.provider.PictureProvider/601234567
     @Override
-    public String getUri(Uri uri) {
+    public String getUri(Uri uri) { // 轉址 - 改寫網址
        Picture picture = facebook.picture(uri.getPathSegments().get(0)).toBlocking().first();
        
        return picture.data.url;
