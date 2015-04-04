@@ -28,6 +28,9 @@ AUIL 是因為在記憶體、儲存空間的快取策略還有其它有的沒有
 
 ## picasso - square
 
+* Factory -> 更換 OkHttp 下載器
+* Transformer -> 潤角、圓圖、顯示動畫
+
 ## glide
 
 glide 目前看起來 google 有些演講有提過
