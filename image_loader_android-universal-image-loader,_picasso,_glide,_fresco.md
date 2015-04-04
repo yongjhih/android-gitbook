@@ -26,6 +26,8 @@ AUIL 是因為在記憶體、儲存空間的快取策略還有其它有的沒有
 
 ## Fresco - facebook
 
+* ImagePipeLine - 更換 OkHttp 下載器 (有 bug ，PR 中)
+
 ## picasso - square
 
 * Factory -> 更換 OkHttp 下載器
