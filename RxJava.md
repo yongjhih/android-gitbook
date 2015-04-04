@@ -214,7 +214,7 @@ List<Integer> getFemaleAgeList(List<User> users, int limit) {
 
 你可以之後才決定選幾筆，Observable 選幾筆才作幾筆過濾與轉換，有效避免無謂的全數過濾與轉換。
 
-你可以把界面維持 Observable 傳遞：
+你可以把界面維持 Observable 傳遞，避免重複的迴圈以及不必要的全數過濾與轉換，維持一樣的撰寫方法，直接組裝起來就好：
 
 ```java
 Observable<User> getFemaleObs(Observable<User> userObs) {
