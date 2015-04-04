@@ -56,9 +56,50 @@ glide 目前看起來 google 有些演講有提過
 glide 目前看起來 google 有些演講有提過
 
 
-## 附錄 - 虛擬網址 - ContentProvider
+## 附錄 - 虛擬網址 - NetworkPipeContentProvider
+
+https://graph.facebook.com/{id}/picture 雖然有轉址能力，不過這裡為了教學所需，還是寫了一個 FacebookPictureProvider
+
+```java
+public class FacebookPictureProvider extends NetworkPipeContentProvider {
+    public static final String AUTHORITY = "com.facebook.provider.PictureProvider";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/");
+    private Facebook facebook;
+
+    // content://com.facebook.provider.PictureProvider/601234567
+    @Override
+    public String getUri(Uri uri) {
+       Picture picture = facebook.picture(uri.getPathSegments().get(0)).toBlocking().first();
+       
+       return picture.data.url;
+    }
+    
+    interface Facebook {
+        // https://graph.facebook.com/{id}/picture
+        // https://graph.facebook.com/601234567/picture
+        @GET("/{id}/picture")
+        Observable<Picture> picture(
+            @Path("id") String id);
+    }
+    
+    static class Picture {
+        Data data;
+        static class Data {
+            String url;
+        }
+    }
+
+    public FacebookPictureProvider() {
+        RestAdapter restAdapter = new RestAdapter.Builder()
+            .setEndpoint("https://graph.facebook.com")
+            .build();
+        facebook = restAdapter.create(Facebook.class);
+    }
+}
+```
 
 
+* https://gist.github.com/yongjhih/2175ec83be13bd7d9740#file-networkpipecontentprovider-java
 
 ## See Also
 
