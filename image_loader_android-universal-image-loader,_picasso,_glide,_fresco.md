@@ -80,8 +80,7 @@ public class FacebookPictureProvider extends NetworkPipeContentProvider {
         // https://graph.facebook.com/{id}/picture
         // https://graph.facebook.com/601234567/picture
         @GET("/{id}/picture")
-        Observable<Picture> picture(
-            @Path("id") String id);
+        Observable<Picture> picture(@Path("id") String id);
     }
     
     static class Picture {
