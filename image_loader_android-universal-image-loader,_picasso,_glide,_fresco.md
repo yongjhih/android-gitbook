@@ -51,10 +51,9 @@ Fresco:
 ```java
 mImageView.setImageURI(Uri.parse("http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/125px-Flag_of_the_Republic_of_China.svg.png"));
 ```
+除了寫法的簡便之外，為什麼要 Image Loader ，什麼是 Image Loader ？
 
-為什麼要 Image Loader ，什麼是 Image Loader ？
-
-會很聰明的知道 ImageView 在可視範圍內才去做下載與解壓縮 bitmap 一旦離開就停止一切作業。而且依據 ImageView 的可視長寬作參考最適 cache 。
+ImageLoader 會很聰明的知道 ImageView 在可視範圍內才去做下載與解壓縮 bitmap 一旦離開就停止一切作業。而且依據 ImageView 的可視長寬作參考最適 cache 。
 
 1. 顯示快取 - 首先，為了再次顯示一樣的圖片時，可以快速顯示，所以我們會把 bitmap 暫存在記憶體 memory cache 。那在有限的 memory cache ，我們要如何管理 ? 常見的是 LRU cache 策略，memory cache 有限，最近看過的優先留下來，其他捨去。以及依據畫布大小的快取。
 2. 儲存快取 - 再來，網路來的圖片、網址圖片，下載儲存快取管理 - Disk Cache。
