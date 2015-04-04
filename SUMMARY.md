@@ -20,4 +20,5 @@
 * Orm - ActiveAndroid, DBFlow, Ollie
 * gradle
 * flow + mortar
+* Image Loader: Android-Universal-Image-Loader, picasso, glide, fresco
 
