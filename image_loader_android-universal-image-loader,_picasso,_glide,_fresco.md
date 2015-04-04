@@ -21,7 +21,7 @@ new AsyncTask<String, Void, Bitmap> {
     
     @Override
     protected void onPostExecute(Bitmap result) {
-        mImageView.setImageBitmap(result);
+        if (result != null) mImageView.setImageBitmap(result);
     }
 }.execute("http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/125px-Flag_of_the_Republic_of_China.svg.png");
 ```
