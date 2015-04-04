@@ -6,6 +6,7 @@ Before:
 
 ```java
 new AsyncTask<String, Void, Bitmap> {
+    @Override
     protected Bitmap doInBackground(String... urls) {
         String url = urls[0];
         Bitmap bitmap = null;
@@ -17,7 +18,8 @@ new AsyncTask<String, Void, Bitmap> {
         }
         return bitmap;
     }
-
+    
+    @Override
     protected void onPostExecute(Bitmap result) {
         mImageView.setImageBitmap(result);
     }
