@@ -26,7 +26,7 @@ AUIL 是因為在記憶體、儲存空間的快取策略還有其它有的沒有
 
 ## Fresco - facebook
 
-* ImagePipeLine - 更換 OkHttp 下載器 (有 bug ，PR 中)
+* ImagePipeLine - 更換 OkHttp 下載器 (有 bug ，[PR#21](https://github.com/facebook/fresco/pull/21) 中)
 
 ## picasso - square
 
@@ -40,3 +40,4 @@ glide 目前看起來 google 有些演講有提過
 ## See Also
 
 * Using okhttp backed for Volley - https://gist.github.com/bryanstern/4e8f1cb5a8e14c202750
+* https://github.com/facebook/fresco/pull/21
