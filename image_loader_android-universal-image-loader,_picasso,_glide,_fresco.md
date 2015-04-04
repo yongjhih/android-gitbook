@@ -86,7 +86,7 @@ data.url 才是真實的圖片網址。
 `https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1234567`
 
 ```java
-public class FacebookPictureProvider extends NetworkPipeContentProvider {
+public class FacebookPictureProvider extends NetworkPipeContentProvider { // NetwoorkPipeContentProvider 是筆者包裝過的，可參下方 gist
     public static final String AUTHORITY = "com.facebook.provider.PictureProvider";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/");
     private Facebook facebook;
