@@ -22,7 +22,7 @@ AUIL 是因為在記憶體、儲存空間的快取策略還有其它有的沒有
 
 * ImageDownloader -> 更換 OkHttp 下載器
 * ImageDisplayer -> 潤角、圓圖、顯示動畫
-* ImageDecoder -> 支援 Exif 轉正
+* ImageDecoder -> 支援 Exif 轉正，支援影片轉正
 
 ## Fresco - facebook
 
