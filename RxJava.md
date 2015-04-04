@@ -130,10 +130,10 @@ Before:
 
 ```java
 List<User> getFemaleList(List<User> users, int limit) {
-    return getFemaleList(users).subList(0, limit);
+    return getFemaleLis(users).subList(0, limit);
 }
 
-// 這裡會完整繞完萬名使用者，找出千名女性使用者後，抽出百名。
+// 這裡會完整繞完萬名使用者，找出千名女性使用者後，才抽出百名。
 getFemaleList(users, 100);
 ```
 
