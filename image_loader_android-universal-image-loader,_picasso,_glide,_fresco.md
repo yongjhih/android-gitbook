@@ -1,5 +1,46 @@
 # Image Loader - Android-Universal-Image-Loader, picasso, glide, fresco
 
+例如圖片網址: `http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/125px-Flag_of_the_Republic_of_China.svg.png`
+
+Before:
+
+```java
+new AsyncTask<String, Void, Bitmap> {
+    protected Bitmap doInBackground(String... urls) {
+        String url = urls[0];
+        Bitmap bitmap = null;
+        try {
+            InputStream in = new java.net.URL(url).openStream();
+            bitmap = BitmapFactory.decodeStream(in);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+
+    protected void onPostExecute(Bitmap result) {
+        mImageView.setImageBitmap(result);
+    }
+}.execute("http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/125px-Flag_of_the_Republic_of_China.svg.png");
+```
+
+After:
+
+AUIL(Android-Universal-Image-Loader):
+
+```java
+ImageLoader.getInstance().displayImage("http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/125px-Flag_of_the_Republic_of_China.svg.png", mImageView);
+```
+
+Picasso:
+
+```java
+Picasso.with(context).load("http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/125px-Flag_of_the_Republic_of_China.svg.png").into(mImageView);
+```
+
+
+而且還會很聰明的知道 ImageView 在可視範圍內才去做下載與解壓縮 bitmap 一旦離開就停止一切作業。而且依據 ImageView 的可視長寬作參考最適 cache
+
 背景: Android-Universal-Image-Loader, picasso, glide, fresco
 
 為什麼要 Image Loader ，什麼是 Image Loader ？
