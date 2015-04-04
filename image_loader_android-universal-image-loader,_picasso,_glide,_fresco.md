@@ -65,12 +65,15 @@ ImageLoader 大多支援 ContentProvider 網址，`content://` 所以我們可�
 例如:
 
 `https://graph.facebook.com/601234567/picture`:
+
+```json
 {
   "data": {
     "is_silhouette": false, 
     "url": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1234567"
   }
 }
+```
 
 data.url 才是真實的圖片網址。
 
