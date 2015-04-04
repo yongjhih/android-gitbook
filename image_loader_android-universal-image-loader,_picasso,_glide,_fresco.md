@@ -12,9 +12,16 @@
 
 追求小 code size 可以選 picasso ，輕簡。
 
-AUIL 是因為在記憶體、儲存空間的快取策略都可以訂製。
+AUIL 是因為在記憶體、儲存空間的快取策略還有其它有的沒有的都可以訂製。彈性比較大一點(所以 code size 大一點)。
 
 只有 fresco 需要更換 layout class 原因是因為它為了效能，操作較低階的畫布。
+
+## Android-Universal-Image-Loader
+
+常見的訂製：
+
+* ImageDownloader -> 更換 OkHttp 下載器
+* ImageDisplayer -> 潤角、圓圖、顯示動畫
 
 ## Fresco - facebook
 
