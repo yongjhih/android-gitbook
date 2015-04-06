@@ -9,5 +9,5 @@ Apache Velocity Template Language, *.vm
 
 # See also
 
-* https://github.com/8tory/simple-parse (source)
-* https://github.com/8tory/auto-parse (runtime)
+* https://github.com/8tory/simple-parse (runtime)
+* https://github.com/8tory/auto-parse (source)
