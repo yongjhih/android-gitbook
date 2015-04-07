@@ -10,3 +10,8 @@
 Gson 而是執行時期作欄位處理，所以肯定速度上比較慢。
 
 而 LoganSquare 啟發於 Instagram/ig-json-parser 所以應該會有較好的包裝。
+
+
+## See Also
+
+* http://instagram-engineering.tumblr.com/post/97147584853/json-parsing
