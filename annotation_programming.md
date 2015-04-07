@@ -9,6 +9,35 @@ Template Language:
 
 Apache Velocity Template Language, *.vm
 
+For AVTL example:
+```vm
+#if (!$pkg.empty)
+package $pkg;
+#end
+
+#foreach ($i in $imports)
+import $i;
+#end
+
+@${generated}("com.google.auto.value.processor.AutoAnnotationProcessor")
+final class $className implements $annotationName {
+
+## Fields
+
+#foreach ($m in $members)
+  #if ($params.containsKey($m.toString()))
+
+  private final $m.type $m;
+
+  #else
+
+  private static final $m.type $m = $m.defaultValue;
+
+  #end
+#end
+```
+
+
 Square JavaPoet: https://github.com/square/javapoet
 
 For JavaPoet example:
