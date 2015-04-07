@@ -1,5 +1,7 @@
 # RecyclerView
 
+基本使用方法:
+
 Before:
 
 ```java
@@ -44,7 +46,7 @@ public class IconViewHolder extends BindViewHolder<String> {
 ```
 有資料外漏的情形。
 
-使用筆者簡單寫的 `ListRecyclerAdapter<T, VH>`
+改用筆者簡單寫的 `ListRecyclerAdapter<T, VH>`
 
 After:
 
