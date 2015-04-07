@@ -14,7 +14,6 @@
 * [json to POJO](json_to_pojo.md)
    * Jackson
    * LoganSquare
-* MVVM
 * Clean architecture
 * Mockito
 * Retrofit
