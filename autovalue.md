@@ -93,3 +93,7 @@ abstract class SomeModel implements Parcelable {
   }
 }
 ```
+
+## See Also
+
+* https://github.com/vbauer/jackdaw
