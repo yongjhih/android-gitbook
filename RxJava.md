@@ -654,24 +654,27 @@ Observable.just(sub).delay(10, TimeUnit.SECONDS).subscribe(s -> s.unsubscribe())
 
 這行會卡住，直到拿到一個為止。
 
-與 toBlocking().take(1) 有何不同。single() 與 take(1) 最大的不同是，single() 只能使用在單數的 Observable 上，否則會噴 exception 。
+## single(), take(1), first()
 
-怎樣會是單數的 Observable ？例如：
+single() 與 take(1) 最大的不同是，single() 只能使用在單數的 Observable 上，否則會噴 exception 。
+
+例如：
+
 
 ```java
-Observable<List<Integer>> = Observable.range(1, 10).toList(); // 這就是一個單數的 Observable
+List<Integer> integers = Observable.range(1, 2).toList().single(); // pass
 ```
 
 ```java
-List<Integer> integers = Observable.range(1, 10).toList().toBlocking().single(); // pass
+Integer i = Observable.range(1, 2).toBlocking().take(1); // pass
 ```
 
 ```java
-Integer i = Observable.range(1, 10).toBlocking().take(1); // pass
+Observable<Integer> singleInteger = Observable.range(1, 1).single(); // pass
 ```
 
 ```java
-Integer i = Observable.range(1, 10).toBlocking().single(); // exception
+Observable<Integer> singleInteger = Observable.range(1, 2).single(); // exception
 ```
 
 ## 名詞解釋
