@@ -10,6 +10,7 @@ Template Language:
 Apache Velocity Template Language, *.vm
 
 For AVTL example:
+
 ```vm
 #if (!$pkg.empty)
 package $pkg;
