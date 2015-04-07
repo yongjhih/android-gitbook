@@ -15,4 +15,3 @@ Square JavaPoet: https://github.com/square/javapoet
 
 * https://github.com/8tory/simple-parse (runtime)
 * https://github.com/8tory/auto-parse (source)
-* https://github.com/vbauer/jackdaw
