@@ -12,7 +12,6 @@
 * [Image Loader - Android-Universal-Image-Loader, picasso, glide, fresco](image_loader_android-universal-image-loader,_picasso,_glide,_fresco.md)
 * ButterKnife
 * [json to POJO](json_to_pojo.md)
-   * LoganSquare
 * Clean architecture
 * Mockito
 * Retrofit
