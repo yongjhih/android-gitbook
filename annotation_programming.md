@@ -3,11 +3,15 @@
 * 編譯時期 Processor
 * 執行時期 Reflection, InvocationHandler
 
-# Template Language
+## 撰寫方法
+
+Template Language:
 
 Apache Velocity Template Language, *.vm
 
-# See also
+Square JavaPoet: https://github.com/square/javapoet
+
+## See also
 
 * https://github.com/8tory/simple-parse (runtime)
 * https://github.com/8tory/auto-parse (source)
