@@ -59,7 +59,7 @@ ImageLoader 會很聰明的知道 ImageView 在可視範圍內才去做下載與
 2. 儲存快取 - 再來，網路來的圖片、網址圖片，下載儲存快取管理 - Disk Cache。
 3. 連線快取 - okhttp SPDY
 
-在 fresco 出現之前，我會比較推崇 AUIL(Android Universal Image Loader)，接著 glide 、picasso 。
+在 fresco 出現之前，會比較推崇 AUIL(Android Universal Image Loader)，接著 glide 、picasso 。
 
 追求小 code size 可以選 picasso ，輕簡。
 
