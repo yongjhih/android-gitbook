@@ -130,7 +130,7 @@ public abstract class IconViewModel implements Parcelable {
     @AutoParcel.Builder
     public interface Builder {
         public Builder icon(String x);
-        public CommentViewModel build();
+        public IconViewModel build();
     }
 }
 ```
