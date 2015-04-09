@@ -115,8 +115,8 @@ public void onCreate(Bundle savedInstanceState) {
 ```
 
 ```java
-// 只需具備 View 相關知識，設定 primitives type 資料
-// 不需要瞭解原始資料來源格式(不管是從 Facebook/Parse 還是 local sqlite 或 local SharePreferences)，只瞭解流通性基本資料格式。
+// 只需具備 View 相關知識，設定流通性資料
+// 不需要瞭解原始資料來源格式(不管是從 Facebook/Parse 還是 local sqlite 或 local SharePreferences)，只瞭解流通性基本資料格式即可。
 public class AvatarViewHolder extends BindViewHolder<AvatarViewModel> {
     @InjectView(R.id.icon)
     public SimpleDraweeView icon;
