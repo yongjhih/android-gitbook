@@ -103,9 +103,13 @@ public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     ...
     
+
     //ListRecyclerAdapter<String, IconViewHolder> listAdapter = ListRecyclerAdapter.create();
     //listAdapter.getList().add("http://example.com/a.png");
     ListRecyclerAdapter<AvatarViewModel, AvatarViewHolder> listAdapter = ListRecyclerAdapter.create();
+    
+    listAdapter.createViewHolder((parent, viewType) -> new IconViewHolder(LayoutInflater.from(context).inflate(R.layout.item_icon, parent, false)));
+
     listAdapter.getList().add(AvatarViewModel.builder().icon("http://example.com/a.png").name("Andrew Chen").build());
     for (User user : getUsers()) { // 新增其他使用者
         listAdapter.getList().add(AvatarViewModel.builder().icon(user.getPicture()).name(user.getDisplayName()).build());
