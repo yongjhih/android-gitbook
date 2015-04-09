@@ -18,4 +18,5 @@
 * gradle
 * flow + mortar
 * 良好的撰寫習慣 JavaDoc
+* 申請與使用 jcenter(), mavenCentral()
 
