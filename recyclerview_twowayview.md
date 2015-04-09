@@ -106,7 +106,7 @@ public void onCreate(Bundle savedInstanceState) {
     for (User user : getUsers()) { // 新增其他使用者
         listAdapter.getList().add(AvatarViewModel.builder().icon(user.getPicture()).name(user.getDisplayName()).build());
     }
-    // Via RxJava
+    // via RxJava
     // listAdapter.getList().addAll(Observable.from(getUsers()).map(user -> AvatarViewModel.builder().icon(user.getPicture()).name(user.getDisplayName()).build()).toList().toBlocking().single());
     
     ...
