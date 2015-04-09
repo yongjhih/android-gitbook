@@ -89,48 +89,63 @@ public class IconViewHolder extends BindViewHolder<String> {
 }
 ```
 
-基於 MVVM 概念：
+基於 MVVM 概念，以 Avatar 為例：
 
 
 ```java
+// 1. 決定使用哪種 layout
+// 2. 以及如何把原始資料降階至流通性資料格式
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     ...
     
     //ListRecyclerAdapter<String, IconViewHolder> listAdapter = ListRecyclerAdapter.create();
     //listAdapter.getList().add("http://example.com/a.png");
-    ListRecyclerAdapter<IconViewModel, IconViewHolder> listAdapter = ListRecyclerAdapter.create();
-    listAdapter.getList().add(IconViewModel.builder().icon("http://example.com/a.png").build());
+    ListRecyclerAdapter<AvatarViewModel, AvatarViewHolder> listAdapter = ListRecyclerAdapter.create();
+    listAdapter.getList().add(AvatarViewModel.builder().icon("http://example.com/a.png").name("Andrew Chen").build());
+    for (User user : getUsers()) { // 新增其他使用者
+        listAdapter.getList().add(AvatarViewModel.builder().icon(user.getPicture()).name(user.getDisplayName()).build());
+    }
+    // Via RxJava
+    // listAdapter.getList().addAll(Observable.from(getUsers()).map(user -> AvatarViewModel.builder().icon(user.getPicture()).name(user.getDisplayName()).build()).toList().toBlocking().single());
     
     ...
 }
 ```
 
 ```java
-public class IconViewHolder extends BindViewHolder<IconViewModel> {
-    ...
+// 只需具備 View 相關知識，設定 primitives type 資料
+public class AvatarViewHolder extends BindViewHolder<AvatarViewModel> {
+    @InjectView(R.id.icon)
+    public SimpleDraweeView icon;
+    @InjectView(R.id.text1)
+    public SimpleDraweeView name;
 
     @Override
-    public void onBind(int position, IconViewModel item) {
+    public void onBind(int position, AvatarViewModel item) {
         //icon.setImageURI(IconViewHolder(Uri.parse(item)));
         icon.setImageURI(Uri.parse(item.icon()));
+        name.setText(Uri.parse(item.name()));
     }
 }
 ```
 
 ```java
+// 提供流通 prmitives type 資料的介面
 @AutoParcel
-public abstract class IconViewModel implements Parcelable {
+public abstract class AvatarViewModel implements Parcelable {
     public abstract String icon();
+    public abstract String name();
     
     public static Builder builder() {
-        return new AutoParcel_IconViewModel.Builder();
+        return new AutoParcel_AvatarViewModel.Builder();
     }   
 
     @AutoParcel.Builder
     public interface Builder {
         public Builder icon(String x);
-        public IconViewModel build();
+        public Builder name(String x);
+        public AvatarViewModel build();
     }
 }
 ```
