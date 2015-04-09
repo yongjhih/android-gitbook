@@ -95,8 +95,8 @@ public class IconViewHolder extends BindViewHolder<String> {
 
 
 ```java
-// 1. 決定使用哪種 layout
-// 2. 以及如何把原始資料降階至流通性資料格式
+// 1. createViewHolder(() -> {}): 決定使用哪種 layout
+// 2. ViewModel.builder(): 以及如何把原始資料降階至流通性資料格式
 // 不需要瞭解具備 View 相關設定知識，如圖片顯示現在是用 SimpleDraweeView.setImageURI(Uri) 如何設定，還是用 ImageLoader.getInstance().displayImage(ImageView iv, String url) 該如何使用之類的知識。只要乖乖把資料按照流通資料介面填好就好。
 // 如果畫面要微調，直接複製 layout 調整風格。
 public void onCreate(Bundle savedInstanceState) {
