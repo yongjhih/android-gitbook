@@ -130,7 +130,7 @@ public class AvatarViewHolder extends BindViewHolder<AvatarViewModel> {
     public void onBind(int position, AvatarViewModel item) {
         //icon.setImageURI(IconViewHolder(Uri.parse(item)));
         icon.setImageURI(Uri.parse(item.icon()));
-        name.setText(Uri.parse(item.name()));
+        name.setText(item.name());
     }
 }
 ```
