@@ -48,6 +48,8 @@ public class IconViewHolder extends BindViewHolder<String> {
 
 改用筆者簡單寫的 `ListRecyclerAdapter<T, VH>`
 
+https://gist.github.com/yongjhih/d8db8c69190293098eec
+
 After:
 
 ```java
@@ -153,5 +155,4 @@ public abstract class AvatarViewModel implements Parcelable {
 }
 ```
 
-* https://gist.github.com/yongjhih/d8db8c69190293098eec
 * http://stackoverflow.com/questions/26649406/nested-recycler-view-height-doesnt-wrap-its-content/28510031
