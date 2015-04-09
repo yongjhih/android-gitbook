@@ -124,7 +124,7 @@ public class AvatarViewHolder extends BindViewHolder<AvatarViewModel> {
     @InjectView(R.id.icon)
     public SimpleDraweeView icon;
     @InjectView(R.id.text1)
-    public SimpleDraweeView name;
+    public TextView name;
 
     @Override
     public void onBind(int position, AvatarViewModel item) {
