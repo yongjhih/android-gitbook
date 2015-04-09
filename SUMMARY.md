@@ -15,7 +15,6 @@
 * Mockito
 * Retrofit
 * Orm - ActiveAndroid, DBFlow, Ollie
-* gradle
 * flow + mortar
 * 良好的撰寫習慣 JavaDoc
 * 開源套件庫設置 jcenter(), mavenCentral()
