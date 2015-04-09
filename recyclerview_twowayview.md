@@ -134,7 +134,7 @@ public class AvatarViewHolder extends BindViewHolder<AvatarViewModel> {
 ```
 
 ```java
-// 提供流通 prmitives type 資料的介面
+// 提供流通性基本資料的介面
 @AutoParcel
 public abstract class AvatarViewModel implements Parcelable {
     public abstract String icon();
