@@ -89,5 +89,51 @@ public class IconViewHolder extends BindViewHolder<String> {
 }
 ```
 
+基於 MVVM 概念：
+
+
+```java
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    ...
+    
+    //ListRecyclerAdapter<String, IconViewHolder> listAdapter = ListRecyclerAdapter.create();
+    //listAdapter.getList().add("http://example.com/a.png");
+    ListRecyclerAdapter<IconViewModel, IconViewHolder> listAdapter = ListRecyclerAdapter.create();
+    listAdapter.getList().add(IconViewModel.builder().icon("http://example.com/a.png").build());
+    
+    ...
+}
+```
+
+```java
+public class IconViewHolder extends BindViewHolder<IconViewModel> {
+    ...
+
+    @Override
+    public void onBind(int position, IconViewModel item) {
+        //icon.setImageURI(IconViewHolder(Uri.parse(item)));
+        icon.setImageURI(Uri.parse(item.icon()));
+    }
+}
+```
+
+```java
+@AutoParcel
+public abstract class IconViewModel implements Parcelable {
+    public abstract String icon();
+    
+    public static Builder builder() {
+        return new AutoParcel_IconViewModel.Builder();
+    }   
+
+    @AutoParcel.Builder
+    public interface Builder {
+        public Builder icon(String x);
+        public CommentViewModel build();
+    }
+}
+```
+
 * https://gist.github.com/yongjhih/d8db8c69190293098eec
 * http://stackoverflow.com/questions/26649406/nested-recycler-view-height-doesnt-wrap-its-content/28510031
