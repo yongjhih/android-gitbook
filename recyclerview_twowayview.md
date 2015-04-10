@@ -110,12 +110,12 @@ public void onCreate(Bundle savedInstanceState) {
     
     listAdapter.createViewHolder((parent, viewType) -> new IconViewHolder(LayoutInflater.from(context).inflate(R.layout.item_icon, parent, false)));
 
-    listAdapter.getList().add(AvatarViewModel.builder().icon("http://example.com/a.png").name("Andrew Chen").build());
+    listAdapter.getList().add(AvatarViewModel.builder().icon("http://example.com/a.png").name("Andrew Chen").updatedAt(new Date().getTime()).build());
     for (User user : getUsers()) { // 新增其他使用者
-        listAdapter.getList().add(AvatarViewModel.builder().icon(user.getPicture()).name(user.getDisplayName()).build());
+        listAdapter.getList().add(AvatarViewModel.builder().icon(user.getPicture()).name(user.getDisplayName()).updatedAt(user.getUpdatedAt().getTime()).build());
     }
     // via RxJava
-    // listAdapter.getList().addAll(Observable.from(getUsers()).map(user -> AvatarViewModel.builder().icon(user.getPicture()).name(user.getDisplayName()).build()).toList().toBlocking().single());
+    // listAdapter.getList().addAll(Observable.from(getUsers()).map(user -> AvatarViewModel.builder().icon(user.getPicture()).name(user.getDisplayName()).build()).updatedAt(user.getUpdatedAt().getTime()).toList().toBlocking().single());
     
     ...
 }
@@ -129,12 +129,20 @@ public class AvatarViewHolder extends BindViewHolder<AvatarViewModel> {
     public SimpleDraweeView icon;
     @InjectView(R.id.text1)
     public TextView name;
+    @InjectView(R.id.updatedAt)
+    public RelativeTimeTextView updatedAt;
+    
+    public AvatarViewHolder(View view) {
+        super(view);
+        ButterKnife.inject(this, view);
+    }
 
     @Override
     public void onBind(int position, AvatarViewModel item) {
         //icon.setImageURI(IconViewHolder(Uri.parse(item)));
         icon.setImageURI(Uri.parse(item.icon()));
         name.setText(item.name());
+        updatedAt.setReferenceTime(item.updatedAt());
     }
 }
 ```
@@ -145,6 +153,7 @@ public class AvatarViewHolder extends BindViewHolder<AvatarViewModel> {
 public abstract class AvatarViewModel implements Parcelable {
     public abstract String icon();
     public abstract String name();
+    public abstract Long updatedAt();
     
     public static Builder builder() {
         return new AutoParcel_AvatarViewModel.Builder();
@@ -154,6 +163,7 @@ public abstract class AvatarViewModel implements Parcelable {
     public interface Builder {
         public Builder icon(String x);
         public Builder name(String x);
+        public Builder updatedAt(Long x);
         public AvatarViewModel build();
     }
 }
