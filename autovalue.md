@@ -5,28 +5,28 @@
 Before:
 
 ```java
-public class Foo {
-  public String text;
-  public int number;
+public class User {
+  public String name;
+  public int id;
   
-  public String text() {
-    return text;
+  public String name() {
+    return name;
   }
 
-  public int number() {
-    return number;
+  public int id() {
+    return id;
   }
   
-  public Foo(String text, int number) {
-    this.text = text;
-    this.number = number;
+  public User(String name, int id) {
+    this.name = name;
+    this.id = id;
   }
   
   @Override
   public String toString() {
     return "Foo{"
-      + "text=" + text
-      + ", number=" + number
+      + "name=" + name
+      + ", id=" + id
       + "}";
   }
   
@@ -36,21 +36,21 @@ public class Foo {
       return true;
     }
     if (o instanceof Foo) {
-      Foo that = (Foo) o;
-      return (this.text.equals(that.text()))
-        && (this.number == that.number());
+      User that = (User) o;
+      return (this.name.equals(that.name()))
+        && (this.id == that.id());
     }
     return false;
   }
   
   @Override int hashCode() {
-    return Objects.hashCode(text, number);
+    return Objects.hashCode(name, id);
   }
 }
 ```
 
 ```java
-Foo andrew = new Foo("Andrew", 1);
+User andrew = new User("Andrew", 1);
 ```
 
 After:
