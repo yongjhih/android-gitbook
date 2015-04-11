@@ -51,6 +51,10 @@ public class User {
 
 ```java
 User andrew = new User("Andrew", 1);
+User andrew1 = new User("Andrew", 1);
+User andrew2 = new User("Andrew", 2);
+System.out.println(andrew.equals(andrew1));
+System.out.println(andrew.equals(andrew2));
 ```
 
 After:
@@ -77,9 +81,9 @@ public abstract class User {
 ```
 
 ```java
-User andrew = User.builder().name("andrew").id(1).build();
-User andrew1 = User.builder().name("andrew").id(1).build();
-User andrew2 = User.builder().name("andrew").id(2).build();
+User andrew = User.builder().name("Andrew").id(1).build();
+User andrew1 = User.builder().name("Andrew").id(1).build();
+User andrew2 = User.builder().name("Andrew").id(2).build();
 System.out.println(andrew.equals(andrew1));
 System.out.println(andrew.equals(andrew2));
 ```
