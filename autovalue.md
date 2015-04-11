@@ -77,16 +77,16 @@ public abstract class User {
 ```
 
 ```java
-User andrew = Foo.builder().name("andrew").id(1).build();
-User andrew1 = Foo.create("Andrew", 1);
-User andrew2 = Foo.create("Andrew", 2);
+User andrew = User.builder().name("andrew").id(1).build();
+User andrew1 = User.builder().name("andrew").id(1).build();
+User andrew2 = User.builder().name("andrew").id(2).build();
 System.out.println(andrew.equals(andrew1));
 System.out.println(andrew.equals(andrew2));
 ```
 
 ## Android Parcelable
 
-另外推薦 [frankiesardo/auto-parcel](https://github.com/frankiesardo/auto-parcel) :
+另外推薦 [frankiesardo/auto-parcel](https://github.com/frankiesardo/auto-parcel) 方便傳遞:
 
 ```java
 @AutoParcel
