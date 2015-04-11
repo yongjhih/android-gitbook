@@ -24,7 +24,7 @@ public class User {
   
   @Override
   public String toString() {
-    return "Foo{"
+    return "User{"
       + "name=" + name
       + ", id=" + id
       + "}";
@@ -35,7 +35,7 @@ public class User {
     if (o == this) {
       return true;
     }
-    if (o instanceof Foo) {
+    if (o instanceof User) {
       User that = (User) o;
       return (this.name.equals(that.name()))
         && (this.id == that.id());
