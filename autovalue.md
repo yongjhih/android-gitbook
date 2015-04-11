@@ -59,20 +59,27 @@ After:
 import com.google.auto.value.AutoValue;
 
 @AutoValue
-public abstract class Foo {
-  public abstract String text();
-  public abstract int number();
-  
-  public static Foo create(String text, int number) {
-    return new AutoValue_Foo(text, number);
-  }
+public abstract class User {
+    public abstract String name();
+    public abstract int id();
+
+    public static User builder() {
+        return new AutoValue_User.Builder();
+    }
+    
+    @AutoValue.Builder
+    interface Builder {
+        Builder name(String s);
+        Builder id(int n);
+        User build();
+    }
 }
 ```
 
 ```java
-Foo andrew = Foo.create("Andrew", 1);
-Foo andrew1 = Foo.create("Andrew", 1);
-Foo andrew2 = Foo.create("Andrew", 2);
+User andrew = Foo.builder().name("andrew").id(1).build();
+User andrew1 = Foo.create("Andrew", 1);
+User andrew2 = Foo.create("Andrew", 2);
 System.out.println(andrew.equals(andrew1));
 System.out.println(andrew.equals(andrew2));
 ```
