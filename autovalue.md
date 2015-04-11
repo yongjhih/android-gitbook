@@ -84,13 +84,21 @@ System.out.println(andrew.equals(andrew2));
 ```java
 @AutoParcel
 abstract class SomeModel implements Parcelable {
-  abstract String name();
-  abstract List<SomeSubModel> subModels();
-  abstract Map<String, OtherSubModel> modelsMap();
+    abstract String name();
+    abstract List<SomeSubModel> subModels();
+    abstract Map<String, OtherSubModel> modelsMap();
 
-  static SomeModel create(String name, List<SomeSubModel> subModels, Map<String, OtherSubModel> modelsMap) {
-    return new AutoParcel_SomeModel(name, subModels, modelsMap);
-  }
+    public static Builder builder() {
+        return new AutoParcel_SomeModel.Builder();
+    }   
+
+    @AutoParcel.Builder
+    public interface Builder {
+        public Builder name(String x);
+        public Builder subModels(<SomeSubModel> x);
+        public Builder modelsMap(Map<String, OtherSubModel> x);
+        public SomeModel build();
+    }
 }
 ```
 
