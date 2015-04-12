@@ -91,7 +91,7 @@ public class IconViewHolder extends BindViewHolder<String> {
 }
 ```
 
-基於 MVVM 概念，以 Avatar 頭像為例：
+基於 Clean architecture 原則，將資料抽象(Datasource -> Domain layer)，以 Avatar 頭像為例：
 
 
 ```java
