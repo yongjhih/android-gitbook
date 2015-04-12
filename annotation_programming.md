@@ -3,6 +3,38 @@
 * 編譯時期 Processor
 * 執行時期 Reflection, InvocationHandler
 
+這邊只討論 JSR 269 javax.annotation.processing.AbstractProcessor
+
+## 解析 Annotation
+
+```java
+@Example
+public class ExampleClass implements Runnable {
+    public final String name;
+    public ExampleClass(String name) {
+        this.name = name;
+    }
+    @Override
+    public void run() {
+        System.out.println(name);
+    }
+}
+```
+
+```java
+public ExampleProcessor extends AbstractProcessor {
+    // ...
+    @Override
+    public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment env) {
+        Set<? extends Element> elements = env.getElementAnnotatedWith(Example.class);
+        for (Element e : elements) {
+            System.out.println(e);
+        }
+        return false;
+    }
+}
+```
+
 ## 撰寫方法
 
 Template Language:
@@ -62,7 +94,12 @@ JavaFile javaFile = JavaFile.builder("com.example.helloworld", helloWorld)
 javaFile.emit(System.out);
 ```
 
+## 名詞解釋
+
+APT, Annotation-Processing Tool
+
 ## See also
 
+* https://speakerdeck.com/jakewharton/annotation-processing-boilerplate-destruction-square-waterloo-2014
 * https://github.com/8tory/simple-parse (runtime)
 * https://github.com/8tory/auto-parse (source)
