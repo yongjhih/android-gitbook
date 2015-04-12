@@ -35,7 +35,9 @@ public ExampleProcessor extends AbstractProcessor {
 }
 ```
 
-## 撰寫方法
+## 產生器的撰寫方法
+
+依據解析結果產生 java file。
 
 Template Language:
 
