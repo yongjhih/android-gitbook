@@ -102,7 +102,6 @@ public class IconViewHolder extends BindViewHolder<String> {
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     ...
-    
 
     //ListRecyclerAdapter<String, IconViewHolder> listAdapter = ListRecyclerAdapter.create();
     //listAdapter.getList().add("http://example.com/a.png");
@@ -122,6 +121,7 @@ public void onCreate(Bundle savedInstanceState) {
 ```
 
 ```java
+// Presentation layer, presenter, ViewModel
 // 只需具備 View 相關知識，設定流通性資料
 // 不需要瞭解原始資料來源格式(不管是從 Facebook/Parse 還是 local sqlite 或 local SharedPreferences) ，只瞭解流通性基本資料格式即可。
 // 其中一個優點是當來源資料改變成其他格式，你依然可以沿用此 ViewHolder
@@ -149,6 +149,7 @@ public class AvatarViewHolder extends BindViewHolder<AvatarViewModel> {
 ```
 
 ```java
+// Domain layer
 // 提供流通性基本資料的介面
 @AutoParcel
 public abstract class AvatarViewModel implements Parcelable {
