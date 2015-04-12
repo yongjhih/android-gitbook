@@ -1,8 +1,8 @@
 # Clean architecture
 
-![MVVM](http://en.wikipedia.org/wiki/Model_View_ViewModel#/media/File:MVVMPattern.png)
-
 MVC, MVP, MVVM
+
+![MVVM](http://upload.wikimedia.org/wikipedia/commons/8/87/MVVMPattern.png)
 
 ## RxBinding MVVM
 
