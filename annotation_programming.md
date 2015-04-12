@@ -9,7 +9,6 @@
 
 像是 [AutoValue](autovalue.md) 就減省了煩冗的 getter 、 setter 、builder 的例行撰寫程序。
 
-
 ## 解析 Annotation
 
 ```java
