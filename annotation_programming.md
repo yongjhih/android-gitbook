@@ -11,7 +11,7 @@ meta programming
 
 像是 [AutoValue](autovalue.md) 就節省了煩冗的 getter 、 setter 、builder 等例行撰寫程序。
 
-除了解析 annotations 以及解析 abstract methods, methods, interfaces, fields 等，緊接著是產生 java file 的 template language 以及物件化的產生器。
+除了解析 annotations 還包括解析 abstract methods, methods, interfaces, fields 等，緊接著是產生 java file 的 template language 以及物件化的產生器。
 
 ## 解析 Annotation
 
