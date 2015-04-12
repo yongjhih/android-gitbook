@@ -26,7 +26,7 @@ System.out.println("name: " + user.name);
 System.out.println("id: " + user.id);
 ```
 
-```
+```java
 @JsonObject
 public class User {
     @JsonField
