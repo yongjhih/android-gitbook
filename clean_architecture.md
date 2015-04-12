@@ -9,7 +9,7 @@ MVP, MVVM
 
 ## RxBinding MVVM
 
-利用 RxJava 實現了 MVVM 的 TwoWayBinding
+利用 RxJava 實現了 MVVM 的 two-way binding
 
 ## See Also
 
