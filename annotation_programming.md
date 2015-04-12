@@ -7,7 +7,7 @@ meta programming
 
 這邊主要討論編譯時期 JSR 269 javax.annotation.processing.AbstractProcessor
 
-從常見的 ORM annotations 、json2pojo 、Dagger2、Mockito、Retrofit、AutoValue、AutoParcel、ButterKnife 等函式庫，大量利用 annotations 來精簡聚焦、解決煩冗的例行性撰寫程序。
+從常見的 ORM annotations 、json2pojo(Gson, Jackson) 、Dagger2、Mockito、Retrofit、AutoValue、AutoParcel、ButterKnife 等函式庫，大量利用 annotations 來精簡聚焦、解決煩冗的例行性撰寫程序。
 
 像是 [AutoValue](autovalue.md) 就節省了煩冗的 getter 、 setter 、builder 等例行撰寫程序。
 
