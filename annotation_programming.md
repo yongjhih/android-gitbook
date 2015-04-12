@@ -9,6 +9,7 @@
 
 像是 [AutoValue](autovalue.md) 就減省了煩冗的 getter 、 setter 、builder 的例行撰寫程序。
 
+
 ## 解析 Annotation
 
 ```java
@@ -31,7 +32,7 @@ public ExampleProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment env) {
         Set<? extends Element> elements = env.getElementAnnotatedWith(Example.class);
-        for (Element e : elements) {
+        for (Element e : elements) { // 可列出 @Example
             System.out.println(e);
         }
         return false;
