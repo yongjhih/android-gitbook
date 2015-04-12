@@ -5,7 +5,9 @@
 
 這邊只討論編譯時期 JSR 269 javax.annotation.processing.AbstractProcessor
 
-從常見的 ORM annotations 、json2pojo 、Dagger2、Mockito、Retrofit、AutoValue、AutoParcel、ButterKnife 等函式庫，大量利用 annotations 來精簡聚焦。
+從常見的 ORM annotations 、json2pojo 、Dagger2、Mockito、Retrofit、AutoValue、AutoParcel、ButterKnife 等函式庫，大量利用 annotations 來精簡聚焦、解決煩冗的程序。
+
+像是 [AutoValue](AutoValue) 就減省了煩冗的 getter 、 setter 、builder 的撰寫。
 
 ## 解析 Annotation
 
