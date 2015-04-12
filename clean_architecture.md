@@ -1,6 +1,6 @@
 # Clean architecture
 
-MVC, MVP, MVVM
+MVP, MVVM
 
 <!-- ![MVP](http://upload.wikimedia.org/wikipedia/commons/a/a0/MVC-Process.svg)
 
