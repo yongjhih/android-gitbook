@@ -3,7 +3,7 @@
 * 編譯時期 Processor
 * 執行時期 Reflection, InvocationHandler
 
-這邊只討論 JSR 269 javax.annotation.processing.AbstractProcessor
+這邊只討論編譯時期 JSR 269 javax.annotation.processing.AbstractProcessor
 
 ## 解析 Annotation
 
