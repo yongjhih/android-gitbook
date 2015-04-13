@@ -13,7 +13,7 @@
 * [json to POJO](json_to_pojo.md)
 * [Clean architecture](clean_architecture.md)
 * Mockito
-* Retrofit
+* [Retrofit](retrofit.md)
 * Orm - ActiveAndroid, DBFlow, Ollie
 * flow + mortar
 * 良好的撰寫習慣 JavaDoc
