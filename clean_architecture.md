@@ -14,3 +14,4 @@ MVP, MVVM
 ## See Also
 
 * https://github.com/sockeqwe/mosby
+* http://konmik.github.io/introduction-to-model-view-presenter-on-android.html
