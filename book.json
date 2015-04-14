@@ -2,7 +2,6 @@
     "plugins": [
         "disqus",
         "ga",
-        "toc",
         "gtoc"
     ],
     "pluginsConfig": {
