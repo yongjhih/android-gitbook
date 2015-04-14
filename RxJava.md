@@ -2,8 +2,6 @@
 
 \#Promise \#RxJava \#Reactive \#Functional
 
-<!-- toc -->
-
 ## 前言
 
 RxJava, Reactive Java,
