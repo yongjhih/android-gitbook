@@ -11,6 +11,10 @@
         },
         "ga": {
             "token": "UA-60405492-1"
+        },
+        "edit-link": {
+            "base": "https://github.com/yongjhih/feed/edit/master/",
+            "label": "Edit This Page"
         }
     }
 }
