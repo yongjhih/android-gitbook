@@ -12,8 +12,8 @@
 * [Image Loader - Android-Universal-Image-Loader, picasso, glide, fresco](image_loader_android-universal-image-loader,_picasso,_glide,_fresco.md)
 * [json to POJO](json_to_pojo.md)
 * [Clean architecture](clean_architecture.md)
-* Mockito
 * [Retrofit](retrofit.md)
+* Mockito
 * Orm - ActiveAndroid, DBFlow, Ollie
 * flow + mortar
 * 良好的撰寫習慣 JavaDoc
