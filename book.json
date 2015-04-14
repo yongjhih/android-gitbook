@@ -3,7 +3,8 @@
         "disqus",
         "ga",
         "gtoc",
-        "edit-link"
+        "edit-link",
+        "anchors"
     ],
     "pluginsConfig": {
         "disqus": {
