@@ -1,7 +1,8 @@
 {
     "plugins": [
         "disqus",
-        "ga"
+        "ga",
+        "toc"
     ],
     "pluginsConfig": {
         "disqus": {
