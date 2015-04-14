@@ -2,6 +2,8 @@
 
 \#Promise \#RxJava \#Reactive \#Functional
 
+<!-- gtoc -->
+
 ## 前言
 
 RxJava, Reactive Java,
