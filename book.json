@@ -2,7 +2,8 @@
     "plugins": [
         "disqus",
         "ga",
-        "gtoc"
+        "gtoc",
+        "edit-link"
     ],
     "pluginsConfig": {
         "disqus": {
