@@ -2,6 +2,7 @@
 
 \#Promise \#RxJava \#Reactive \#Functional
 
+<!-- Actions Right -->
 <!-- gtoc -->
 
 ## 前言
