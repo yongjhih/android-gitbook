@@ -876,7 +876,7 @@ After:
 ```
 
 ```java
-public class Composes {
+public class Transformers {
     @SuppressWarnings("unchecked")
     private static final Transformer MAIN_ASYNC = obs -> obs.subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread());
