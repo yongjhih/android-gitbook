@@ -1,5 +1,7 @@
 # flow + mortar
 
+Fragment 換頁問題。
+
 從 https://corner.squareup.com/2014/01/mortar-and-flow.html
 
 ## FragmentMaster
