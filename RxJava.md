@@ -2,6 +2,8 @@
 
 \#Promise \#RxJava \#Reactive \#Functional
 
+
+
 ## 前言
 
 RxJava, Reactive Java,
@@ -23,6 +25,8 @@ ls | wc -l
 2. *java8.stream 也實現了 Reactive。*
 
 先看一些範例對照後，了解樣貌之後，我們再來討論 RxJava 基本使用概念與方法。
+
+
 
 ## 有效解決重複的 loop 增進效能，維持同個 loop
 
@@ -129,6 +133,8 @@ Observable<Integer> getFemaleAgeObs(List<User> users) {
 ```
 
 你可以發現維持一樣的寫法，它會同時做兩件事情：找出女性順便詢問年紀(過濾與轉換)，避免重複的迴圈。
+
+
 
 ## 提前打斷迴圈的能力，避免不必要的過濾與轉換
 
@@ -246,6 +252,8 @@ getFemaleAgeObs(users)
     .toList().toBlocking().single();
 ```
 
+
+
 ## 拉平巢狀 callback 增加易讀性
 
 Before:
@@ -291,7 +299,11 @@ void login(Activity activity, LoginListener loginListener) {
 }
 ```
 
+
+
 ## 如何導入套用與改變撰寫
+
+
 
 ### 既有長時間存取的函式改成 Observable
 
@@ -303,6 +315,8 @@ Observable<File> downloadObs(String url) {
     return Observable.defer(() -> Observable.just(download(url)));
 }
 ```
+
+
 
 ### 既有的 callback 改成 Observable
 
@@ -345,6 +359,8 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
 ```
 
 p.s. *這邊的 Subject 方法 與 Observable.create() 方法其實有差異， Observable.create() 內的 OnSubscriber 直到 subscribe() 才會執行。但 Subject 方法會馬上跑，所以這邊用 ReplaySubject 來記住進貨。*
+
+
 
 ## 轉換 map()
 
@@ -403,6 +419,8 @@ List<String> strings = new IteratorOnlyList(Observable.from(textViews)
 
 盡可能還是改用 Observable 作為界面吧。
 
+
+
 ## 去除重複資料 distinct()
 
 列出有發文的使用者：
@@ -428,6 +446,8 @@ Observable<User> getPostedUsers(List<Post> posts) {
         .distinct(user -> user.getObjectId());
 }
 ```
+
+
 
 ## 多方合併 merge(), concatWith()
 
@@ -471,6 +491,8 @@ Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> co
         .distinct(user -> user.getObjectId());
 }
 ```
+
+
 
 ## 如何使用
 
@@ -627,6 +649,8 @@ Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html")
 Observable<File> downloadObs(String url) { ... }
 ```
 
+
+
 ## 產生器與流量控制
 
 原料無中生有。
@@ -658,9 +682,13 @@ Subscription subscription = Observable.interval(1, TimeUnit.SECONDS).subscribe(l
 Observable.just(sub).delay(10, TimeUnit.SECONDS).subscribe(s -> s.unsubscribe()); // 10 秒後停掉計秒器
 ```
 
+
+
 ## 片語 toBlocking().single()
 
 這行會卡住，直到拿到一個為止。
+
+
 
 ## single(), take(1), first()
 
@@ -685,6 +713,8 @@ Observable<Integer> singleInteger = Observable.range(1, 1).single(); // pass
 Observable<Integer> singleInteger = Observable.range(1, 2).single(); // exception
 ```
 
+
+
 ## 名詞解釋
 
 Observable 觀測所
@@ -701,6 +731,8 @@ subscribe 下訂。
 
 Subscription 訂單, subscribe 下訂之後產生出來的訂單，這個訂單可以用來取消訂單來中止生產。
 
+
+
 ## 動手玩
 
 ```bash
@@ -711,6 +743,8 @@ cd RxJava-retrofit-github-sample
 
 修改 src/main/java/com/github/yongjhih/Main.java 內容就可以自己玩了。
 
+
+
 ## 組合資料 zip()
 
 ```java
@@ -719,6 +753,8 @@ Observable<User> getUser(Activity activity) {
         (fbUser, parseUser) -> getUser(fbUser, parseUser));
 }
 ```
+
+
 
 ## Subject
 
@@ -762,6 +798,8 @@ public void onResume() {
 ```
 
 http://reactivex.io/documentation/subject.html
+
+
 
 ## Exception 處理
 
@@ -815,17 +853,31 @@ Observable.create((Subscriber<? super String> s) -> {
 })
 ```
 
+
+
 ## 排序 toSortedList()
+
+
 
 ## 分組 groupBy()
 
+
+
 ## 分段 window()
+
+
 
 ## 快取 cache()
 
+
+
 ## debounce()
 
+
+
 ## 逾時 timeout()
+
+
 
 ## 利用 compose(Transformer) 重用常用的流程組合
 
@@ -897,6 +949,8 @@ public class Transformers {
 }
 ```
 
+
+
 ## 附錄：Android View Observable 範例
 
 寫一個讚計數器:
@@ -910,6 +964,8 @@ ViewObservable.clicks(findViewById(R.id.like_button))
         textView.setText(likes.toString());
     });
 ```
+
+
 
 ## 透過 Observable 實現 Java8 Optional
 
@@ -1025,6 +1081,8 @@ public class Usb {
 如果真的要用 RxJava Optional 請用專門的專案  https://github.com/eccyan/RxJava-Optional
 
 這邊僅是教學需要。 (https://gist.github.com/yongjhih/25017ac41efb4634c2ab)
+
+
 
 ## See Also
 
