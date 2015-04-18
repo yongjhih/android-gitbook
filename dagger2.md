@@ -74,8 +74,9 @@ class CoffeeMaker {
 
 ```java
 Coffee coffee = Dagger_CoffeeApp_Coffee.create();
+Coffee coffee2 = Dagger_CoffeeApp_Coffee.create();
 coffee.maker().brew(); // 一直泡
-coffee.maker().brew(); // 一直泡
+coffee2.maker().brew(); // 一直泡
 ```
 
 咖啡機要加熱加壓沖泡，相依要件關係圖：
