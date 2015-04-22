@@ -114,7 +114,7 @@ List<Integer> getFemaleAgeList(List<User> users) {
 
     for (User user : users) {
         if (user.getGender() == User.FEMALE) {
-            ageList.add(user);
+            ageList.add(user.getAge());
         }
     }
 
