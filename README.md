@@ -1,5 +1,5 @@
-# Andrew Chen (yongjhih) 的技術手記
+# Android App 開源開發
 
 ![](cover.jpg)
 
-內容主要以 Android App 開發的相關技術手記。
+Android App 如何以開源角度來開發。
