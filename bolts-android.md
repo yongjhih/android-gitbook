@@ -2,7 +2,7 @@
 
 Bolts 是一款 promise 的實現。由 Parse.com 贊助。Facebook 在收購 Parse.com 後，也積極整合 bolts 。
 
-`Task<T>` 相當於`Observable<T>`
+`Bolts.Task<T>` 相當於`Observable<T>`
 
 `Bolts.Task.continueWith()` 相當於 `Observable.map()`
 
