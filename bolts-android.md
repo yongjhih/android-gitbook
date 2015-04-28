@@ -81,6 +81,30 @@ public Task<ParseObject> fetchAsync(ParseObject obj) {
 });
 ```
 
+## toObservable(Bolts.Task<R> task)
+
+ref. https://github.com/yongjhih/RxParse/blob/master/src/main/java/rx/parse/ParseObservable.java
+
+```java
+    public static <R> Observable<R> toObservable(Task<R> task) {
+        return Observable.create(sub -> {
+            task.continueWith(t -> {
+                if (t.isCancelled()) {
+                    // NOTICE: doOnUnsubscribe(() -> Observable.just(query) in outside
+                    sub.unsubscribe(); //sub.onCompleted();?
+                } else if (t.isFaulted()) {
+                    sub.onError(t.getError());
+                } else {
+                    R r = t.getResult();
+                    if (r != null) sub.onNext(r);
+                    sub.onCompleted();
+                }
+                return null;
+            });
+        });
+    }
+```
+
 ## See Also
 
 * https://github.com/BoltsFramework/Bolts-Android
