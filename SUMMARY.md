@@ -4,6 +4,7 @@
 * [RxJava](RxJava.md)
    * [開發 RxJava 新增自己的 Operator](kai_fa_rxjava_xin_zeng_zi_ji_de_operator.md)
 * [Lambda](lambda.md)
+* [Bolts-Android](bolts-android.md)
 * [AutoValue](autovalue.md)
 * [Dagger2](dagger2.md)
 * [Annotation Programming](annotation_programming.md)
@@ -19,5 +20,4 @@
 * 良好的撰寫習慣 JavaDoc
 * 開源套件庫設置 - jcenter(), mavenCentral()
 * 開源碼函式庫專案設置 - Github
-* [Bolts-Android](bolts-android.md)
 
