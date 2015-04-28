@@ -90,7 +90,6 @@ ref. [ParseObservable.java](https://github.com/yongjhih/RxParse/blob/master/src/
         return Observable.create(sub -> {
             task.continueWith(t -> {
                 if (t.isCancelled()) {
-                    // NOTICE: doOnUnsubscribe(() -> Observable.just(query) in outside
                     sub.unsubscribe(); //sub.onCompleted();?
                 } else if (t.isFaulted()) {
                     sub.onError(t.getError());
