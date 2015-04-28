@@ -1,5 +1,7 @@
 # Bolts-Android
 
+Bolts 是一款 promise 的實現。由 Parse.com 贊助。
+
 `Task<T>` 相當於`Observable<T>`
 
 `Bolts.Task.continueWith()` 相當於 `Observable.map()`
