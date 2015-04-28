@@ -7,6 +7,7 @@
 ```java
 Task<ParseObject> saveAsync;
 ...
+// .map(o -> null);
 saveAsync(obj).continueWith(new Continuation<ParseObject, Void>() {
   public Void then(Task<ParseObject> task) throws Exception {
     if (task.isCancelled()) {
@@ -26,6 +27,7 @@ saveAsync(obj).continueWith(new Continuation<ParseObject, Void>() {
 `Bolts.Task.continueWithTask()` 相當於 `Observable.flatMap()`
 
 ```java
+// .flatMap(o -> saveObs(o)).map(o -> null);
 query.findInBackground().continueWithTask(new Continuation<List<ParseObject>, Task<ParseObject>>() {
   public Task<ParseObject> then(Task<List<ParseObject>> task) throws Exception {
     if (task.isFaulted()) {
