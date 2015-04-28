@@ -1,10 +1,10 @@
 # Bolts-Android
 
-`Bolts.Task.continueWith()` 相當於 `Observable.map()`
+`Bolts.Task.continueWith()` 相當於 `Observable.flatMap()`
 ```java
 Observable<ParseObject> saveObs;
 ...
-saveObs.map(o -> System.out.println("obj: " + o)).subscribe();
+saveObs.flatMap(o -> Observable.just(o)).subscribe();
 ```
 
 ```java
