@@ -6,6 +6,7 @@
 ```java
 Observable<ParseObject> saveObs;
 ...
+saveObs.map(o -> o).subscribe();
 saveObs.flatMap(o -> Observable.just(o)).subscribe();
 ```
 
@@ -26,6 +27,12 @@ saveAsync(obj).continueWith(new Continuation<ParseObject, Void>() {
     return null;
   }
 });
+```
+
+`Task.forResult()` 相當於 `Observable.just()`
+
+```java
+Task<String> successful = Task.forResult("The good result.");
 ```
 
 ## See Also
