@@ -52,6 +52,17 @@ public Task<ParseObject> fetchAsync(ParseObject obj) {
   return tcs.getTask();
 }
 ```
+
+`Task.callInBackground()` 相當於 `Observable.defer()`
+
+```
+Task.callInBackground(new Callable<Void>() {
+  public Void call() {
+    // Do a bunch of stuff.
+  }
+}).continueWith(...);
+```
+
 ## See Also
 
 * https://github.com/BoltsFramework/Bolts-Android
