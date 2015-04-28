@@ -1,14 +1,8 @@
 # Bolts-Android
 
-`Bolts.Task.continueWith()` 相當於 `Observable.map()`,
-`Bolts.Task.continueWithTask()` 相當於 `Observable.flatMap()`
+`Task<T>` 相當於`Observable<T>`
 
-```java
-Observable<ParseObject> saveObs;
-...
-saveObs.map(o -> o).subscribe();
-saveObs.flatMap(o -> Observable.just(o)).subscribe();
-```
+`Bolts.Task.continueWith()` 相當於 `Observable.map()`
 
 ```java
 Task<ParseObject> saveAsync;
@@ -24,6 +18,26 @@ saveAsync(obj).continueWith(new Continuation<ParseObject, Void>() {
       // 成功
       ParseObject object = task.getResult();
     }
+    return null;
+  }
+});
+```
+
+`Bolts.Task.continueWithTask()` 相當於 `Observable.flatMap()`
+
+```java
+query.find().continueWithTask(new Continuation<List<ParseObject>, Task<ParseObject>>() {
+  public Task<ParseObject> then(Task<List<ParseObject>> task) throws Exception {
+    if (task.isFaulted()) {
+      return null;
+    }
+
+    List<ParseObject> students = task.getResult();
+    students.get(1).put("salutatorian", true);
+    return saveAsync(students.get(1));
+  }
+}).onSuccess(new Continuation<ParseObject, Void>() {
+  public Void then(Task<ParseObject> task) throws Exception {
     return null;
   }
 });
