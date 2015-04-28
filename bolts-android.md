@@ -26,7 +26,7 @@ saveAsync(obj).continueWith(new Continuation<ParseObject, Void>() {
 `Bolts.Task.continueWithTask()` 相當於 `Observable.flatMap()`
 
 ```java
-query.find().continueWithTask(new Continuation<List<ParseObject>, Task<ParseObject>>() {
+query.findInBackground().continueWithTask(new Continuation<List<ParseObject>, Task<ParseObject>>() {
   public Task<ParseObject> then(Task<List<ParseObject>> task) throws Exception {
     if (task.isFaulted()) {
       return null;
