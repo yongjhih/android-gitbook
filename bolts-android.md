@@ -35,6 +35,23 @@ saveAsync(obj).continueWith(new Continuation<ParseObject, Void>() {
 Task<String> successful = Task.forResult("The good result.");
 ```
 
+`Task.create()` 相當於 `Observable.create()`
+
+```java
+public Task<ParseObject> fetchAsync(ParseObject obj) {
+  final Task<ParseObject>.TaskCompletionSource tcs = Task.create();
+  obj.fetchInBackground(new GetCallback() {
+    public void done(ParseObject object, ParseException e) {
+     if (e == null) {
+       tcs.setResult(object);
+     } else {
+       tcs.setError(e);
+     }
+   }
+  });
+  return tcs.getTask();
+}
+```
 ## See Also
 
 * https://github.com/BoltsFramework/Bolts-Android
