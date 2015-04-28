@@ -71,12 +71,12 @@ public Task<ParseObject> fetchAsync(ParseObject obj) {
 
 `Task.callInBackground()` 相當於 `Observable.defer()`
 
-```
-Task.callInBackground(new Callable<Void>() {
+```java
+ Task<Void> Task.callInBackground(new Callable<Void>() {
   public Void call() {
     // Do a bunch of stuff.
   }
-}).continueWith(...);
+});
 ```
 
 ## See Also
