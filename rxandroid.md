@@ -33,8 +33,6 @@ class HogeActivity extends Activity {
     // ...
     
     Rx<TextView> mRxTextView
-    
-    private TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
