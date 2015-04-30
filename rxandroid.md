@@ -6,6 +6,7 @@ Before：
 
 ```java
 class HogeActivity extends Activity {
+
     @InjectView(R.id.text)
     private TextView mTextView;
 
@@ -32,7 +33,7 @@ After:
 class HogeActivity extends Activity {
     // ...
 
-    Rx<TextView> mRxTextView
+    private Rx<TextView> mRxTextView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
