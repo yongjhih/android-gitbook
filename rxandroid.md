@@ -31,7 +31,7 @@ After:
 ```java
 class HogeActivity extends Activity {
     // ...
-    
+
     Rx<TextView> mRxTextView
 
     @Override
