@@ -42,5 +42,6 @@ class HogeActivity extends Activity {
 
         mRxTextView = RxView.of(mTextView);
         Subscription s = mRxTextView.bind(Observable.just("hoge"), RxActions.setText());
+    }
 }
 ```
