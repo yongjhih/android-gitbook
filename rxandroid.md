@@ -76,7 +76,7 @@ STOP -> LifecycleEvent.DESTROY;
 
 ## RxBinding
 
-主要以 RxView 為中心 ，當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
+主要以 RxView 為中心作 binding，當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
 
 Before：
 
