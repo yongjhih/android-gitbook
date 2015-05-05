@@ -17,3 +17,4 @@ Android App 以開源角度來開發。
 * gradle
 * json2pojo: jackson, gson, logansquare, etc.
 * Orm: DBFlow, etc.
+* SimpleFacebook
