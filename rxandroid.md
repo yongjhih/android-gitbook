@@ -49,7 +49,9 @@ class SimpleActivity extends RxActivity {
 
     @Override
     public void onResume() {
-        LifecycleObservable.bindActivityLifecycle(lifecycle(), AppObservable.bindActivity(this, Observable.just("Hello, world"))).subscribe(s -> textView.setText(s));
+        LifecycleObservable.bindActivityLifecycle(lifecycle(),
+            AppObservable.bindActivity(this, Observable.just("Hello, world")))
+        ).subscribe(s -> textView.setText(s));
     }
 }
 ```
