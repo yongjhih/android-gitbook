@@ -4,7 +4,7 @@
 
 Observable 應用在 Android 上，常遇到 Activity/Fragment 不在前景，卻存取 View 造成的問題。
 
-當 Activty/Fragment 生命週期結束時，應該 `unsubscribe()` 或者指定特定生命期間結束。
+當 Activty/Fragment 生命週期結束或者指定特定生命期間結束時，自動 `unsubscribe()`。
 
 ```java
 AppObservable.bindActivity()
@@ -14,7 +14,7 @@ LifecycleObservable.bindActivityLifecycle()
 LifecycleObservable.bindFragmentLifecycle()
 ```
 
-`AppObservable.bindActivity()`/`AppObservable.bindFragment()` 目前只能作到 `observeOn(AndroidSchedulers.mainThread())` 以及杜絕不應該的期間 `subscribe()`。
+`AppObservable.bindActivity()`/`AppObservable.bindFragment()` 目前只能作到 `observeOn(AndroidSchedulers.mainThread())` 以及杜絕不應該的期間作 `subscribe()`。
 
 
 
