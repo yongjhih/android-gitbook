@@ -30,5 +30,5 @@ Android App 以開源角度來開發。
 
 專案環境：
 
-* gitlab SCM
-* phabricator PM
+* gitlab
+* phabricator
