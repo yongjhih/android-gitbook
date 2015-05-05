@@ -25,7 +25,9 @@ class SimpleActivity extends Activity {
     CompsotionSubscription mSubscriptions = new CompositeSubscription();
     
     @Override
-    public void onResume() {
+    protected void onResume() {
+        super.onResume();
+
         bind(Observable.just("Hello, world"), s -> textView.setText(s));
     }
 
