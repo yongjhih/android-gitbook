@@ -4,7 +4,7 @@
 
 Android App 以開源角度來開發。
 
-你應該要使用的道具：
+建議的要使用的道具：
 
 * RxJava, RxAndroid
 * retrolambda (java7 + java8)
@@ -18,3 +18,9 @@ Android App 以開源角度來開發。
 * json2pojo: jackson, gson, logansquare, etc.
 * Orm: DBFlow, etc.
 * SimpleFacebook
+
+後端
+
+* Parse
+* auto-parse
+* rxparse
