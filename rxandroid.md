@@ -1,5 +1,7 @@
 # RxAndroid
 
+https://github.com/ReactiveX/RxAndroid
+
 生命週期的連動。
 
 ## AppObservable
@@ -81,6 +83,8 @@ class SimpleActivity extends RxActivity {
 `LifecycleObservable` 好處是會在對應的生命期間取消。
 
 ## RxBinding
+
+https://github.com/ogaclejapan/RxBinding
 
 主要以 RxView 為中心作 binding，當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
 
