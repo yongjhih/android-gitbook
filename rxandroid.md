@@ -18,6 +18,8 @@ LifecycleObservable.bindFragmentLifecycle()
 
 如果要生命週期結束，把一些 subscriptions 取消：
 
+自己 `unsubscribe()`: 
+
 ```java
 class SimpleActivity extends Activity {
     CompsotionSubscription mSubscriptions = new CompositeSubscription();
@@ -27,7 +29,7 @@ class SimpleActivity extends Activity {
         bind(Observable.just("Hello, world"), s -> textView.setText(s));
     }
 
-    private <T> void bind(Observable<T> obs, Action1<T> onNext) {
+    protected <T> void bind(Observable<T> obs, Action1<T> onNext) {
         mCompositeSubscription.add(AppObservable.bindActivity(this, obs).subscribe(onNext));
     }
 
@@ -38,6 +40,28 @@ class SimpleActivity extends Activity {
         mCompositeSubscription.unsubscribe();
     }
 }
+```
+
+LifecycleObservable + RxActivity:
+
+```java
+class SimpleActivity extends RxActivity {
+
+    @Override
+    public void onResume() {
+        LifecycleObservable.bindActivityLifecycle(lifecycle(), AppObservable.bindActivity(this, Observable.just("Hello, world"))).subscribe(s -> textView.setText(s));
+    }
+}
+```
+
+哪時候訂閱哪時候取消對照表：
+
+```java
+CREATE -> LifecycleEvent.DESTROY;
+START -> LifecycleEvent.STOP;
+RESUME -> LifecycleEvent.PAUSE;
+PAUSE -> LifecycleEvent.STOP;
+STOP -> LifecycleEvent.DESTROY;
 ```
 
 *註：筆者不是很清楚，為什麼不用 overloading: `AppObservable.bind(Activity/Frgment/v4.Fragment)` 來取代 `AppObservable.bindFragment(Fragment)`,
