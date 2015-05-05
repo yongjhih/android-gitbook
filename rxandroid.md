@@ -74,7 +74,6 @@ STOP -> LifecycleEvent.DESTROY;
 `AppObservable.bindFragment(v4.Fragment)`,
 `AppObservable.bindActivity(Activity)`*
 
-
 ## RxBinding
 
 主要以 RxView 為中心 ，當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
