@@ -18,6 +18,11 @@ LifecycleObservable.bindFragmentLifecycle()
 
 
 
+*註：筆者不是很清楚，為什麼不用 overloading: `AppObservable.bind(Activity/Frgment/v4.Fragment)` 來取代 `AppObservable.bindFragment(Fragment)`,
+`AppObservable.bindFragment(v4.Fragment)`,
+`AppObservable.bindActivity(Activity)`*
+
+
 ## RxBinding
 
 主要以 RxView 為中心 ，當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
