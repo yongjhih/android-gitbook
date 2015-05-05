@@ -106,7 +106,7 @@ abstract class SomeModel implements Parcelable {
     @AutoParcel.Builder
     public interface Builder {
         public Builder name(String x);
-        public Builder subModels(<SomeSubModel> x);
+        public Builder subModels(List<SomeSubModel> x);
         public Builder modelsMap(Map<String, OtherSubModel> x);
         public SomeModel build();
     }
