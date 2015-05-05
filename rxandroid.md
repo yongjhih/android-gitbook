@@ -86,7 +86,7 @@ class SimpleActivity extends RxActivity {
 
 https://github.com/ogaclejapan/RxBinding
 
-主要以 RxView 為中心作 binding，當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
+主要以 RxView 為主軸作連動，當 View 顯示時，做 `subscribe()`， 離開時 ，做 `unsubscribe()`
 
 Before：
 
