@@ -1,8 +1,26 @@
 # RxAndroid
 
+生命週期的掌控：
+
+Observable 應用在 Android 上，常遇到 Activity/Fragment 不在前景，卻存取 View 造成的問題。
+
+當 Activty/Fragment 生命週期結束時，應該 `unsubscribe()` 或者指定特定生命期間結束。
+
+```java
+AppObservable.bindActivity()
+AppObservable.bindFragment()
+
+LifecycleObservable.bindActivityLifecycle()
+LifecycleObservable.bindFragmentLifecycle()
+```
+
+`AppObservable.bindActivity()`/`AppObservable.bindFragment()` 目前只能作到 `observeOn(AndroidSchedulers.mainThread())` 以及杜絕不應該的期間 `subscribe()`。
+
 
 
 ## RxBinding
+
+主要以 RxView 為中心 ，當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
 
 Before：
 
