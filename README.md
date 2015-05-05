@@ -15,5 +15,5 @@ Android App 以開源角度來開發。
 * ImageLoader: fresco, AUIL, picasso, glide, etc.
 * Android Studio
 * gradle
-* json2Pojo: jackson, gson, logansquare, etc.
+* json2pojo: jackson, gson, logansquare, etc.
 * Orm: DBFlow, etc.
