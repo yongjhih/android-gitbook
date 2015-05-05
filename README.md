@@ -12,7 +12,6 @@ Android App 以開源角度來開發。
 * okhttp
 * DI: Dagger2
 * AutoParcel, AutoValue, etc.
-* RecyclerView
 * ImageLoader: fresco, AUIL, picasso, glide, etc.
 * Android Studio
 * gradle
