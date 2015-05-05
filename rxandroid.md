@@ -42,7 +42,7 @@ class SimpleActivity extends Activity {
 }
 ```
 
-LifecycleObservable + RxActivity:
+`LifecycleObservable` + `RxActivity`:
 
 ```java
 class SimpleActivity extends RxActivity {
