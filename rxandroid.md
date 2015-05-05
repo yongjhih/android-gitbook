@@ -16,7 +16,29 @@ LifecycleObservable.bindFragmentLifecycle()
 
 `AppObservable.bindActivity()`/`AppObservable.bindFragment()` 目前只能作到 `observeOn(AndroidSchedulers.mainThread())` 以及杜絕不應該的期間作 `subscribe()`。
 
+如果要生命週期結束，把一些 subscriptions 取消：
 
+```java
+class SimpleActivity extends Activity {
+    CompsotionSubscription mSubscriptions = new CompositeSubscription();
+    
+    @Override
+    public void onResume() {
+        bind(Observable.just("Hello, world"), s -> textView.setText(s));
+    }
+
+    private <T> void bind(Observable<T> obs, Action1<T> onNext) {
+        mCompositeSubscription.add(AppObservable.bindActivity(this, obs).subscribe(onNext));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        mCompositeSubscription.unsubscribe();
+    }
+}
+```
 
 *註：筆者不是很清楚，為什麼不用 overloading: `AppObservable.bind(Activity/Frgment/v4.Fragment)` 來取代 `AppObservable.bindFragment(Fragment)`,
 `AppObservable.bindFragment(v4.Fragment)`,
