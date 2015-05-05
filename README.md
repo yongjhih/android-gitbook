@@ -16,6 +16,8 @@ Android App 以開源角度來開發。
 * json2pojo: jackson, gson, logansquare, etc.
 * Orm: DBFlow, etc.
 * SimpleFacebook
+* mockito
+* espresso
 
 後端：
 
@@ -32,3 +34,7 @@ Android App 以開源角度來開發。
 
 * gitlab
 * phabricator
+
+持續整合環境：
+
+* jenkins
