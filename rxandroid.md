@@ -58,7 +58,9 @@ class SimpleActivity extends RxActivity {
 }
 ```
 
-哪時候訂閱哪時候取消對照表：
+`LifecycleObservable` 好處是會在對應的生命期間取消。
+
+`LifecycleObservable` 哪時候訂閱哪時候取消對照表：
 
 ```java
 CREATE -> LifecycleEvent.DESTROY;
