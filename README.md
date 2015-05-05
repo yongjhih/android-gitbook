@@ -6,16 +6,15 @@ Android App 以開源角度來開發。
 
 你應該使用的道具：
 
-* RxJava
-* RxAndroid
+* RxJava, RxAndroid
 * retrolambda (java7 + java8)
 * Retrofit
 * okhttp
 * DI: Dagger2
-* AutoParcel, AutoValue
+* AutoParcel, AutoValue, etc.
 * RecyclerView
-* ImageLoader: fresco, AUIL, picasso, glide
+* ImageLoader: fresco, AUIL, picasso, glide, etc.
 * Android Studio
 * gradle
 * json2Pojo: jackson, gson, logansquare, etc.
-* Orm: 
+* Orm: DBFlow, etc.
