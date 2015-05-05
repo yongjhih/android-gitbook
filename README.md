@@ -13,11 +13,11 @@ Android App 以開源角度來開發。
 * DI: Dagger2
 * AutoParcel, AutoValue, etc.
 * ImageLoader: fresco, AUIL, picasso, glide, etc.
-* Android Studio
-* gradle
 * json2pojo: jackson, gson, logansquare, etc.
 * Orm: DBFlow, etc.
 * SimpleFacebook
+* Android Studio
+* gradle
 
 後端
 
