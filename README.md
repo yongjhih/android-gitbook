@@ -1,7 +1,10 @@
-* gitbook: http://yongjhih.gitbooks.io/feed/content/
-* github: https://github.com/yongjhih/android-gitbook/
-
 # Android App 開源開發
+
+* http://yongjhih.gitbooks.io/feed/content/
+
+[![](cover.jpg)](http://yongjhih.gitbooks.io/feed/content/)
+
+* github: https://github.com/yongjhih/android-gitbook/
 
 開放書籍，歡迎點擊頁面上方的編輯頁面連結 "EDIT THIS PAGE"。
 
