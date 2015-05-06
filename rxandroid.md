@@ -102,9 +102,9 @@ ViewObservable.clicks()
 
 ## RxBinding
 
-https://github.com/ogaclejapan/RxBinding		
- 		 
-類似於 ViewObservable。
+https://github.com/ogaclejapan/RxBinding
+
+類似於 ViewObservable。主要以 MVVM 雙向連動作努力。 
 
 Before：
 
