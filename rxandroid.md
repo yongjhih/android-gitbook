@@ -11,9 +11,7 @@ AppObservable.bindActivity()
 AppObservable.bindFragment()
 ```
 
-Observable 應用在 Android 上，常遇到 Activity/Fragment 不在前景，卻存取 View 造成的問題。
-
-`AppObservable.bindActivity()`/`AppObservable.bindFragment()` 目前只作到 `observeOn(AndroidSchedulers.mainThread())` 以及基本檢查 `Fragment.isAdded()`, `Activity.isFinishing()`。
+主要檢查 `Fragment.isAdded()`, `Activity.isFinishing()`。
 
 *註：筆者不是很清楚，為什麼不用 overloading: `AppObservable.bind(Activity/Frgment/v4.Fragment)` 來取代 `AppObservable.bindFragment(Fragment)`,
 `AppObservable.bindFragment(v4.Fragment)`,
