@@ -18,6 +18,7 @@
 * SimpleFacebook
 * mockito
 * espresso
+* robolectric
 
 後端：
 
