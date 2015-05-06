@@ -1,6 +1,8 @@
 # Android App 開源開發
 
 ![](cover.jpg)
+。
+開放書籍，歡迎點擊頁面上方的編輯頁面連結 "EDIT THIS PAGE"。
 
 Android App 以開源角度來開發。
 
