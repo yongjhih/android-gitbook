@@ -90,10 +90,6 @@ View 的連動. 當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
 ViewObservable.bindView()
 ```
 
-```java
-
-```
-
 Event 的連動.
 
 ```java
