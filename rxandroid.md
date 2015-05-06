@@ -102,12 +102,9 @@ ViewObservable.clicks()
 
 ## RxBinding
 
-
 https://github.com/ogaclejapan/RxBinding		
  		 
 類似於 ViewObservable。
-
-主要以 RxView 為中心作 binding
 
 Before：
 
