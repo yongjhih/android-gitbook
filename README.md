@@ -19,6 +19,8 @@
 * mockito
 * espresso
 * robolectric
+* assertj/fest
+* icepick
 
 後端：
 
