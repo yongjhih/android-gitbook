@@ -1,3 +1,6 @@
+* gitbook: http://yongjhih.gitbooks.io/feed/content/
+* github: https://github.com/yongjhih/android-gitbook/
+
 # Android App 開源開發
 
 開放書籍，歡迎點擊頁面上方的編輯頁面連結 "EDIT THIS PAGE"。
@@ -41,3 +44,4 @@
 持續整合環境：
 
 * jenkins
+
