@@ -36,7 +36,7 @@ PAUSE -> LifecycleEvent.STOP;
 STOP -> LifecycleEvent.DESTROY;
 ```
 
-自己 `unsubscribe()` 如果 Activity 要結束，把一些 subscriptions 取消：
+自己 `unsubscribe()`， 如果 Activity 要結束，把一些 subscriptions 取消：
 
 ```java
 class SimpleActivity extends Activity {
