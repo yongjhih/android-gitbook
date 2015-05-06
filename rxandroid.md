@@ -82,7 +82,7 @@ class SimpleActivity extends RxActivity {
 
 `LifecycleObservable` 好處是會在對應的生命期間取消。
 
-## ViewObservable
+## ViewObservable, WidgetObservable
 
 View 的連動. 當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
 
