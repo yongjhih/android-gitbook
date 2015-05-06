@@ -1,5 +1,7 @@
 # RxAndroid
 
+https://github.com/ReactiveX/RxAndroid
+
 生命週期的連動。
 
 ## AppObservable
