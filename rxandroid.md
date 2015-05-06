@@ -13,9 +13,7 @@ AppObservable.bindFragment()
 
 Observable 應用在 Android 上，常遇到 Activity/Fragment 不在前景，卻存取 View 造成的問題。
 
-以及，當 Activty/Fragment 正要結束時，自動 `unsubscribe()`。
-
-`AppObservable.bindActivity()`/`AppObservable.bindFragment()` 目前只能作到 `observeOn(AndroidSchedulers.mainThread())` 以及 正要結束時作 `unsubscribe()`。
+`AppObservable.bindActivity()`/`AppObservable.bindFragment()` 目前只作到 `observeOn(AndroidSchedulers.mainThread())` 以及基本檢查 `Fragment.isAdded()`, `Activity.isFinishing()`。
 
 *註：筆者不是很清楚，為什麼不用 overloading: `AppObservable.bind(Activity/Frgment/v4.Fragment)` 來取代 `AppObservable.bindFragment(Fragment)`,
 `AppObservable.bindFragment(v4.Fragment)`,
@@ -79,8 +77,6 @@ class SimpleActivity extends RxActivity {
     }
 }
 ```
-
-`LifecycleObservable` 好處是會在對應的生命期間取消。
 
 ## ViewObservable, WidgetObservable
 
