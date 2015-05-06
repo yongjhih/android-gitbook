@@ -4,9 +4,15 @@
 
 [![](cover.jpg)](http://yongjhih.gitbooks.io/feed/content/)
 
+<!--
+<img src="cover.jpg" style="border: 1px solid black !important" />
+
+<img src="cover.jpg" border="1" />
+-->
+
 * github: https://github.com/yongjhih/android-gitbook/
 
-開放書籍，歡迎點擊頁面上方的編輯頁面連結 "EDIT THIS PAGE"。
+開放書籍，歡迎共筆修改，點擊頁面上方的編輯頁面連結 "EDIT THIS PAGE" 即可共筆。
 
 善用開源來開發 Android App。
 
