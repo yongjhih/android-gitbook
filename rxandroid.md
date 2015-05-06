@@ -82,7 +82,7 @@ class SimpleActivity extends RxActivity {
 
 ## ViewObservable
 
-View 的連動.
+View 的連動. 當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
 
 ```java
 ViewObservable.bindView()
@@ -100,9 +100,12 @@ ViewObservable.clicks()
 
 ## RxBinding
 
+
+https://github.com/ogaclejapan/RxBinding		
+ 		 
 類似於 ViewObservable。
 
-主要以 RxView 為中心作 binding，當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
+主要以 RxView 為中心作 binding
 
 Before：
 
@@ -148,3 +151,11 @@ class HogeActivity extends Activity {
     }
 }
 ```
+
+## See Also
+
+* [RxActivity](https://github.com/ReactiveX/RxAndroid/blob/master/rxandroid-framework/src/main/java/rx/android/app/RxActivity.java)
+* [RxFragmentActivity](https://github.com/ReactiveX/RxAndroid/blob/master/rxandroid-framework/src/main/java/rx/android/app/support/RxFragmentActivity.java)
+* [RxFragment](https://github.com/ReactiveX/RxAndroid/blob/master/rxandroid-framework/src/main/java/rx/android/app/support/RxFragment.java)	
+
+*註：並沒有 RxAppCompatActivity*
