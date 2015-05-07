@@ -1,6 +1,6 @@
 # Android App 開源開發
 
-* http://yongjhih.gitbooks.io/feed/content/
+* gitbook: http://yongjhih.gitbooks.io/feed/content/
 
 [![](cover.jpg)](http://yongjhih.gitbooks.io/feed/content/)
 
