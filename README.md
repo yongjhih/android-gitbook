@@ -33,12 +33,12 @@
 * robolectric
 * assertj/fest
 * icepick
+* auto-parse
+* RxParse
 
 後端：
 
 * Parse
-* auto-parse
-* rxparse
  
 開發環境：
 
