@@ -38,7 +38,7 @@
 
 後端：
 
-* Parse
+* Parse BAAS
  
 開發環境：
 
