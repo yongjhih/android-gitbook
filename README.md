@@ -1,8 +1,8 @@
 # Android App 開源開發
 
-* gitbook: http://yongjhih.gitbooks.io/feed/content/
+* gitbook: http://yongjhih.gitbooks.io/feed/
 
-[![](cover.jpg)](http://yongjhih.gitbooks.io/feed/content/)
+[![](cover.jpg)](http://yongjhih.gitbooks.io/feed/)
 
 <!--
 <img src="cover.jpg" style="border: 1px solid black !important" />
@@ -12,7 +12,7 @@
 
 * github: https://github.com/yongjhih/android-gitbook/
 
-開放書籍，歡迎共筆修改，點擊頁面上方的編輯頁面連結 "EDIT THIS PAGE" 即可共筆。
+開放書籍，歡迎共筆修改，瀏覽 Gitbook 時，可點擊頁面上方的編輯頁面連結 "EDIT THIS PAGE" 即可共筆。
 
 善用開源來開發 Android App。
 
