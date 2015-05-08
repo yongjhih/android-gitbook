@@ -12,7 +12,7 @@
 
 * github: https://github.com/yongjhih/android-gitbook/
 
-開放書籍，歡迎共筆修改，瀏覽 Gitbook 時，可點擊頁面上方的編輯頁面連結 "EDIT THIS PAGE" 即可共筆。
+開放書籍，歡迎共筆修改，以 gitbook 方式瀏覽時，可點擊頁面上方的編輯頁面連結 "EDIT THIS PAGE" 即可共筆。
 
 善用開源來開發 Android App。
 
