@@ -621,6 +621,13 @@ urls.map(url -> download(url))
     .subscribe(file -> System.out.println(file));
 ```
 
+或者
+
+```java
+Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
+    "http://yongjhih.gitbooks.io/feed/content/README.html"));
+```
+
 如果原料是 List，但是加工時，想要一個一個處理，用 Observable.from() 會比較好操作，如果你用 Observable.just() 那就會拿到一個 List 。其實有個方法可以展開： `.flatMap(list -> Observable.from(list))`：
 
 ```java
@@ -648,8 +655,6 @@ Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html")
 ```java
 Observable<File> downloadObs(String url) { ... }
 ```
-
-
 
 ## 產生器與流量控制
 
@@ -731,8 +736,6 @@ subscribe 下訂。
 
 Subscription 訂單, subscribe 下訂之後產生出來的訂單，這個訂單可以用來取消訂單來中止生產。
 
-
-
 ## 動手玩
 
 ```bash
@@ -753,8 +756,6 @@ Observable<User> getUser(Activity activity) {
         (fbUser, parseUser) -> getUser(fbUser, parseUser));
 }
 ```
-
-
 
 ## Subject
 
@@ -878,6 +879,25 @@ Observable.create((Subscriber<? super String> s) -> {
 ## 逾時 timeout()
 
 
+## concatMap() 與 flatMap()
+
+```java
+Observable<File> downloadObs(String url) { ... }
+```
+
+```java
+Observable.just("https://raw.githubusercontent.com/yongjhih/android-gitbook/master/README.md", https://raw.githubusercontent.com/yongjhih/android-gitbook/master/RxJava.md)
+    .flatMap(s -> downloadObs(s).subscribeOn(Schedulers.io()))
+    .subscribe(f -> System.out.println("downloaded: " + f));
+```
+
+這裡會同時開兩個 threads 在下載。避免這種情況，希望一個一個跑：
+
+```java
+Observable.just("https://raw.githubusercontent.com/yongjhih/android-gitbook/master/README.md", https://raw.githubusercontent.com/yongjhih/android-gitbook/master/RxJava.md)
+    .concatMap(s -> downloadObs(s).subscribeOn(Schedulers.io()))
+    .subscribe(f -> System.out.println("downloaded: " + f));
+```
 
 ## 利用 compose(Transformer) 重用常用的流程組合
 
