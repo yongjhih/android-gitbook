@@ -84,7 +84,7 @@ AUIL 是因為在記憶體、儲存空間的快取策略還有其它有的沒有
 
 ## glide
 
-glide 目前看起來 google 有些演講有提過
+glide 許多 Google 官方 samples 都可看到它的蹤影，所以基本上 Google 有挺。
 
 
 ## Android-Universal-Image-Loader
@@ -95,7 +95,7 @@ glide 目前看起來 google 有些演講有提過
 
 ## Fresco - facebook
 
-* ImagePipeLine - 更換 OkHttp 下載器 (有 bug ，[PR#21](https://github.com/facebook/fresco/pull/21) 中)
+* ImagePipeLine - 更換 OkHttp 下載器 (有 bug ，已解 [PR#21](https://github.com/facebook/fresco/pull/21))
 
 ## picasso - square
 
