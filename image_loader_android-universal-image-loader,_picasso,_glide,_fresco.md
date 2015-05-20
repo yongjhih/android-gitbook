@@ -73,32 +73,20 @@ AUIL 是因為在記憶體、儲存空間的快取策略還有其它有的沒有
 * 潤角、圓圖、顯示動畫
 * 支援 Exif 轉正，支援影片快照轉正
 
-## Fresco - facebook
+Fresco - facebook
 
-* ImagePipeLine - 更換 OkHttp 下載器 (有 bug ，[PR#21](https://github.com/facebook/fresco/pull/21) 中)
+* ImagePipeLine - 更換 OkHttp 下載器 (有 bug ，已解 [PR#21](https://github.com/facebook/fresco/pull/21))
 
-## picasso - square
+picasso - square
 
 * Factory -> 更換 OkHttp 下載器
 * Transformer -> 潤角、圓圖、顯示動畫
 
-## glide
-
-
-## Android-Universal-Image-Loader
+Android-Universal-Image-Loader
 
 * ImageDownloader -> 更換 OkHttp 下載器
 * ImageDisplayer -> 潤角、圓圖、顯示動畫
 * ImageDecoder -> 支援 Exif 轉正，支援影片轉正
-
-## Fresco - facebook
-
-* ImagePipeLine - 更換 OkHttp 下載器 (有 bug ，已解 [PR#21](https://github.com/facebook/fresco/pull/21))
-
-## picasso - square
-
-* Factory -> 更換 OkHttp 下載器
-* Transformer -> 潤角、圓圖、顯示動畫
 
 ## glide
 
