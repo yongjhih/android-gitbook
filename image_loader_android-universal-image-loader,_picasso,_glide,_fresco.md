@@ -84,8 +84,6 @@ AUIL 是因為在記憶體、儲存空間的快取策略還有其它有的沒有
 
 ## glide
 
-glide 許多 Google 官方 samples 都可看到它的蹤影，所以基本上 Google 有挺。
-
 
 ## Android-Universal-Image-Loader
 
@@ -104,8 +102,7 @@ glide 許多 Google 官方 samples 都可看到它的蹤影，所以基本上 Go
 
 ## glide
 
-glide 目前看起來 google 有些演講有提過
-
+glide 許多 Google 官方 samples 都可看到它的蹤影，所以基本上 Google 有挺。
 
 ## 附錄 - 虛擬網址 - Facebook 真實圖片轉址
 
