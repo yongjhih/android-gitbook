@@ -117,12 +117,10 @@ javaFile.emit(System.out);
 ## TODO
 
 ```java
-JavaFile javaFile = JavaFile.file("com.example.helloworld", TypeSpec.public().final().class("HelloWorld").method(
-    MethodSpec.public().static().void().name("main")
-        .statement("$T.out.println($S)", System.class, "Hello, JavaPoet!").build())
-        .build()
-    )
-    .build();
+JavaFile javaFile = JavaFile.package("com.example.helloworld").class(HelloWorld).method(
+    Method.public().static().void().name("main")
+    .statement("$T.out.println($S)", System.class, "Hello, JavaPoet!")
+);
 ```
 
 ## 名詞解釋
