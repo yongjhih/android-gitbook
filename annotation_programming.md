@@ -120,6 +120,7 @@ javaFile.emit(System.out);
 JavaFile javaFile = JavaFile.package("com.example.helloworld").class(
     JavaClass.public().final().name("HelloWorld").method(
             JavaMethod.public().static().void().name("main").parameter(String[].class, "args").statement(
+                JavaStatement("$T.out.println($S)", System.class, "Hello, JavaPoet!"),
                 JavaStatement("$T.out.println($S)", System.class, "Hello, JavaPoet!")
             )
         )
