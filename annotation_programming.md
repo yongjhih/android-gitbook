@@ -117,9 +117,13 @@ javaFile.emit(System.out);
 ## TODO
 
 ```java
-JavaFile javaFile = JavaFile.package("com.example.helloworld").public().final().class("HelloWorld").method(
-    Method.public().static().void().name("main")
-    .statement("$T.out.println($S)", System.class, "Hello, JavaPoet!")
+JavaFile javaFile = JavaFile.package("com.example.helloworld").class(
+    JavaClass.public().final().name("HelloWorld").method(
+            JavaMethod.public().static().void().name("main").parameter(String[].class, "args").statement(
+                JavaStatement("$T.out.println($S)", System.class, "Hello, JavaPoet!")
+            )
+        )
+    )
 );
 ```
 
