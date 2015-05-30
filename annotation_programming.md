@@ -114,6 +114,15 @@ JavaFile javaFile = JavaFile.builder("com.example.helloworld", helloWorld)
 javaFile.emit(System.out);
 ```
 
+## TODO
+
+```java
+JavaFile.file("com.example.helloworld", TypeSpec.public().final().class("HelloWorld").method(
+    MethodSpec.public().static().void().name("main")
+        .statement("$T.out.println($S)", System.class, "Hello, JavaPoet!").build())
+    .build()).build();
+```
+
 ## 名詞解釋
 
 APT, Annotation-Processing Tool
