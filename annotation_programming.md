@@ -86,6 +86,16 @@ Square JavaPoet: https://github.com/square/javapoet
 For JavaPoet example:
 
 ```java
+package com.example.helloworld;
+
+public final class HelloWorld {
+  public static void main(String[] args) {
+    System.out.println("Hello, JavaPoet!");
+  }
+}
+```
+
+```java
 MethodSpec main = MethodSpec.methodBuilder("main")
     .addModifiers(Modifier.PUBLIC, Modifier.STATIC)
     .returns(void.class)
