@@ -117,7 +117,7 @@ javaFile.emit(System.out);
 ## TODO
 
 ```java
-JavaFile javaFile = JavaFile.package("com.example.helloworld").class(HelloWorld).method(
+JavaFile javaFile = JavaFile.package("com.example.helloworld").public().final().class("HelloWorld").method(
     Method.public().static().void().name("main")
     .statement("$T.out.println($S)", System.class, "Hello, JavaPoet!")
 );
