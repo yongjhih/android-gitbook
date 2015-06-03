@@ -8,7 +8,7 @@ sprinkles 還有作自動升級程式也就是在 Model 新增欄位不用自己
 
 目前我們是 ActivieAndroid + CursorList + EventBus 來作 Observing model，是由於開發時沒有 sprinkles 與 DBFlow，到現在已經沒法方便轉過去了。
 
-另外 DBFlow 很巧妙的使用 `@interface Table RetentionPolicy.SOURCE` 編譯時期產生一個承載欄位名稱的子類別, 所以可以用 ProfileModel$Table.DISPLAYNAME 取出 "displayname" 欄位名稱，來有效減少 hard code 。
+另外 DBFlow 很巧妙的使用 `@interface Table RetentionPolicy.SOURCE` 編譯時期產生一個承載欄位名稱的子類別, 所以可以用 `ProfileModel$Table.DISPLAYNAME` 取出 "displayname" 欄位名稱，來有效減少 hard code 。
 
 ```java
 ProfileModel extends BaseModel {
