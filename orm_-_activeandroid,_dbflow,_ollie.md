@@ -11,6 +11,7 @@ class User {
     public Long id;
     public String name;
 
+    
 }
 
 // set
@@ -18,7 +19,7 @@ User.create().name("Andrew Chen").save();
 
 // get
 Cursor cursor = MyDb.query("Select * from User where name = ?", "Andrew Chen");
-List<User> users = User.loadFromCursor(cursor);
+List<User> users = Orm.loadFromCursor(User.class, cursor);
 User andrew = users.get(0);
 ```
 
