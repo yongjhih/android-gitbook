@@ -1,11 +1,16 @@
 # 開源八卦
 
-## Jake Wharton
+## [Jake Wharton](https://github.com/JakeWharton)
 
 是個看起來不用睡覺的人
 
+隸屬:
+
 * Square
 
+著作:
+
+* ActionBarSherlock
 * AndroidViewPagerIndicator
 * ButterKnife
 * NotRxAndroid
@@ -18,18 +23,24 @@ moshi 是一個 json to POJO (JOM, json object mapping) 的函式庫. 類似 Gso
 
 ## Chris Banes
 
+隸屬:
+
 * Google
+
+著作:
 
 * PullToRefresh -> support.v4.SwipeRefreshLayout
 * gradle-mvn-push
 
 ## Square
 
-## Lucas Rocha, lucasr
+## [Lucas Rocha, lucasr](https://github.com/lucasr)
 
 * London, UK
 
-* Mozilla
+隸屬:
+
+* -Mozilla-
 * Facebook
 
 * TwoWayView
@@ -41,6 +52,8 @@ moshi 是一個 json to POJO (JOM, json object mapping) 的函式庫. 類似 Gso
 也是個看起來不用睡覺的人
 
 ## Xavier Ducrohet
+
+Android Build Tool team leader
 
 ## Gregory Kick
 
