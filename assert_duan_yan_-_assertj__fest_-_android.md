@@ -2,6 +2,8 @@
 
 ## Square AssertJ for Android
 
+* *註: 2011 釋出*
+
 針對 Android 的類別作語法撿結語錯誤訊息的強化。
 
 語法的簡潔：
