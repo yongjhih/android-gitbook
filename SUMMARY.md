@@ -20,7 +20,7 @@
 * 良好的撰寫習慣 JavaDoc
 * 開源套件庫設置 - jcenter(), mavenCentral()
 * 開源碼函式庫專案設置 - Github
-* [Assert 斷言 - assertj (fest-android), truth](assert_duan_yan_-_assertj__fest_-_android.md)
+* [Test - Assert 斷言 - assertj (fest-android), truth](assert_duan_yan_-_assertj__fest_-_android.md)
 * Test - Mockito
 * [Test - espresso, rxpresso](test_-_espresso,_rxpresso.md)
 * Debug 除錯 - stetho, leakcanary
