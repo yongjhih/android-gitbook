@@ -2,6 +2,30 @@
 
 ORM, Object Relational Mapping, 物件關聯映射. 筆者將之譯為「關聯資料物件化」。
 
+```sql
+CREATE TABLE User (id INTEGER PRIMARY KEY AUTOINCREMENT, name  TEXT);
+```
+
+```java
+class User {
+    public Long id;
+    public String name;
+
+}
+
+// save
+User.create().name("Andrew Chen").save();
+
+// get
+Cursor cursor = MyDb.query("Select * from User where name = ?", "Andrew Chen");
+List<User> users = User.loadFromCursor(cursor);
+User andrew = users.get(0);
+```
+
+## 名詞解釋
+DTO, Data Transfer Object, 資料傳輸物件。「參數物件化」
+
+
 以往的 Orm lib 其實有些瓶頸，
 例如：query 回來的都是 `List<Model>` ，這象徵著 query 萬一很多筆，Orm 必須全部繞完把每個都組成 Model ，真正有用過會發現會非常的緩慢，就算用 Transaction 包起來加速，也無法有效改善。這部份我們團隊寫了一個 CursorList 來作 Lazy 是等用到才去組，效果很好。
 這個概念 sprinkles Orm lib 也有發現，所以做了跟我們團隊一樣的事情。(DBFlow 有採納)
