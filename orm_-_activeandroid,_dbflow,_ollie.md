@@ -1,6 +1,6 @@
 # Orm - ActiveAndroid, DBFlow, Ollie
 
-ORM, Object Relation Mapping
+ORM, Object Relational Mapping
 
 以往的 Orm lib 其實有些瓶頸，
 例如：query 回來的都是 `List<Model>` ，這象徵著 query 萬一很多筆，Orm 必須全部繞完把每個都組成 Model ，真正有用過會發現會非常的緩慢，就算用 Transaction 包起來加速，也無法有效改善。這部份我們團隊寫了一個 CursorList 來作 Lazy 是等用到才去組，效果很好。
