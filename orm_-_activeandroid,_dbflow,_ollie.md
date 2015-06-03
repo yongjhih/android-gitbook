@@ -12,7 +12,7 @@ sprinkles 還有作自動升級程式也就是在 Model 新增欄位不用自己
 
 ```java
 ProfileModel extends BaseModel {
-@Column String displayname;
+    @Column String displayname;
 }
 ```
 
