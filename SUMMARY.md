@@ -23,5 +23,5 @@
 * [Test - Assert 斷言 - assertj (fest-android), truth](assert_duan_yan_-_assertj__fest_-_android.md)
 * Test - Mockito
 * [Test - UI - espresso, rxpresso](test_-_espresso,_rxpresso.md)
-* Debug 除錯 - stetho, leakcanary
+* [Debug 除錯 - stetho, leakcanary](debug_chu_cuo_-_stetho_,_leakcanary.md)
 
