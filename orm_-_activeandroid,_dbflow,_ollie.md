@@ -13,7 +13,7 @@ class User {
 
 }
 
-// save
+// set
 User.create().name("Andrew Chen").save();
 
 // get
