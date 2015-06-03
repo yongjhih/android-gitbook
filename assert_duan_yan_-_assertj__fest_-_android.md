@@ -34,7 +34,8 @@ Expected visibility <gone> but was <invisible>
 
 ## Google truth
 
-*註: 筆者是在 2015/2 留意到它*
+* *註: 筆者是在 2015/2 留意到它*
+* *註:  2014/12 由 google testing blog 消息釋出*
 
 仿效 square/assertj-android (square/fest-android)。
 
