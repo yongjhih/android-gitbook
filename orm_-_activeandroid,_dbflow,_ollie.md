@@ -21,13 +21,10 @@ List<User> users = Orm.loadFromCursor(User.class, cursor);
 User andrew = users.get(0);
 ```
 
-## 名詞解釋
-DTO, Data Transfer Object, 資料傳輸物件。「參數物件化」
-
-
-以往的 Orm lib 其實有些瓶頸，
+以往的 Orm library 其實有些瓶頸，
 例如：query 回來的都是 `List<Model>` ，這象徵著 query 萬一很多筆，Orm 必須全部繞完把每個都組成 Model ，真正有用過會發現會非常的緩慢，就算用 Transaction 包起來加速，也無法有效改善。這部份我們團隊寫了一個 CursorList 來作 Lazy 是等用到才去組，效果很好。
-這個概念 sprinkles Orm lib 也有發現，所以做了跟我們團隊一樣的事情。(DBFlow 有採納)
+
+這個概念 sprinkles Orm library 也有發現，所以做了跟我們團隊一樣的事情。(DBFlow 有採納)
 
 sprinkles 還有作自動升級程式也就是在 Model 新增欄位不用自己寫 alter table 。這點 DBFlow 應該也有採納。
 
@@ -65,3 +62,7 @@ List<Note> notes = new Select().from(Note.class).execute(); // huge notes
 
 2. 把 com.activeandroid.util.SQLiteUtils.processCursor() do {} while (cursor.moveToNext()) 做空，單純測量 loop cursor 的耗時
 3. 量測 Model.loadFromCursor()
+
+## 名詞解釋
+
+DTO, Data Transfer Object, 資料傳輸物件。「參數物件化」
