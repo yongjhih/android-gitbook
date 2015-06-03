@@ -10,8 +10,6 @@ CREATE TABLE User (id INTEGER PRIMARY KEY AUTOINCREMENT, name  TEXT);
 class User {
     public Long id;
     public String name;
-
-    
 }
 
 // set
