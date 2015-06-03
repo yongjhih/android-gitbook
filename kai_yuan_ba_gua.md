@@ -66,6 +66,8 @@ moshi 是一個 json to POJO (Ojm, object json mapping) 的函式庫. 類似 Gso
 
 ## Xavier Ducrohet
 
+![](https://c2.staticflickr.com/6/5333/8904997131_e551992b9d_b.jpg)
+
 Android Build Tool team leader
 
 ## Gregory Kick
