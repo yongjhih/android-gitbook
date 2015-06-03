@@ -60,8 +60,8 @@ List<Note> notes = new Select().from(Note.class).execute(); // huge notes
 
 量測方法：
 
-2. 把 com.activeandroid.util.SQLiteUtils.processCursor() do {} while (cursor.moveToNext()) 做空，單純測量 loop cursor 的耗時
-3. 量測 Model.loadFromCursor()
+1. 把 `com.activeandroid.util.SQLiteUtils.processCursor() do {} while (cursor.moveToNext())` 做空，單純測量 loop cursor 的耗時
+2. 量測 `Model.loadFromCursor()`
 
 ## 名詞解釋
 
