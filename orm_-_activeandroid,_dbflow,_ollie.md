@@ -40,5 +40,3 @@ List<Note> notes = new Select().from(Note.class).execute(); // huge notes
 
 2. 把 com.activeandroid.util.SQLiteUtils.processCursor() do {} while (cursor.moveToNext()) 做空，單純測量 loop cursor 的耗時
 3. 量測 Model.loadFromCursor()
-
-而 dex 肥大的症狀，目前好在 android 官方已經支援 multidex ，在開發上到還不是大問題(效能上是個問題 Orz..)。
