@@ -73,10 +73,16 @@ Android Build Tool team leader
 ## Gregory Kick
 
 ![](https://avatars1.githubusercontent.com/u/2279476?v=3&s=160)
+
+隸屬:
+
 * Google
 
-* Naperville North High School
+居住：
+
 * Chicago, IL
+
+參與：
 
 * Dagger2
 
