@@ -2,6 +2,8 @@
 
 ## Square AssertJ for Android
 
+針對 Android 的類別作語法撿結語錯誤訊息的強化。
+
 語法的簡潔：
 
 Before(JUnit):
@@ -34,7 +36,9 @@ Expected visibility <gone> but was <invisible>
 
 *註: 筆者是在 2015/2 留意到它*
 
-仿效 square/assertj-android (square/fest-android)
+仿效 square/assertj-android (square/fest-android)。
+
+在沒有特定的類別下，提供一個置換錯誤訊息的能力。
 
 Before(JUnit):
 
