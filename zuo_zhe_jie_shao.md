@@ -24,9 +24,13 @@ yongjhih, Andrew Chen
 
 新創公司幫人寫寫 App 。
 
-> Github
+> Github?
 
 https://github.com/yongjhih
+
+> LinkedIn?
+
+https://tw.linkedin.com/in/yongjhih
 
 ## 第二作者
 
