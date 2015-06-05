@@ -27,5 +27,5 @@
 * [Test - robolectric](test_-_robolectric.md)
 * [開源八卦](kai_yuan_ba_gua.md)
 * [Kotlin](kotlin.md)
-* 經典問題 - 指引你「這該怎麼弄？」
+* [經典問題 - 指引你「這該怎麼弄？」](jing_dian_wen_ti_-_zhi_yin_ni_300c_zhe_gai_zen_me_nong_ff1f_300d.md)
 
