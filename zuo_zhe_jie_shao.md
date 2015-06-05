@@ -1,4 +1,10 @@
-# 作者介紹
+# 作者群介紹
+
+## 第一作者
+
+yongjhih, Andrew Chen
+
+![yongjhih](https://avatars3.githubusercontent.com/u/213736?v=3&s=160)
 
 > 為什麼你會寫本書？
 
@@ -15,3 +21,7 @@
 > 你現在在哪工作？
 
 新創公司幫人寫寫 App 。
+
+## 第二作者
+
+## 編輯
