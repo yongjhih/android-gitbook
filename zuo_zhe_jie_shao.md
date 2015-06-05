@@ -24,6 +24,10 @@ yongjhih, Andrew Chen
 
 新創公司幫人寫寫 App 。
 
+> Github
+
+https://github.com/yongjhih
+
 ## 第二作者
 
 負責章節：
