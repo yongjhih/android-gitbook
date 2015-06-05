@@ -141,6 +141,8 @@ class HogeActivity extends Activity {
 }
 ```
 
+## NotRxAndroid
+
 ## See Also
 
 * [RxActivity](https://github.com/ReactiveX/RxAndroid/blob/master/rxandroid-framework/src/main/java/rx/android/app/RxActivity.java)
