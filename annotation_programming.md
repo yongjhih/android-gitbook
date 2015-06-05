@@ -116,6 +116,8 @@ javaFile.emit(System.out);
 
 ## TODO
 
+https://github.com/yongjhih/JavaPoetic:
+
 ```java
 JavaFile javaFile = JavaFile.package("com.example.helloworld").class(
     JavaClass.public().final().name("HelloWorld").method(
