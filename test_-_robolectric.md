@@ -1,5 +1,7 @@
 # Test - robolectric
 
+![robolectric](http://robolectric.org/images/robolectric-stacked-3f7ad42c.png)
+
 robolectric 提供 Android 相關的實體，例如：`Activity`, `Context` 以便離線測試。
 
 ```java
