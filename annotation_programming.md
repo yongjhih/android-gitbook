@@ -139,3 +139,4 @@ APT, Annotation-Processing Tool
 * https://speakerdeck.com/jakewharton/annotation-processing-boilerplate-destruction-square-waterloo-2014
 * https://github.com/8tory/simple-parse (runtime)
 * https://github.com/8tory/auto-parse (source)
+* http://velocity.apache.org/engine/devel/vtl-reference-guide.html
