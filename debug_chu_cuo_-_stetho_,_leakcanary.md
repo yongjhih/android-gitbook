@@ -1,5 +1,5 @@
 # Debug 除錯 - stetho, leakcanary
 
-## facebook stetho
+## facebook/stetho
 
-## square leakcanary
+## square/leakcanary
