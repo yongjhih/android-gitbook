@@ -56,3 +56,6 @@
 
 * jenkins
 
+## 版權
+
+[![CC-BY 4.0](http://creativecommons.tw/sites/creativecommons.tw/files/cc-by.png)](https://creativecommons.org/licenses/by/4.0/legalcode.txt)
