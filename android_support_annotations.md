@@ -62,6 +62,15 @@ public abstract class ActionBar {
 public void setLogger(ILogger logger) {...}
 ```
 
+## @Keep
+
+> [@Keep](http://tools.android.com/tech-docs/support-annotations#TOC-Keep)
+
+> We've also added @Keep to the support annotations. Note however that > that annotation hasn't been hooked up to the Gradle plugin yet (though > it's [in progress](https://android-review.googlesource.com/#/c/152983/).) When finished this will let you annotate methods and > > classes that should be retained when minimizing the app.
+
+看起來還在進行中，可以先用筆者的專案：https://github.com/yongjhih/proguard-annotations
+
+
 ## See Also
 
 * ref. http://tools.android.com/tech-docs/support-annotations
