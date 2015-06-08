@@ -54,6 +54,15 @@ public abstract class ActionBar {
     @Retention(RetentionPolicy.SOURCE)
     public @interface DisplayOptions {}
 ```
+
+## @VisibleForTesting
+
+```java
+@VisibleForTesting
+public void setLogger(ILogger logger) {...}
+```
+
 ## See Also
 
 * ref. http://tools.android.com/tech-docs/support-annotations
+* https://plus.google.com/+StephanLinzner/posts/GBdq6NsRy6S
