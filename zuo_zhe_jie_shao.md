@@ -24,7 +24,7 @@ yongjhih, Andrew Chen
 
 新創公司幫人寫寫 App 以及建立開發環境與佈署環境。
 
-2013, SCM, ITS, CI / gitlab, phabricator, jenkins. 內部系統都放置於 docker container.
+2013, SCM, ITS, Code Review, CI / gitlab, phabricator, jenkins. 內部系統都放置於 docker container.
 
 2014, Backend Couchabase. Analytics System(with docker): Webdis, Redis, Logstash, ElasticSearch, Kibana.
 
