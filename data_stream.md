@@ -10,3 +10,8 @@
 * Marray 可修改。
 * SolidList 主要以 ImuttableList 出發，所以沒實現修改能力。
 * SolidList 支援 Parcelable 傳遞。
+
+
+另一個知名 https://github.com/goldmansachs/gs-collections 不過似乎不夠輕。
+
+http://www.goldmansachs.com/gs-collections/documents/GS%20Collections%20Training%20Session%20and%20Kata%205.0.0.pdf
