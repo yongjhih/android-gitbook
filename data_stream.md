@@ -5,6 +5,6 @@
 * https://github.com/kgmyshin/Marray
 * https://github.com/konmik/solid
 
-Marray 可修改
+Marray 可修改。
 
 SolidList 主要以 ImuttableList 出發，所以沒實現修改能力。
