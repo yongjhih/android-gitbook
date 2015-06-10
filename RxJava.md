@@ -1102,9 +1102,11 @@ public class Usb {
 
 這邊僅是教學需要。 (https://gist.github.com/yongjhih/25017ac41efb4634c2ab)
 
-
-
 ## See Also
+
+* 章節：[輕量 data streams](data-streams)
+
+文獻:
 
 * https://speakerdeck.com/jakewharton/2014-1?slide=13
 * http://slides.com/yaroslavheriatovych/frponandroid
