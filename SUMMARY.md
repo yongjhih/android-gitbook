@@ -4,6 +4,7 @@
 * [RxJava](RxJava.md)
    * [開發 RxJava 新增自己的 Operator](kai_fa_rxjava_xin_zeng_zi_ji_de_operator.md)
    * [RxAndroid](rxandroid.md)
+* Data Stream
 * [Lambda](lambda.md)
 * [Bolts-Android](bolts-android.md)
 * [AutoValue](autovalue.md)
@@ -15,7 +16,6 @@
 * [json to POJO](json_to_pojo.md)
 * [Clean architecture](clean_architecture.md)
 * [Retrofit](retrofit.md)
-* Data Stream
 * [Orm - ActiveAndroid, DBFlow, Ollie](orm_-_activeandroid,_dbflow,_ollie.md)
 * [flow + mortar](flow_mortar.md)
 * 良好的撰寫習慣 JavaDoc
