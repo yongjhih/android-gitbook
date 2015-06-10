@@ -9,3 +9,4 @@
 
 * Marray 可修改。
 * SolidList 主要以 ImuttableList 出發，所以沒實現修改能力。
+* SolidList 支援 Parcelable 傳遞。
