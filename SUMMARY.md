@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [RxJava](RxJava.md)
    * [開發 RxJava 新增自己的 Operator](kai_fa_rxjava_xin_zeng_zi_ji_de_operator.md)
-   * Data Stream
+   * [Data Stream](data_stream.md)
    * [RxAndroid](rxandroid.md)
 * [Lambda](lambda.md)
 * [Bolts-Android](bolts-android.md)
