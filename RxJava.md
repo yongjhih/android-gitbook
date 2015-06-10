@@ -1104,7 +1104,7 @@ public class Usb {
 
 ## See Also
 
-* 章節：[輕量 data streams](data-streams)
+* 章節：[輕量 data stream](data-stream)
 
 文獻:
 
