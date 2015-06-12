@@ -114,7 +114,11 @@ JavaFile javaFile = JavaFile.builder("com.example.helloworld", helloWorld)
 javaFile.emit(System.out);
 ```
 
-## 範例
+## TypeMirror -> Annoation
+
+```java
+Annotation annotation = ((DeclaredType) typeMirror).asElement().getAnnotation(AutoValue.Field.class);
+```
 
 ## TODO
 
