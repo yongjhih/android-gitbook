@@ -5,7 +5,7 @@
    * [RxAndroid](rxandroid.md)
    * NotRxAndroid
    * [開發 RxJava 新增自己的 Operator](kai_fa_rxjava_xin_zeng_zi_ji_de_operator.md)
-   * [Data Stream](data_stream.md)
+   * [Data Stream 替代方案](data_stream.md)
 * [Lambda](lambda.md)
 * [Bolts-Android](bolts-android.md)
 * [AutoValue](autovalue.md)
