@@ -129,6 +129,7 @@ public abstract class AutoValueParcel {
 }
 ```
 
+parceler 的產生器, 有點獨特..
 
 ## See Also
 
