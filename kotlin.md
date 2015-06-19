@@ -4,9 +4,10 @@
 
 特點：
 
-* null-safety / Optional 最佳解決方案。
+* null-safety / Optional 最佳解決方案。 `:?`
 * 語法簡潔
 * Jake Wharton 加持 (誤
+* AutoValue?
 
 ## See Also
 
