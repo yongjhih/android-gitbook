@@ -90,7 +90,7 @@ System.out.println(andrew.equals(andrew2));
 
 ## Android Parcelable
 
-另外推薦 [frankiesardo/auto-parcel](https://github.com/frankiesardo/auto-parcel) 方便傳遞:
+[frankiesardo/auto-parcel](https://github.com/frankiesardo/auto-parcel):
 
 ```java
 @AutoParcel
@@ -112,6 +112,23 @@ abstract class SomeModel implements Parcelable {
     }
 }
 ```
+
+或者 https://github.com/johncarl81/parceler
+
+```java
+@AutoValue
+@Parcel
+public abstract class AutoValueParcel {
+
+    @ParcelProperty("value") public abstract String value();
+
+    @ParcelFactory
+    public static AutoValueParcel create(String value) {
+        return new AutoValue_AutoValueParcel(value);
+    }
+}
+```
+
 
 ## See Also
 
