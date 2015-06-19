@@ -4,7 +4,7 @@
 
 1. 通常遇到這種問題，一種是建立溝通管道，例如傳遞 callback 的方式。
 2. 利用廣播方式，intent broadcast
-3. 懶得傳遞 callback 就依靠全域變數註冊 callback
+3. 懶得傳遞 callback 就依靠全域變數註冊 callback.
 
 EventBus 就是走第三種方案。
 
