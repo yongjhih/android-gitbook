@@ -5,16 +5,15 @@
 * https://github.com/kgmyshin/Marray
 * https://github.com/konmik/solid
 
-另外還有其他 Promise 選用:
-
-* Bolt-Android
-
 特點：
 
 * Marray 可修改。
 * SolidList 主要以 ImuttableList 出發，所以沒實現修改能力。
 * SolidList 支援 Parcelable 傳遞。
 
+另外還有其他 Promise 選用:
+
+* Bolt-Android
 
 另一個知名 https://github.com/goldmansachs/gs-collections 不過似乎不夠輕。
 
