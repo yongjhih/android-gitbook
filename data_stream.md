@@ -13,7 +13,7 @@
 
 另外還有其他 Promise 選用:
 
-* Bolt-Android
+* [Bolt-Android]()
 
 另一個知名 https://github.com/goldmansachs/gs-collections 不過似乎不夠輕。
 
