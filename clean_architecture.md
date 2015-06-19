@@ -11,6 +11,10 @@ MVP, MVVM
 
 利用 RxJava 實現了 MVVM 的 two-way binding
 
+## Data-Binding support v22
+
+讓連動更簡便撰寫 VM 應該就更薄了。
+
 ## See Also
 
 * https://github.com/sockeqwe/mosby
