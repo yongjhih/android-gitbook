@@ -12,7 +12,6 @@ EventBus 就是走第三種方案。
 
 儲存問題, 可回復性. 如果透過 saveInstanceState 就可以交由系統負責儲存。一種是儲存在 disk 如: sharedPreferences. 再來是 DB 。
 
-
 ## EventBus vs. Otto
 
 網路上有很多比較，可以參考。這裡先給個簡單的參考： EventBus 比較快、 Otto 比較小。
