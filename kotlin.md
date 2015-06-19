@@ -10,6 +10,27 @@
 * lambdas `setOnClickListener({ finish() })`
 * Jake Wharton 加持 (誤
 
+## RxKotlin
+
+```java
+observable<String> { subscriber ->
+        subscriber.onNext("H")
+        subscriber.onNext("e")
+        subscriber.onNext("l")
+        subscriber.onNext("")
+        subscriber.onNext("l")
+        subscriber.onNext("o")
+        subscriber.onCompleted()
+    }.filter { it.isNotEmpty() }.
+    fold (StringBuilder()) { sb, e -> sb.append(e) }.
+    map { it.toString() }.
+    subscribe { result ->
+      a.received(result)
+    }
+
+    verify(a, times(1)).received("Hello")
+```
+
 ## See Also
 
 * https://github.com/ReactiveX/RxKotlin
