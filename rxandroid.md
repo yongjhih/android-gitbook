@@ -143,11 +143,6 @@ class HogeActivity extends Activity {
 
 *RxAndroid 正在重新規劃需留意: https://github.com/ReactiveX/RxAndroid/issues/172*
 
-
-## NotRxAndroid
-
-依據 Android 各項元件出發，重新披上 RxJava 的皮。
-
 ## See Also
 
 * [RxActivity](https://github.com/ReactiveX/RxAndroid/blob/master/rxandroid-framework/src/main/java/rx/android/app/RxActivity.java)
