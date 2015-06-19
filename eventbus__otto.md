@@ -8,7 +8,10 @@
 
 EventBus 就是走第三種方案。
 
-接著是儲存問題, 可回復性. 如果透過 saveInstanceState 就可以交由系統負責儲存。一種是儲存在 disk 如: sharedPreferences. 再來是 DB 。
+
+## 補充
+
+儲存問題, 可回復性. 如果透過 saveInstanceState 就可以交由系統負責儲存。一種是儲存在 disk 如: sharedPreferences. 再來是 DB 。
 
 # See Also
 
