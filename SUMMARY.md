@@ -19,6 +19,7 @@
 * [Retrofit](retrofit.md)
 * [Orm - ActiveAndroid, DBFlow, Ollie](orm_-_activeandroid,_dbflow,_ollie.md)
 * [flow + mortar](flow_mortar.md)
+* [EventBus / Otto](eventbus__otto.md)
 * 良好的撰寫習慣 JavaDoc
 * 開源套件庫設置 - jcenter(), mavenCentral()
 * 開源碼函式庫專案設置 - Github
@@ -32,5 +33,4 @@
 * [經典問題 - 指引你「這該怎麼弄？」](jing_dian_wen_ti_-_zhi_yin_ni_300c_zhe_gai_zen_me_nong_ff1f_300d.md)
 * [作者群介紹](zuo_zhe_jie_shao.md)
 * Facebook SDK
-* [EventBus / Otto](eventbus__otto.md)
 
