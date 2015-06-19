@@ -7,7 +7,7 @@
 * null-safety / Optional 最佳解決方案。 `?:`
 * 語法簡潔 `for ((key, value) in map)`
 * AutoValue?
-* lambda
+* lambdas `setOnClickListener({ finish() })`
 * Jake Wharton 加持 (誤
 
 ## See Also
