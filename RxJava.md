@@ -7,8 +7,6 @@
 RxJava, Reactive Java,
 一個 Java FRP (Functional Reactive Programming) 的實現。
 
-RxJava 大約從 2013 年中一場[研討會](http://www.infoq.com/presentations/netflix-functional-rx)之後漸漸嶄露頭角。如果你有留意，大約一年後 2014 年中後開始許多文章出現。2014 年底 trello 甚至應聘熟悉 RxJava 的開發者。
-
 可以接龍的 callbacks。
 
 類似於 command line 的 `|` 的概念。
@@ -16,6 +14,8 @@ RxJava 大約從 2013 年中一場[研討會](http://www.infoq.com/presentations
 ```sh
 ls | wc -l
 ```
+
+RxJava 大約從 2013 年中一場[研討會](http://www.infoq.com/presentations/netflix-functional-rx)之後漸漸嶄露頭角。如果你有留意，大約一年後 2014 年中後開始許多文章出現。2014 年底 trello 甚至應聘熟悉 RxJava 的開發者。
 
 短期效用：有效避免巢狀 callback 增加可讀性以及減少 `List<item>` 的轉換成本。
 
@@ -25,7 +25,6 @@ ls | wc -l
 2. *java8.stream 也實現了 Reactive。*
 
 先看一些範例對照後，了解樣貌之後，我們再來討論 RxJava 基本使用概念與方法。
-
 
 
 ## 有效解決重複的 loop 增進效能，維持同個 loop
