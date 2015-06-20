@@ -2,12 +2,12 @@
 
 \#Promise \#RxJava \#Reactive \#Functional
 
-
-
 ## 前言
 
 RxJava, Reactive Java,
 一個 Java FRP (Functional Reactive Programming) 的實現。
+
+RxJava 大約從 2013 年中一場[研討會](http://www.infoq.com/presentations/netflix-functional-rx)之後漸漸嶄露頭角。如果你有留意，大約一年後 2014 年中後開始許多文章出現。2014 年底 trello 甚至應聘熟悉 RxJava 的開發者。
 
 可以接龍的 callbacks。
 
