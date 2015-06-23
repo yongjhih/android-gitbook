@@ -1,5 +1,7 @@
 # Clean architecture
 
+先將程式碼擺放包裝劃分清楚再來針對動線做規劃。
+
 MVC, MVP, MVVM
 
 <!-- ![MVP](http://upload.wikimedia.org/wikipedia/commons/a/a0/MVC-Process.svg)
@@ -17,5 +19,14 @@ MVC, MVP, MVVM
 
 ## See Also
 
-* https://github.com/sockeqwe/mosby
+* http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/
+* http://manuel.kiessling.net/2012/09/28/applying-the-clean-architecture-to-go-applications/
+* https://www.groupbuddies.com/posts/20-clean-architecture
 * http://konmik.github.io/introduction-to-model-view-presenter-on-android.html
+
+Sample:
+
+* https://github.com/android10/Android-CleanArchitecture
+* https://github.com/sockeqwe/mosby
+* https://github.com/JorgeCastilloPrz/Dagger2Scopes
+* https://github.com/PaNaVTEC/Clean-Contacts
