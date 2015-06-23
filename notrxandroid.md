@@ -11,7 +11,7 @@ ViewObservable.bind(textView).clicks().subscribe(ev -> {});
 NotRxAndroid After:
 
 ```java
-rxTextView.textChanged().subscribe(ev -> {});
+RxTextView.textChanged(textView).subscribe(ev -> {});
 ```
 
 ## See Also
