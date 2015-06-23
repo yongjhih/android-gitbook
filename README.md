@@ -37,7 +37,7 @@
 * [auto-parse](https://github.com/yongjhih/auto-parse)
 * [RxParse](https://github.com/yongjhih/RxParse)
 * [RxFacebook](https://github.com/yongjhih/RxFacebook)
-* [Proguard annotation](https://github.com/yongjhih/proguard-annotations)
+* [proguard annotations](https://github.com/yongjhih/proguard-annotations)
 
 後端：
 
