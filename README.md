@@ -32,7 +32,7 @@
 * mockito
 * espresso
 * robolectric
-* assertj/fest
+* assertj(fest), truth
 * icepick
 * auto-parse ([yongjhih/auto-parse](https://github.com/yongjhih/auto-parse))
 * RxParse ([yongjhih/RxParse](https://github.com/yongjhih/RxParse))
