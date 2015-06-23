@@ -24,3 +24,4 @@ greenrobot/EventBus 就是走第三種方案。
 
 * https://github.com/greenrobot/EventBus
 * https://github.com/square/otto
+* http://endlesswhileloop.com/blog/2015/06/11/stop-using-event-buses/
