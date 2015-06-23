@@ -6,6 +6,12 @@ DI 工具
 
 DI, Dependency Injection (相依性注入) ，Anti-DIY, Auto-DIY 自動組裝，行前準備/著裝/組件/要件
 
+例如 ButterKnife 就是一種 DI ，只是針對 findView 來做的 Injection 。
+
+在特定的生命週期，幫你生成所需的物件。
+
+## 著名的咖啡機
+
 ![CoffeeMaker](http://upload.wikimedia.org/wikipedia/commons/2/23/KBG741S-AO.jpg)
 
 沖泡出一杯風味十足的咖啡之前，你需要一台濾泡式咖啡機：
