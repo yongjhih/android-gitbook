@@ -1,4 +1,4 @@
-# EventBus / Otto
+# EventBus: greenrobot/EventBus, Square/otto
 
 跨 Activity, View, Thread 等溝通問題。
 
