@@ -1,6 +1,6 @@
 # Clean architecture
 
-MVP, MVVM
+MVC, MVP, MVVM
 
 <!-- ![MVP](http://upload.wikimedia.org/wikipedia/commons/a/a0/MVC-Process.svg)
 
@@ -9,7 +9,7 @@ MVP, MVVM
 
 ## RxBinding MVVM
 
-利用 RxJava 實現了 MVVM 的 two-way binding
+利用 RxJava 實現了 MVVM 的 two-way binding (雙向連動)
 
 ## Data-Binding support v22
 
