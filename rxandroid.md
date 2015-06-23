@@ -111,8 +111,8 @@ class HogeActivity extends Activity {
         ButterKnife.inject(this);
 
         AppObservable.bindActivity(this, Observable.just("hoge"))
-        .subscribeOn(Schedulers.io())
-        .subscribe(setTextAction());
+            .subscribeOn(Schedulers.io())
+            .subscribe(setTextAction());
     }
 
     Action1<String> setTextAction() {
