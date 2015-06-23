@@ -27,7 +27,7 @@
 * ImageLoader: fresco, AUIL, picasso, glide, etc.
 * json2pojo: jackson, gson, logansquare, etc.
 * Orm: DBFlow, etc.
-* SimpleFacebook
+* SimpleFacebook, RetroFacebook
 * mockito
 * espresso
 * robolectric
