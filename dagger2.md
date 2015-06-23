@@ -8,7 +8,7 @@ DI, Dependency Injection (相依性注入) ，Anti-DIY, Auto-DIY 自動組裝，
 
 例如 ButterKnife 就是一種 DI ，只是針對 findView 來做的 Injection 。
 
-在特定的生命週期，幫你生成所需的物件。
+在特定的生命週期，幫你生成所需的物件。Dagger 是讓你創造自己的 Injection。
 
 ## 著名的咖啡機
 
