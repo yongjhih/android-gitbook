@@ -17,3 +17,4 @@ rxTextView.textChanged().subscribe(ev -> {});
 ## See Also
 
 * Jack Wharton 的 RxJava 電台訪談： http://fragmentedpodcast.com/episodes/7/
+* https://github.com/JakeWharton/NotRxAndroid
