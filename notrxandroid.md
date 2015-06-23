@@ -13,3 +13,7 @@ NotRxAndroid After:
 ```java
 rxTextView.textChanged().subscribe(ev -> {});
 ```
+
+## See Also
+
+* Jack Wharton 的電台訪談： http://fragmentedpodcast.com/episodes/7/
