@@ -30,3 +30,11 @@ Sample:
 * https://github.com/sockeqwe/mosby
 * https://github.com/JorgeCastilloPrz/Dagger2Scopes
 * https://github.com/PaNaVTEC/Clean-Contacts
+* https://github.com/techery/presenta
+* https://github.com/antoniolg/androidmvp
+* https://github.com/wongcain/MVP-Simple-Demo
+* https://github.com/pedrovgs/EffectiveAndroidUI
+* https://github.com/glomadrian/MvpCleanArchitecture
+* https://github.com/spengilley/ActivityFragmentMVP
+* https://github.com/jlmd/UpcomingMoviesMVP
+* https://github.com/JorgeCastilloPrz/EasyMVP
