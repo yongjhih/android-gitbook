@@ -9,7 +9,7 @@ ViewObservable.bind(TextView).clicks().subscribe(ev -> {
 })
 ```
 
-NotRxAndroid:
+NotRxAndroid After:
 
 ```java
 RxTextView.textChanged().subscribe(ev -> {});
