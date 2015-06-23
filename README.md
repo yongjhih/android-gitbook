@@ -1,5 +1,7 @@
 # Android App 開源開發
 
+[![Join the chat at https://gitter.im/yongjhih/android-gitbook](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yongjhih/android-gitbook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 * gitbook: http://yongjhih.gitbooks.io/feed/
 
 [![](cover.jpg)](http://yongjhih.gitbooks.io/feed/)
