@@ -19,7 +19,7 @@
 * [Retrofit](retrofit.md)
 * [Orm - ActiveAndroid, DBFlow, Ollie](orm_-_activeandroid,_dbflow,_ollie.md)
 * [flow + mortar](flow_mortar.md)
-* [EventBus / Otto](eventbus__otto.md)
+* [EventBus: greenrobot/EventBus, Square/otto](eventbus__otto.md)
 * 良好的撰寫習慣 JavaDoc
 * 開源套件庫設置 - jcenter(), mavenCentral()
 * 開源碼函式庫專案設置 - Github
