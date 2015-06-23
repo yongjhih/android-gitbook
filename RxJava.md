@@ -1,6 +1,6 @@
 # RxJava
 
-\#Promise \#RxJava \#Reactive \#Functional
+\#Promise \#Reactive \#Functional \#Monad \#Stream
 
 ## 前言
 
