@@ -28,6 +28,7 @@
 * json2pojo: jackson, gson, logansquare, etc.
 * Orm: DBFlow, etc.
 * SimpleFacebook, RetroFacebook
+* EventBus/Otto
 * mockito
 * espresso
 * robolectric
