@@ -34,10 +34,10 @@
 * robolectric
 * assertj(fest), truth
 * icepick
-* auto-parse ([yongjhih/auto-parse](https://github.com/yongjhih/auto-parse))
-* RxParse ([yongjhih/RxParse](https://github.com/yongjhih/RxParse))
-* RxFacebook ([yongjhih/RxFacebook](https://github.com/yongjhih/RxFacebook))
-* Proguard annotation ([yongjhih/proguard-annotations](https://github.com/yongjhih/proguard-annotations))
+* [auto-parse](https://github.com/yongjhih/auto-parse)
+* [RxParse](https://github.com/yongjhih/RxParse)
+* [RxFacebook](https://github.com/yongjhih/RxFacebook)
+* [Proguard annotation](https://github.com/yongjhih/proguard-annotations)
 
 後端：
 
