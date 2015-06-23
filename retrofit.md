@@ -55,6 +55,11 @@ public class Main {
 }
 ```
 
+## yongjhih/retrofit2
+
+由於 retrofit 是執行時期處理 annotations 效能有改善的空間。retrofit2 是改用編譯時期處理。
+
 ## See Also
 
 * https://github.com/yongjhih/RxJava-retrofit-github-sample
+* https://github.com/yongjhih/retrofit2
