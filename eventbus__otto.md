@@ -6,13 +6,13 @@
 2. 利用廣播方式，intent broadcast
 3. 懶得傳遞 callback 就依靠全域變數註冊 callback.
 
-EventBus 就是走第三種方案。
+greenrobot/EventBus 就是走第三種方案。
 
 ## 補充 - 回復性
 
 儲存問題, 可回復性. 如果透過 saveInstanceState 就可以交由系統負責儲存。一種是儲存在 disk 如: sharedPreferences. 再來是 DB 。
 
-## EventBus vs. Otto
+## greenrobot/EventBus vs. Otto
 
 網路上有很多比較，可以參考。這裡先給個簡單的參考： EventBus 比較快、 Otto 比較小。
 
