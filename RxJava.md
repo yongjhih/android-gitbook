@@ -17,6 +17,10 @@ ls | wc -l
 
 RxJava 大約從 2013 年中一場[研討會](http://www.infoq.com/presentations/netflix-functional-rx)之後漸漸嶄露頭角。大約一年後 2014 年中後開始許多文章出現(英文)。2014 年底 trello 甚至應聘熟悉 RxJava 的開發者。
 
+* Square
+* SoundCloud
+* NetFlix
+
 短期效用：有效避免巢狀 callback 增加可讀性以及減少 `List<item>` 的轉換成本。
 
 鑑於 RxJava 太少範例可以參考，才開始撰寫這篇文章，而這篇文章的技術來源大多是閱讀 RxJava 源碼、測試程式源碼以及其 github Wiki 而來。如果有謬誤之處，歡迎用各種方式聯絡我。
