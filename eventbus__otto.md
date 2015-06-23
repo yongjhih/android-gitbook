@@ -12,9 +12,16 @@ greenrobot/EventBus 就是走第三種方案。
 
 儲存問題, 可回復性. 如果透過 saveInstanceState 就可以交由系統負責儲存。一種是儲存在 disk 如: sharedPreferences. 再來是 DB 。
 
+也就是 http://endlesswhileloop.com/blog/2015/06/11/stop-using-event-buses/ 提及的：
+
+> * Requires the data as a dependency.
+> * Handle the state where the data is not available.
+
 ## greenrobot/EventBus vs. Otto
 
 網路上有很多比較，可以參考。這裡先給個簡單的參考： EventBus 比較快、 Otto 比較小。
+
+## 
 
 # See Also
 
