@@ -1,6 +1,6 @@
 # EventBus: greenrobot/EventBus, Square/otto
 
-跨 Activity, View, Thread 等溝通問題。
+通常處理跨 Activity, View, Thread 等溝通問題。
 
 1. 通常遇到這種問題，一種是建立溝通管道，例如傳遞 callback 的方式。
 2. 利用廣播方式，intent broadcast
