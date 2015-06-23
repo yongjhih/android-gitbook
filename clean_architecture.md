@@ -38,3 +38,6 @@ Sample:
 * https://github.com/spengilley/ActivityFragmentMVP
 * https://github.com/jlmd/UpcomingMoviesMVP
 * https://github.com/JorgeCastilloPrz/EasyMVP
+* https://github.com/richardradics/MVPAndroidBootstrap
+* https://github.com/richardradics/RxAndroidBootstrap
+* https://github.com/inloop/AndroidViewModel
