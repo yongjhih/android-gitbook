@@ -17,8 +17,6 @@ ls | wc -l
 
 RxJava 大約從 2013 年中一場[研討會](http://www.infoq.com/presentations/netflix-functional-rx)之後漸漸嶄露頭角。大約一年後 2014 年中後開始許多文章出現(英文)。2014 年底 trello 甚至應聘熟悉 RxJava 的開發者。
 
-*註：筆者是 2013 底加入 App 開發的*
-
 有誰在用？先從有貢獻來看：
 
 * Square
