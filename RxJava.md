@@ -15,7 +15,7 @@ RxJava, Reactive Java,
 ls | wc -l
 ```
 
-RxJava 大約從 2013 年中一場[研討會](http://www.infoq.com/presentations/netflix-functional-rx)之後漸漸嶄露頭角。大約一年後 2014 年中後開始許多文章出現。2014 年底 trello 甚至應聘熟悉 RxJava 的開發者。
+RxJava 大約從 2013 年中一場[研討會](http://www.infoq.com/presentations/netflix-functional-rx)之後漸漸嶄露頭角。大約一年後 2014 年中後開始許多文章出現(英文)。2014 年底 trello 甚至應聘熟悉 RxJava 的開發者。
 
 短期效用：有效避免巢狀 callback 增加可讀性以及減少 `List<item>` 的轉換成本。
 
