@@ -8,7 +8,11 @@
 
 greenrobot/EventBus 就是走第三種方案。
 
-## 補充 - 回復性
+## greenrobot/EventBus vs. Otto
+
+網路上有很多比較，可以參考。這裡先給個簡單的參考： EventBus 比較快、 Otto 比較小。
+
+## 補充 - 回復性、耦合性
 
 儲存問題, 可回復性. 如果透過 saveInstanceState 就可以交由系統負責儲存。一種是儲存在 disk 如: sharedPreferences. 再來是 DB 。
 
@@ -17,11 +21,7 @@ greenrobot/EventBus 就是走第三種方案。
 > * Requires the data as a dependency.
 > * Handle the state where the data is not available.
 
-## greenrobot/EventBus vs. Otto
-
-網路上有很多比較，可以參考。這裡先給個簡單的參考： EventBus 比較快、 Otto 比較小。
-
-## 
+不過 http://endlesswhileloop.com/blog/2015/06/11/stop-using-event-buses/ 標題過激，事實上，只要不要濫用，能夠正常建立 callback 溝通管道的就建立，不得已我們再來考慮 EventBus 。
 
 # See Also
 
