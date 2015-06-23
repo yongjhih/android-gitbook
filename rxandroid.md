@@ -141,7 +141,7 @@ class HogeActivity extends Activity {
 }
 ```
 
-*RxAndroid 正在重新規劃需留意: https://github.com/ReactiveX/RxAndroid/issues/172*
+*RxAndroid 正在重新規劃需留意: https://github.com/ReactiveX/RxAndroid/issues/172 重點在於模組化，看起來對於無限上綱的功能需要作點整理*
 
 ## See Also
 
