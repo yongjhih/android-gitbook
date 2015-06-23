@@ -5,7 +5,7 @@
 RxAndroid Before:
 
 ```java
-ViewObservable.bind(textView).clicks().subscribe(ev -> {});
+ViewObservable.clicks(textView).subscribe(ev -> {});
 ```
 
 NotRxAndroid After:
