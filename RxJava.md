@@ -1124,6 +1124,7 @@ http://yarikx.github.io/NotRxJava/ 也是從這種方式帶領你看發展進程
 * http://en.wikipedia.org/wiki/Null_coalescing_operator
 * http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html
 * http://java.dzone.com/articles/java-8-elvis-operator
+* http://blog.danlew.net/2015/06/22/loading-data-from-multiple-sources-with-rxjava/
 
 一些 Rx 開源：
 
