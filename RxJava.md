@@ -1107,11 +1107,22 @@ public class Usb {
 
 這邊僅是教學需要。 (https://gist.github.com/yongjhih/25017ac41efb4634c2ab)
 
+## Threading, Scheduler 執行序控制
+
+```
+Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html").map(url -> download(url))
+.subscribeOn(Schedulers.io)) // 在 io Thread() 跑 (60 thread pool, 60s timeout)
+.observeOn(AndroidScheduler.mainThread()) // 在 mainThread 回來印
+.subscirbe(System.out::println);
+```
+
+##
+
 ## 後記
 
 這裡鮮少討論一般常見的理論：無論是 FRP, monad, push/pull, cold/hot 。主要因為先以範例，也就是實際看得到的改善是什麼來作介紹。
 
-http://yarikx.github.io/NotRxJava/ 也是從這種方式帶領你看發展進程，希望大家會喜歡。
+http://yarikx.github.io/NotRxJava/ 也是從這種方式帶領你看發展進程，希望大家會喜歡
 
 ## See Also
 
