@@ -1116,13 +1116,17 @@ Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html").map(url 
 .subscirbe(System.out::println);
 ```
 
-## Cache 流程
+## 改善 Cache 流程
 
 ```java
 Observable.merge(ParseObservable.getPostsFromLocalDatabase(), ParseObservable.getPosts()).distinct(o -> o.getObjectId())
 ```
 
 或者用 `amb()`, `first()` 等方式作
+
+# Notification
+
+# Backpressure
 
 ## 後記
 
