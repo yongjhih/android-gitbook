@@ -21,6 +21,8 @@ Interface:
     }
 ```
 
+Usage:
+
 ```java
         RestAdapter restAdapter = new RestAdapter.Builder()
             .setEndpoint("https://api.github.com")
