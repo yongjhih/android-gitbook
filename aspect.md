@@ -2,7 +2,7 @@
 
 \#AspectJ \#AOP
 
-AOP 面向導向設計。筆者認為也是一種 Meta Programming 的範疇。
+AOP 切面導向設計。筆者認為也是一種 Meta Programming 的範疇。
 
 我們還是以範例來作說明。在 Android 比較知名的代表作是 [JackWharton/hugo](https://github.com/JakeWharton/hugo) 。
 
