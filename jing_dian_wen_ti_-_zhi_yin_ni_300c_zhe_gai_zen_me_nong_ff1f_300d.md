@@ -21,3 +21,23 @@
 App 工程開發。
 
 函式庫資訊
+
+## 沒有回傳值的 Callback 用 RxJava 要怎麼寫?
+
+> 想要問一下，我有一個 init() function 可能會做很久，所以我裡面開了一個 thread，然後 ui 傳入一個 callback 當我 init 完成之後我 callback 他。
+
+> 如果想要改成 RxJava 的架構，所以我 init 回傳了 Observable<Boolean>，這裡 Boolean 其實有點多餘，因為我只是要單純的通知 ui 說我做完了，感覺有點硬是要用 Observable 來做。
+
+
+如果你用 AsyncTask<I, N, O> 也會有類似的問題。
+
+```java
+Observable<Void> initAsyncObs = Observable.defer(() -> Observable.just(initSync()))
+  .subscribeOn(Schedulers.io())
+  .observeOn(AndroidSchedulers.mainThread());
+
+Void initSync() {
+  // ...
+  return null;
+}
+```
