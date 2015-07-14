@@ -28,7 +28,7 @@ dependencies {
 
 很多上傳的方法，這裡就先不介紹。
 
-上傳後，會先進到 stage 暫存區，做掃描行為後，你進到後台確定發布。通常半個到一個工作天才能夠真正進到 mavenCentral。
+上傳後，會先進到 stage 暫存區，做掃描行為後，你進到後台確定發布。不過通常半個到一個工作天才能夠真正進到 mavenCentral。
 
 See Also:
 
@@ -43,4 +43,4 @@ See Also:
 
 大約是 2015 年初的時候成立的。最大的特點是，直接支援 github/bitbucket repository 。所以不用特別申請套件中心帳號。因為不是你去放套件，而是它自己來拉你的源碼來編譯 jar/aar。(託運算與儲存的廉價)
 
-基本上，筆者很看好這個套件中心。
+基本上，筆者很看好這個套件中心。不過目前還沒預設套件中心，所以筆者目前是 jitpack 與 jcenter 並行, jcenter 同步到 mavenCentral 。
