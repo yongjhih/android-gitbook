@@ -21,7 +21,7 @@
 * [flow + mortar](flow_mortar.md)
 * [EventBus: greenrobot/EventBus, Square/otto](eventbus__otto.md)
 * 良好的撰寫習慣 JavaDoc
-* 開源套件庫設置 - jcenter(), mavenCentral()
+* [開源套件庫設置 - jcenter(), mavenCentral()](kai_yuan_tao_jian_ku_she_zhi_-_jcenter_,_mavencentral.md)
 * 開源碼函式庫專案設置 - Github
 * [Test - Assert 斷言 - assertj (fest-android), truth](assert_duan_yan_-_assertj__fest_-_android.md)
 * [Test - Mockito](mockito.md)
