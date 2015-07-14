@@ -43,4 +43,8 @@ See Also:
 
 大約是 2015 年初的時候成立的。最大的特點是，直接支援 github/bitbucket repository 。所以不用特別申請套件中心帳號。因為不是你去放套件，而是它自己來拉你的源碼來編譯 jar/aar。(託運算與儲存的廉價)
 
-基本上，筆者很看好這個套件中心。不過目前還沒預設套件中心，所以筆者目前是 jitpack 與 jcenter 並行, jcenter 同步到 mavenCentral 。
+基本上，筆者很看好這個套件中心。
+
+不過目前還沒預設套件中心，所以筆者目前是 jitpack 與 jcenter 並行, jcenter 同步到 mavenCentral 。
+
+jitpack 未來或許營利除了私有套件之外，可能可以提供付費服務，如報表等。
