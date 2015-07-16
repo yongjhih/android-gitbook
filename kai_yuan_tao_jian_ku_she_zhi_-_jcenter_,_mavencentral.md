@@ -17,7 +17,7 @@ dependencies {
 
 ## mavenCentral
 
-由 snattype 組織所維護, 最早的一家。
+由 sonatype 組織所維護, 最早的一家。
 必須要開源才能被收錄。最嚴苛的一家。
 
 申請方式，首先，你必須要有一個開源專案。
