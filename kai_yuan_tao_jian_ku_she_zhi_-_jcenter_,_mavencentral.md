@@ -45,6 +45,6 @@ See Also:
 
 基本上，筆者很看好這個套件中心。
 
-不過目前還沒預設套件中心，所以筆者目前是 jitpack 與 jcenter 並行, jcenter 同步到 mavenCentral 。
+不過目前還沒不是預設套件中心，使用者需要自行新增套件中心。故筆者目前的作法採取 jitpack 與 jcenter 並行。如有閒暇會讓 jcenter 同步到 mavenCentral 。 
 
 jitpack 未來或許營利除了私有套件之外，可能可以提供付費服務，如報表等。javadoc 生成塞廣告。結合 travis-ci, cycle-ci 。同步 mavenCentral/jcenter
