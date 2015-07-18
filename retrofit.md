@@ -56,6 +56,27 @@ Models:
 
 由於 retrofit 是執行時期處理 annotations 效能有改善的空間。retrofit2 是改用編譯時期處理。
 
+## retrofit 分析 (1.9.0)
+
+```java
+private class RestHandler implements InvocationHandler {
+  // ...
+  public Object invoke(Object proxy, Method method, final Object[] args) {
+    // sync
+    return invokeRequest(requestInterceptor, methodInfo, args);
+    // Rx
+    return rxSupport.createRequestObservable({
+      (ResponseWrapper) invokeRequest(requestInterceptor, methodInfo, args);
+    });
+    // async
+    Callback<?> callback = (Callback<?>) args[args.length - 1]; // last argument
+    httpExecutor.execute({
+      (ResponseWrapper) invokeRequest(interceptorTape, methodInfo, args);
+    });
+  }
+}
+```
+
 ## See Also
 
 * https://github.com/yongjhih/RxJava-retrofit-github-sample
