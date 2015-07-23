@@ -15,7 +15,7 @@ Kotlin 開始知名的時候，大概可以追溯到 2014 年中旬登上 Androi
 在這之後，筆者是在 2015 年一月份 Jake Wharton 在 G+ 發表了一篇貼文： https://plus.google.com/+JakeWharton/posts/WSCoqkJ5MBj
 經過這之後，確實很多人跟筆者一樣，較為積極的看待這個語言。
 
-除了這些特性之外，對於 android 來說，滿大的優勢在於 symbol size 以及 code size 相繼於其他語言，十分羽量。
+除了這些特性之外，對於 android 來說，滿大的優勢在於 symbol size 以及 code size 相繼於其他語言，十分羽量。(kotlin: 6k~, scala: 50k~)
 
 ## 導入方法
 
