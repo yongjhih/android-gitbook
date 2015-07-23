@@ -52,9 +52,11 @@ Models:
     }
 ```
 
-## yongjhih/retrofit2 (in progress)
+## yongjhih/retrofit2
 
-由於 retrofit 是執行時期處理 annotations 效能有改善的空間。retrofit2 是改用編譯時期處理。
+由於 retrofit 是執行時期處理 annotations 效能有改善的空間。retrofit2 是改用編譯時期處理。如同 google fork square/dagger 專案的理由一樣: google/dagger2。 
+
+https://github.com/yongjhih/retrofit2
 
 ## retrofit 分析 (1.9.0)
 
