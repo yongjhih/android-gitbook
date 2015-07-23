@@ -148,3 +148,4 @@ APT, Annotation-Processing Tool
 * http://velocity.apache.org/engine/devel/vtl-reference-guide.html
 * https://github.com/yongjhih/JavaPoetic
 * https://github.com/yongjhih/RetroFacebook
+* http://blog.retep.org/2009/02/13/getting-class-values-from-annotations-in-an-annotationprocessor/
