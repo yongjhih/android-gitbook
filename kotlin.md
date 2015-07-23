@@ -49,6 +49,10 @@ observable<String> { subscriber ->
     verify(a, times(1)).received("Hello")
 ```
 
+## Anko
+
+捨棄 xml 直接用 kotlin 語言來配置 UI。 立意良好。但是來誰作一下視覺化預覽阿？！ 
+
 ## See Also
 
 * https://github.com/ReactiveX/RxKotlin
