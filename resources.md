@@ -16,6 +16,7 @@
 * https://dribbble.com/
 * http://androidniceties.tumblr.com/
 * https://www.materialup.com/
+* http://developer.android.com/design/
 
 ## Forum
 
@@ -29,3 +30,6 @@
 ## Tools
 
 * http://romannurik.github.io/AndroidAssetStudio/ (forks: http://jgilfelt.github.io/AndroidAssetStudio)
+* http://petrnohejl.github.io/Android-Cheatsheet-For-Graphic-Designers/
+* http://angrytools.com/android/button
+* http://inloop.github.io/shadow4android/
