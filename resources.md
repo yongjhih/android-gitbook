@@ -5,7 +5,7 @@
 * http://androidweekly.net/
 * http://android-arsenal.com/ (http://android-arsenal.herokuapp.com/)
 * https://github.com/trending?l=java
-* https://github.com/wasabeef/awesome-android-ui
+* https://github.com/wasabeef/awesome-android-ui / https://github.com/wasabeef/awesome-android-libraries
 
 
 * http://androidlibs.org/
