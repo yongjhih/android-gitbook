@@ -21,6 +21,10 @@
 * https://www.facebook.com/groups/270034869726161/
 * https://www.facebook.com/groups/AKDGroup/
 
+## Documentation
+
+* https://github.com/codepath/android_guides/wiki
+
 ## Tools
 
-* http://romannurik.github.io/AndroidAssetStudio/
+* http://romannurik.github.io/AndroidAssetStudio/ (forks: http://jgilfelt.github.io/AndroidAssetStudio)
