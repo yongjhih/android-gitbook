@@ -9,3 +9,22 @@
 * 向 AccountManager 建立使用者
 
 3rd-party application 只要依據你登入器的 uri 呼叫即可透過系統叫起你的登入畫面，提供授權。
+
+## Retroauth
+
+```java
+GitHub github = GitHub.create(context);
+github.login().flatMap(a -> github.getRepos());
+```
+
+```java
+@Authentication(accountType = "accountType", tokenType = "tokenType")
+public interface GitHub {
+    @Authenticated
+    Observable<Account> login();
+
+    @Authenticated
+    @GET("/{owner}/repos")
+    Observable<Repo> getRepos(@Path String owner);
+}
+```
