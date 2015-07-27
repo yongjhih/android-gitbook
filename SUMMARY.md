@@ -23,6 +23,7 @@
 * [Test - UI - espresso, rxpresso](test_-_espresso,_rxpresso.md)
 * [Debug 除錯 - stetho, leakcanary](debug_chu_cuo_-_stetho_,_leakcanary.md)
 * [Test - robolectric](test_-_robolectric.md)
+* AccountManager
 * [Kotlin](kotlin.md)
 * [RxJava](RxJava.md)
    * [RxAndroid](rxandroid.md)
