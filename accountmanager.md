@@ -30,9 +30,29 @@ Account account = accounts.length != 0 ? accounts[0];
 accountManager.setAuthToken(account, accountType, accessToken);
 ```
 
-我們可以看
+我們可以寫一個 GitHub App ，打開 GitHub 網頁登入後，建立一個 GitHub 帳號，把 token 存進去。
 
-提供 3rd-party app 授權能力，充當行動裝置版本的 oauth provider 。
+```java
+public class LoginActivity extends Activity {
+  @Override public void onResume() {
+  }
+}
+```
+
+```java
+@Retrofit("https://api.github.com")
+public abstract class GitHub {
+  @FormUrlEncoded
+  @POST("/oauth/token?grant_type=password") Observable<AccessToken> getAccessToken(
+      @Field("username") String email,
+      @Field("password") String password,
+      @Field("client_id") String clientId,
+      @Field("client_secret") String clientSecret);
+  public static GitHub create() { return new Retrofit_GitHub(); }
+}
+```
+
+## 提供 3rd-party app 授權能力，充當行動裝置版本的 oauth provider
 
 
 如果是扮演使用者中心：
