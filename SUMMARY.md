@@ -23,7 +23,7 @@
 * [Test - UI - espresso, rxpresso](test_-_espresso,_rxpresso.md)
 * [Debug 除錯 - stetho, leakcanary](debug_chu_cuo_-_stetho_,_leakcanary.md)
 * [Test - robolectric](test_-_robolectric.md)
-* [RxJava](RxJava.md)
+* [RxJava](accountmanager.md)
    * [RxAndroid](rxandroid.md)
    * [NotRxAndroid](notrxandroid.md)
    * [開發 RxJava 新增自己的 Operator](kai_fa_rxjava_xin_zeng_zi_ji_de_operator.md)
