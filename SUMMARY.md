@@ -1,6 +1,11 @@
 # Summary
 
 * [Introduction](README.md)
+* [RxJava](RxJava.md)
+   * [RxAndroid](rxandroid.md)
+   * [NotRxAndroid](notrxandroid.md)
+   * [開發 RxJava 新增自己的 Operator](kai_fa_rxjava_xin_zeng_zi_ji_de_operator.md)
+   * [資料流替代方案](data_stream.md)
 * [Lambda](lambda.md)
 * [Bolts-Android](bolts-android.md)
 * [AutoValue](autovalue.md)
@@ -14,11 +19,6 @@
 * [Retrofit](retrofit.md)
 * [Orm - ActiveAndroid, DBFlow, Ollie](orm_-_activeandroid,_dbflow,_ollie.md)
 * [flow + mortar](flow_mortar.md)
-* [RxJava](accountmanager.md)
-   * [RxAndroid](rxandroid.md)
-   * [NotRxAndroid](notrxandroid.md)
-   * [開發 RxJava 新增自己的 Operator](kai_fa_rxjava_xin_zeng_zi_ji_de_operator.md)
-   * [資料流替代方案](data_stream.md)
 * [EventBus: greenrobot/EventBus, Square/otto](eventbus__otto.md)
 * 良好的撰寫習慣 JavaDoc
 * [開源套件庫設置 - jcenter(), mavenCentral()](kai_yuan_tao_jian_ku_she_zhi_-_jcenter_,_mavencentral.md)
@@ -31,9 +31,8 @@
 * [AccountManager](accountmanager.md)
 * [Kotlin](kotlin.md)
 * [Aspect](aspect.md)
-   * AccountManager
+* [AccountManager](accountmanager.md)
 * [開源八卦](kai_yuan_ba_gua.md)
 * [經典問題 - 指引你「這該怎麼弄？」](jing_dian_wen_ti_-_zhi_yin_ni_300c_zhe_gai_zen_me_nong_ff1f_300d.md)
 * [作者群介紹](zuo_zhe_jie_shao.md)
 * [資源](resources.md)
-
