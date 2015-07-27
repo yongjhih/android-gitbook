@@ -35,6 +35,11 @@ accountManager.setAuthToken(account, accountType, accessToken);
 ```java
 public class LoginActivity extends Activity {
   @Override public void onResume() {
+    super.onResume();
+    
+    GitHub = GitHub.create();
+    AppObservable.bindActivity(this, github.getAccessToken(username, password, clientId, clientSecret)).subscribe();
+    accountManager.addAccountExplicitly(account, password, (Bundle) userdata); // nullable userdata
   }
 }
 ```
