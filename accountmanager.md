@@ -231,23 +231,74 @@ public class GitHubAuthenticatorService extends Service {
 }
 ```
 
-## Retroauth 2
+## Authentication with Retrofit2
 
 ```java
 GitHub github = GitHub.create(context);
-github.getRepos().subscribe(System.out::println);
+github.repos().subscribe(System.out::println);
 ```
 
 ```java
-@Authentication(accountType = "com.github", tokenType = "user,user:email")
 public interface GitHub {
-    @Authenticated
+    @RequestInterceptor(GitHubAuthInterceptor.class)
     @GET("/{owner}/repos")
     Observable<Repo> repos(@Path String owner);
 }
 ```
 
 在呼叫 `GitHub.repos()` 時，會先呼叫 `accountManager.getAuthToken()` ，拿到 token 後，才憑證發出 `GET /{owner}/repos` request 。
+
+```java
+@Singleton
+public class GitHubAuthInterceptor extends retrofit.http.Retrofit.SimpleRequestInterceptor {
+    String token;
+
+    @Override
+    public void intercept(Object context, RequestFacade request) {
+        if (token == null) {
+            token = getAuthToken((Activity) context, Collections.<String>emptyList());
+        }
+        if (token != null) request.addHeader("Authorization", "Bearer " + token);
+    }
+
+    public String getAuthToken(Activity activity, Collection<String> permissions) {
+        AccountManager accountManager = AccountManager.get(activity);
+        String accountType = "com.github";
+        String authTokenType = accountType;
+        Account account = getAccount(accountManager, accountType);
+        AccountManagerFuture<Bundle> bundleTask = null;
+        if (account == null) {
+            bundleTask = accountManager.addAccount(accountType, authTokenType, null, null, activity, null, null);
+        } else {
+            bundleTask = accountManager.getAuthToken(account, authTokenType, null, activity, null, null);
+        }
+
+        if (bundleTask == null) {
+            return null;
+        }
+
+        Bundle tokenBundle = null;
+        try {
+            tokenBundle = bundleTask.getResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (tokenBundle == null) return null;
+
+        return tokenBundle.getString(AccountManager.KEY_AUTHTOKEN);
+    }
+
+    public Account getAccount(AccountManager accountManager, String accountType) {
+        System.out.println("retrogithub: getAccount");
+        Account[] accounts = accountManager.getAccountsByType(accountType);
+        if (accounts.length > 0) return accounts[0];
+        return null;
+    }
+}
+```
+
+## Retroauth 分析
 
 [AuthInvoker.java#L59](https://github.com/Unic8/retroauth/blob/master/retroauth/src/main/java/eu/unicate/retroauth/AuthInvoker.java#L59)
 
@@ -259,5 +310,3 @@ getAccountName()
     .flatMap(o -> request)
     .retry((c, e) -> retryRule.retry(c, e));
 ```
-
-所以可以歸納出希望在每個呼叫方法中，都可以進行指定的前置作業，便可達到各種功能。
