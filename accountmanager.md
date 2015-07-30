@@ -231,7 +231,7 @@ public class GitHubAuthenticatorService extends Service {
 }
 ```
 
-## Authentication with Retrofit2
+## 搭配 retrofit 自動授權
 
 ```java
 GitHub github = GitHub.create(context);
@@ -298,7 +298,18 @@ public class GitHubAuthInterceptor extends retrofit.http.Retrofit.SimpleRequestI
 }
 ```
 
-## Retroauth 分析
+## 搭配 retroauth 自動授權
+
+```java
+@Authentication(accountType = R.string.auth_account_type, tokenType = R.string.auth_token_type)
+public interface GitHub {
+    @Authenticated
+    @GET("/{owner}/repos")
+    Observable<Repo> repos(@Path String owner);
+}
+```
+
+## retroauth 分析
 
 [AuthInvoker.java#L59](https://github.com/Unic8/retroauth/blob/master/retroauth/src/main/java/eu/unicate/retroauth/AuthInvoker.java#L59)
 
