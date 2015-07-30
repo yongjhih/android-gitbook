@@ -90,7 +90,7 @@ Event 的連動.
 ViewObservable.clicks()
 ```
 
-## RxBinding
+## ogaclejapan/RxBinding
 
 https://github.com/ogaclejapan/RxBinding
 
@@ -150,7 +150,9 @@ class HogeActivity extends Activity {
 * [RxActivity](https://github.com/ReactiveX/RxAndroid/blob/master/rxandroid-framework/src/main/java/rx/android/app/RxActivity.java)
 * [RxFragmentActivity](https://github.com/ReactiveX/RxAndroid/blob/master/rxandroid-framework/src/main/java/rx/android/app/support/RxFragmentActivity.java)
 * [RxFragment](https://github.com/ReactiveX/RxAndroid/blob/master/rxandroid-framework/src/main/java/rx/android/app/support/RxFragment.java)
-* [NotRxAndroid](https://github.com/JakeWharton/NotRxAndroid)
+* [ogaclejapan/RxBinding](https://github.com/ogaclejapan/RxBinding
+)
+* [JakeWharton/RxBinding](https://github.com/JakeWharton/RxBinding)
 * https://github.com/trello/RxLifecycle
 
 *註：並沒有 RxAppCompatActivity*
