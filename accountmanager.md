@@ -231,7 +231,7 @@ public class GitHubAuthenticatorService extends Service {
 }
 ```
 
-## 搭配 retrofit2 自動授權
+## 搭配 retrofit2 (retrofit-android) 自動授權
 
 ```java
 GitHub github = GitHub.create(context);
@@ -250,51 +250,23 @@ public interface GitHub {
 
 ```java
 @Singleton
-public class GitHubAuthInterceptor extends retrofit.http.Retrofit.SimpleRequestInterceptor {
-    String token;
+public class GitHubAuthInterceptor extends AuthenticationInterceptor {
 
     @Override
-    public void intercept(Object context, RequestFacade request) {
-        if (token == null) {
-            token = getAuthToken((Activity) context, Collections.<String>emptyList());
-        }
+    public String accountType() {
+        return "com.github";
+    }
+
+    @Override
+    public String authTokenType() {
+        return "com.github";
+    }
+
+    @Override
+    public void intercept(String token, RequestFacade request) {
         if (token != null) request.addHeader("Authorization", "Bearer " + token);
     }
 
-    public String getAuthToken(Activity activity, Collection<String> permissions) {
-        AccountManager accountManager = AccountManager.get(activity);
-        String accountType = "com.github";
-        String authTokenType = accountType;
-        Account account = getAccount(accountManager, accountType);
-        AccountManagerFuture<Bundle> bundleTask = null;
-        if (account == null) {
-            bundleTask = accountManager.addAccount(accountType, authTokenType, null, null, activity, null, null);
-        } else {
-            bundleTask = accountManager.getAuthToken(account, authTokenType, null, activity, null, null);
-        }
-
-        if (bundleTask == null) {
-            return null;
-        }
-
-        Bundle tokenBundle = null;
-        try {
-            tokenBundle = bundleTask.getResult();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        if (tokenBundle == null) return null;
-
-        return tokenBundle.getString(AccountManager.KEY_AUTHTOKEN);
-    }
-
-    public Account getAccount(AccountManager accountManager, String accountType) {
-        System.out.println("retrogithub: getAccount");
-        Account[] accounts = accountManager.getAccountsByType(accountType);
-        if (accounts.length > 0) return accounts[0];
-        return null;
-    }
 }
 ```
 
