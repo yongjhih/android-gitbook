@@ -741,6 +741,8 @@ subscribe 下訂。
 
 Subscription 訂單, subscribe 下訂之後產生出來的訂單，這個訂單可以用來取消訂單來中止生產。
 
+Eager vs. Lazy
+
 ## 動手玩
 
 ```bash
