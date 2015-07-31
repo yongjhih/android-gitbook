@@ -6,13 +6,13 @@
 啟動:
 
 ```bash
-docker run -i -t ubuntu /bin/bash
+docker run -it ubuntu /bin/bash
 ```
 
 or
 
 ```bash
-docker run -i -t ubuntu:14.04 /bin/bash
+docker run -it ubuntu:14.04 /bin/bash
 ```
 
 進入 container
