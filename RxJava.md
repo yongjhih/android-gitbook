@@ -665,12 +665,12 @@ Observable<File> downloadObs(String url) { ... }
 
 原料無中生有。
 
-印出 0 到 10:
+印出 1 到 10:
 
 Before:
 
 ```java
-for (int i = 0; i <= 10; i++) {
+for (int i = 1; i <= 10; i++) {
     System.out.println(i);
 }
 ```
