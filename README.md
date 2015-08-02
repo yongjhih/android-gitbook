@@ -20,7 +20,7 @@
 
 * RxJava, RxAndroid
 * retrolambda (java7 + java8)
-* retrofit, retrofit2
+* retrofit, [retrofit2](https://github.com/yongjhih/retrofit)
 * okhttp
 * DI: Dagger2
 * AutoParcel, AutoValue, etc.
