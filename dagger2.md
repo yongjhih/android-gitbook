@@ -10,11 +10,18 @@ DI, Dependency Injection (相依性注入) ，Anti-DIY, Auto-DIY 自動組裝，
 
 在特定的生命週期，幫你生成所需的物件。Dagger 是讓你創造自己的 Injection。
 
+另外一個重點是，重用元件。
+
 ## 著名的咖啡機
 
 ![CoffeeMaker](http://upload.wikimedia.org/wikipedia/commons/2/23/KBG741S-AO.jpg)
 
-沖泡出一杯風味十足的咖啡之前，你需要一台濾泡式咖啡機：
+沖泡出一杯風味十足的咖啡之前，你需要一台濾泡式咖啡機。
+
+需要的元件有：
+
+* 加熱器：把水加熱
+* 幫浦
 
 在沒有的 DI 概念下：
 
@@ -33,7 +40,7 @@ class CoffeeMaker { // 咖啡機
     
     CoffeeMaker() {
         this.heater = new ElectricHeater(); // 電熱器
-        this.pump = new Thermosiphon(heater); // 虹吸幫浦
+        this.pump = new Thermosiphon(heater); // 虹吸幫浦(虹吸，所以也需要加熱器)
     }
     
     public void brew() { /* ... */ }
