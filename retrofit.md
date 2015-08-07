@@ -52,6 +52,59 @@ Models:
     }
 ```
 
+## retrofit 網路處理
+
+retrofit 內部運作也是使用 `Request` 概念來運行。
+
+Retrofit 很顯然的，希望讓開發者專注 Restful 介面，e.g. `List<Repo> repos = github.repos();`
+
+處理的介面不再是網路相關的 Request ，反倒是刻意隱含了 Request ，導致網路細部操作看似無法處理，所以提供了錯誤處理註冊，`Client` 配置等接口。
+
+2. 常見的網路處理：
+
+a. Cache
+b. Retry
+c. Time Out
+d. Cancel
+e. Priority
+
+使用 OkHttpClient 大多可以處理。(AOSP 4.4 之後其實也內建，不確定有沒有包進 SDK)
+
+如果沒有用 RxJava Observable 了話，確實 Retry policy 的部份確實有點殘念，也不是無解，只是要自己辛苦點寫 ErrorHandler 重發。
+
+使用 RxJava `retry()` 達到重試次數效果：
+
+```java
+int retryLimit = 3;
+Observable<Repo> repos = github.repos()
+    .retry(3);
+```
+
+使用 RxJava `retryWhen()` 達到 backoff 效果：
+
+```java
+int retryLimit = 3;
+float backoff = 1.3f
+
+Observable<Repo> repos = github.repos()
+    .retryWhen(attempt -> attempt.zipWith(Observable.range(1, retryLimit), (n, i) -> i)
+        .flatMap(i -> Observable.timer(i * backoff, TimeUnit.SECONDS));
+```
+
+Cancel 也是，如果沒有 RxJava 你只能寫 ExecutorService 處理或者操作 OkHttpClient。
+
+使用 Rxjava `unsubcribe()` 取消：
+
+```java
+Subscription reposSubscription = repos.subscribe();
+
+reposSubscription.unsubscribe(); // 取消
+```
+
+其中比較困難的是 Priority ，需要處理 OkHttpClient executor 。
+
+基本上，「RxJava + Retrofit + OkHttpClient(supports SPDY)」一起用，應該是沒什麼太大的問題。
+
 ## yongjhih/retrofit2
 
 由於 retrofit 是執行時期處理 annotations 效能有改善的空間。retrofit2 是改用編譯時期處理。如同 google fork square/dagger 專案的理由一樣: google/dagger2。 
@@ -83,3 +136,4 @@ private class RestHandler implements InvocationHandler {
 
 * https://github.com/yongjhih/RxJava-retrofit-github-sample
 * https://github.com/yongjhih/retrofit2
+* https://github.com/orhanobut/wasp
