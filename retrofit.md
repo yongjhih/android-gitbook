@@ -62,11 +62,11 @@ Retrofit 很顯然的，希望讓開發者專注 Restful 介面，e.g. `List<Rep
 
 2. 常見的網路處理：
 
-a. Cache
-b. Retry
-c. Time Out
-d. Cancel
-e. Priority
+* Cache
+* Retry
+* Time Out
+* Cancel
+* Priority
 
 使用 OkHttpClient 大多可以處理。(AOSP 4.4 之後其實也內建，不確定有沒有包進 SDK)
 
