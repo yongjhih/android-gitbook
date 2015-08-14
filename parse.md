@@ -1,0 +1,51 @@
+# Parse
+
+## Promise
+
+以 weibo.js 的 signInWithWeibo() 為例:
+
+```js
+/**
+ * Returns the session token of available parse user via weibo access token within `request.params.accessToken`.
+ *
+ * @param {Object} request Require request.params.accessToken
+ * @param {Object} response
+ * @returns {String} sessionToken
+ */
+function signInWithWeibo(request, response) {
+    promiseResponse(signInWithWeiboPromise(request.user, request.params.accessToken, request.params.expiresTime), response);
+}
+
+/**
+ * Returns the session token of available parse user via weibo access token.
+ *
+ * @param {Parse.User} user
+ * @param {String} accessToken
+ * @param {Number} expiresTime
+ * @returns {Promise<String>} sessionToken
+ */
+function signInWithWeiboPromise(user, accessToken, expiresTime) {
+   // ...
+   return Parse.Promise.as("Hello-sessionToken");
+}
+
+function promiseResponse(promise, response) {
+    promise.then(function(o) {
+        response.success(o);
+    }, function(error) {
+        response.error(error);
+    })
+}
+
+/**
+ * @param {function(request, response)} func
+ */
+// TODO Move to parses.js
+function defineParseCloud(func) {
+    Parse.Cloud.define(func.name, func);
+}
+
+defineParseCloud(signInWithWeibo);
+```
+
+* https://gist.github.com/yongjhih/e196e01fc7da9c03ce7e
