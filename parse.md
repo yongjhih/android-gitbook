@@ -38,7 +38,7 @@ function promiseResponse(promise, response) {
 }
 
 /**
- * @param {function(request, response)} func
+ * @param {Function(request, response)} func
  */
 // TODO Move to parses.js
 function defineParseCloud(func) {
