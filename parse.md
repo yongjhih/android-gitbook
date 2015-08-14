@@ -2,7 +2,7 @@
 
 ## Promise
 
-以 weibo.js 的 `signInWithWeibo()` 為例:
+以 parse-cloud weibo.js 的 `signInWithWeibo()` 為例:
 
 ```js
 /**
