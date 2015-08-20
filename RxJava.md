@@ -280,6 +280,15 @@ void login(Activity activity, LoginListenr loginListener) {
 After:
 
 ```java
+void login(Activity activity, LoginListener loginListener) {
+    Observable.just(activity)
+        .flatMap(activity -> loginFacebook(activity))
+        .flatMap(fbUser -> getFbProfile(fbUser))
+        .flatMap(fbProfile -> loginParse(fbProfile))
+        .flatMap(parseUser -> getParseProfile(parseUser))
+        .subscribe(parseProfile -> loginListener.onLogin(parseProfile));
+}
+
 // wrap callback functions in Observable<?>
 Observable<FbUser> loginFacebook(Activity activity) {
     return Observable.create(sub -> {
@@ -293,15 +302,6 @@ Observable<FbUser> loginFacebook(Activity activity) {
 Observable<FbProfile> getFbProfile(FbUser fbUser) { ... }
 Observable<ParseUser> loginParse(FbProfile fbProfile) { ... }
 Observable<ParseProfile> getParseProfile(ParseUser parseUser) { ... }
-
-void login(Activity activity, LoginListener loginListener) {
-    Observable.just(activity)
-        .flatMap(activity -> loginFacebook(activity))
-        .flatMap(fbUser -> getFbProfile(fbUser))
-        .flatMap(fbProfile -> loginParse(fbProfile))
-        .flatMap(parseUser -> getParseProfile(parseUser))
-        .subscribe(parseProfile -> loginListener.onLogin(parseProfile));
-}
 ```
 
 
