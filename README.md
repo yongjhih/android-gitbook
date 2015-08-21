@@ -1,4 +1,4 @@
-# Android App 開源開發
+# Android App 开源开发
 
 * gitbook: http://yongjhih.gitbooks.io/feed/
 
@@ -12,9 +12,9 @@
 
 * github: https://github.com/yongjhih/android-gitbook/
 
-開放書籍，歡迎共筆修改，以 gitbook 方式瀏覽時，可點擊頁面上方的編輯頁面連結 "EDIT THIS PAGE" 即可共筆。
+开放书籍，欢饮共写修改，以 gitbook 方式浏览时，可点击页面上方的编辑页面链接 "EDIT THIS PAGE" 即可共写。
 
-善用開源來開發 Android App。
+善用开源来开发 Android App。
 
 前端：
 
@@ -39,24 +39,24 @@
 * [RxFacebook](https://github.com/yongjhih/RxFacebook)
 * [proguard annotations](https://github.com/yongjhih/proguard-annotations)
 
-後端：
+后端：
 
 * Parse BAAS
  
-開發環境：
+开发环境：
 
 * Android Studio
 * gradle
 
-專案環境：
+编辑环境：
 
 * gitlab
 * phabricator
 
-持續整合環境：
+持续整合环境：
 
 * jenkins
 
-## 版權
+## 版权
 
 [![CC-BY 4.0](http://creativecommons.tw/sites/creativecommons.tw/files/cc-by.png)](https://creativecommons.org/licenses/by/4.0/legalcode.txt)
