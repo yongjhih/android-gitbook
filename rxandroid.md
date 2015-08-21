@@ -2,7 +2,7 @@
 
 https://github.com/ReactiveX/RxAndroid
 
-生命週期的連動。
+生命周期的连动。
 
 ## AppObservable
 
@@ -11,9 +11,9 @@ AppObservable.bindActivity()
 AppObservable.bindFragment()
 ```
 
-主要檢查 `Fragment.isAdded()`, `Activity.isFinishing()`。
+主要检查 `Fragment.isAdded()`, `Activity.isFinishing()`。
 
-*註：筆者不是很清楚，為什麼不用 overloading: `AppObservable.bind(Activity/Frgment/v4.Fragment)` 來取代 `AppObservable.bindFragment(Fragment)`,
+*注：笔者不是很清楚，为什么不用 overloading: `AppObservable.bind(Activity/Frgment/v4.Fragment)` 来取代 `AppObservable.bindFragment(Fragment)`,
 `AppObservable.bindFragment(v4.Fragment)`,
 `AppObservable.bindActivity(Activity)`*
 
@@ -24,9 +24,9 @@ LifecycleObservable.bindActivityLifecycle()
 LifecycleObservable.bindFragmentLifecycle()
 ```
 
-當 Activty/Fragment 對應的生命週期結束時，自動 `unsubscribe()`。
+当 Activty/Fragment 对应的生命周期结束时，自动 `unsubscribe()`。
 
-`LifecycleObservable` 哪時候訂閱哪時候取消對照表：
+`LifecycleObservable` “什么时候订阅什么时候取消”对照表
 
 ```java
 CREATE -> LifecycleEvent.DESTROY;
@@ -36,7 +36,7 @@ PAUSE -> LifecycleEvent.STOP;
 STOP -> LifecycleEvent.DESTROY;
 ```
 
-手動自己 `unsubscribe()`， 如果 Activity 要結束，把一些 subscriptions 取消：
+手动自己 `unsubscribe()`， 如果 Activity 要結束，把一些 subscriptions 取消：
 
 ```java
 class SimpleActivity extends Activity {
@@ -78,13 +78,13 @@ class SimpleActivity extends RxActivity {
 
 ## ViewObservable, WidgetObservable
 
-View 的連動. 當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
+View 的连动. 当 View 显示时 `subscribe()` 离开时 `unsubscribe()`
 
 ```java
 ViewObservable.bindView()
 ```
 
-Event 的連動.
+Event 的连动.
 
 ```java
 ViewObservable.clicks()
@@ -94,7 +94,7 @@ ViewObservable.clicks()
 
 https://github.com/ogaclejapan/RxBinding
 
-類似於 ViewObservable。主要以 MVVM 雙向連動作努力。
+类似于 ViewObservable。主要以 MVVM 双向连动作努力。
 
 Before：
 
@@ -141,7 +141,7 @@ class HogeActivity extends Activity {
 }
 ```
 
-*RxAndroid 正在重新規劃需留意: https://github.com/ReactiveX/RxAndroid/issues/172 重點在於模組化，看起來對於無限上綱的功能需要作點整理*
+*RxAndroid 正在重新规划需留意: https://github.com/ReactiveX/RxAndroid/issues/172 重点在于模块化，看起来对于无限上纲的功能需要做点整理*
 
 ## RxLifecycle
 
@@ -155,4 +155,4 @@ class HogeActivity extends Activity {
 * [JakeWharton/RxBinding](https://github.com/JakeWharton/RxBinding)
 * https://github.com/trello/RxLifecycle
 
-*註：並沒有 RxAppCompatActivity*
+*注：并没有 RxAppCompatActivity*
