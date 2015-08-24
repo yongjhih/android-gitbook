@@ -12,22 +12,22 @@ public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     final List<String> list = new ArrayList<>(Arrays.asList("http://example.com/a.png")));
-    
+
     RecyclerAdapter<IconViewHolder> listAdapter = new RecyclerAdapter<>() {
         @Override
         public IconViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new IconViewHolder(LayoutInflater.from(context).inflate(R.layout.item_icon, parent, false)));
         }
-        
+
         @Override
         public void onBindViewHolder(IconViewHolder viewHolder, int position) {
             viewHolder.icon.setImageURI(Uri.parse(list.get(position)));
         }
     }
-    
+
     icons.setLayoutManager(new LinearLayoutManager(activity));
     icons.setAdapter(listAdapter);
-    
+
     list.add("http://example.com/b.png");
     listAdapter.notifyDataSetChanged();
 }
@@ -61,12 +61,12 @@ public void onCreate(Bundle savedInstanceState) {
 
     ListRecyclerAdapter<String, IconViewHolder> listAdapter = ListRecyclerAdapter.create();
     listAdapter.getList().add("http://example.com/a.png");
-    
+
     listAdapter.createViewHolder((parent, viewType) -> new IconViewHolder(LayoutInflater.from(context).inflate(R.layout.item_icon, parent, false)));
-    
+
     icons.setLayoutManager(new LinearLayoutManager(activity));
     icons.setAdapter(listAdapter);
-    
+
     listAdapter.getList().add("http://example.com/b.png");
     listAdapter.notifyDataSetChanged(); // TODO hook List.add(), List.addAll(), etc. modifitable operations
 }
@@ -86,7 +86,7 @@ public class IconViewHolder extends BindViewHolder<String> {
 
     @Override
     public void onBind(int position, String item) {
-        icon.setImageURI(IconViewHolder(Uri.parse(item)));
+        icon.setImageURI(Uri.parse(item));
     }
 }
 ```
@@ -106,7 +106,7 @@ public void onCreate(Bundle savedInstanceState) {
     //ListRecyclerAdapter<String, IconViewHolder> listAdapter = ListRecyclerAdapter.create();
     //listAdapter.getList().add("http://example.com/a.png");
     ListRecyclerAdapter<AvatarViewModel, AvatarViewHolder> listAdapter = ListRecyclerAdapter.create();
-    
+
     listAdapter.createViewHolder((parent, viewType) -> new AvatarViewHolder(LayoutInflater.from(context).inflate(R.layout.item_icon, parent, false)));
 
     listAdapter.getList().add(AvatarViewModel.builder().icon("http://example.com/a.png").name("Andrew Chen").updatedAt(new Date().getTime()).build());
@@ -115,7 +115,7 @@ public void onCreate(Bundle savedInstanceState) {
     }
     // via RxJava
     // listAdapter.getList().addAll(Observable.from(getUsers()).map(user -> AvatarViewModel.builder().icon(user.getPicture()).name(user.getDisplayName()).build()).updatedAt(user.getUpdatedAt().getTime()).toList().toBlocking().single());
-    
+
     ...
 }
 ```
@@ -131,7 +131,7 @@ public class AvatarViewHolder extends BindViewHolder<AvatarViewModel> {
     public TextView name;
     @InjectView(R.id.updatedAt)
     public RelativeTimeTextView updatedAt;
-    
+
     public AvatarViewHolder(View view) {
         super(view);
         ButterKnife.inject(this, view);
@@ -139,7 +139,7 @@ public class AvatarViewHolder extends BindViewHolder<AvatarViewModel> {
 
     @Override
     public void onBind(int position, AvatarViewModel item) {
-        //icon.setImageURI(IconViewHolder(Uri.parse(item)));
+        //icon.setImageURI(Uri.parse(item));
         icon.setImageURI(Uri.parse(item.icon()));
         name.setText(item.name());
         updatedAt.setReferenceTime(item.updatedAt());
@@ -154,10 +154,10 @@ public abstract class AvatarViewModel implements Parcelable {
     public abstract String icon();
     public abstract String name();
     public abstract Long updatedAt();
-    
+
     public static Builder builder() {
         return new AutoParcel_AvatarViewModel.Builder();
-    }   
+    }
 
     @AutoParcel.Builder
     public interface Builder {

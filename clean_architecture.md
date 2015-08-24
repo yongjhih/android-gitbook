@@ -2,14 +2,41 @@
 
 先將程式碼擺放包裝劃分清楚再來針對動線做規劃。
 
-MVC, MVP, MVVM
+Clean architecture 主要探討的是系統分層以及互動模型
+
+常見的互動模型：
+
+* MVC
+* MVP (P, Presenter)
+* MVVM (VM, ViewModel)
 
 <!-- ![MVP](http://upload.wikimedia.org/wikipedia/commons/a/a0/MVC-Process.svg)
 
 ![MVVM](http://upload.wikimedia.org/wikipedia/commons/8/87/MVVMPattern.png)
 -->
 
-## RxBinding MVVM
+在 Android 開發上，常見的是 MVP 與 MVVM 一般開發上，並不一定都只有一套互動模型在運行。
+
+MVP 其實大家應該十分熟悉，只是沒有意識到而已。那就是 ListView/RecyclerView 就有用到了。
+
+我們知道 MVP 三層，所以只要介紹中間那層 P 會比較直接，這邊稍微簡化舉例：
+
+```java
+class UserCardPresenter extends Presenter<User> {
+    public ViewHolder onCreateViewHolder(ViewGroup parent) {
+        return new UserCardViewHolder(parent, R.layout.item_icon);
+    }
+
+    public void onBindViewHolder(/* View */UserCardViewHolder userCardView, /* Model */ User user) {
+        // userCardView.textView1.setText(item.name);
+    }
+}
+```
+
+MVVM 基本上，可當作是 MVP 的子集合，注重雙向連動，以利個別測試，你可以虛擬化其中一方做測試。
+
+
+## ogaclejapan/RxBinding MVVM
 
 利用 RxJava 實現了 MVVM 的 two-way binding (雙向連動)
 
