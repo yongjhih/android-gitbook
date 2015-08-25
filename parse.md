@@ -1,5 +1,66 @@
 # Parse
 
+## Cloud
+
+Before, cloud code 原本的寫法：
+
+```js
+Parse.Cloud.define("signInWithWeibo", function (request, response)) { // 註冊 RPC 名稱
+  //console.log(request.user + request.params.accessToken); // 取得資料，對應 android 手機端 ParseCloud.callFunctionInBackground("signInWithWeibo", Map<K, V>);
+  // response.success(obj); // 回傳資料
+  // 或者 response.error(error); // 回報錯誤
+}
+```
+
+After, 1. 改善註冊 RPC 的方法：
+
+```js
+defineCloud(signInWithWeibo);
+
+function signInWithWeibo(request, response) {
+  // ...
+}
+
+function defineCloud(func) {
+  Parse.Cloud.define(func.name, func); // func.name 可以取得 func 的函式名稱
+}
+```
+
+After, 2. 將 response 機制隱藏，轉成對應的 Promise ：
+
+```js
+function promiseResponse(promise, response) {
+  promise.then(function(o) {
+    response.success(o);
+  }, function(error) {
+    response.error(error);
+  })
+}
+
+/**
+ * Returns the session token of available parse user via weibo access token within `request.params.accessToken`.
+ *
+ * @param {Object} request Require request.params.accessToken
+ * @param {Object} response
+ * @returns {String} sessionToken
+ */
+function signInWithWeibo(request, response) {
+  promiseResponse(signInWithWeiboPromise(request.user, request.params.accessToken, request.params.expiresTime), response);
+}
+
+/**
+ * Returns the session token of available parse user via weibo access token.
+ *
+ * @param {Parse.User} user
+ * @param {String} accessToken
+ * @param {Number} expiresTime
+ * @returns {Promise<String>} sessionToken
+ */
+function signInWithWeiboPromise(user, accessToken, expiresTime) {
+  // ...
+}
+```
+
 ## Parse.Cloud.httpRequest
 
 回傳 `{Promise<HTTPResponse>}` ，所可以接龍：
