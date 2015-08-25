@@ -10,12 +10,25 @@ Parse.Promise.as("Hello").then(function (hello) {
 });
 ```
 
-* `Parse.Promise.when(helloPromise, helloPromise)`
+* `Parse.Promise.when(helloPromise, worldPromise)`
 
 ```js
 var helloPromise = Parse.Promise.as("Hello");
-Parse.Promise.when(helloPromise, helloPromise).then(function (hello, hello2) {
-  console.log(hello + hello2);
+var worldPromise = Parse.Promise.as(", world!");
+Parse.Promise.when(helloPromise, worldPromise).then(function (hello, world) {
+  console.log(hello + world);
+});
+```
+
+flat and zip:
+
+```js
+var helloPromise = Parse.Promise.as("Hello");
+var worldPromise = Parse.Promise.as(", world!");
+helloPromise.then(function (hello) {
+  return Parse.Promise.when(Parse.Promise.as(hello), worldPromise);
+}).then(function (hello, world) {
+  console.log(hello + world);
 });
 ```
 
