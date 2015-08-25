@@ -32,49 +32,62 @@ helloPromise.then(function (hello) {
 });
 ```
 
-以 parse-cloud weibo.js 的 `signInWithWeibo()` 為例:
+Error handling:
 
 ```js
 /**
- * Returns the session token of available parse user via weibo access token within `request.params.accessToken`.
+ * Returns email.
  *
- * @param {Object} request Require request.params.accessToken
- * @param {Object} response
- * @returns {String} sessionToken
- */
-function signInWithWeibo(request, response) {
-    promiseResponse(signInWithWeiboPromise(request.user, request.params.accessToken, request.params.expiresTime), response);
-}
-
-/**
- * Returns the session token of available parse user via weibo access token.
- *
- * @param {Parse.User} user
  * @param {String} accessToken
- * @param {Number} expiresTime
- * @returns {Promise<String>} sessionToken
+ * @returns {Promise<String>} email
  */
-function signInWithWeiboPromise(user, accessToken, expiresTime) {
-   // ...
-   return Parse.Promise.as("Hello-sessionToken");
-}
+function getEmailAlternative(accessToken) {
+    return getEmail(accessToken).then(function (email) {
+        if (!email) return Parse.Promise.error("Invalid email");
 
-function promiseResponse(promise, response) {
-    promise.then(function(o) {
-        response.success(o);
-    }, function(error) {
-        response.error(error);
-    })
+        return Parse.Promise.as(email);
+    }, function (error) {
+        return getUid(accessToken).then(function (uid) {
+            return Parse.Promise.as(uid + "@weibo.com");
+        });
+    });
 }
 
 /**
- * @param {Function(request, response)} func
+ * Returns email
+ *
+ * @param {String} accessToken
+ * @returns {Promise<String>} email
  */
-function defineParseCloud(func) {
-    Parse.Cloud.define(func.name, func);
-}
+function getEmail(accessToken) {
+    return Parse.Cloud.httpRequest({
+        url: "https://api.weibo.com/2/account/profile/email.json",
+           params: {
+               access_token: accessToken
+           }
+    }).then(function (httpResponse) {
+        return JSON.parse(httpResponse.text)[0].email; // [ { email: "abc@example.com" } ]
+    });
+};
 
-defineParseCloud(signInWithWeibo);
+/**
+ * Returns uid.
+ *
+ * @param {String} accessToken
+ * @returns {Promise<String>} uid
+ */
+function getUid(accessToken) {
+    return Parse.Cloud.httpRequest({
+        url: "https://api.weibo.com/2/account/get_uid.json",
+           params: {
+               access_token: accessToken
+           }
+    }).then(function (httpResponse) {
+        return JSON.parse(httpResponse.text).uid; // { uid: 5647447265 }
+    });
+}
 ```
+
+ref.
 
 * https://gist.github.com/yongjhih/e196e01fc7da9c03ce7e
