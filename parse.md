@@ -2,6 +2,23 @@
 
 ## Promise
 
+* `Parse.Promise.as("Hello")`
+
+```js
+Parse.Promise.as("Hello").then(function (hello) {
+  console.log(hello);
+});
+```
+
+* `Parse.Promise.when(helloPromise, helloPromise)`
+
+```js
+var helloPromise = Parse.Promise.as("Hello");
+Parse.Promise.when(helloPromise, helloPromise).then(function (hello, hello2) {
+  console.log(hello + hello2);
+});
+```
+
 以 parse-cloud weibo.js 的 `signInWithWeibo()` 為例:
 
 ```js
