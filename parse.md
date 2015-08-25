@@ -7,16 +7,16 @@
 ```js
 /** @returns {Promise<String>} email */
 function getEmail(accessToken) {
-    // GET https://api.weibo.com/2/account/profile/email.json?access_token={access_token}
-    // 這裡嚴格分離的 params 方式, 好處是未來改成 POST 也統一寫法
-    return Parse.Cloud.httpRequest({
-        url: "https://api.weibo.com/2/account/profile/email.json",
-        params: {
-            access_token: accessToken
-        }
-    }).then(function (httpResponse) {
-        return JSON.parse(httpResponse.text)[0].email; // [ { email: "abc@example.com" } ]
-    });
+  // GET https://api.weibo.com/2/account/profile/email.json?access_token={access_token}
+  // 這裡嚴格分離的 params 方式, 好處是未來改成 POST 也統一寫法
+  return Parse.Cloud.httpRequest({
+    url: "https://api.weibo.com/2/account/profile/email.json",
+    params: {
+      access_token: accessToken
+    }
+  }).then(function (httpResponse) {
+    return JSON.parse(httpResponse.text)[0].email; // [ { email: "abc@example.com" } ]
+  });
 }
 ```
 
