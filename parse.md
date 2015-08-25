@@ -30,9 +30,9 @@ After, 2. 將 response 機制隱藏，轉成對應的 Promise ：
 
 ```js
 function promiseResponse(promise, response) {
-  promise.then(function(o) {
+  promise.then(function (o) {
     response.success(o);
-  }, function(error) {
+  }, function (error) {
     response.error(error);
   })
 }
