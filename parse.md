@@ -2,8 +2,6 @@
 
 ## Parse.Cloud.httpRequest
 
-`Parse.Cloud.httpRequest` 的使用方法：
-
 回傳 `{Promise<HTTPResponse>}` ，所可以接龍：
 
 ```js
