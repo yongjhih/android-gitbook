@@ -343,30 +343,6 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
 }
 ```
 
-另一種方法，Subject ：
-
-```java
-Observable<ParseUser> loginParseWithFacebook(Activity activity) {
-    Subject<ParseUser, ParseUser> subject = ReplaySubject.create();
-    ParseFacebookUtils.logIn(Arrays.asList("public_profile", "email"), activity, new LogInCallback() {
-        @Override
-        public void done(final ParseUser parseUser, ParseException err) {
-            if (err != null) {
-                subject.onError(err);
-            } else {
-                subject.onNext(parseUser);
-                subject.onCompleted();
-            }
-        }
-    });
-    return subject.asObservable();
-}
-```
-
-p.s. *這邊的 Subject 方法 與 Observable.create() 方法其實有差異， Observable.create() 內的 OnSubscriber 直到 subscribe() 才會執行。但 Subject 方法會馬上跑，所以這邊用 ReplaySubject 來記住進貨。*
-
-
-
 ## 轉換 map()
 
 我們經常把 `List<T>` 轉成 `List<R>`，如： `List<TextView>` 轉成 `List<String>`，你可能會把整個 textViews 一一取出 `toString()` 然後抄一份：
