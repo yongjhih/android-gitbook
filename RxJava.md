@@ -1111,9 +1111,22 @@ Observable.merge(ParseObservable.getPostsFromLocalDatabase(), ParseObservable.ge
 
 或者用 `amb()`, `first()` 等方式作
 
-# Notification
+## Notification
 
-# Backpressure
+## Backpressure
+
+## Assertions
+
+Using assertj-rx:
+
+```java
+assertThat(observable.toBlocking())
+    .completes()
+    .emitsSingleValue("hello");
+```
+
+* https://gist.github.com/ivacf/874dcb476bfc97f4d555
+* https://github.com/ribot/assertj-rx
 
 ## 後記
 
