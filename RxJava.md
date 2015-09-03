@@ -1125,9 +1125,6 @@ assertThat(observable.toBlocking())
     .emitsSingleValue("hello");
 ```
 
-* https://gist.github.com/ivacf/874dcb476bfc97f4d555
-* https://github.com/ribot/assertj-rx
-
 ## 後記
 
 這裡鮮少討論一般常見的理論：無論是 FRP, monad, push/pull, cold/hot 。主要因為先以範例，也就是實際看得到的改善是什麼來作介紹。
@@ -1161,6 +1158,8 @@ http://yarikx.github.io/NotRxJava/ 也是從這種方式帶領你看發展進程
 * https://github.com/vyshane/rex-weather
 * https://github.com/ReactiveX/RxNetty
 * https://github.com/vbauer/caesar
+* https://gist.github.com/ivacf/874dcb476bfc97f4d555
+* https://github.com/ribot/assertj-rx
  
 * 小抄：https://gist.github.com/yongjhih/bbe3b528873c7eb671c6
 
