@@ -1143,6 +1143,7 @@ http://yarikx.github.io/NotRxJava/ 也是從這種方式帶領你看發展進程
 * http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html
 * http://java.dzone.com/articles/java-8-elvis-operator
 * http://blog.danlew.net/2015/06/22/loading-data-from-multiple-sources-with-rxjava/
+* https://blog.growth.supply/party-tricks-with-rxjava-rxandroid-retrolambda-1b06ed7cd29c
 
 一些 Rx 開源：
 
