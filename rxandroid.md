@@ -141,8 +141,6 @@ class HogeActivity extends Activity {
 }
 ```
 
-*RxAndroid 正在重新規劃需留意: https://github.com/ReactiveX/RxAndroid/issues/172 重點在於模組化，看起來對於無限上綱的功能需要作點整理*
-
 ## RxLifecycle
 
 ## See Also
@@ -150,9 +148,9 @@ class HogeActivity extends Activity {
 * [RxActivity](https://github.com/ReactiveX/RxAndroid/blob/master/rxandroid-framework/src/main/java/rx/android/app/RxActivity.java)
 * [RxFragmentActivity](https://github.com/ReactiveX/RxAndroid/blob/master/rxandroid-framework/src/main/java/rx/android/app/support/RxFragmentActivity.java)
 * [RxFragment](https://github.com/ReactiveX/RxAndroid/blob/master/rxandroid-framework/src/main/java/rx/android/app/support/RxFragment.java)
-* [ogaclejapan/RxBinding](https://github.com/ogaclejapan/RxBinding
-)
+* [ogaclejapan/RxBinding](https://github.com/ogaclejapan/RxBinding)
 * [JakeWharton/RxBinding](https://github.com/JakeWharton/RxBinding)
 * https://github.com/trello/RxLifecycle
+* https://github.com/ReactiveX/RxAndroid/issues/172
 
 *註：並沒有 RxAppCompatActivity*
