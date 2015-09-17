@@ -136,4 +136,4 @@ parceler 的產生器, 有點獨特..
 * https://github.com/vbauer/jackdaw
 * https://github.com/frankiesardo/auto-parcel
 * https://github.com/johncarl81/parceler
-* https://github.com/rharter/auto-parcel
+* https://github.com/rharter/auto-value-parcel
