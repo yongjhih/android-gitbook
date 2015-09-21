@@ -75,3 +75,5 @@ After(truth):
 * https://github.com/google/truth
 * https://github.com/square/assertj-android
 * http://joel-costigliola.github.io/assertj
+* https://github.com/google/truth/issues/43
+* http://googletesting.blogspot.tw/2014/12/testing-on-toilet-truth-fluent.html
