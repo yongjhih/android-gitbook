@@ -74,3 +74,4 @@ After(truth):
 
 * https://github.com/google/truth
 * https://github.com/square/assertj-android
+* http://joel-costigliola.github.io/assertj
