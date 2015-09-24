@@ -17,6 +17,32 @@ Kotlin 開始知名的時候，大概可以追溯到 2014 年中旬登上 Androi
 
 除了這些特性之外，對於 android 來說，滿大的優勢在於 symbol size 以及 code size 相繼於其他語言，十分羽量。(kotlin: 6k~, scala: 50k~)
 
+## 簡便 getter 與 setter
+
+```kotlin
+public var context: Context? = null
+  get
+  set (value) {
+    $context = value
+  }
+```
+
+# Null Safety
+
+Nullable (類 @Nullable) :
+
+```kotlin
+var foo: String? = "bar"
+// `foo = null` is ok
+// `foo.length()` throws exception
+// `foo?.length()` is ok
+// `foo!!.length()` // throws NPE if foo is null
+```
+
+```kotlin
+var foo: String = "bar" // `foo = null` throws NPE
+```
+
 ## 導入方法
 
 * 可利用 Android Studio kotlin plugin 轉換程式碼 (轉完不一定可動，大多稍微改一下就好了)
@@ -58,4 +84,5 @@ observable<String> { subscriber ->
 * https://github.com/ReactiveX/RxKotlin
 
 * [Using Project Kotlin for Android](https://docs.google.com/document/d/1ReS3ep-hjxWA8kZi0YqDbEhCqTt29hG8P44aA9W0DM8) @JackWharton
-* https://github.com/JetBrains/anko
+* https://github.com/JetBrains/ank
+* http://kotlinlang.org/docs/reference/
