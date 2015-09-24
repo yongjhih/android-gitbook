@@ -32,15 +32,27 @@ public var context: Context? = null
 Nullable (類 @Nullable) :
 
 ```kotlin
-var foo: String? = "bar"
-// `foo = null` is ok
-// `foo.length()` throws exception
-// `foo?.length()` is ok
-// `foo!!.length()` // throws NPE if foo is null
+var a: String? = "bar"
+// `a = null` is ok
+// `a.length()` throws exception
+// `a?.length()` is ok
+// `a!!.length()` // throws NPE if a is null
 ```
 
 ```kotlin
-var foo: String = "bar" // `foo = null` throws NPE
+var a: String = "bar" // `a = null` throws NPE
+```
+
+Elvis operator, before:
+
+```kotlin
+val l = if (a != null) a.length() else -1
+```
+
+After:
+
+```kotlin
+val l = a?.length() ?: -1
 ```
 
 ## 導入方法
