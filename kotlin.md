@@ -96,5 +96,5 @@ observable<String> { subscriber ->
 * https://github.com/ReactiveX/RxKotlin
 
 * [Using Project Kotlin for Android](https://docs.google.com/document/d/1ReS3ep-hjxWA8kZi0YqDbEhCqTt29hG8P44aA9W0DM8) @JackWharton
-* https://github.com/JetBrains/ank
+* https://github.com/JetBrains/anko
 * http://kotlinlang.org/docs/reference/
