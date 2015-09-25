@@ -95,9 +95,12 @@ var a: String? = "bar"
 // `a?.length()` is ok
 // `a!!.length()` // throws NPE if a is null
 ```
+NonNull (類 @NonNull):
 
 ```kotlin
-var a: String = "bar" // `a = null` throws NPE
+var a: String = "bar"
+// `a = null` throws NPE
+// `a.length()` is ok
 ```
 
 Elvis operator, before:
