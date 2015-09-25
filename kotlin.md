@@ -153,6 +153,11 @@ observable<String> { subscriber ->
 
 (origin from [Using Project Kotlin for Android](https://docs.google.com/document/d/1ReS3ep-hjxWA8kZi0YqDbEhCqTt29hG8P44aA9W0DM8))
 
+| Library                 | Jar Size | Dex Size | Method Count | Field Count |
+|-------------------------|----------|----------|--------------|-------------|
+| kotlin-runtime-0.10.195 | 354 KB   | 282 KB   | 1071         | 391         |
+| kotlin-stdlib-0.10.195  | 541 KB   | 835 KB   | 5508         | 458         |
+
 | Library                   | Jar Size | Dex Size | Method Count | Field Count |
 |---------------------------|----------|----------|--------------|-------------|
 | rxjava-1.0.4              | 678 KB   | 513 KB   | 3557         | 1668        |
