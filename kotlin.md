@@ -128,7 +128,7 @@ val l = a?.length() ?: -1
 
 ## RxKotlin
 
-```java
+```kotlin
 observable<String> { subscriber ->
         subscriber.onNext("H")
         subscriber.onNext("e")
