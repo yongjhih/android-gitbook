@@ -189,3 +189,4 @@ observable<String> { subscriber ->
 * https://github.com/JetBrains/anko
 * http://kotlinlang.org/docs/reference/
 * http://try.kotlinlang.org/
+* https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
