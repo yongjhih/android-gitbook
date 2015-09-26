@@ -151,6 +151,34 @@ observable<String> { subscriber ->
 
 捨棄 xml 直接用 kotlin 語言來配置 UI。 立意良好。但是來誰作一下視覺化預覽阿？！ 
 
+## Functional constructs and patterns - funKtionale
+
+2015/3 mid
+
+[1]
+
+```kotlin
+val sum2ints = { x: Int, y: Int -> x + y }
+val curried: (Int) -> (Int) -> Int = sum2ints.curried()
+
+assertEquals(curried(2)(4), 6)
+
+val add5 = curried(3)
+assertEquals(add5(5), 8)
+```
+
+```kotlin
+val format = { prefix: String, x: String, postfix: String ->
+    "${prefix}${x}${postfix}"
+}
+
+val prefixAndBang = format(p3 = "!")
+
+val hello = prefixAndBang(p1 = "Hello, ")
+
+println(hello("world"))
+```
+
 ## 對照表
 
 (origin from [Using Project Kotlin for Android](https://docs.google.com/document/d/1ReS3ep-hjxWA8kZi0YqDbEhCqTt29hG8P44aA9W0DM8))
@@ -191,3 +219,5 @@ observable<String> { subscriber ->
 * http://try.kotlinlang.org/
 * https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
 * http://blog.zuehlke.com/en/android-kotlin/
+
+[1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
