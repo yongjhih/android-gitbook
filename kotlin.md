@@ -190,3 +190,4 @@ observable<String> { subscriber ->
 * http://kotlinlang.org/docs/reference/
 * http://try.kotlinlang.org/
 * https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
+* http://blog.zuehlke.com/en/android-kotlin/
