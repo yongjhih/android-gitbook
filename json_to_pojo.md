@@ -37,6 +37,12 @@ public class User {
 }
 ```
 
+先撇除物件化描述，可以先探究，為什麼 JSONObject for loop 去爬會比較慢呢？
+
+一個初步的原因是因為先要把 json string 塞成 JSONObject ，表示已經繞完過一輪了。然後你再次繞一輪 JSONObject 就已經是兩輪了。
+
+而 Jackson 提供的 streaming 就是正在繞的當下就會呼叫 callback 了。
+
 ## See Also
 
 * http://instagram-engineering.tumblr.com/post/97147584853/json-parsing
