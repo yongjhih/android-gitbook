@@ -141,7 +141,7 @@ assertFalse(list.any { it > 10 })
 
 ```kotlin
 val list = listOf(1, 2, 3, 4, 5, 6)
-// 都小於零
+// 都小於 10
 assertTrue(list.all { it < 10 })
 // 都整除 2
 assertFalse(list.all { it % 2 == 0 })
