@@ -115,6 +115,151 @@ After:
 val l = a?.length() ?: -1
 ```
 
+## 集合運算子
+
+### any(其中)
+
+其中一個項目成立，就回傳真。
+
+語法：
+
+```kotlin
+list.any(() -> Boolean)
+```
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+// 任何一個數字能整除 2
+assertTrue(list.any { it % 2 == 0 })
+// 任何一個數字大於 10
+assertFalse(list.any { it > 10 })
+```
+
+### all(都)
+
+其中一個項目不成立，就回傳假。(所有的項目都成立，就回傳真。)
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+// 都小於零
+assertTrue(list.all { it < 10 })
+// 都整除 2
+assertFalse(list.all { it % 2 == 0 })
+```
+
+### count(共有幾個)
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+// 整除 2 的項目共有 3 個
+assertEquals(3, list.count { it % 2 == 0 })
+```
+
+### reduce
+
+不解釋
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+assertEquals(21, list.reduce { total, next -> total + next })
+```
+
+### reduceRight (倒著 reduce)
+
+不解釋
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+assertEquals(21, list.reduceRight { total, next -> total + next })
+```
+
+### fold (類似有初始值的 reduce)
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+// 4 + 1+2+3+4+5+6 = 25
+assertEquals(25, list.fold(4) { total, next -> total + next })
+```
+
+### foldRight (同 fold ，只是倒著)
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+// 4 + 6+5+4+3+2+1 = 25
+assertEquals(25, list.foldRight(4) { total, next -> total + next })
+```
+
+### forEach
+
+不解釋
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+list forEach { println(it) }
+```
+
+### forEachIndexed
+
+不解釋
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+list forEachIndexed { index, value
+       -> println("$index : $value") }
+```
+
+### max
+
+不解釋
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+assertEquals(6, list.max())
+```
+
+### maxBy
+
+在算最大之前，先運算一次。
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+// 所有數值負數後，最大的那個是 1
+assertEquals(1, list.maxBy { -it })
+```
+
+### min
+
+不解釋
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+assertEquals(1, list.min())
+```
+### minBy
+
+不解釋
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+assertEquals(6, list.minBy { -it })
+```
+
+### none (沒有一個)
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+// 沒有一個整除 7
+assertTrue(list.none { it % 7 == 0 })
+```
+
+### sumBy
+
+```kotlin
+val list = listOf(1, 2, 3, 4, 5, 6)
+// 2 餘數的總和
+assertEquals(3, list.sumBy { it % 2 })
+```
+
 ## 導入方法
 
 * 可利用 Android Studio kotlin plugin 轉換程式碼 (轉完不一定可動，大多稍微改一下就好了)
@@ -149,7 +294,7 @@ observable<String> { subscriber ->
 
 ## Anko
 
-捨棄 xml 直接用 kotlin 語言來配置 UI。 立意良好。但是來誰作一下視覺化預覽阿？！ 
+捨棄 xml 直接用 kotlin 語言來配置 UI。 立意良好(data-binding, react, angular alternative)。但是來誰作一下視覺化預覽阿？！
 
 ## Functional constructs and patterns - funKtionale
 
@@ -219,5 +364,6 @@ println(hello("world"))
 * http://try.kotlinlang.org/
 * https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
 * http://blog.zuehlke.com/en/android-kotlin/
+* http://antonioleiva.com/collection-operations-kotlin/
 
 [1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
