@@ -365,5 +365,6 @@ println(hello("world"))
 * https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
 * http://blog.zuehlke.com/en/android-kotlin/
 * http://antonioleiva.com/collection-operations-kotlin/
+* https://docs.google.com/presentation/d/1XTm-9WnwoiYhyHGamt-dHJBKmkEr3WajDCOGxgfIRsc
 
 [1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
