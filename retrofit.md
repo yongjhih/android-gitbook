@@ -1,4 +1,4 @@
-# Retrofit
+# Retrofit 1
 
 rest api 直接對應成 java interface ，且搭配 Json Mapper 直接轉換.
 
@@ -52,7 +52,7 @@ Models:
     }
 ```
 
-## retrofit 網路處理
+## Retrofit 1 網路處理
 
 retrofit 內部運作也是使用 `Request` 概念來運行。
 
@@ -105,13 +105,44 @@ reposSubscription.unsubscribe(); // 取消
 
 基本上，「RxJava + Retrofit + OkHttpClient(supports SPDY)」一起用，應該是沒什麼太大的問題。
 
-## yongjhih/retrofit2
+## NotRetrofit
 
-由於 retrofit 是執行時期處理 annotations 效能有改善的空間。retrofit2 是改用編譯時期處理。如同 google fork square/dagger 專案的理由一樣: google/dagger2。 
+由於 retrofit 是執行時期處理 annotations 效能有改善的空間。NotRetrofit 是改用編譯時期處理。如同 google fork square/dagger 專案的理由一樣: google/dagger2。
 
-https://github.com/yongjhih/retrofit2
+https://github.com/yongjhih/NotRetrofit
 
-## retrofit 分析 (1.9.0)
+## Retrofit 2
+
+```java
+interface GitHub {
+    @GET("/repos/{owner}/{repo}/contributors")
+    Call<List<Contributor>> contributors(
+        @Path("owner") String owner,
+        @Path("repo") String repo);
+}
+```
+
+解決 Retrofit 1 長久以來存在的一些問題。不直接回傳物件，而是透過一個中介 `Call`/`Response` 來包裝，使得可以保留網路資訊 Headers 。
+
+### 如何取得分頁？
+
+```java
+interface GitHub {
+    // ...
+    @GET
+    Call<List<Contributor>> contributorsPaginate(@Url String url);
+}
+```
+
+```java
+Call<List<Contributor>> contributorsCall = github.contributors("square", "retrofit");
+Response<List<Contributor>> contributorsResponse = contributorsCall.execute();
+String nextLink = contributorsResponse.headers().get("Link");
+Call<List<Contributor>> contributorsNextCall = github.contributorsPaginate(nextLink);
+Response<List<Contributor>> contributorsNextResponse = contributorsNextCall.execute();
+```
+
+## Retrofit 1 分析 (1.9.0)
 
 ```java
 private class RestHandler implements InvocationHandler {
