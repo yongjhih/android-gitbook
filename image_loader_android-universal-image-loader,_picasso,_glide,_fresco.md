@@ -160,7 +160,7 @@ public class FacebookPictureProvider extends NetworkPipeContentProvider { // Net
 ```
 
 
-* https://gist.github.com/yongjhih/2175ec83be13bd7d9740#file-networkpipecontentprovider-java
+* https://github.com/yongjhih/facebook-content-provider
 
 ## See Also
 
