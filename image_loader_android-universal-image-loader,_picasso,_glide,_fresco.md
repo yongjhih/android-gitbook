@@ -94,13 +94,14 @@ glide 許多 Google 官方 samples 都可看到它的蹤影，所以基本上 Go
 
 ## 附錄 - 虛擬網址 - Facebook 真實圖片轉址
 
-`https://graph.facebook.com/{id}/picture` 雖然本身有轉址能力，不過這裡為了教學所需，還是寫了一個 FacebookPictureProvider 作本地轉址範例。
-
+如果你的 ImageLoader 針對網路圖片，不支援轉址，又或者網址藏在 json 裡。
 ImageLoader 大多支援 ContentProvider 網址，`content://` 所以我們可以利用它來做虛擬網址轉址。
+
+*p.s. `https://graph.facebook.com/{id}/picture` 雖然本身有轉址能力，不過這裡為了教學所需，還是寫了一個 FacebookPictureProvider 作本地轉址範例。*
 
 例如:
 
-GET `https://graph.facebook.com/601234567/picture`:
+GET `https://graph.facebook.com/601234567/picture?redirect=0`:
 
 ```json
 {
@@ -115,14 +116,14 @@ data.url 才是真實的圖片網址。
 
 所以我們註冊一個內部網域： 
 
-`content://com.facebook.provider.PictureProvider/601234567`
+`content://com.facebook.content.PictureProvider/601234567`
 
 提供轉址到真實圖片網址：
 
 `https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1234567`
 
 ```java
-public class FacebookPictureProvider extends NetworkPipeContentProvider { // NetwoorkPipeContentProvider 是筆者包裝過的，可參下方 gist
+public class FacebookPictureProvider extends NetworkPipeContentProvider { // NetworkPipeContentProvider 是筆者包裝過的，可參下方 github
     public static final String AUTHORITY = "com.facebook.provider.PictureProvider";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/");
     private Facebook facebook;
@@ -144,21 +145,23 @@ public class FacebookPictureProvider extends NetworkPipeContentProvider { // Net
     
     static class Picture {
         Data data;
-        static class Data {
-            // "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1234567"
-            String url; 
-        }
+    }
+    
+    static class Data {
+        // "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1234567"
+        String url; 
     }
 
-    public FacebookPictureProvider() {
+    @Override
+    public boolean onCreate() {
         RestAdapter restAdapter = new RestAdapter.Builder()
             .setEndpoint("https://graph.facebook.com")
             .build();
         facebook = restAdapter.create(Facebook.class);
+        return true;
     }
 }
 ```
-
 
 * https://github.com/yongjhih/facebook-content-provider
 
