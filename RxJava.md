@@ -846,6 +846,31 @@ Observable.create((Subscriber<? super String> s) -> {
 })
 ```
 
+## flatMap()
+
+p.s. 似乎很多讀者對於 `flatMap()` 有理解的困難，所以這裡特別解釋一下 `flatMap`
+
+...
+
+## concatMap() 與 flatMap()
+
+```java
+Observable<File> downloadObs(String url) { ... }
+```
+
+```java
+Observable.just("https://raw.githubusercontent.com/yongjhih/android-gitbook/master/README.md", https://raw.githubusercontent.com/yongjhih/android-gitbook/master/RxJava.md)
+    .flatMap(s -> downloadObs(s).subscribeOn(Schedulers.io()))
+    .subscribe(f -> System.out.println("downloaded: " + f));
+```
+
+這裡會同時開兩個 threads 在下載。避免這種情況，希望一個一個跑：
+
+```java
+Observable.just("https://raw.githubusercontent.com/yongjhih/android-gitbook/master/README.md", https://raw.githubusercontent.com/yongjhih/android-gitbook/master/RxJava.md)
+    .concatMap(s -> downloadObs(s).subscribeOn(Schedulers.io()))
+    .subscribe(f -> System.out.println("downloaded: " + f));
+```
 
 
 ## 排序 toSortedList()
@@ -869,27 +894,6 @@ Observable.create((Subscriber<? super String> s) -> {
 
 
 ## 逾時 timeout()
-
-
-## concatMap() 與 flatMap()
-
-```java
-Observable<File> downloadObs(String url) { ... }
-```
-
-```java
-Observable.just("https://raw.githubusercontent.com/yongjhih/android-gitbook/master/README.md", https://raw.githubusercontent.com/yongjhih/android-gitbook/master/RxJava.md)
-    .flatMap(s -> downloadObs(s).subscribeOn(Schedulers.io()))
-    .subscribe(f -> System.out.println("downloaded: " + f));
-```
-
-這裡會同時開兩個 threads 在下載。避免這種情況，希望一個一個跑：
-
-```java
-Observable.just("https://raw.githubusercontent.com/yongjhih/android-gitbook/master/README.md", https://raw.githubusercontent.com/yongjhih/android-gitbook/master/RxJava.md)
-    .concatMap(s -> downloadObs(s).subscribeOn(Schedulers.io()))
-    .subscribe(f -> System.out.println("downloaded: " + f));
-```
 
 ## 利用 compose(Transformer) 重用常用的流程組合
 
