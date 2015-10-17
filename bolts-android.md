@@ -85,7 +85,7 @@ public Task<ParseObject> fetchAsync(ParseObject obj) {
 
 ## RxBolts
 
-ref. [yongjhih/RxParse/.../ParseObservable.java](https://github.com/yongjhih/RxParse/blob/master/rxparse/src/main/java/rx/parse/ParseObservable.java)
+ref. [yongjhih/RxBolts/.../ParseObservable.java](https://github.com/yongjhih/RxBolts/blob/master/rxbolts/src/main/java/rx/bolts/TaskObservable.java#L36)
 
 ```java
     public static <R> Observable<R> toObservable(Task<R> task) {
