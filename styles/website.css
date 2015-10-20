@@ -5,7 +5,8 @@
 }
 
 
-.book .book-body .page-wrapper .page-inner section.normal code {
+.book .book-body .page-wrapper .page-inner section.normal code,
+.book .book-body .page-wrapper .page-inner section.normal code * {
 	font-family: Menlo, Monaco, Consolas, Courier, "WenQuanYi Micro Hei Mono", "Courier New", monospace;
 	font-size: 105% !important;
 }
