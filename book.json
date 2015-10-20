@@ -4,8 +4,7 @@
         "ga",
         "gtoc",
         "edit-link",
-        "anchors",
-        "yahei"
+        "anchors"
     ],
     "pluginsConfig": {
         "disqus": {
