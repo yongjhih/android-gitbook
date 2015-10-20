@@ -5,7 +5,8 @@
         "gtoc",
         "edit-link",
         "anchors",
-        "theme-clarity"
+        "theme-clarity",
+        "yahei"
     ],
     "pluginsConfig": {
         "disqus": {
