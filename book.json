@@ -4,7 +4,8 @@
         "ga",
         "gtoc",
         "edit-link",
-        "anchors"
+        "anchors",
+        "gitbook-theme-clarity"
     ],
     "pluginsConfig": {
         "disqus": {
