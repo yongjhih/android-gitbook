@@ -21,6 +21,10 @@ docker run -it ubuntu:14.04 /bin/bash
 docker exec -it c007a10e4 bash
 ```
 
+```bash
+sudo usermod -aG docker andrew
+```
+
 ## 編註
 
 * 這是一篇與 Android 開發較微無關的章節。屬於後端平台性的章節。
