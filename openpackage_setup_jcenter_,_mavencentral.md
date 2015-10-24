@@ -43,7 +43,17 @@ See Also:
 
 基本上，筆者很看好這個套件中心。
 
-不過目前還沒不是預設套件中心，使用者需要自行新增套件中心。故筆者目前的作法採取 jitpack 與 jcenter 並行。如有閒暇會讓 jcenter 同步到 mavenCentral 。
+不過目前還不是預設套件中心，使用者需要自行新增套件中心。
+
+build.gradle:
+
+```gradle
+repositories {
+    maven { url "https://jitpack.io" }
+}
+```
+
+如果你引用的了太多 jitpack 上面的套件，會需要很長的時間等待 jitpack 的編譯時間。故筆者作為一個函式庫貢獻者，盡可能還是採取 jitpack 與 jcenter 並行。甚者，如有閒暇會讓 jcenter 同步到上游 mavenCentral 。
 
 *p.s. jitpack 未來或許營利除了私有套件之外，可能可以提供付費服務，如報表等。javadoc 生成塞廣告。結合 travis-ci, cycle-ci 。同步 mavenCentral/jcenter*
 
