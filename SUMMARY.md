@@ -26,7 +26,7 @@
 * [Test - Assert 斷言 - assertj (fest-android), truth](assert_duan_yan_-_assertj__fest_-_android.md)
 * [Test - Mockito](mockito.md)
 * [Test - UI - espresso, rxpresso](test_-_espresso,_rxpresso.md)
-* [Debug 除錯 - stetho, leakcanary](debug_chu_cuo_-_stetho_,_leakcanary.md)
+* [Debug 除錯 - stetho, leakcanary](debug_stetho_,_leakcanary.md)
 * [Test - robolectric](test_-_robolectric.md)
 * [Kotlin](kotlin.md)
 * [Aspect](aspect.md)
