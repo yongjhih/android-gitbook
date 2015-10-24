@@ -34,7 +34,7 @@
 * [Notification](notification.md)
 * [開源八卦](kai_yuan_ba_gua.md)
 * [經典問題 - 指引你「這該怎麼弄？」](FAQ.md)
-* [作者群介紹](zuo_zhe_jie_shao.md)
+* [作者群介紹](authors.md)
 * [docker](docker.md)
 * [資源](resources.md)
 * [Parse](parse.md)
