@@ -38,5 +38,5 @@
 * [docker](docker.md)
 * [資源](resources.md)
 * [Parse](parse.md)
-* gradle
+* [gradle](gradle.md)
 
