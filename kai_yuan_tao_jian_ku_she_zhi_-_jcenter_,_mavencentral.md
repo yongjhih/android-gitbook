@@ -48,3 +48,8 @@ See Also:
 不過目前還沒不是預設套件中心，使用者需要自行新增套件中心。故筆者目前的作法採取 jitpack 與 jcenter 並行。如有閒暇會讓 jcenter 同步到 mavenCentral 。 
 
 jitpack 未來或許營利除了私有套件之外，可能可以提供付費服務，如報表等。javadoc 生成塞廣告。結合 travis-ci, cycle-ci 。同步 mavenCentral/jcenter
+
+## 線上 javadoc
+
+* javadoc.io for maven central, http://javadoc.io/doc/GROUP.SUBGROUP/ARTIFACT/VERSION
+* jitpack, https://jitpack.io/GROUP/SUBGROUP/ARTIFACT/VERSION/javadoc/
