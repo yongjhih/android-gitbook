@@ -14,6 +14,8 @@ dependencies {
 * jcenter
 * jitpack
 
+目前建議使用 jcenter
+
 
 ## mavenCentral
 
