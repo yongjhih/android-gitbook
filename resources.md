@@ -34,3 +34,7 @@
 * http://petrnohejl.github.io/Android-Cheatsheet-For-Graphic-Designers/
 * http://angrytools.com/android/button
 * http://inloop.github.io/shadow4android/
+
+## apk deploy for live demo
+
+* appetize.io
