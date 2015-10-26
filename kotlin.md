@@ -294,7 +294,9 @@ observable<String> { subscriber ->
 
 ## Anko
 
-捨棄 xml 直接用 kotlin 語言來配置 UI。 立意良好(data-binding, react, angular alternative)。但是來誰作一下視覺化預覽阿？！
+捨棄 xml 直接用 kotlin 語言來配置 UI。 立意良好(data-binding, react, angular alternative)。
+
+* Anko Preview Plugin for idea
 
 ## Functional constructs and patterns - funKtionale
 
