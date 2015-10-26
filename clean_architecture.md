@@ -57,6 +57,10 @@ MVVM 基本上，可當作是 MVP 的子集合，注重雙向連動，以利個�
 * http://manuel.kiessling.net/2012/09/28/applying-the-clean-architecture-to-go-applications/
 * https://www.groupbuddies.com/posts/20-clean-architecture
 * http://konmik.github.io/introduction-to-model-view-presenter-on-android.html
+* https://medium.com/mobiwise-blog/android-basic-project-architecture-for-mvp-72f4b33252d0
+* http://armueller.github.io/android/2015/03/29/flux-and-android.html
+* http://lgvalle.xyz/2015/08/04/flux-architecture/
+
 * https://github.com/skimarxall/RxFlux
 
 Sample:
@@ -76,3 +80,4 @@ Sample:
 * https://github.com/richardradics/MVPAndroidBootstrap
 * https://github.com/richardradics/RxAndroidBootstrap
 * https://github.com/inloop/AndroidViewModel
+* https://github.com/lgvalle/android-flux-todo-app
