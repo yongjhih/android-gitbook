@@ -9,6 +9,7 @@ Clean architecture 主要探討的是系統分層以及互動模型
 * MVC
 * MVP (P, Presenter)
 * MVVM (VM, ViewModel)
+* Flux
 
 <!-- ![MVP](http://upload.wikimedia.org/wikipedia/commons/a/a0/MVC-Process.svg)
 
@@ -44,12 +45,19 @@ MVVM 基本上，可當作是 MVP 的子集合，注重雙向連動，以利個�
 
 讓連動更簡便撰寫 VM 應該就更薄了。
 
+## Flux
+
+![](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
+
+不直接雙向回 model/store ，透過一個 dispatcher 來做管理。
+
 ## See Also
 
 * http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/
 * http://manuel.kiessling.net/2012/09/28/applying-the-clean-architecture-to-go-applications/
 * https://www.groupbuddies.com/posts/20-clean-architecture
 * http://konmik.github.io/introduction-to-model-view-presenter-on-android.html
+* https://github.com/skimarxall/RxFlux
 
 Sample:
 
