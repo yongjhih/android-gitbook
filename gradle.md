@@ -62,4 +62,4 @@ dependencies {
     compile project(':b-c-module')
 }
 // ...
-
+```
