@@ -1,6 +1,62 @@
 # Parse
 
-## Cloud
+一種 BaaS 。
+
+## RxParse
+
+* https://github.com/yongjhih/RxParse
+
+## RxParse 測試
+
+```java
+  @Test
+  public void testParseObservableFindNextAfterCompleted() {
+    ParseUser user = mock(ParseUser.class);
+    ParseQueryController queryController = mock(ParseQueryController.class);
+    ParseCorePlugins.getInstance().registerQueryController(queryController);
+
+    Task<List<ParseUser>> task = Task.forResult(Collections.singletonList(user));
+    when(queryController.findAsync(
+            any(ParseQuery.State.class),
+            any(ParseUser.class),
+            any(Task.class))
+    ).thenReturn(task);
+
+    ParseQuery<ParseUser> query = ParseQuery.getQuery(ParseUser.class);
+    query.setUser(new ParseUser());
+
+    final AtomicBoolean completed = new AtomicBoolean(false);
+    rx.parse.ParseObservable.all(query)
+        //.observeOn(Schedulers.newThread())
+        //.subscribeOn(AndroidSchedulers.mainThread())
+        .subscribe(new Action1<ParseObject>() {
+        @Override public void call(ParseObject it) {
+            System.out.println("onNext: " + it);
+            if (completed.get()) {
+                fail("Should've onNext after completed.");
+            }
+        }
+    }, new Action1<Throwable>() {
+        @Override public void call(Throwable e) {
+            System.out.println("onError: " + e);
+        }
+    }, new Action0() {
+        @Override public void call() {
+            System.out.println("onCompleted");
+            completed.set(true);
+        }
+    });
+
+    try {
+        ParseTaskUtils.wait(task);
+    } catch (Exception e) {
+        // do nothing
+    }
+  }
+
+```
+
+## Cloud Coding
 
 Before, cloud code 原本的寫法：
 

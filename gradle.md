@@ -64,13 +64,14 @@ dependencies {
 // ...
 ```
 
-## 顯示測試項目通過與失敗
+## 顯示詳細的測試項目通過與失敗
 
 ```gradle
 tasks.withType(Test) {
   testLogging {
     exceptionFormat "full"
-    events "passed", "skipped", "failed"
+    events "passed", "skipped", "failed", "standardOut", "standardError"
+    showStandardStreams = true
   }
 }
 ```
