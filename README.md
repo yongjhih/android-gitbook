@@ -20,7 +20,7 @@
 
 * RxJava, RxAndroid
 * retrolambda (java7 + java8)
-* retrofit, [retrofit2](https://github.com/yongjhih/retrofit)
+* retrofit, [NotRetrofit](https://github.com/yongjhih/NotRetrofit)
 * okhttp
 * DI: Dagger2
 * AutoParcel, AutoValue, etc.
@@ -38,6 +38,13 @@
 * [RxParse](https://github.com/yongjhih/RxParse)
 * [RxFacebook](https://github.com/yongjhih/RxFacebook)
 * [proguard annotations](https://github.com/yongjhih/proguard-annotations)
+* [proguard snippets](https://github.com/yongjhih/proguard-snippets)
+* [json2notification](https://github.com/8tory/json2notification)
+* Kotlin
+* anko
+* ReactNative
+* jitpack
+* [bintray-release](https://github.com/novoda/bintray-release)
 
 後端：
 

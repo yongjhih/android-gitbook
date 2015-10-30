@@ -166,5 +166,5 @@ private class RestHandler implements InvocationHandler {
 ## See Also
 
 * https://github.com/yongjhih/RxJava-retrofit-github-sample
-* https://github.com/yongjhih/retrofit2
+* https://github.com/yongjhih/NotRetrofit
 * https://github.com/orhanobut/wasp
