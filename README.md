@@ -44,7 +44,7 @@
 * anko
 * ReactNative
 * jitpack
-* [bintray-release](https://github.com/novoda/bintray-release)
+* bintray
 
 後端：
 
