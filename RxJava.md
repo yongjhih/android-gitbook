@@ -489,11 +489,11 @@ Observable<User> getActivityUsers(Observable<Post> posts, Observable<Comment> co
 }
 ```
 
-
-
 ## 如何使用
 
-在我們看過一些對照組之後，大致上瞭解未來在使用上會呈現什麼樣貌。所以我們開始回頭學學，如何開始使用 RxJava 。
+在我們看過一些對照組之後，大致上瞭解未來在使用上會呈現什麼樣貌。
+
+我們開始回頭學學 What/Why/How，什麼是 RxJava 、為什麼要 RxJava 、如何開始使用 RxJava 。
 
 首先你要認識基本操作元件：Observable<Result> ， 如果你知道 AsyncTask<Input, Progress, Result> 或者 FutureTask<Result>  了話，基本上差不多。先看這個例子：
 
