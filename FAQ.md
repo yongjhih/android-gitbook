@@ -2,17 +2,60 @@
 
 這裡是從問題指引你到哪裡可以找到答案。
 
+## gradle 如何只測試單項?
+
+`./gradlew testDebug --tests='*.<testname>'`
+
+## 利用回傳空列表 `Collections.emptyList()` 來減少不必要的 null `List` 檢查
+
+* 不再 `return new ArrayList<>();` 改用 `Collections.emptyList()`
+* 不再 `return new HashSet<>();` 改用 `Collections.emptySet()`
+
+不用檢查：
+
+```java
+List<ResolveInfo> infos = packageManager.queryIntentActivities(intent, flags);
+// infos == null? 像是官方文件就寫清楚肯定會回傳一個空列表，所以我們可以不用檢查 null
+for (info : infos) {
+  System.out.println(info);
+}
+```
+
 ## 要怎麼寫非同步？
 
+* Thread
+* HandlerThread
+* AsyncTask
+
 ## 要怎麼避免 Callback Hell
+
+使用 RxJava 或者 Bolts 等具 promise 架構來整平
 
 ## 按鈕不想讓別人連按，要怎麼寫 debounce？
 
 ## Restful client 要怎麼寫？用哪套？
 
+* Retrofit
+* Volley
+
+See Also: ...
+
 ## ImageLoader 要用哪套？
 
+每套有其特性，一般短小精幹可用 picasso.
+
+* 大量客製調整 AUIL
+* Glide 效能考量
+
+See Also: ...
+
 ## Json 轉物件 要用哪套？
+
+* LoganSquare 目前是非 reflection 方式，所以應有較高的效能表現。
+* Jackson
+* Gson
+
+See Also: ...
 
 ## 我該從哪得知 Android App 開發的資訊？
 
@@ -29,7 +72,7 @@ App 工程開發。
 > 如果想要改成 RxJava 的架構，所以我 init 回傳了 Observable<Boolean>，這裡 Boolean 其實有點多餘，因為我只是要單純的通知 ui 說我做完了，感覺有點硬是要用 Observable 來做。
 
 
-如果你用 AsyncTask<I, N, O> 也會有類似的問題。
+如果你用 `AsyncTask<I, N, O>` 也會有類似的問題。
 
 ```java
 Observable<Void> initAsyncObs = Observable.defer(() -> Observable.just(initSync()))
@@ -68,5 +111,4 @@ Android Threading/Scheduling 很多不只是 background 的問題，還有 lifec
 
 接著是下一層的問題 ，那 Ui 該怎麼辦？很簡單，請服用： `Observable.toList()`, `Observable.buffer()`, etc.
 
-* See Also: 
-https://kaif.io/z/compiling/debates/drg0Cf6oGj/dsCeOiO6Gz
+* See Also: https://kaif.io/z/compiling/debates/drg0Cf6oGj/dsCeOiO6Gz
