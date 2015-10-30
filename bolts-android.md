@@ -73,7 +73,7 @@ public Task<ParseObject> fetchAsync(ParseObject obj) {
 }
 ```
 
-`Task.callInBackground()` 相當於 `Observable.defer()`
+`Task.callInBackground()` 相當於 `Observable.defer()`:
 
 ```java
  Task<Void> Task.callInBackground(new Callable<Void>() {
@@ -81,6 +81,30 @@ public Task<ParseObject> fetchAsync(ParseObject obj) {
     // Do a bunch of stuff.
   }
 });
+```
+
+`Task.waitForCompletion()` 相當於 `Observable.toBlocking()`:
+
+Tasks.java:
+
+```java
+public static <T> T wait(Task<T> task) {
+  try {
+    task.waitForCompletion();
+    if (task.isFaulted()) {
+      Exception error = task.getError();
+      if (error instanceof RuntimeException) {
+        throw (RuntimeException) error;
+      }
+      throw new RuntimeException(error);
+    } else if (task.isCancelled()) {
+      throw new RuntimeException(new CancellationException());
+    }
+    return task.getResult();
+  } catch (InterruptedException e) {
+    throw new RuntimeException(e);
+  }
+}
 ```
 
 ## RxBolts
