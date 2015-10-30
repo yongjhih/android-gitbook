@@ -308,8 +308,9 @@ Observable<ParseProfile> getParseProfile(ParseUser parseUser) { ... }
 
 ## 如何導入套用與改變撰寫
 
-
 ### 既有長時間存取的函式改成 Observable
+
+...
 
 ```java
 
@@ -320,6 +321,8 @@ Observable<File> downloadObs(String url) {
 }
 ```
 
+...
+
 ```java
 downloadObs(url).subscribeOn(Schedulers.io()).subscribe(file -> {
   System.out.println(file);
@@ -327,6 +330,8 @@ downloadObs(url).subscribeOn(Schedulers.io()).subscribe(file -> {
 ```
 
 ### 既有的 callback 改成 Observable
+
+...
 
 ```java
 Observable<ParseUser> loginParseWithFacebook(Activity activity) {
@@ -345,6 +350,8 @@ Observable<ParseUser> loginParseWithFacebook(Activity activity) {
     })
 }
 ```
+
+...
 
 ```java
 loginParseWithFacebook(activity).subscribe(parseUser -> {
