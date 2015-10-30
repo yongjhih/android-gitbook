@@ -4,7 +4,9 @@
 
 ## gradle 如何只測試單項?
 
-`./gradlew testDebug --tests='*.<testname>'`
+```bash
+./gradlew testDebug --tests='*.<testname>'
+```
 
 ## 利用回傳空列表 `Collections.emptyList()` 來減少不必要的 null `List` 檢查
 

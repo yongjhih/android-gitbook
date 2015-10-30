@@ -63,3 +63,25 @@ dependencies {
 }
 // ...
 ```
+
+## 顯示測試項目通過與失敗
+
+```gradle
+tasks.withType(Test) {
+  testLogging {
+    exceptionFormat "full"
+    events "passed", "skipped", "failed"
+  }
+}
+```
+
+```bash
+./gradlew testDebug
+```
+
+## gradle 只測試單項
+
+```bash
+./gradlew testDebug --tests='*.<testname>'
+```
+
