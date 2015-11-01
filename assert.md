@@ -68,6 +68,23 @@ After(truth):
 "buttonEnabled" was expected to be true, but was false
 ```
 
+## assertj-rx
+
+```java
+assertThat(observable.toBlocking()).completes();
+```
+
+```java
+assertThat(observable.toBlocking())
+    .completes()
+    .emitsSingleValue("hello");
+```
+
+```java
+assertThat(observable.toBlocking()).fails();
+```
+
+
 ## See Also
 
 * https://github.com/square/assertj-android
@@ -75,3 +92,4 @@ After(truth):
 * http://joel-costigliola.github.io/assertj
 * https://github.com/google/truth/issues/43
 * http://googletesting.blogspot.tw/2014/12/testing-on-toilet-truth-fluent.html
+* https://github.com/ribot/assertj-rx
