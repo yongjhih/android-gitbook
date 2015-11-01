@@ -12,6 +12,5 @@ React 基本上是一種 View 的存在。
 
 ## See also
 
-* anko
-
+* https://react.parts/native
 
