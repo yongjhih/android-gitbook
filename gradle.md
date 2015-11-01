@@ -109,3 +109,6 @@ tasks.withType(Test) {
 ./gradlew testDebug --tests='*.<testname>'
 ```
 
+## ref.
+
+* https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.ResolutionStrategy.html
