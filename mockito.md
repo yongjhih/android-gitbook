@@ -102,7 +102,9 @@ assertEquals("first", mockedList.get(0));
 
 ## 安裝
 
+```gradle
 dependencies { testCompile "org.mockito:mockito-core:1.+" }
+```
 
 ## See Also
 
