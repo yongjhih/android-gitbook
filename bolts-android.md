@@ -109,10 +109,10 @@ public static <T> T wait(Task<T> task) {
 
 ## RxBolts
 
-ref. [yongjhih/RxBolts/.../ParseObservable.java](https://github.com/yongjhih/RxBolts/blob/master/rxbolts/src/main/java/rx/bolts/TaskObservable.java#L36)
+ref. [yongjhih/RxBolts/.../TaskObservable.java](https://github.com/yongjhih/RxBolts/blob/master/rxbolts/src/main/java/rx/bolts/TaskObservable.java#L36)
 
 ```java
-    public static <R> Observable<R> toObservable(Task<R> task) {
+    public static <R> Observable<R> just(Task<R> task) {
         return Observable.create(sub -> {
             task.continueWith(t -> {
                 if (t.isCancelled()) {
