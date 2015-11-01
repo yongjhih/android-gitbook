@@ -231,7 +231,7 @@ public class GitHubAuthenticatorService extends Service {
 }
 ```
 
-## 搭配 retrofit2 (retrofit-android) 自動授權
+## 搭配 NotRetrofit 自動授權
 
 ```java
 GitHub github = GitHub.create(context);
