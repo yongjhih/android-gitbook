@@ -17,3 +17,7 @@ android update sdk --filter 1
 ```bash
 ...
 ```
+
+## ref.
+
+* http://tools.android.com/recent/updatingsdkfromcommand-line
