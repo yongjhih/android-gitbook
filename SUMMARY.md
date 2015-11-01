@@ -41,4 +41,5 @@
 * [gradle](gradle.md)
 * [React Native](react_native.md)
 * Android SDK
+* adb
 
