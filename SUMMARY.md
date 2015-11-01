@@ -40,6 +40,6 @@
 * [Parse](parse.md)
 * [gradle](gradle.md)
 * [React Native](react_native.md)
-* Android SDK
+* [Android SDK](android_sdk.md)
 * adb
 
