@@ -99,14 +99,45 @@ tasks.withType(Test) {
 }
 ```
 
+## 一般測試
+
 ```bash
 ./gradlew testDebug
 ```
 
-## gradle 只測試單項
+## 測試單項
 
 ```bash
 ./gradlew testDebug --tests='*.<testname>'
+```
+
+## 顯示更多 lint 警告
+
+```gradle
+tasks.withType(JavaCompile) {
+  options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+}
+```
+
+## 安裝 gradle wrapper
+
+```gradle
+task wrapper(Wrapper) {
+  gradleVersion = "2.4"
+}
+```
+
+```bash
+gradle wrapper
+```
+
+## 升級 gradle wrapper
+
+修改 gradle/wrapper/gradle-wrapper.properties:
+
+```gradle
+...
+distributionUrl=https\://services.gradle.org/distributions/gradle-2.4-all.zip
 ```
 
 ## ref.
