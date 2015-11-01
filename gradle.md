@@ -64,6 +64,29 @@ dependencies {
 // ...
 ```
 
+## 設定快取有效時間
+
+預設 24 小時，每天一開始的編譯都會比較久。為了避免這種情形，可以拉長時間，如有必要再透過強制刷新來解決。
+
+一種是寫到自己的專案設定：
+
+```gradle
+configuration.all {
+  resolutionStrategy {
+    cacheDynamicVersionsFor 30, 'days'
+    cacheChangingModulesFor 30, 'days'
+  }
+}
+```
+
+## 強制刷新套件
+
+如果有些套件像是 SNAPSHOT.jar 剛更新，可透過 `--refresh-dependencies` 來刷到新的版本：
+
+```gradle
+./gradlew --refresh-dependencies assembleDebug
+```
+
 ## 顯示詳細的測試項目通過與失敗
 
 ```gradle
