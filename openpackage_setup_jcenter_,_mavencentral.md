@@ -59,8 +59,8 @@ repositories {
 
 ## 線上 javadoc
 
-* javadoc.io for maven central, http://javadoc.io/doc/GROUP.SUBGROUP/ARTIFACT/VERSION
-* jitpack, https://jitpack.io/GROUP/SUBGROUP/ARTIFACT/VERSION/javadoc/
+* javadoc.io for maven central, `http://javadoc.io/doc/{GROUP}{.SUBGROUP}/{ARTIFACT}/{VERSION}`
+* jitpack, `https://jitpack.io/{GROUP}{/SUBGROUP}/{ARTIFACT}/{VERSION}/javadoc/`
 
 ## ref.
 
