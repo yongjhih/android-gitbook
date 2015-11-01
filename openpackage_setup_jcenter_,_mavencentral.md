@@ -41,6 +41,67 @@ See Also:
 
 大約是 2015 年初的時候成立的。最大的特點是，直接支援 github/bitbucket repository 。所以不用特別申請套件中心帳號。因為不是你去放套件，而是它自己來拉你的源碼來編譯 jar/aar。(託運算與儲存的廉價)
 
+### jitpack 使用方法
+
+引用方 build.gradle:
+
+```gradle
+repositories {
+    // ...
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile 'com.github.{user}:{repo}:{version}'
+}
+```
+
+提供方：
+
+在 module 內 build.gradle 加入：
+
+```gradle
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        // ...
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
+    }
+}
+
+apply from: 'android-javadoc.gradle'
+```
+
+以及新增 android-javadoc.gradle:
+
+```gradle
+// build a jar with source files
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    failOnError  false
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+// build a jar with javadoc
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+```
+
 基本上，筆者很看好這個套件中心。
 
 不過目前還不是預設套件中心，使用者需要自行新增套件中心。
