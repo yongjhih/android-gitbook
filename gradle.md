@@ -71,7 +71,7 @@ dependencies {
 寫到專案設定：
 
 ```gradle
-configuration.all {
+configurations.all {
   resolutionStrategy {
     cacheDynamicVersionsFor 30, 'days'
     cacheChangingModulesFor 30, 'days'
