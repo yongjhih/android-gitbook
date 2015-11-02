@@ -42,4 +42,5 @@
 * [React Native](react_native.md)
 * [Android SDK](android_sdk.md)
 * [adb](adb.md)
+* [Theme](theme.md)
 
