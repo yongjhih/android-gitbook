@@ -312,3 +312,4 @@ public interface TwitterComponent {
 * http://google.github.io/dagger/
 * https://www.youtube.com/watch?v=oK_XtfXPkqw
 * https://github.com/JorgeCastilloPrz/Dagger2Scopes
+* http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/
