@@ -54,6 +54,7 @@ MVVM 基本上，可當作是 MVP 的子集合，注重雙向連動，以利個�
 ## See Also
 
 * http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/
+* http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/
 * http://manuel.kiessling.net/2012/09/28/applying-the-clean-architecture-to-go-applications/
 * https://www.groupbuddies.com/posts/20-clean-architecture
 * http://konmik.github.io/introduction-to-model-view-presenter-on-android.html
