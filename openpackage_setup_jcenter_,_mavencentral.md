@@ -72,13 +72,13 @@ buildscript {
     }
 }
 
+apply plugin: 'com.github.dcendents.android-maven'
 apply from: 'android-javadoc.gradle'
 ```
 
-以及新增 android-javadoc.gradle:
+以及新增 [android-javadoc.gradle](https://gist.github.com/yongjhih/3f1ed93c80e0b248cf55):
 
 ```gradle
-// build a jar with source files
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
@@ -90,7 +90,6 @@ task javadoc(type: Javadoc) {
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
-// build a jar with javadoc
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
@@ -103,16 +102,6 @@ artifacts {
 ```
 
 基本上，筆者很看好這個套件中心。
-
-不過目前還不是預設套件中心，使用者需要自行新增套件中心。
-
-build.gradle:
-
-```gradle
-repositories {
-    maven { url "https://jitpack.io" }
-}
-```
 
 如果你引用的了太多 jitpack 上面的套件，會需要很長的時間等待 jitpack 的編譯時間。故筆者作為一個函式庫貢獻者，盡可能還是採取 jitpack 與 jcenter 並行。甚者，如有閒暇會讓 jcenter 同步到上游 mavenCentral 。
 
