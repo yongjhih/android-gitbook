@@ -45,6 +45,8 @@
 * ReactNative
 * jitpack
 * bintray
+* bountysource
+* gitter
 
 後端：
 
