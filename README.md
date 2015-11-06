@@ -47,6 +47,7 @@
 * bintray
 * bountysource
 * gitter
+* travis
 
 後端：
 
