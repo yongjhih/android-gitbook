@@ -37,12 +37,12 @@ maker.brew(); // 沖泡
 class CoffeeMaker { // 咖啡機
     private final Heater heater; // 加熱器
     private final Pump pump; // 幫浦
-    
+
     CoffeeMaker() {
         this.heater = new ElectricHeater(); // 電熱器
         this.pump = new Thermosiphon(heater); // 虹吸幫浦(虹吸，剛好也需要加熱器)
     }
-    
+
     public void brew() { /* ... */ }
 }
 ```
@@ -66,12 +66,12 @@ maker2.brew();
 class CoffeeMaker {
     private final Heater heater;
     private final Pump pump;
-    
+
     CoffeeMaker(Heater heater, Pump pump) {
         this.heater = heater;
         this.pump = pump;
     }
-    
+
     public void brew() { /* ... */ }
 }
 ```
