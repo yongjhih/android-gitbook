@@ -181,7 +181,7 @@ cd dagger2-sample
 ./gradlew execute
 ```
 
-## 範例
+## 範例 1
 
 Before:
 
@@ -305,6 +305,15 @@ public interface TwitterComponent {
     Timeline timeline();
 }
 ```
+
+## 範例 2 - OkHttpClient
+
+## 範例 3 - Facebook
+
+## 範例 4 - AndroidUniversalImageLoader
+## 範例 5 - Fresco
+## 範例 5 - Picasso
+## 範例 5 - Parse
 
 ## See Also
 
