@@ -6,10 +6,18 @@
 android list sdk
 ```
 
+```bash
+android list --all sdk
+```
+
 安裝 #1 套件
 
 ```bash
-android update sdk --filter 1
+android update sdk -u --filter 1
+```
+
+```bash
+android update sdk -u --all --filter #1
 ```
 
 移除套件
