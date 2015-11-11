@@ -115,6 +115,19 @@ After:
 val l = a?.length() ?: -1
 ```
 
+## Immutable: val
+
+* var: variable
+* val: immutable variable, final variable
+
+## switch case: when
+
+## range
+
+```kt
+for (i in 1..10) println(i)
+```
+
 ## 集合運算子
 
 ### any(其中)
