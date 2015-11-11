@@ -267,6 +267,34 @@ assertEquals(3, list.sumBy { it % 2 })
 * `apply plugin: 'kotlin-android'`
 * dependencies: `compile 'org.jetbrains.kotlin:kotlin-stdlib:0.12.200'`
 
+## 動手玩
+
+```
+git clone git@github.com:yongjhih/gradle-init.kt.git
+cd gradle-init.kt
+./gradlew run
+```
+
+主程式： `src/main/kotlin/hello/HelloWorld.kt`
+
+
+另一種玩法 kotlin-cli：
+
+```sh
+wget https://github.com/JetBrains/kotlin/releases/download/build-1.0.0-beta-1103/kotlin-compiler-1.0.0-beta-1103.zip
+unzip kotlin-compiler-1.0.0-beta-1103.zip
+```
+
+HelloWorld.kts:
+
+```kt
+println("Hello world!")
+```
+
+```sh
+./kotlinc/bin/kotlinc-jvm -script HelloWorld.kts
+```
+
 ## FAQ
 
 * 如果多方繼承(`class`/`interface`) 時，`super.XXX()` 就會不清楚你要呼叫哪位 parent ，所以改成 `super<>.XXX` 即可。
@@ -369,5 +397,6 @@ println(hello("world"))
 * http://antonioleiva.com/collection-operations-kotlin/
 * https://docs.google.com/presentation/d/1XTm-9WnwoiYhyHGamt-dHJBKmkEr3WajDCOGxgfIRsc
 * https://github.com/importre/popular
+* https://kotlinlang.org/docs/tutorials/command-line.html
 
 [1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
