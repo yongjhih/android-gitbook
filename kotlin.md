@@ -356,15 +356,21 @@ assertEquals(add5(5), 8)
 ```
 
 ```kotlin
-val format = { prefix: String, x: String, postfix: String ->
+val prefixAndPostFix = { prefix: String, x: String, postfix: String ->
     "${prefix}${x}${postfix}"
 }
 
-val prefixAndBang = format(p3 = "!")
+val prefixAndBang = prefixAndPostFix(p3 = "!")
 
 val hello = prefixAndBang(p1 = "Hello, ")
 
 println(hello("world"))
+```
+
+```kotlin
+val curriedPrefixAndPostifx = prefixAndPostFix.curried()
+val curriedHello = curriedPrefixAndPostifx("hello")("world")
+curriedHello.uncurried<>()
 ```
 
 ## 對照表
