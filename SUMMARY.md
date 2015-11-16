@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [RxJava](RxJava.md)
    * [RxAndroid](rxandroid.md)
-   * [RxBinding](notrxandroid.md)
+   * [RxBinding](rxbinding.md)
    * [開發 RxJava 新增自己的 Operator](rx_operator.md)
    * [資料流替代方案](data_stream.md)
 * [Lambda](lambda.md)

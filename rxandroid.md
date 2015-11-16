@@ -90,57 +90,6 @@ Event 的連動.
 ViewObservable.clicks()
 ```
 
-## ogaclejapan/RxBinding
-
-https://github.com/ogaclejapan/RxBinding
-
-類似於 ViewObservable。主要以 MVVM 雙向連動作努力。
-
-Before：
-
-```java
-class HogeActivity extends Activity {
-
-    @InjectView(R.id.text)
-    private TextView mTextView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
-
-        AppObservable.bindActivity(this, Observable.just("hoge"))
-            .subscribeOn(Schedulers.io())
-            .subscribe(setTextAction());
-    }
-
-    Action1<String> setTextAction() {
-        return text -> mTextView.setText(text);
-    }
-}
-```
-
-After:
-
-```java
-class HogeActivity extends Activity {
-    // ...
-
-    private Rx<TextView> mRxTextView
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
-
-        mRxTextView = RxView.of(mTextView);
-        Subscription s = mRxTextView.bind(Observable.just("hoge"), RxActions.setText());
-    }
-}
-```
-
 ## RxLifecycle
 
 ## See Also
