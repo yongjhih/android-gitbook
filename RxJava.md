@@ -1126,7 +1126,11 @@ Observable.merge(ParseObservable.getPostsFromLocalDatabase(), ParseObservable.ge
 
 ## Backpressure
 
-## Assertions
+## Testing
+
+### TestSubscriber
+
+### Assertions
 
 Using assertj-rx:
 
