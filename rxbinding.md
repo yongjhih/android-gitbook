@@ -14,7 +14,38 @@ RxBinding After:
 RxTextView.textChanged(textView).subscribe(ev -> {});
 ```
 
-基本上與 ViewObservable, ogaclejapan/RxBinding 都是處理 View 相關的連動。
+## 範例 1 - 驗證過濾
+
+```java
+Observable<CharSequence> rxUsername = RxTextView.textChanges(tvUsername);
+Observable<CharSequence> rxPassword = RxTextView.textChanges(tvPassword);
+Observable<CharSequence> rxFullName = RxTextView.textChanges(tvFullName).mergeWith(Observable.just(""));
+Observable.combineLatest(
+  rxUsername, rxPassword, rxFullName, RegistrationModel::new)
+  .filter(RegistrationModel::isValid)
+  .subscribe(result -> enableSubmitButton());
+```
+
+## 範例 2 - 流量控制
+
+```java
+RxSearchView.queryTextChanges(searchView)
+  .filter(charSequence -> !TextUtils.isEmpty(charSequence))
+  .throttleLast(100, TimeUnit.MILLISECONDS)
+  .debounce(200, TimeUnit.MILLISECONDS)
+  .onBackpressureLatest()
+  .concatMap(charSequence -> {
+    return searchRepositories(charSequence);
+  })
+  .observeOn(AndroidSchedulers.mainThread())
+  .subscribeOn(Schedulers.io())
+  .onErrorResumeNext(throwable -> {
+    return Observable.empty();
+  })
+  .subscribe(response -> {
+    showRepositories(response.getItems());
+});
+```
 
 ## 同名 ogaclejapan/RxBinding
 
