@@ -111,6 +111,12 @@ tasks.withType(Test) {
 ./gradlew testDebug --tests='*.<testname>'
 ```
 
+or
+
+```bash
+./gradlew -Dtest.single=ClassUnderTest test
+```
+
 ## 顯示更多 lint 警告
 
 ```gradle
