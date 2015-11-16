@@ -1136,6 +1136,12 @@ assertThat(observable.toBlocking())
     .emitsSingleValue("hello");
 ```
 
+## Hooks
+
+* RxJavaObservableExecutionHook
+* RxJavaSchedulersHook
+* RxJavaErrorHandler
+
 ## 後記
 
 這裡鮮少討論一般常見的理論：無論是 FRP, monad, push/pull, cold/hot 。主要因為先以範例，也就是實際看得到的改善是什麼來作介紹。
