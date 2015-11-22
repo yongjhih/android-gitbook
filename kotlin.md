@@ -529,9 +529,7 @@ Before:
 val prefixAndPostfix = { prefix: String, x: String, postfix: String ->
     "${prefix}${x}${postfix}"
 }
-
 val prefixAndBang = prefixAndPostfix(p3 = "!")
-
 val hello = prefixAndBang(p1 = "Hello, ")
 
 println(hello("world"))
