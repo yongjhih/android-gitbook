@@ -124,7 +124,7 @@ val l = a?.length() ?: -1
 
 ## range
 
-```kt
+```kotlin
 for (i in 1..10) println(i)
 ```
 
@@ -300,9 +300,11 @@ unzip kotlin-compiler-1.0.0-beta-1103.zip
 
 HelloWorld.kts:
 
-```kt
+```kotlin
 println("Hello world!")
 ```
+
+執行：
 
 ```sh
 ./kotlinc/bin/kotlinc-jvm -script HelloWorld.kts
