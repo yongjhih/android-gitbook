@@ -341,7 +341,11 @@ observable<String> { subscriber ->
 
 捨棄 xml 直接用 kotlin 語言來配置 UI。
 
-* Anko Preview Plugin for idea
+* Android Studio 預覽插件：Anko Preview Plugin for idea
+
+* 重用性 - 如何重用 layout?
+* 獨立 layout
+* 如何引用獨立 layout
 
 ## Functional constructs and patterns - funKtionale
 
