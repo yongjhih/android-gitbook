@@ -373,6 +373,55 @@ val curriedHello = curriedPrefixAndPostifx("hello")("world")
 curriedHello.uncurried<>()
 ```
 
+## Extension 擴充 - Cursor 擴充改善範例
+
+Before:
+
+```java
+String firstName = cursor.getString(cursor.getColumnIndexOrThrow("first_name"));
+```
+
+After:
+
+```kotlin
+val firstName = cursor.getString("first_name");
+
+fun Cursor.getString(columnName: String): String {
+  val index = getColumnIndexOrThrow(columnName)
+  val text = if (isNull(index)) null else getString(index)
+  return text!!
+}
+```
+
+避免 NullPointerException:
+
+Before:
+
+```java
+String firstName = null;
+int firstNameColumnIndex = cursor.getColumnIndexOrThrow("first_name");
+if (!cursor.isNull(firstNameColumnIndex)) {
+  firstName = cursor.getString(firstNameColumnIndex);
+}
+firstNameView.setText(firstName != null ? firstName : "Andrew");
+```
+
+After:
+
+```kotlin
+val firstName = cursor.getStringOrNull("first_name")
+firstNameView.setText(firstName ?: "Andrew")
+```
+
+```kotlin
+fun Cursor.getStringOrNull(columnName: String): String? {
+  val index = getColumnIndexOrThrow(columnName)
+  return if (isNull(index)) null else getString(index)
+}
+
+fun Cursor.getString(columnName: String): String = getStringOrNull(columnName)!!
+```
+
 ## 對照表
 
 (origin from [Using Project Kotlin for Android](https://docs.google.com/document/d/1ReS3ep-hjxWA8kZi0YqDbEhCqTt29hG8P44aA9W0DM8))

@@ -895,12 +895,13 @@ Observable.just("https://raw.githubusercontent.com/yongjhih/android-gitbook/mast
 ## 快取 cache()
 
 
+## 取樣 debounce()/throttleLast()
 
-## debounce()
-
-
-
-## 逾時 timeout()
+```java
+  .throttleLast(100, TimeUnit.MILLISECONDS)
+  .debounce(200, TimeUnit.MILLISECONDS)
+  .onBackpressureLatest()
+```
 
 ## 利用 compose(Transformer) 重用常用的流程組合
 
@@ -1121,6 +1122,7 @@ Observable.merge(ParseObservable.getPostsFromLocalDatabase(), ParseObservable.ge
 ```
 
 或者用 `amb()`, `first()` 等方式作
+
 
 ## Notification
 
