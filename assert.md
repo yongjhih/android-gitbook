@@ -3,7 +3,7 @@
 ## assertj-android
 
 * *註: 筆者 2013 下旬發現*
-* *註: 2013 仿 AssertJ 以 fest-android 名稱釋出，2014 中旬正式加入 AssertJ 家族，更名為 assertj-android*
+* *註: 2013 上旬仿 AssertJ 以 fest-android 名稱釋出，2014 中旬正式加入 AssertJ 家族，更名為 assertj-android*
 
 針對 Android 的類別作語法撿結語錯誤訊息的強化。
 
