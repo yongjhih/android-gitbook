@@ -349,7 +349,7 @@ observable<String> { subscriber ->
 * 獨立 layout
 * 如何引用獨立 layout
 
-## 擴充 - Cursor 擴充範例
+## 擴充 Cursor
 
 Before:
 
