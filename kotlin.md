@@ -403,7 +403,7 @@ TextView firstNameTextView;
 public void onCreate(...) {
   super.onCreate(...);
   setContentView(R.layout.activity_main);
-  ButterKnife.bind(this);
+  ButterKnife.inject(this);
 
   firstNameTextView.setText("Andrew");
 }
