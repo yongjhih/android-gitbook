@@ -349,40 +349,6 @@ observable<String> { subscriber ->
 * 獨立 layout
 * 如何引用獨立 layout
 
-## Functional constructs and patterns - funKtionale
-
-2015/3 mid
-
-[1]
-
-```kotlin
-val sum2ints = { x: Int, y: Int -> x + y }
-val curried: (Int) -> (Int) -> Int = sum2ints.curried()
-
-assertEquals(curried(2)(4), 6)
-
-val add5 = curried(3)
-assertEquals(add5(5), 8)
-```
-
-```kotlin
-val prefixAndPostFix = { prefix: String, x: String, postfix: String ->
-    "${prefix}${x}${postfix}"
-}
-
-val prefixAndBang = prefixAndPostFix(p3 = "!")
-
-val hello = prefixAndBang(p1 = "Hello, ")
-
-println(hello("world"))
-```
-
-```kotlin
-val curriedPrefixAndPostifx = prefixAndPostFix.curried()
-val curriedHello = curriedPrefixAndPostifx("hello")("world")
-curriedHello.uncurried<>()
-```
-
 ## 擴充 - Cursor 擴充範例
 
 Before:
@@ -450,6 +416,45 @@ import kotlinx.android.synthetic.activity_main.first_name as firstNameTextView
 
 firstNameTextView.setText("Andrew");
 ```
+
+## funKtionale - functional
+
+* https://github.com/MarioAriasC/funKTionale
+
+Before:
+
+```kotlin
+val prefixAndPostfix = { prefix: String, x: String, postfix: String ->
+    "${prefix}${x}${postfix}"
+}
+
+val prefixAndBang = prefixAndPostfix(p3 = "!")
+
+val hello = prefixAndBang(p1 = "Hello, ")
+
+println(hello("world"))
+```
+
+After:
+
+```kotlin
+val curriedPrefixAndPostifx = prefixAndPostfix.curried()
+val curriedHello = curriedPrefixAndPostifx("hello")("world")
+curriedHello.uncurried<>()
+```
+
+```kotlin
+val sum = { x: Int, y: Int -> x + y }
+val curriedSum: (Int) -> (Int) -> Int = sum.curried()
+
+assertEquals(curriedSum(2)(4), 6)
+
+val add3 = curriedSum(3)
+assertEquals(add3(5), 8)
+```
+
+* ref: 2015/3 mid [1]
+
 
 ## 對照表
 
