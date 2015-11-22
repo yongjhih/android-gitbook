@@ -417,6 +417,32 @@ fun Cursor.getStringOrNull(columnName: String): String? {
 }
 ```
 
+## findViewById?
+
+Before:
+
+```java
+@InjectView(R.id.first_name)
+TextView firstNameTextView;
+
+@Override
+public void onCreate(...) {
+  super.onCreate(...);
+  setContentView(R.layout.activity_main);
+  ButterKnife.bind(this);
+
+  firstNameTextView.setText("Andrew");
+}
+```
+
+After:
+
+```kotlin
+import kotlinx.android.synthetic.activity_main.first_name as firstNameTextView
+
+firstNameTextView.setText("Andrew");
+```
+
 ## 對照表
 
 (origin from [Using Project Kotlin for Android](https://docs.google.com/document/d/1ReS3ep-hjxWA8kZi0YqDbEhCqTt29hG8P44aA9W0DM8))
@@ -461,5 +487,6 @@ fun Cursor.getStringOrNull(columnName: String): String? {
 * https://docs.google.com/presentation/d/1XTm-9WnwoiYhyHGamt-dHJBKmkEr3WajDCOGxgfIRsc
 * https://github.com/importre/popular
 * https://kotlinlang.org/docs/tutorials/command-line.html
+* https://speakerdeck.com/jakewharton/advancing-development-with-kotlin-gdg-devfest-dublin-2015
 
 [1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
