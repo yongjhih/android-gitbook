@@ -1,5 +1,9 @@
 # Assert 斷言 - assertj, truth
 
+## assertj
+
+* 2011 釋出
+
 ## assertj-android
 
 * *註: 筆者 2013 下旬發現*
