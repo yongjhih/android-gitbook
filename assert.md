@@ -2,7 +2,8 @@
 
 ## assertj-android
 
-* *註: 2011 以 fest-android 釋出，後來加入 AssertJ 家族，更名為 assertj-android`
+* *註: 筆者 2013 下旬發現*
+* *註: 2013 仿 AssertJ 以 fest-android 名稱釋出，2014 中旬正式加入 AssertJ 家族，更名為 assertj-android*
 
 針對 Android 的類別作語法撿結語錯誤訊息的強化。
 
@@ -38,6 +39,7 @@ Expected visibility <gone> but was <invisible>
 
 * *註: 筆者是在 2015/2 留意到它*
 * *註:  2014/12 由 google testing blog 消息釋出*
+* 仿 AssertJ
 
 在沒有特定的類別下，提供一個置換錯誤訊息的能力。
 
