@@ -438,6 +438,7 @@ db.inTransation {
   delete("users", "first_name = ?", arrayOf("Andrew"))
 }
 
+// inflix, literal
 inline fun SQLiteDatabase.inTransaction(func: SQLiteDatabase.() -> Unit) {
   beginTransaction()
   try {
@@ -519,7 +520,7 @@ async { "world" } and async { "Hello" } success {
 
 * https://github.com/kohesive/injekt
 
-## funKtionale - functional
+## funKtionale - functional (Deprecated)
 
 * https://github.com/MarioAriasC/funKTionale
 
@@ -556,6 +557,16 @@ assertEquals(add3(5), 8)
 ```
 
 * ref: 2015/3 mid [1]
+
+## Closure
+
+```kotlin
+add(1)(2)
+
+fun add(x : Int) : (Int) -> Int{
+    return { y -> x + y }
+}
+```
 
 ## Fuel - networking
 
