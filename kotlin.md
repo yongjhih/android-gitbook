@@ -493,7 +493,7 @@ Notification notification = new NotificationCompat.Builder(context)
 After:
 
 ```kotlin
-val n = Notification.build(context) {
+val notification = Notification.build(context) {
   setContentTitle("Hello")
   setSubText("World")
 }
