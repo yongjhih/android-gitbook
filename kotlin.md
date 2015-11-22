@@ -438,7 +438,7 @@ db.inTransation {
   delete("users", "first_name = ?", arrayOf("Andrew"))
 }
 
-fun SQLiteDatabase.inTransaction(func: SQLiteDatabase.() -> Unit) {
+inline fun SQLiteDatabase.inTransaction(func: SQLiteDatabase.() -> Unit) {
   beginTransaction()
   try {
     func()
@@ -446,6 +446,36 @@ fun SQLiteDatabase.inTransaction(func: SQLiteDatabase.() -> Unit) {
   } finally {
     endTransaction()
   }
+}
+```
+
+## 擴充 SharedPreferences
+
+Before:
+
+```java
+  SharedPreferences.Editor editor = preferences.edit();
+
+  editor.putString("first_name", "Andrew");
+  editor.putString("last_name", "Chen");
+  editor.remove("age");
+
+  editor.apply();
+```
+
+After:
+
+```kotlin
+preferences.edit {
+  putString("first_name", "Andrew")
+  putString("last_name", "Chen")
+  remove("age")
+}
+
+inline fun SharedPreferences.edit(func: SharedPreferences.Editor.() -> Unit) {
+  val editor = edit()
+  editor.func()
+  editor.apply()
 }
 ```
 
