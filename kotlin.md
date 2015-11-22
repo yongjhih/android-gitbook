@@ -335,9 +335,11 @@ observable<String> { subscriber ->
     verify(a, times(1)).received("Hello")
 ```
 
-## Anko
+## Anko - kotlin template engine
 
-捨棄 xml 直接用 kotlin 語言來配置 UI。 立意良好(data-binding, react, angular alternative)。
+* #data-binding, #reactjs, #angularjs, #jax
+
+捨棄 xml 直接用 kotlin 語言來配置 UI。
 
 * Anko Preview Plugin for idea
 
