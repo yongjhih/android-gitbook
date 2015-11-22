@@ -417,6 +417,20 @@ import kotlinx.android.synthetic.activity_main.first_name as firstNameTextView
 firstNameTextView.setText("Andrew");
 ```
 
+## kovenant - Promise
+
+* https://github.com/mplatvoet/kovenant
+
+```kotlin
+async { "world" } and async { "Hello" } success {
+    println("${it.second} ${it.first}!")
+}
+```
+
+## injekt - DI
+
+* https://github.com/kohesive/injekt
+
 ## funKtionale - functional
 
 * https://github.com/MarioAriasC/funKTionale
@@ -455,6 +469,19 @@ assertEquals(add3(5), 8)
 
 * ref: 2015/3 mid [1]
 
+## Fuel - networking
+
+* https://github.com/kittinunf/Fuel
+
+```kotlin
+"http://github.com/yongjhih/".httpGet().responseString { request, response, either ->
+    //do something with response
+    when (either) {
+        is Left -> // left means failure
+        is Right -> // right means success
+    }
+}
+```
 
 ## 對照表
 
