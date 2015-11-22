@@ -479,6 +479,32 @@ inline fun SharedPreferences.edit(func: SharedPreferences.Editor.() -> Unit) {
 }
 ```
 
+## 擴充 Notification Builder
+
+Before:
+
+```java
+Notification notification = new NotificationCompat.Builder(context)
+  .setContentTitle("Hello")
+  .setSubText("World")
+  .build();
+```
+
+After:
+
+```kotlin
+val n = Notification.build(context) {
+  setContentTitle("Hello")
+  setSubText("World")
+}
+
+inline fun Notification.build(context: Context, func: NotificationCompat.Builder.() -> Unit): Notification {
+  val builder = NotificationCompat.Builder(context)
+  builder.func()
+  return builder.build()
+}
+```
+
 ## kovenant - Promise
 
 * https://github.com/mplatvoet/kovenant
