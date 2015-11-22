@@ -381,7 +381,7 @@ val curriedHello = curriedPrefixAndPostifx("hello")("world")
 curriedHello.uncurried<>()
 ```
 
-## Extension 擴充 - Cursor 擴充改善範例
+## 擴充 - Cursor 擴充範例
 
 Before:
 
