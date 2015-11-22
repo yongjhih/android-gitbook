@@ -385,15 +385,12 @@ After:
 
 ```kotlin
 val firstName = cursor.getString("first_name");
-
 fun Cursor.getString(columnName: String): String {
-  val index = getColumnIndexOrThrow(columnName)
-  val text = if (isNull(index)) null else getString(index)
-  return text!!
+  return getString(getColumnIndexOrThrow(columnName))
 }
 ```
 
-避免 NullPointerException:
+避免 `NullPointerException`:
 
 Before:
 
@@ -411,15 +408,11 @@ After:
 ```kotlin
 val firstName = cursor.getStringOrNull("first_name")
 firstNameView.setText(firstName ?: "Andrew")
-```
 
-```kotlin
 fun Cursor.getStringOrNull(columnName: String): String? {
   val index = getColumnIndexOrThrow(columnName)
   return if (isNull(index)) null else getString(index)
 }
-
-fun Cursor.getString(columnName: String): String = getStringOrNull(columnName)!!
 ```
 
 ## 對照表
