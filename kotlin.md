@@ -523,6 +523,7 @@ async { "world" } and async { "Hello" } success {
 
 * https://github.com/MarioAriasC/funKTionale
 
+<!--
 Before:
 
 ```kotlin
@@ -542,6 +543,7 @@ val curriedPrefixAndPostifx = prefixAndPostfix.curried()
 val curriedHello = curriedPrefixAndPostifx("hello")("world")
 curriedHello.uncurried<>()
 ```
+-->
 
 ```kotlin
 val sum = { x: Int, y: Int -> x + y }
