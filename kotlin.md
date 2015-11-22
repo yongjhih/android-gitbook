@@ -310,6 +310,8 @@ println("Hello world!")
 ./kotlinc/bin/kotlinc-jvm -script HelloWorld.kts
 ```
 
+* 線上玩: http://try.kotlinlang.org/koans
+
 ## FAQ
 
 * 如果多方繼承(`class`/`interface`) 時，`super.XXX()` 就會不清楚你要呼叫哪位 parent ，所以改成 `super<>.XXX` 即可。
@@ -337,7 +339,7 @@ observable<String> { subscriber ->
 
 ## Anko - kotlin template engine
 
-* #data-binding, #reactjs, #angularjs, #jax
+\#data-binding, \#reactjs, \#angularjs, \#jax
 
 捨棄 xml 直接用 kotlin 語言來配置 UI。
 
