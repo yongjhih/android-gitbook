@@ -417,6 +417,38 @@ import kotlinx.android.synthetic.activity_main.first_name as firstNameTextView
 firstNameTextView.setText("Andrew");
 ```
 
+## 擴充資料庫 Transaction
+
+Before:
+
+```java
+db.beginTransaction();
+try {
+  db.delete("users", "first_name = ?", new String[] { "Andrew" });
+  db.setTransactionSuccessful();
+} finally {
+  db.endTransaction()
+}
+```
+
+After:
+
+```kotlin
+db.inTransation {
+  delete("users", "first_name = ?", arrayOf("Andrew"))
+}
+
+fun SQLiteDatabase.inTransaction(func: SQLiteDatabase.() -> Unit) {
+  beginTransaction()
+  try {
+    func()
+    setTransactionSuccessful()
+  } finally {
+    endTransaction()
+  }
+}
+```
+
 ## kovenant - Promise
 
 * https://github.com/mplatvoet/kovenant
