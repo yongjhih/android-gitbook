@@ -359,6 +359,7 @@ verticalLayout {
 * 重用性 - 如何重用 layout?
 * 獨立 layout
 * 如何引用獨立 layout
+* qualifier
 
 ## 擴充 Cursor
 
