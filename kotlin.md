@@ -343,7 +343,18 @@ observable<String> { subscriber ->
 
 捨棄 xml 直接用 kotlin 語言來配置 UI。
 
+```kotlin
+verticalLayout {
+    val name = editText()
+    button("Say Hello") {
+        onClick { toast("Hello, ${name.text}!") }
+    }
+}
+```
+
 * Android Studio 預覽插件：Anko Preview Plugin for idea
+
+議題：
 
 * 重用性 - 如何重用 layout?
 * 獨立 layout
