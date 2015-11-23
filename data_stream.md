@@ -19,3 +19,7 @@
 另一個知名 https://github.com/goldmansachs/gs-collections 不過似乎不夠輕。
 
 http://www.goldmansachs.com/gs-collections/documents/GS%20Collections%20Training%20Session%20and%20Kata%205.0.0.pdf
+
+## See Also
+
+* https://github.com/yongjhih/streamsupport
