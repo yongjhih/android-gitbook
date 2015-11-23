@@ -560,10 +560,22 @@ assertEquals(add3(5), 8)
 
 ## Closure
 
+Before:
+
+```kotlin
+add(1) { 2 }
+
+fun add(x: Int, func: () -> Int): Int {
+    return x + func()
+}
+```
+
+After:
+
 ```kotlin
 add(1)(2)
 
-fun add(x : Int) : (Int) -> Int {
+fun add(x: Int): (Int) -> Int {
     return { y -> x + y }
 }
 ```
