@@ -2,6 +2,7 @@
 
 [RxJava](RxJava) 已經介紹了資料流的概念。如果你不需要 RxJava  提供的執行緒管理、錯誤處理等又覺得 RxJava 不夠輕量。或許你可以採用輕量，只針對資料流的函式庫。
 
+* http://sourceforge.net/projects/streamsupport/
 * https://github.com/kgmyshin/Marray
 * https://github.com/konmik/solid
 
