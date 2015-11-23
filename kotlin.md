@@ -443,6 +443,14 @@ try {
 }
 ```
 
+or
+
+```java
+Databases.from(db).inTransaction(db -> {
+  db.delete("users", "first_name = ?", new String[] { "Andrew" });
+});
+```
+
 After:
 
 ```kotlin
@@ -467,13 +475,23 @@ inline fun SQLiteDatabase.inTransaction(func: SQLiteDatabase.() -> Unit) {
 Before:
 
 ```java
-  SharedPreferences.Editor editor = preferences.edit();
+SharedPreferences.Editor editor = preferences.edit();
 
+editor.putString("first_name", "Andrew");
+editor.putString("last_name", "Chen");
+editor.remove("age");
+
+editor.apply();
+```
+
+or
+
+```java
+SharedPreferencesUtils.from(preferences).apply(editor -> {
   editor.putString("first_name", "Andrew");
   editor.putString("last_name", "Chen");
   editor.remove("age");
-
-  editor.apply();
+});
 ```
 
 After:
