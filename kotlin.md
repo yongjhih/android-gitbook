@@ -523,6 +523,17 @@ inline fun Notification.build(context: Context, func: NotificationCompat.Builder
 * https://github.com/mplatvoet/kovenant
 
 ```kotlin
+async {
+    //some (long running) operation, or just:
+    1 + 1
+} then { 
+    i -> "result: $i"
+} success {
+    msg -> println(msg)
+}
+```
+
+```kotlin
 async { "world" } and async { "Hello" } success {
     println("${it.second} ${it.first}!")
 }
