@@ -563,7 +563,7 @@ assertEquals(add3(5), 8)
 ```kotlin
 add(1)(2)
 
-fun add(x : Int) : (Int) -> Int{
+fun add(x : Int) : (Int) -> Int {
     return { y -> x + y }
 }
 ```
