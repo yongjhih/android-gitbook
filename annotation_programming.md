@@ -140,6 +140,12 @@ JavaFile javaFile = JavaFile.package("com.example.helloworld").class(
 
 APT, Annotation-Processing Tool
 
+## bytecode weaving
+
+* ASM
+* AspectJ
+* Javasist
+
 ## See also
 
 * https://speakerdeck.com/jakewharton/annotation-processing-boilerplate-destruction-square-waterloo-2014
