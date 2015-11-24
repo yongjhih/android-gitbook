@@ -103,3 +103,4 @@ class HogeActivity extends Activity {
 * Jack Wharton 的 RxJava 電台訪談： http://fragmentedpodcast.com/episodes/7/
 * https://github.com/JakeWharton/RxBinding
 * https://github.com/ogaclejapan/RxBinding
+* https://medium.com/@diolor/improving-ux-with-rxjava-4440a13b157f
