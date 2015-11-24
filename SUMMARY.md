@@ -19,10 +19,10 @@
 * [Retrofit](retrofit.md)
 * [Orm - ActiveAndroid, DBFlow, Ollie](orm_-_activeandroid,_dbflow,_ollie.md)
 * [flow + mortar](flow_mortar.md)
-* [EventBus: greenrobot/EventBus, Square/otto](eventbus__otto.md)
+* [EventBus: greenrobot/EventBus, Square/otto](eventbus_otto.md)
 * 良好的撰寫習慣 JavaDoc
-* [開源套件庫設置 - jcenter(), mavenCentral()](openpackage_setup_jcenter_,_mavencentral.md)
-* 開源碼函式庫專案設置 - Github
+* [開源套件中心 - jitpack/jcenter/mavenCentral](openpackage_jitpack_jcenter_mavencentral.md)
+* [開源碼函式庫](openlibrary.md)
 * [Test - Assert 斷言 - assertj, truth](assert.md)
 * [Test - Mockito](mockito.md)
 * [Test - UI - espresso, rxpresso](test_-_espresso,_rxpresso.md)
