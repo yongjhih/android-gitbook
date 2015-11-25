@@ -48,23 +48,38 @@ minifyEnabled true
 
 ## 計算
 
+坊間一堆 dex counter：
+
+* 大多透過 `cat classes.dex | head -c 92 | tail -c 4 | hexdump -e '1/4 "%d"'` 取得
+* 透過 baksmali 這個比較精準
+
+轉換 dex 流程：
+
+apk2dex - `unzip "$apk" classes.dex`
+jar2dex - `dx --dex --output="$dex" "$jar"`
+
+https://github.com/yongjhih/rc/blob/master/bin/dexize
+
 ```
-dexcount {apk}
+dexize {apk...}
 ```
 
 or
 
 ```
-dexcount {jar}
+dexize {jar...}
+```
+
+```
+dexize {folder}
 ```
 
 or
 
 ```
-dexcount {dex}
+dexize {dex...}
 ```
 
-坊間一堆 dex counter 這裡就不贅述了
 
 ## 編譯順便計算
 
@@ -84,4 +99,5 @@ dexcount {dex}
 
 ## See also
 
+* https://gist.github.com/JakeWharton/6002797
 * http://inloop.github.io/apk-method-count
