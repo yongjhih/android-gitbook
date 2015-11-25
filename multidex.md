@@ -5,7 +5,7 @@
 
 multidex 工作原理:
 
-透過靜態分析得知哪些需要必須靜態載入 class 放入 classes.dex 其他則依序放入 classes{2..N}.dex 用來動態載入，來有效避開 65k 限制。
+透過靜態分析得知哪些需要必須靜態載入 class 放入 classes.dex 其他則依序放入 `classes{2..N}.dex` 用來動態載入，來有效避開 65k 限制。
 
 有趣的是，靜態分析其實是透過 proguard 來分析的。
 
@@ -61,7 +61,7 @@ minifyEnabled true
 坊間一堆 dex counter：
 
 * 大多透過 `cat classes.dex | head -c 92 | tail -c 4 | hexdump -e '1/4 "%d"'` 取得
-* 透過 baksmali 這個比較精準
+* 透過 baksmali 比較精準
 
 轉換 dex 流程：
 
