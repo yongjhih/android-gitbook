@@ -74,13 +74,6 @@ dexize {jar...}
 dexize {folder}
 ```
 
-or
-
-```
-dexize {dex...}
-```
-
-
 ## 編譯順便計算
 
 * https://github.com/KeepSafe/dexcount-gradle-plugin
