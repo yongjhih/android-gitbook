@@ -81,3 +81,7 @@ dexcount {dex}
 ```bash
 ./gradlew dexinfoDebug
 ```
+
+## See also
+
+* http://inloop.github.io/apk-method-count
