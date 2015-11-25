@@ -55,8 +55,8 @@ minifyEnabled true
 
 轉換 dex 流程：
 
-apk2dex - `unzip "$apk" classes.dex`
-jar2dex - `dx --dex --output="$dex" "$jar"`
+* apk2dex - `unzip "$apk" classes.dex`
+* jar2dex - `dx --dex --output="$dex" "$jar"`
 
 https://github.com/yongjhih/rc/blob/master/bin/dexize
 
