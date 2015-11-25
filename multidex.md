@@ -75,3 +75,9 @@ dexcount {dex}
 ```
 
 詳細：`build/outputs/dexcount/debug.txt`
+
+* https://github.com/mutualmobile/gradle-dexinfo-plugin
+
+```bash
+./gradlew dexinfoDebug
+```
