@@ -11,7 +11,7 @@ multidex 工作原理:
 
 重要的依據 AndroidManifest.xml 是 app 程式進入點，Activity/Service/ContentProvider。
 
-## 套用 multidex
+## 啟用 multidex
 
 ```gradle
 multiDexEnabled true
@@ -50,7 +50,9 @@ multiDexKepp.pro:
 }
 ```
 
-## 套用 proguard
+## 啟用 proguard
+
+build.gradle:
 
 ```gradle
 minifyEnabled true
