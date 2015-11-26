@@ -879,6 +879,21 @@ Observable.just("https://raw.githubusercontent.com/yongjhih/android-gitbook/mast
     .subscribe(f -> System.out.println("downloaded: " + f));
 ```
 
+## switchMap() 與 flatMap()
+
+TODO switchMapIf()
+
+Before:
+
+```java
+flatMap(it -> it != null ? login(it) : Observable.empty());
+```
+
+After:
+
+```java
+switchMapIf(it -> it != null, it -> login(it));
+```
 
 ## 排序 toSortedList()
 
