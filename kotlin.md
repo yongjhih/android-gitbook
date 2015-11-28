@@ -120,7 +120,48 @@ val l = a?.length() ?: -1
 * var: variable
 * val: immutable variable, final variable
 
+## Delegated Property
+
+Before:
+
+```java
+Resources resources;
+
+final Resources getResources() {
+  if (resources == null) resources = context.getResources();
+  return resources;
+}
+```
+
+After:
+
+```kotlin
+val resources by lazy { context.getResources() }
+```
+
+## Smart cast
+
+After:
+
+```kotlin
+fun setText(view: View) {
+  if (view instanceof TextView) {
+    view.setText("hello");
+  }
+}
+```
+
 ## switch case: when
+
+After:
+
+```kotlin
+fun setText(view: View) {
+  when (view) {
+      is TextView -> view.setText("hello");
+  }
+}
+```
 
 ## range
 
@@ -129,6 +170,50 @@ for (i in 1..10) println(i)
 ```
 
 ## 集合運算子
+
+### filterNotNull()
+
+Before:
+
+```java
+List<String> repos = Arrays.asList("RetroFacebook", "NotRetrofit", null, "RxParse");
+List<String> reposNotNull = new ArrayList<>();
+
+for (String repo : repos) {
+    if (repo != null) reposNotNull.add(repo);
+}
+```
+
+After:
+
+```kotlin
+val repos = listOf("RetroFacebook", "NotRetrofit", null, "RxParse");
+repos.filterNotNull()
+```
+
+### sort()
+
+Before:
+
+```java
+Collections.sort(repoNotNull, new Comparator<String>() {
+    @Override public int compare(String l, String r) {
+        return r.length() - l.length();
+    }
+});
+```
+
+After:
+
+```kotlin
+repos.sortedBy { it.length() }
+```
+
+### toUpperCase()
+
+```kotlin
+repos.map { it.toUpperCase() }
+```
 
 ### any(其中)
 
