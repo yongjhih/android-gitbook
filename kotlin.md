@@ -556,6 +556,25 @@ public class SimplePreferences(prefs: SharedPreferences) : SharedPreferences by 
 }
 ```
 
+TODO:
+
+```kotlin
+User(context).edit {
+  name = "Andrew Chen"
+  age = "18"
+}
+
+public class SimplePreferences(prefs: SharedPreferences) : SharedPreferences by prefs {
+  // ...
+
+  fun edit(func: <in R>.Editor.() -> Unit) { // FIXME
+    val editor = edit()
+    editor.func()
+    editor.apply()
+  }
+}
+```
+
 ## 擴充資料庫 Transaction
 
 Before:
