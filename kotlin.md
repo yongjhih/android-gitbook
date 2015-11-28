@@ -537,8 +537,8 @@ public class SimplePreferences(prefs: SharedPreferences) : SharedPreferences by 
 
     override fun setValue(prefs: SharedPreferences, property: KProperty<*>, value: String) {
       SharedPreferences.Editor editor = prefs.edit()
-        editor.putString(property.name, value)
-        editor.apply()
+      editor.putString(property.name, value)
+      editor.apply()
     }
   }
 
@@ -549,8 +549,8 @@ public class SimplePreferences(prefs: SharedPreferences) : SharedPreferences by 
 
     override fun setValue(prefs: SharedPreferences, property: KProperty<*>, value: Int) {
       SharedPreferences.Editor editor = prefs.edit()
-        editor.putInt(property.name, value)
-        editor.apply()
+      editor.putInt(property.name, value)
+      editor.apply()
     }
   }
 }
