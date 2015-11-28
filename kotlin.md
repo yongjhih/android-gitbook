@@ -514,7 +514,7 @@ import kotlinx.android.synthetic.activity_main.first_name as firstNameTextView
 firstNameTextView.setText("Andrew");
 ```
 
-## Delegated `ReadWriteProperty<in R, T>` 可取得 property 名稱
+## 具名 SharedPreferences - 透過 Delegated `ReadWriteProperty<in R, T>` 取得 property 名稱
 
 ```kotlin
 val user = User(context)
@@ -522,8 +522,8 @@ user.name = "Andrew Chen"
 user.age = "18"
 
 public class User : SimplePreferences() {
-  var name: String by StringPreference()
-  var age: Int by IntPreference()
+  var name: String by StringPreference() // TODO by Preference<T>
+  var age: Int by IntPreference() // TODO by Preference<T>
 }
 
 public class SimplePreferences(prefs: SharedPreferences) : SharedPreferences by prefs {
