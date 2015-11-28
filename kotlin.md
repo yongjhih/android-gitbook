@@ -832,5 +832,6 @@ fun add(x: Int): (Int) -> Int {
 * https://speakerdeck.com/jakewharton/advancing-development-with-kotlin-gdg-devfest-dublin-2015
 * https://github.com/mplatvoet/kovenant-android-demo
 * https://kotlinlang.org/docs/tutorials/android-plugin.html
+* https://kotlinlang.org/docs/reference/delegated-properties.html
 
 [1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
