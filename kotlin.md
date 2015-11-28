@@ -527,10 +527,7 @@ public class User : SimplePreferences() {
 }
 
 public class SimplePreferences(prefs: SharedPreferences) : SharedPreferences by prefs {
-  constructor(context: Context, name: String, mode: Int) : this(prefs = context.getSharedPreferences(name, mode)) {
-  }
-
-  constructor(context: Context, name: String) : this(context = context, name = name, mode = Context.MODE_PRIVATE) {
+  constructor(context: Context) : this(prefs = PreferenceManager.getDefaultSharedPreferences(context)) {
   }
 
   public inner class StringPreference : ReadWriteProperty<SharedPreferences, String>() {
