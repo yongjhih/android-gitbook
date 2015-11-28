@@ -514,6 +514,51 @@ import kotlinx.android.synthetic.activity_main.first_name as firstNameTextView
 firstNameTextView.setText("Andrew");
 ```
 
+## Delegated `ReadWriteProperty<in R, T>` 可取得 property 名稱
+
+```kotlin
+val user = User(context)
+user.name = "Andrew Chen"
+user.age = "18"
+
+public class User : SimplePreferences() {
+  var name: String by StringPreference()
+  var age: Int by IntPreference()
+}
+
+public class SimplePreferences(prefs: SharedPreferences) : SharedPreferences by prefs {
+  constructor(context: Context, name: String, mode: Int) : this(prefs = context.getSharedPreferences(name, mode)) {
+  }
+
+  constructor(context: Context, name: String) : this(context = context, name = name, mode = Context.MODE_PRIVATE) {
+  }
+
+  public inner class StringPreference : ReadWriteProperty<SharedPreferences, String>() {
+    override fun getValue(prefs: SharedPreferences, property: KProperty<*>): String {
+      return prefs.getString(property.name, null)
+    }
+
+    override fun setValue(prefs: SharedPreferences, property: KProperty<*>, value: String) {
+      SharedPreferences.Editor editor = prefs.edit()
+        editor.putString(property.name, value)
+        editor.apply()
+    }
+  }
+
+  public inner class IntPreference : ReadWriteProperty<SharedPreferences, Int>() {
+    override fun getValue(prefs: SharedPreferences, property: KProperty<*>): Int {
+      return prefs.get(property.name, null)
+    }
+
+    override fun setValue(prefs: SharedPreferences, property: KProperty<*>, value: Int) {
+      SharedPreferences.Editor editor = prefs.edit()
+        editor.putInt(property.name, value)
+        editor.apply()
+    }
+  }
+}
+```
+
 ## 擴充資料庫 Transaction
 
 Before:
