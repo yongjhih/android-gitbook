@@ -521,12 +521,12 @@ val user = User(context)
 user.name = "Andrew Chen"
 user.age = "18"
 
-public class User : SimplePreferences() {
+public class User : Preferences() {
   var name: String by StringPreference() // TODO by Preference<T>
   var age: Int by IntPreference() // TODO by Preference<T>
 }
 
-public class SimplePreferences(prefs: SharedPreferences) : SharedPreferences by prefs {
+public class Preferences(prefs: SharedPreferences) : SharedPreferences by prefs {
   constructor(context: Context) : this(prefs = PreferenceManager.getDefaultSharedPreferences(context)) {
   }
 
@@ -564,7 +564,7 @@ User(context).edit {
   age = "18"
 }
 
-public class SimplePreferences(prefs: SharedPreferences) : SharedPreferences by prefs {
+public class Preferences(prefs: SharedPreferences) : SharedPreferences by prefs {
   // ...
 
   fun edit(func: <in R>.Editor.() -> Unit) { // FIXME
@@ -833,5 +833,8 @@ fun add(x: Int): (Int) -> Int {
 * https://github.com/mplatvoet/kovenant-android-demo
 * https://kotlinlang.org/docs/tutorials/android-plugin.html
 * https://kotlinlang.org/docs/reference/delegated-properties.html
+* https://github.com/yongjhih/kotlin-sharedpreferences
+* https://github.com/yongjhih/kotlin-database
+* https://github.com/yongjhih/kotlin-notification
 
 [1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
