@@ -715,7 +715,28 @@ Observable<Integer> singleInteger = Observable.range(1, 1).single(); // pass
 Observable<Integer> singleInteger = Observable.range(1, 2).single(); // exception
 ```
 
+## Subscriber/Observer
 
+Subscriber/Observer 是一種 Listener/Callback ，只是一般 Listener/Callback 只有表示一種事件，例如：`onCompleted(T emit)`，在 RxJava 的安排則是：`onNext(T)`, `onCompleted()`, `onError(Throwable)`。
+
+Observer 只有這三個事件而 Subscriber 繼承了並多了 `unsubscribe()`, `isUnsubscribed()`
+
+Subscriber:
+
+```java
+public abstract class Subscriber<T> implements Observer<T>, Subscription { ... }
+
+public interface Subscription {
+    public void unsubscribe();
+    public boolean isUnsubscribed();
+}
+
+public interface Observer<T> {
+    public abstract void onCompleted();
+    public abstract void onError(Throwable e);
+    public abstract void onNext(T t);
+}
+```
 
 ## 名詞解釋
 
@@ -857,7 +878,7 @@ Observable.create((Subscriber<? super String> s) -> {
 
 p.s. 似乎很多讀者對於 `flatMap()` 有理解的困難，所以這裡特別解釋一下 `flatMap`
 
-...
+flat and map 拉平並轉換，通常筆者稱呼成 Observable 的「置換」。
 
 ## concatMap() 與 flatMap()
 
@@ -881,7 +902,11 @@ Observable.just("https://raw.githubusercontent.com/yongjhih/android-gitbook/mast
 
 ## switchMap() 與 flatMap()
 
-TODO switchMapIf()
+置換 Observable 後，就不在接收上層的包裹了。類似： `take(1).flatMap()`
+
+* 同類型 `switchIfEmpty(Observable)`
+
+TODO switchIf()
 
 Before:
 
@@ -892,7 +917,7 @@ flatMap(it -> it != null ? login(it) : Observable.empty());
 After:
 
 ```java
-switchMapIf(it -> it != null, it -> login(it));
+switchIf(it -> it != null, it -> login(it));
 ```
 
 ## 排序 toSortedList()
