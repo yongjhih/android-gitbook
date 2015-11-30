@@ -829,9 +829,7 @@ fun add(x: Int): (Int) -> Int {
 * https://github.com/mplatvoet/kovenant-android-demo
 * https://kotlinlang.org/docs/tutorials/android-plugin.html
 * https://kotlinlang.org/docs/reference/delegated-properties.html
-* https://github.com/yongjhih/kotlin-sharedpreferences
-* https://github.com/yongjhih/kotlin-database
-* https://github.com/yongjhih/kotlin-notification
+* https://github.com/yongjhih/kotlin-android-extensions
 * https://www.reddit.com/r/androiddev/comments/3qfkya/share_your_kotlin_extension_functions/
 * https://github.com/nsk-mironov/kotlin-jetpack
 
