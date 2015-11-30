@@ -781,10 +781,6 @@ fun add(x: Int): (Int) -> Int {
 }
 ```
 
-## Jetpack
-
-* https://github.com/nsk-mironov/kotlin-jetpack
-
 ## 對照表
 
 (origin from [Using Project Kotlin for Android](https://docs.google.com/document/d/1ReS3ep-hjxWA8kZi0YqDbEhCqTt29hG8P44aA9W0DM8))
@@ -836,5 +832,7 @@ fun add(x: Int): (Int) -> Int {
 * https://github.com/yongjhih/kotlin-sharedpreferences
 * https://github.com/yongjhih/kotlin-database
 * https://github.com/yongjhih/kotlin-notification
+* https://www.reddit.com/r/androiddev/comments/3qfkya/share_your_kotlin_extension_functions/
+* https://github.com/nsk-mironov/kotlin-jetpack
 
 [1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
