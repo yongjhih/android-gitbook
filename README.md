@@ -14,7 +14,9 @@
 
 開放書籍，歡迎共筆修改，以 gitbook 方式瀏覽時，可點擊頁面上方的編輯頁面連結 "EDIT THIS PAGE" 即可共筆。
 
-善用開源來開發 Android App。
+善用開源來開發 Android App 。不只是開放源碼，也要使用開放資源來開發 Android App。
+
+腦補閱讀，以少量文字描述，減少筆者主觀介入，盡可能聚焦在對照程式碼上。
 
 前端：
 
@@ -40,7 +42,7 @@
 * [proguard annotations](https://github.com/yongjhih/proguard-annotations)
 * [proguard snippets](https://github.com/yongjhih/proguard-snippets)
 * [json2notification](https://github.com/8tory/json2notification)
-* Kotlin
+* kotlin
 * anko
 * ReactNative
 * jitpack
@@ -52,7 +54,7 @@
 後端：
 
 * Parse BAAS
- 
+
 開發環境：
 
 * Android Studio
