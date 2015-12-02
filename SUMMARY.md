@@ -46,4 +46,5 @@
 * [Grooid](grooid.md)
 * [MultiDex](multidex.md)
 * [Proguard](proguard.md)
+* [LoaderManager](loadermanager.md)
 
