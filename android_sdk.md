@@ -7,7 +7,7 @@ android list sdk
 ```
 
 ```bash
-android list --all sdk
+android list sdk --all
 ```
 
 安裝 #1 套件
