@@ -617,7 +617,7 @@ Databases.from(db).inTransaction(db -> {
 After:
 
 ```kotlin
-db.inTransation {
+db.inTransaction {
   delete("users", "first_name = ?", arrayOf("Andrew"))
 }
 
