@@ -375,6 +375,26 @@ val list = listOf(1, 2, 3, 4, 5, 6)
 assertEquals(3, list.sumBy { it % 2 })
 ```
 
+### withIndices
+
+Before:
+
+```java
+int index = 0;
+for (String item : list) {
+    System.out.println(index + " : " + item);
+    index++;
+}
+```
+
+After:
+
+```kotlin
+for ((index, item) in list.withIndices()) {
+    println("$index : $item")
+}
+```
+
 ## 導入方法
 
 * 可利用 Android Studio kotlin plugin 轉換程式碼 (轉完不一定可動，大多稍微改一下就好了)
