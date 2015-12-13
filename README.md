@@ -45,6 +45,7 @@
 * kotlin
 * anko
 * ReactNative
+* akka
 * jitpack
 * bintray
 * bountysource

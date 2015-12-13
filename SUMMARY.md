@@ -47,4 +47,5 @@
 * [MultiDex](multidex.md)
 * [Proguard](proguard.md)
 * [LoaderManager](loadermanager.md)
+* [akka](akka.md)
 

@@ -8,12 +8,12 @@
 * 語法簡潔 `for ((key, value) in map)`
 * AutoValue?
 * lambdas `setOnClickListener { finish() }`
-* 字串變數 `"Hello, ${you}!"`
+* 字串變數 `"Hello, ${username}!"`
 * Jake Wharton 加持 (誤
 
-對於 android 來說，Kotlin 開始知名的時候，大概可以追溯到 2014 年中旬登上 Android 開發週報的：http://blog.gouline.net/2014/08/31/kotlin-the-swift-of-android/ ，剛開始看到是覺得確實很敏捷，但是對於成熟度抱著遲疑得態度。
+對於 android 來說，Kotlin 開始知名的時候，大概可以追溯到 2014 年中旬登上 Android 開發週報的：http://blog.gouline.net/2014/08/31/kotlin-the-swift-of-android/ ，不過對於生態成熟度抱著遲疑得態度。
 
-在這之後，筆者是在 2015 年一月份 Jake Wharton 在 G+ 發表了一篇[貼文](https://plus.google.com/+JakeWharton/posts/WSCoqkJ5MBj)之後，確實很多人跟筆者一樣，較為積極的看待這個語言。
+在 2015 年一月份 Jake Wharton 在 G+ 發表了一篇[貼文](https://plus.google.com/+JakeWharton/posts/WSCoqkJ5MBj) 之後，較積極的看待這個語言。
 
 除了這些特性之外，對於 android 來說，滿大的優勢在於 symbol size 以及 code size 相較於其他語言，十分羽量。(kotlin: 6k~, scala: 50k~, groovy: 30k~)
 
@@ -121,15 +121,15 @@ val l = a?.length() ?: -1
 Before:
 
 ```java
-String you = "Andrew Chen";
-System.out.println("Hello, " + you + "!");
+String username = "Andrew Chen";
+System.out.println("Hello, " + username + "!");
 ```
 
 After
 
 ```kotlin
-val you: String = "Andrew Chen"
-System.out.println("Hello, ${you}!");
+val username: String = "Andrew Chen"
+System.out.println("Hello, ${username}!");
 ```
 
 ## Immutable: val
@@ -849,5 +849,6 @@ fun add(x: Int): (Int) -> Int {
 * https://github.com/yongjhih/kotlin-android-extensions
 * https://www.reddit.com/r/androiddev/comments/3qfkya/share_your_kotlin_extension_functions/
 * https://github.com/nsk-mironov/kotlin-jetpack
+* https://github.com/cheptsov/kotlin-nosql
 
 [1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a

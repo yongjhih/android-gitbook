@@ -1,4 +1,12 @@
-# gradle
+# gradle 建置系統
+
+常見的建置系統：
+
+* ant
+* buck
+* maven
+* gradle
+* sbt
 
 大多數的樣貌 build.gradle:
 
