@@ -66,3 +66,20 @@ List<Note> notes = new Select().from(Note.class).execute(); // huge notes
 ## 名詞解釋
 
 DTO, Data Transfer Object, 資料傳輸物件。「參數物件化」
+
+## See Also
+
+* DBFlow
+* ActiveAndroid
+* Sprinkles
+* Ollie
+* Realm
+* greenDAO
+* OrmLite
+* Sugar ORM
+* StorIO
+* RxCupboard
+* http://www.raizlabs.com/dev/2015/02/go-dbflow-fastest-android-orm-database-library/
+* https://github.com/Raizlabs/AndroidDatabaseLibraryComparison
+* SqlBrite
+* couchbaselite
