@@ -725,12 +725,11 @@ inline fun Notification.build(context: Context, func: NotificationCompat.Builder
 
 ```kotlin
 async {
-    //some (long running) operation, or just:
-    1 + 1
-} then { 
-    i -> "result: $i"
+    download(url)
+} then {
+    file -> "file: $file"
 } success {
-    msg -> println(msg)
+    println(it)
 }
 ```
 
@@ -738,6 +737,46 @@ async {
 async { "world" } and async { "Hello" } success {
     println("${it.second} ${it.first}!")
 }
+```
+
+### successUi/failUi
+
+```kotlin
+async {
+    download(url)
+} then {
+    file -> "file: $file"
+} successUi {
+    toast(it)
+} failUi {
+    toast("fail")
+}
+```
+
+### promiseOnUi
+
+```kotlin
+promiseOnUi {
+    textView.getText();
+} then {
+    download(it);
+} successUi {
+    toast(it)
+}
+```
+
+名稱由來： Covenant(公約) -> Kovenant (The Kovenanat Band)
+
+### 安裝
+
+build.gradle:
+
+```gradle
+    compile 'nl.komponents.kovenant:kovenant-core:3.0.0-beta.3'
+    compile 'nl.komponents.kovenant:kovenant-android:3.0.0-beta.3'
+    compile 'nl.komponents.kovenant:kovenant-combine:3.0.0-beta.3'
+    compile 'nl.komponents.kovenant:kovenant-jvm:3.0.0-beta.3'
+    compile 'nl.komponents.kovenant:kovenant-functional:3.0.0-beta.3'
 ```
 
 ## injekt - DI
@@ -870,5 +909,8 @@ fun add(x: Int): (Int) -> Int {
 * https://www.reddit.com/r/androiddev/comments/3qfkya/share_your_kotlin_extension_functions/
 * https://github.com/nsk-mironov/kotlin-jetpack
 * https://github.com/cheptsov/kotlin-nosql
+* http://argo.sourceforge.net/
+* http://kovenant.komponents.nl/android/features/
+
 
 [1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
