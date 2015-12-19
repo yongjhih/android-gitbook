@@ -134,13 +134,12 @@ ImageView imageView = new ImageView(activity.getApplicationContext());
 ImageView imageView = new ImageView(activity);
 ```
 
-同樣的，函式庫的開發者，盡可能不要紀錄 activity
+同樣的，函式庫的開發者，盡可能不要紀錄 activity:
 
 ```java
-ImageLoader {
-    public ImageLoader(Activity) { this(Activity.getApplicationContext()); }
-    public ImageLoader(Context) {
-        this.context = context;
-    }
+public class ImageLoader {
+    Context context;
+    public ImageLoader(Activity activity) { this(Activity.getApplicationContext()); }
+    public ImageLoader(Context context) { this.context = context; }
 }
 ```
