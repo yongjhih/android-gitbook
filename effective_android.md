@@ -143,3 +143,12 @@ public class ImageLoader {
     public ImageLoader(Context context) { this.context = context; }
 }
 ```
+
+## 取得 LayoutInflator : `LayoutInflator.from(Context)`
+
+...
+
+## `view.getContext()` 可取得 context
+
+...
+
