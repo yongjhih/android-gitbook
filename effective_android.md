@@ -79,6 +79,14 @@ public TextView usernameView;
 
 * `Map` 非 `HashMap`
 
+```java
+List<String> getNames() {
+    List<String> names = new ArrayList<>();
+    for (User user : users) names.add(user.name());
+    return names;
+}
+```
+
 ## 使用泛型建置技巧 `new ArrayList<>()`
 
 java7 之後可省略型別，直接推定型別
@@ -92,7 +100,7 @@ java6 沒有內建推定型別，所以可透過推定型別函式來包裝，�
 ```java
 List<String> names = newArrayList();
 
-public static <T> List<T> newArrayList() {
+public static <T> ArrayList<T> newArrayList() {
     return new ArrayList<T>();
 }
 ```
