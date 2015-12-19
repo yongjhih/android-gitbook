@@ -73,7 +73,9 @@ public TextView usernameView;
 
 以及各種 support-annotations
 
-...
+* @IntDef
+* @Keep
+* etc.
 
 ## 宣告型別應盡可能抽象型別，應 `List` 非 `ArrayList`
 
@@ -107,10 +109,16 @@ public static <T> ArrayList<T> newArrayList() {
 
 ## 推薦使用 Android Studio 而不是 Eclipse/ADT
 
-## 推薦使用 gradle build system 而不是 ant
+...
+
+## 推薦使用 gradle 建置系統而不是 ant
+
+還有一些其他選項:
 
 * buck
 * maven
 * sbt
 * kobalt
+
+有個基本原則，就是支援 maven 套件中心的建置系統
 
