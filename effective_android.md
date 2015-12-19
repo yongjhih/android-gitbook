@@ -14,6 +14,10 @@
 
 通常你需要的是 `post(Runnable)`
 
+```java
+post(() -> updateProgress);
+```
+
 這樣不用再管理編號了。
 
 ```java
@@ -39,5 +43,29 @@ postDelayed(300, updateProgressRunnable);
 
 ## 不再 findViewBindId 推薦使用 ButterKnife
 
-...
+After:
+
+```java
+@BindView(R.id.username)
+public TextView usernameView;
+
+
+// ...
+
+@Override public void onCreate(Bundle savedInstanceState) {
+   // ...
+   ButterKnife.bind(this);
+}
+```
+
+Before:
+
+```java
+public TextView usernameView;
+
+@Override public void onCreate(Bundle savedInstanceState) {
+   // ...
+   usernameView = (TextView) findViewById(R.id.username);
+}
+```
 
