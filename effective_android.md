@@ -122,3 +122,25 @@ public static <T> ArrayList<T> newArrayList() {
 
 有個基本原則，就是支援 maven 套件中心的建置系統
 
+## 應該傳遞 context 就不要傳遞整個 activity
+
+```java
+ImageView imageView = new ImageView(activity.getApplicationContext());
+```
+
+不該：
+
+```java
+ImageView imageView = new ImageView(activity);
+```
+
+同樣的，函式庫的開發者，盡可能不要紀錄 activity
+
+```java
+ImageLoader {
+    public ImageLoader(Activity) { this(Activity.getApplicationContext()); }
+    public ImageLoader(Context) {
+        this.context = context;
+    }
+}
+```
