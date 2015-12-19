@@ -104,3 +104,13 @@ public static <T> ArrayList<T> newArrayList() {
     return new ArrayList<T>();
 }
 ```
+
+## 推薦使用 Android Studio 而不是 Eclipse/ADT
+
+## 推薦使用 gradle build system 而不是 ant
+
+* buck
+* maven
+* sbt
+* kobalt
+
