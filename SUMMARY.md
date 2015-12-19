@@ -48,4 +48,5 @@
 * [Proguard](proguard.md)
 * [LoaderManager](loadermanager.md)
 * [akka](akka.md)
+* [Android 實務](effective_android.md)
 
