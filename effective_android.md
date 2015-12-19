@@ -15,7 +15,7 @@
 通常你需要的是 `post(Runnable)`
 
 ```java
-post(() -> updateProgress);
+post(() -> updateProgress());
 ```
 
 這樣不用再管理編號了。
@@ -68,4 +68,11 @@ public TextView usernameView;
    usernameView = (TextView) findViewById(R.id.username);
 }
 ```
+
+## 使用 @Nullable/@NonNull 標注
+
+以及各種 support-annotations
+
+...
+
 
