@@ -75,4 +75,24 @@ public TextView usernameView;
 
 ...
 
+## 宣告型別應盡可能抽象型別，應 `List` 非 `ArrayList`
 
+* `Map` 非 `HashMap`
+
+## 使用泛型建置技巧 `new ArrayList<>()`
+
+java7 之後可省略型別，直接推定型別
+
+```java
+List<String> names = new ArrayList<>();
+```
+
+java6 沒有內建推定型別，所以可透過推定型別函式來包裝，常見的 apache common-lang 或者 guava 函式庫也有此範例：
+
+```java
+List<String> names = newArrayList();
+
+public static <T> List<T> newArrayList() {
+    return new ArrayList<T>();
+}
+```
