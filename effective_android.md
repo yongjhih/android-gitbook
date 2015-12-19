@@ -6,13 +6,13 @@
 
 ## 不要用 Thread 或 HandlerThread 推薦使用 AsyncTask
 
-如果你要背景下載檔案，你應該使用 IntentService 而不是自己去操作 Thread。
+如果要背景下載檔案，應該使用 IntentService 而不是自己去操作 Thread。
 
 如果是這個 Activity 內的長時間存取，可以使用 AsyncTask 。如有必要請搭配 LoaderManager 使用。
 
 ## 不要用 Handle Message 推薦使用 `post(Runnable)`
 
-通常你需要的是 `post(Runnable)`
+通常你其實需要的是 `post(Runnable)`
 
 ```java
 post(() -> updateProgress());
