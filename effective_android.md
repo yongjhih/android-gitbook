@@ -47,7 +47,7 @@ After:
 
 ```java
 @BindView(R.id.username)
-public TextView usernameView;
+TextView usernameView;
 
 
 // ...
@@ -61,7 +61,7 @@ public TextView usernameView;
 Before:
 
 ```java
-public TextView usernameView;
+TextView usernameView;
 
 @Override public void onCreate(Bundle savedInstanceState) {
    // ...
