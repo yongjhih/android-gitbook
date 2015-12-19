@@ -97,7 +97,7 @@ java7 之後可省略型別，直接推定型別
 List<String> names = new ArrayList<>();
 ```
 
-java6 沒有內建推定型別，所以可透過推定型別函式來包裝，常見的 apache common-lang 或者 guava 函式庫也有此範例：
+java6 沒有內建推定型別，可透過推定型別函式來包裝，常見的 apache common-lang 或者 guava 函式庫也有此範例：
 
 ```java
 List<String> names = newArrayList();
