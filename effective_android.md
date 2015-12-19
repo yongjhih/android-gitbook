@@ -41,7 +41,7 @@ removeCallback(updateProgressRunnable);
 postDelayed(300, updateProgressRunnable);
 ```
 
-## 不再 findViewBindId 推薦使用 ButterKnife
+## 不再 findViewById 推薦使用 ButterKnife
 
 After:
 
