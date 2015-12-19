@@ -139,7 +139,7 @@ ImageView imageView = new ImageView(activity);
 ```java
 public class ImageLoader {
     Context context;
-    public ImageLoader(Activity activity) { this(Activity.getApplicationContext()); }
+    public ImageLoader(Activity activity) { this(activity.getApplicationContext()); }
     public ImageLoader(Context context) { this.context = context; }
 }
 ```
