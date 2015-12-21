@@ -144,11 +144,14 @@ public class ImageLoader {
 }
 ```
 
-## 取得 LayoutInflator : `LayoutInflator.from(Context)`
+## 常見的取得 LayoutInflater
 
-...
+```java
+LayoutInflater.from(Context);
+```
 
-## `view.getContext()` 可取得 context
+## 常見的取得 context
 
-...
-
+```java
+view.getContext();
+```
