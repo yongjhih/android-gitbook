@@ -167,9 +167,5 @@ view.post(runnable);
 ```
 
 ```java
-context.post(runnable);
-```
-
-```java
 new Handler(Looper.getMainLooper()).post(runnable);
 ```
