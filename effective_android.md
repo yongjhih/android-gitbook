@@ -159,10 +159,17 @@ view.getContext();
 ## UI 執行緒執行
 
 ```java
-activity.runOnUiThread(Runnable);
+activity.runOnUiThread(runnable);
 ```
 
 ```java
-post(Runnable);
+view.post(runnable);
 ```
 
+```java
+context.post(runnable);
+```
+
+```java
+new Handler(Looper.getMainLooper()).post(runnable);
+```
