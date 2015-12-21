@@ -107,7 +107,7 @@ public static <T> ArrayList<T> newArrayList() {
 }
 ```
 
-## 推薦使用 Android Studio 而不是 Eclipse/ADT
+## IDE 推薦使用 Android Studio 而不是 Eclipse/ADT
 
 ...
 
@@ -122,7 +122,7 @@ public static <T> ArrayList<T> newArrayList() {
 
 有個基本原則，就是支援 maven 套件中心的建置系統
 
-## 應該傳遞 context 就不要傳遞整個 activity
+## 該傳遞 Context 就不要傳遞 Activity
 
 ```java
 ImageView imageView = new ImageView(activity.getApplicationContext());
