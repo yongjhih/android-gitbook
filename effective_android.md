@@ -155,3 +155,14 @@ LayoutInflater.from(Context);
 ```java
 view.getContext();
 ```
+
+## UI 執行緒執行
+
+```java
+activity.runOnUiThread(Runnable);
+```
+
+```java
+post(Runnable);
+```
+
