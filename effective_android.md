@@ -169,3 +169,51 @@ view.post(runnable);
 ```java
 new Handler(Looper.getMainLooper()).post(runnable);
 ```
+
+## 使用 Objects 工具類別來簡化 null 檢查
+
+Before:
+
+```java
+if (!mBuildConfigFields.equals(that.mBuildConfigFields)) {
+    return false;
+}
+if (!mConsumerProguardFiles.equals(that.mConsumerProguardFiles)) {
+    return false;
+}
+if (!mManifestPlaceholders.equals(that.mManifestPlaceholders)) {
+    return false;
+}
+if (mMultiDexEnabled != null ? !mMultiDexEnabled.equals(that.mMultiDexEnabled) :
+        that.mMultiDexEnabled != null) {
+    return false;
+}
+if (mMultiDexKeepFile != null ? !mMultiDexKeepFile.equals(that.mMultiDexKeepFile) :
+        that.mMultiDexKeepFile != null) {
+    return false;
+}
+if (mMultiDexKeepProguard != null ? !mMultiDexKeepProguard.equals(that.mMultiDexKeepProguard) :
+        that.mMultiDexKeepProguard != null) {
+    return false;
+}
+if (!mProguardFiles.equals(that.mProguardFiles)) {
+    return false;
+}
+if (!mResValues.equals(that.mResValues)) {
+    return false;
+}
+return true;
+```
+
+After:
+
+```java
+return Objects.equal(mBuildConfigFields, that.mBuildConfigFields) &&
+        Objects.equal(mConsumerProguardFiles, that.mConsumerProguardFiles) &&
+        Objects.equal(mManifestPlaceholders, that.mManifestPlaceholders) &&
+        Objects.equal(mMultiDexEnabled, that.mMultiDexEnabled) &&
+        Objects.equal(mMultiDexKeepFile, that.mMultiDexKeepFile) &&
+        Objects.equal(mMultiDexKeepProguard, that.mMultiDexKeepProguard) &&
+        Objects.equal(mProguardFiles, that.mProguardFiles) &&
+        Objects.equal(mResValues, that.mResValues);
+```
