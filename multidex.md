@@ -25,7 +25,7 @@ public class SimpleApplication extends MultiDexApplication {
 ```
 
 
-## 隱藏的設定 multiDexKeepFile/multiDexKeepProguard
+## 隱藏的設定 multiDexKeepFile/multiDexKeepProguard (1.5.0 後失效？)
 
 不過有些靜態分析是分析，像是 ActiveAndroid ORM 的 models 。啟動時就必須靜態載入。
 
@@ -106,3 +106,4 @@ dexize {folder}
 
 * https://gist.github.com/JakeWharton/6002797
 * http://inloop.github.io/apk-method-count
+* https://medium.com/groupon-eng/android-s-multidex-slows-down-app-startup-d9f10b46770f
