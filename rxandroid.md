@@ -67,7 +67,7 @@ class SimpleActivity extends RxActivity {
 }
 ```
 
-沒法更換 Activity/Fragment 繼承時，可參考 [RxAppCompatActivity](https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/support/RxAppCompatActivity.java) /[RxFragment](https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/RxFragment.java)
+沒法更換 Activity/Fragment 繼承時，可參考 [RxAppCompatActivity](https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/support/RxAppCompatActivity.java)/[RxFragment](https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/RxFragment.java)
 
 舉例寫一個 SimpleFragmentLifecycleProvider 類別：
 
