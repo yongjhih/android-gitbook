@@ -13,10 +13,6 @@ AppObservable.bindFragment()
 
 主要檢查 `Fragment.isAdded()`, `Activity.isFinishing()` 等狀態，排除一些不適當的執行。
 
-*註：筆者不是很清楚，為什麼不用 overloading: `AppObservable.bind(Activity/Frgment/v4.Fragment)` 來取代 `AppObservable.bindFragment(Fragment)`,
-`AppObservable.bindFragment(v4.Fragment)`,
-`AppObservable.bindActivity(Activity)`*
-
 ## RxLifecycle
 
 當 Activity/Fragment 對應的生命週期結束時 `unsubscribe()` 避免 leaks。
