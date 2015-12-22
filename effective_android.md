@@ -217,3 +217,33 @@ return Objects.equal(mBuildConfigFields, that.mBuildConfigFields) &&
         Objects.equal(mProguardFiles, that.mProguardFiles) &&
         Objects.equal(mResValues, that.mResValues);
 ```
+
+## 使用 Objects 工具類別來產生 hashcode 
+
+Before:
+
+```java
+int result = mBuildConfigFields.hashCode();
+result = 31 * result + mResValues.hashCode();
+result = 31 * result + mProguardFiles.hashCode();
+result = 31 * result + mConsumerProguardFiles.hashCode();
+result = 31 * result + mManifestPlaceholders.hashCode();
+result = 31 * result + (mMultiDexEnabled != null ? mMultiDexEnabled.hashCode() : 0);
+result = 31 * result + (mMultiDexKeepFile != null ? mMultiDexKeepFile.hashCode() : 0);
+result = 31 * result + (mMultiDexKeepProguard != null ? mMultiDexKeepProguard.hashCode() : 0);
+return result;
+```
+
+After:
+
+```java
+return Objects.hashCode(
+        mBuildConfigFields,
+        mResValues,
+        mProguardFiles,
+        mConsumerProguardFiles,
+        mManifestPlaceholders,
+        mMultiDexEnabled,
+        mMultiDexKeepFile,
+        mMultiDexKeepProguard);
+```
