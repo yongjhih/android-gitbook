@@ -114,3 +114,14 @@ Android Threading/Scheduling 很多不只是 background 的問題，還有 lifec
 接著是下一層的問題 ，那 Ui 該怎麼辦？很簡單，請服用： `Observable.toList()`, `Observable.buffer()`, etc.
 
 * See Also: https://kaif.io/z/compiling/debates/drg0Cf6oGj/dsCeOiO6Gz
+
+## multidex 跟 proguard 擇一執行哪一個速度比較快？
+
+先不管題目的合理性。
+答案是 proguard 比較快。
+
+1. 理論上，經過 proguard 之後，code size 的縮減，所以啟動程式碼載入時間會縮短。
+2. multidex 還會變慢，因為 65k 超出去的部份是啟動之後，動態載入的，你知道的，就是那個 reflection ，想當然爾會更慢。
+
+而提問者其實後來要問的是「編譯」而不是「執行」，如果是編譯，multidex 會快些。而我們本來在開發上就是 release build 才會跑 proguard minify ，所以倒不用擔心。
+
