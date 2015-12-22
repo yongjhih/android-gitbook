@@ -67,6 +67,107 @@ class SimpleActivity extends RxActivity {
 }
 ```
 
+沒法更換 Activity/Fragment 繼承時，可參考 [RxAppCompatActivity](https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/support/RxAppCompatActivity.java) /[RxFragment](https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/RxFragment.java)
+
+舉例寫一個 SimpleFragmentLifecycleProvider 類別：
+
+```java
+public SimpleFragment extends Fragment {
+
+    SimpleFragmentLifecycleProvider lifecycle = new SimpleFragmentLifecycleProvider();
+
+    @Override
+    @CallSuper
+    public void onResume() {
+        super.onResume();
+        lifecycle.onResume();
+
+        helloObservable
+            .compose(lifecycle.bindUntil(FragmentEvent.DESTROY))
+            .subscribe();
+
+        helloObservable2
+            .compose(lifecycle.bind())
+            .subscribe();
+    }
+
+    @Override
+    @CallSuper
+    public void onPause() {
+        lifecycle.onPause();
+        super.onPause();
+    }
+
+    @Override
+    @CallSuper
+    public void onDestroy() {
+        lifecycle.onDestroy();
+        super.onDestroy();
+    }
+
+    // ...
+}
+
+public class SimpleFragmentLifecycleProvider implements FragmentLifecycleProvider {
+    private final BehaviorSubject<FragmentEvent> lifecycleSubject = BehaviorSubject.create();
+
+    @Override
+    public final Observable<FragmentEvent> lifecycle() {
+        return lifecycleSubject.asObservable();
+    }
+
+    @Override
+    public final <T> Observable.Transformer<T, T> bindUntil(FragmentEvent event) {
+        return RxLifecycle.bindUntilFragmentEvent(lifecycleSubject, event);
+    }
+
+    @Override
+    public final <T> Observable.Transformer<T, T> bind() {
+        return RxLifecycle.bindFragment(lifecycleSubject);
+    }
+
+    public void onAttach(android.app.Activity activity) {
+        lifecycleSubject.onNext(FragmentEvent.ATTACH);
+    }
+
+    public void onCreate(Bundle savedInstanceState) {
+        lifecycleSubject.onNext(FragmentEvent.CREATE);
+    }
+
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        lifecycleSubject.onNext(FragmentEvent.CREATE_VIEW);
+    }
+
+    public void onStart() {
+        lifecycleSubject.onNext(FragmentEvent.START);
+    }
+
+    public void onResume() {
+        lifecycleSubject.onNext(FragmentEvent.RESUME);
+    }
+
+    public void onPause() {
+        lifecycleSubject.onNext(FragmentEvent.PAUSE);
+    }
+
+    public void onStop() {
+        lifecycleSubject.onNext(FragmentEvent.STOP);
+    }
+
+    public void onDestroyView() {
+        lifecycleSubject.onNext(FragmentEvent.DESTROY_VIEW);
+    }
+
+    public void onDestroy() {
+        lifecycleSubject.onNext(FragmentEvent.DESTROY);
+    }
+
+    public void onDetach() {
+        lifecycleSubject.onNext(FragmentEvent.DETACH);
+    }
+}
+```
+
 ## ViewObservable, WidgetObservable
 
 View 的連動. 當 View 顯示時 `subscribe()` 離開時 `unsubscribe()`
