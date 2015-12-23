@@ -218,7 +218,7 @@ return Objects.equal(mBuildConfigFields, that.mBuildConfigFields) &&
         Objects.equal(mResValues, that.mResValues);
 ```
 
-## 使用 Objects 工具類別來產生 hashcode 
+## 使用 Objects 工具類別來產生 hashcode
 
 Before:
 
@@ -246,4 +246,14 @@ return Objects.hashCode(
         mMultiDexEnabled,
         mMultiDexKeepFile,
         mMultiDexKeepProguard);
+```
+
+## Activity/Fragment 應該善用 @CallSuper
+
+```java
+@CallSuper
+@Override
+public void onResume() {
+    super.onResume();
+}
 ```
