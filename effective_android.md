@@ -260,7 +260,7 @@ public void onResume() {
 
 ## 盡可能使用 `private final mMember`
 
-## 成員變數名稱開頭，推薦用小寫 "m" 開頭：`mMember`
+## 成員變數名稱開頭，慣用小寫 "m" 開頭：`mMember`
 
 ## 不要直接 Handler 成員變數，避免記憶體浪費，可改用 WeakReference 包裝
 
