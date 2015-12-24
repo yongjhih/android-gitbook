@@ -911,6 +911,8 @@ fun add(x: Int): (Int) -> Int {
 * https://github.com/cheptsov/kotlin-nosql
 * http://argo.sourceforge.net/
 * http://kovenant.komponents.nl/android/features/
+* https://github.com/kotlinslang/kotlinslang
+* https://github.com/kittinunf/Result
 
 
 [1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a

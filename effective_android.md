@@ -82,7 +82,7 @@ TextView usernameView;
 * `Map` 非 `HashMap`
 
 ```java
-List<String> getNames() {
+List<String> getNames(List<User> users) {
     List<String> names = new ArrayList<>();
     for (User user : users) names.add(user.name());
     return names;
@@ -288,3 +288,27 @@ static Drawable sBackground;
 
 ## 工具類別應不給繼承且不給建構子
 
+
+## 回傳空 List 應該用 `return Collections.emptyList();` 而不是 `return new ArrayList<>();`
+
+```java
+List<String> getNames(List<User> users) {
+    if (users == null) return Collections.emptyList();
+
+    List<String> names = new ArrayList<>();
+    for (User user : users) names.add(user.name());
+    return names;
+}
+```
+
+回傳空 Map 應該用 `return Collections.emptyMap();` 而不是 `return new HashMap<>();`
+
+```java
+Map<String, User> getNames(List<User> users) {
+    if (users == null) return Collections.emptyMap();
+
+    Map<String, User> map = new HashMap<>();
+    for (User user : users) map.put(user.id(), user);
+    return map;
+}
+```
