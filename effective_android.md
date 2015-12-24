@@ -257,3 +257,34 @@ public void onResume() {
     super.onResume();
 }
 ```
+
+## 盡可能使用 private final member
+
+## 成員變數名稱開頭，推薦用小寫 "m" 開頭：`mMember`
+
+## 不要 Handler 成員變數，避免記憶體浪費，可改用 WeakReference 包裝
+
+```java
+private final Handler mHandler = new Handler();
+```
+
+## static final 常數慣用大寫
+
+```java
+static final float PI = 3.14f;
+```
+
+## static 變數慣用小寫 "s" 開頭
+
+```java
+private static Runtime sRuntime = new Runtime();
+```
+
+## 不要輕易使用 static 變數，避免記憶體浪費
+
+```java
+static Drawable sBackground;
+```
+
+## 工具類別應不給繼承且不給建構子
+
