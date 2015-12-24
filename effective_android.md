@@ -122,7 +122,7 @@ public static <T> ArrayList<T> newArrayList() {
 
 有個基本原則，就是支援 maven 套件中心的建置系統
 
-## 該傳遞 Context 就不要傳遞 Activity
+## 該傳遞 Context 就不要傳遞 Activity，避免記憶體浪費
 
 ```java
 ImageView imageView = new ImageView(activity.getApplicationContext());
