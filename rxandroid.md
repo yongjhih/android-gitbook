@@ -72,7 +72,7 @@ class SimpleActivity extends RxActivity {
 舉例寫一個 SimpleFragmentLifecycleProvider 類別：
 
 ```java
-public SimpleFragment extends Fragment {
+public class SimpleFragment extends Fragment {
 
     SimpleFragmentLifecycleProvider lifecycle = new SimpleFragmentLifecycleProvider();
 
