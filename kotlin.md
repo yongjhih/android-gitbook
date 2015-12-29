@@ -913,6 +913,11 @@ fun add(x: Int): (Int) -> Int {
 * http://kovenant.komponents.nl/android/features/
 * https://github.com/kotlinslang/kotlinslang
 * https://github.com/kittinunf/Result
-
+* https://github.com/SalomonBrys/Kotson
+* https://github.com/cbeust/klaxon
+* https://github.com/FasterXML/jackson-module-kotlin
+* https://github.com/cbeust/kobalt
+* https://github.com/cbeust/kobalt-android
+* https://github.com/cbeust/kobalt-retrolambda
 
 [1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
