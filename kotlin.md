@@ -919,5 +919,6 @@ fun add(x: Int): (Int) -> Int {
 * https://github.com/cbeust/kobalt
 * https://github.com/cbeust/kobalt-android
 * https://github.com/cbeust/kobalt-retrolambda
+* https://github.com/BennyWang/KBinding
 
 [1]: https://medium.com/@octskyward/kotlin-fp-3bf63a17d64a
