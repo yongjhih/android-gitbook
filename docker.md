@@ -8,19 +8,19 @@
 sudo usermod -aG docker andrew
 ```
 
-啟動:
+啟動 image:
 
 ```bash
 docker run -it ubuntu /bin/bash
 ```
 
-指定版本啟動:
+指定 image 版本啟動:
 
 ```bash
 docker run -it ubuntu:14.04 /bin/bash
 ```
 
-進入指定 container
+進入執行中的 container:
 
 ```bash
 docker exec -it c007a10e4 bash
@@ -30,6 +30,18 @@ docker exec -it c007a10e4 bash
 
 ```bash
 docker pull ubuntu
+```
+
+停止執行中的 container:
+
+```bash
+docker stop c007a10e4
+```
+
+啟動停止執行中的 container:
+
+```bash
+docker stop c007a10e4
 ```
 
 列出執行中的 containers:
