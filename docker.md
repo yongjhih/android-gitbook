@@ -8,16 +8,22 @@
 sudo usermod -aG docker andrew
 ```
 
-啟動 image:
+啟動 imag:
 
 ```bash
 docker run -it ubuntu /bin/bash
 ```
 
-指定 image 版本啟動:
+指定 image 版本啟動 (-i interactive, -t tty):
 
 ```bash
 docker run -it ubuntu:14.04 /bin/bash
+```
+
+背景啟動 image (-d dettach):
+
+```
+docker run -d ubuntu
 ```
 
 進入執行中的 container:
@@ -41,7 +47,7 @@ docker stop c007a10e4
 啟動停止執行中的 container:
 
 ```bash
-docker stop c007a10e4
+docker start c007a10e4
 ```
 
 列出執行中的 containers:
@@ -50,7 +56,7 @@ docker stop c007a10e4
 docker ps
 ```
 
-列出包括停止的 containers:
+列出包括停止的 containers (-a all):
 
 ```bash
 docker ps -a
