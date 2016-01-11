@@ -68,6 +68,25 @@ docker ps -a
 docker images
 ```
 
+掛目錄進去 (-v volume):
+
+```java
+docker run -d ubuntu -v /home:/var/home
+````
+
+
+設定 port (-p port):
+
+```java
+docker run -d ubuntu -p 80:3000
+````
+
+設定環境變數 (-e env):
+
+```java
+docker run -d ubuntu -e "http_proxy=http://192.168.1.254:3128"
+````
+
 ## 編註
 
 * 這是一篇與 Android 開發較微無關的章節。屬於後端平台性的章節。
