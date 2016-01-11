@@ -2,6 +2,11 @@
 
 ## 常用指令
 
+開放使用者權限
+
+```bash
+sudo usermod -aG docker andrew
+```
 
 啟動:
 
@@ -9,20 +14,40 @@
 docker run -it ubuntu /bin/bash
 ```
 
-or
+指定版本啟動:
 
 ```bash
 docker run -it ubuntu:14.04 /bin/bash
 ```
 
-進入 container
+進入指定 container
 
 ```bash
 docker exec -it c007a10e4 bash
 ```
 
+更新 image:
+
 ```bash
-sudo usermod -aG docker andrew
+docker pull ubuntu
+```
+
+列出執行中的 containers:
+
+```bash
+docker ps
+```
+
+列出包括停止的 containers:
+
+```bash
+docker ps -a
+```
+
+列出下載的 images:
+
+```bash
+docker images
 ```
 
 ## 編註
