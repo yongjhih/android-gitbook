@@ -48,5 +48,8 @@
 * [Proguard](proguard.md)
 * [LoaderManager](loadermanager.md)
 * [akka](akka.md)
-* [Android 實務](effective_android.md)
+* [Android 的日常](effective_android.md)
+* [Activity 與 Fragment 的日常](activity-fragment.md)
+* [Binder 活頁夾的日常](binder.md)
+* [Background Thread 幕後的日常](background-thread.md)
 

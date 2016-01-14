@@ -1,8 +1,6 @@
-# Android 實務
+# Android 的日常
 
-可以吃嗎？
-
-這邊主要抽一些實務上常見的建議與指南。
+這邊主要抽一些日常的小撇步。
 
 ## 不要用 Thread 或 HandlerThread 推薦使用 AsyncTask
 
