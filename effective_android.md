@@ -310,3 +310,13 @@ Map<String, User> getNames(List<User> users) {
     return map;
 }
 ```
+
+## 大量的字串串接，請用 StringBuilder 來避免不必要的低消
+
+```java
+System.out.println("Hello" + ", " + "world" + "!");
+```
+
+```java
+new StringBuilder().append("Hello").append(", ").append("world").append("!");
+```
