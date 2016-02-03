@@ -284,6 +284,25 @@ private static Runtime sRuntime = new Runtime();
 static Drawable sBackground;
 ```
 
+非得要用了話，請用 WeakReference 裝起來：
+
+```java
+static WeakReference<Drawable> sBackground;
+```
+
+
+## 不要輕易使用 static 變數在 View 上，避免記憶體浪費
+
+```java
+static TextView sView;
+```
+
+因為 view 本身帶有 Context ，非得要用了話，請用 WeakReference 裝起來：
+
+```java
+static WeakReference<TextView> sView;
+```
+
 ## 工具類別應不給繼承且不給建構子
 
 
