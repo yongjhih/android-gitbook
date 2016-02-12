@@ -129,6 +129,7 @@ Android Threading/Scheduling 很多不只是 background 的問題，還有 lifec
 
 坊間很多地方可以看到這個問題，
 不推薦給初學者從這個問題著手去了解 abstract class 與 interface 存在的意義，因為這個問題誤導初學者。
+但是作為一個面試題目，卻不失誘導應試者發揮看法。
 
 * abstract class 是一個功能不完整的半成品
 * interface 是待完成功能的集合體
