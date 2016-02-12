@@ -125,3 +125,35 @@ Android Threading/Scheduling 很多不只是 background 的問題，還有 lifec
 
 而提問者其實後來要問的是「編譯」而不是「執行」，如果是編譯，multidex 會快些。而我們本來在開發上就是 release build 才會跑 proguard minify ，所以倒不用擔心。
 
+## abstract class 與 interface 有什麼不同？
+
+坊間很多地方可以看到這個問題，
+不推薦給初學者從這個問題著手去了解 abstract class 與 interface 存在的意義，因為這個問題誤導初學者。
+
+* abstract class 是一個功能不完整的半成品
+* interface 是待完成功能的集合體
+
+讓我們舉個例子對照來促進思考：
+
+Before:
+
+```java
+abstract class SimpleOnClickListener {
+    public abstract onClick(View view);
+}
+```
+
+After:
+
+```java
+interface OnClickListener {
+    public onClick(View view);
+}
+
+abstract class SimpleOnClickListener2 implements OnClickListener {
+}
+```
+
+...
+
+*題外話: 這也就是筆者常拿來質疑 abstract class 修飾子的存在意義*
