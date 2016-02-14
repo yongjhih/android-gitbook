@@ -103,7 +103,7 @@ Before:
 
 ```java
 List<Integer> getFemaleAgeList(List<User> users) {
-    getAgeList(getFemaleList(users)); // 如果不改變寫法，會整整跑完兩個 loop
+    return getAgeList(getFemaleList(users)); // 如果不改變寫法，會整整跑完兩個 loop
 }
 ```
 
@@ -115,7 +115,7 @@ List<Integer> getFemaleAgeList(List<User> users) {
 
 ```java
 List<Integer> getFemaleAgeList(List<User> users) {
-    //getAgeList(getFemaleList(users));
+    //return getAgeList(getFemaleList(users));
     List<Integer> ageList = new ArrayList<>();
 
     for (User user : users) {
