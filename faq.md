@@ -179,14 +179,15 @@ class DownloadTask extends AsyncTask<String, Long, File> {
     }
 
     @Override protected void onProgressUpdate(Long... progress) {
-        Log.d("MyApp", "Downloaded bytes: " + progress[0]);
+        Log.d("DownloadTask", "Downloaded bytes: " + progress[0]);
     }
 
     @Override protected void onPostExecute(File file) {
-        if (file != null)
-            Log.d("MyApp", "Downloaded file to: " + file.getAbsolutePath());
-        else
-            Log.d("MyApp", "Download failed");
+        if (file != null) {
+            Log.d("DownloadTask", "Downloaded file to: " + file.getAbsolutePath());
+        } else {
+            Log.d("DownloadTask", "Download failed");
+        }
     }
 }
 
