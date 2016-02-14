@@ -300,16 +300,16 @@ interface OnClickListener<T extends View> {
 
 
 class ImageView extends View {
-    OnClickListener<? extends ImageView> mOnClickListener;
+    OnClickListener<ImageView> mOnClickListener;
 
-    public <T extends ImageView> void setOnClickListener(OnClickListener<T> onClickListener) {
+    public void setOnClickListener(OnClickListener<ImageView> onClickListener) {
         mOnClickListener = onClickListener;
     }
 }
 
-MyActivity extends Activity {
+class MyActivity extends Activity {
     // ...
-    imageView.setOnClickListener(new OnClickListener<>() {
+    imageView.setOnClickListener(new OnClickListener<ImageView>() {
         @Override public void onClick(ImageView iv) {
             iv.setImageResource(R.drawable.clicked);
         }
