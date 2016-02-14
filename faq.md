@@ -139,7 +139,7 @@ Android Threading/Scheduling 很多不只是 background 的問題，還有 lifec
 Before:
 
 ```java
-abstract class SimpleOnClickListener {
+abstract class BaseButton {
     public abstract onClick(View view);
 }
 ```
@@ -151,11 +151,65 @@ interface OnClickListener {
     public onClick(View view);
 }
 
-abstract class SimpleOnClickListener2 implements OnClickListener {
+abstract class BaseButton2 implements OnClickListener {
 }
 ```
 
+也就是任何 abstract class 你都可以抽出一個 interface 緊接著再去思考「abstract class 與 interface 有什麼不同？」，這樣就排除了一個誤導 abstract class 與 interface 不應該是對等的比較。也就是這是個偽命題，應該要問的是「哪時候使用 abstract class 還是 interface + class」。
+
 *題外話: 這也就是筆者常拿來質疑 abstract class 修飾子的存在意義*
+*解決多重繼承問題：如果你不知道什麼是「多重繼承」，就不需要去了解 interface 是如何解決的，因為對你來說是不存在的問題，很有可能因此混淆*
+
+abstract class 在建構時，必須全面實現後才能建構出物件。class + interface 在建構時，不需要立即實現，通常是以事後賦予的方式。
+
+abstract class:
+
+```java
+abstract class BaseButton {
+    public abstract onClick(View view);
+}
+
+BaseButton button = new BaseButton() {
+    @Override public onClick(View view) {
+        System.out.println("click: " + view);
+    }
+};
+```
+
+class + interface:
+
+```java
+class Button {
+    OnClickListener mOnClickListener;
+
+    public void setOnClickListener(OnClickListener onClickListener) {
+        mOnClickListener = onClickListener;
+    }
+
+    private void click(View view) {
+        mOnClickListener.onClick(view);
+    }
+}
+
+Button button = new Button();
+
+button.setOnClickListener(new OnClickListener() {
+    @Override public onClick(View view) {
+        System.out.println("click: " + view);
+    }
+});
+```
+
+abstract class 特性：
+
+* 建構依賴性：建構時必須實做，類似建構子的參數，建構依賴
+* 流程引用性：abstract method 是否都要被 parent 引用？
+
+
+習性：
+
+* interface + class: 跨部門的功能，你就應該抽出 interface 來請大家實現。對老手來說，是一個拉平繼承樹或者倒裝繼承樹的手法
+* 當你寫了一個類別希望給大家繼承來用，但是建構時，怕你忘記做一些前置作業，就會使用 abstract class
 
 以客觀來說，abstract class 用於分段實做。
 
