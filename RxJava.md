@@ -1165,12 +1165,29 @@ public class Usb {
 
 ## Threading, Scheduler 執行序控制
 
-```
+```java
 Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html").map(url -> download(url))
-.subscribeOn(Schedulers.io)) // 在 io Thread() 跑 (60 thread pool, 60s timeout)
-.observeOn(AndroidScheduler.mainThread()) // 在 mainThread 回來印
-.subscirbe(System.out::println);
+  .subscribeOn(Schedulers.io())) // 在 io Thread() 跑 (60 thread pool, 60s timeout)
+  .observeOn(AndroidScheduler.mainThread()) // 在 mainThread 回來印
+  .subscirbe(System.out::println);
 ```
+
+```java
+  ...
+  .subscribeOn(Schedulers.io())) // 這之前都用 io thread pool
+  .observeOn(AndroidScheduler.mainThread()) // 這裡之後都用 mainThread 跑
+  ...
+  .subscirbe(System.out::println);
+```
+
+常用 thread pool:
+
+* `Schedulers.newThread()` 無條件開一個 thread (ref. [NewThreadWorker](https://github.com/ReactiveX/RxJava/blob/master/src/main/java/rx/internal/schedulers/NewThreadWorker.java))
+* `Schedulers.io()` io 性質的 thread ，如網路存取。60s 逾時 (ref. [CachedThreadScheduler](https://github.com/ReactiveX/RxJava/blob/master/src/main/java/rx/schedulers/CachedThreadScheduler.java))
+* `Schedulers.computation()` 運算性質的 thread。thread pool 依據 cpu 數量 (ref. [EventLoopsScheduler](https://github.com/ReactiveX/RxJava/blob/master/src/main/java/rx/internal/schedulers/EventLoopsScheduler.java))
+* `AndroidScheduler.mainThread()` (ref. [AndroidSchedulers](https://github.com/ReactiveX/RxAndroid/blob/master/rxandroid/src/main/java/rx/android/schedulers/AndroidSchedulers.java))
+
+ref. http://reactivex.io/documentation/scheduler.html#collapseRxJava
 
 ## 改善 Cache 流程
 
