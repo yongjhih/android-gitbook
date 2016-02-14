@@ -226,11 +226,7 @@ getFemaleList(users, i -> i <= 10); // predicate
 getList(users, (user, i) -> i <= 10, (user, i) -> user.getGender() == User.FEMALE); // predicate
 ```
 
-這種靈活的方法套用在各個資料流身上，也就是 RxJava 所提供的 operators 。
-
-接下來，開始一點組合應用：
-
-列出 Top10 女性使用者年齡：
+接下來，開始一點組合應用，列出 Top10 女性使用者年齡：
 
 Before:
 
