@@ -339,3 +339,24 @@ System.out.println("Hello" + ", " + "world" + "!");
 ```java
 new StringBuilder().append("Hello").append(", ").append("world").append("!");
 ```
+
+## SystemService 取得方法，如 NotificationManager 請改用 `context.getSystemService(NotificationManager.class)`
+
+Before:
+
+```java
+NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+```
+
+After:
+
+```java
+NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+```
+
+好處是不用在轉型了。
+
+```java
+// 另外推薦函式庫 com.github.yongjhih:android-system-services:1.0.0
+NotificationManager notificationManager = SystemServices.from(context).getNotificationManager();
+```
