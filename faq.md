@@ -161,7 +161,7 @@ abstract class BaseButton2 implements OnClickListener {
 * *解決多重繼承問題：如果你不知道什麼是「多重繼承」，就不需要去了解 interface 是如何解決的，因為對你來說是不存在的問題，很有可能因此混淆*
 * *「abstract class 不能 new 」並不是一個事實，如果是一個事實，那麼 interface 也不能 new ，所以並不是不同之處。而任何物件在建構時，都務必實現所有功能才能建構，abstract class 你可以：`new AsyncTask() { @Override xxx() ... }`，interface 也可以 `new OnClickListener() { @Override xxx() ... }`*
 
-abstract class 在建構時，必須全面實現後才能建構出物件。class + interface 在建構時，不需要立即實現，通常是以事後賦予的方式呈現。
+abstract class 被繼承或者建構時，必須實做所有未完成的方法，否則依然還是一個 abstract class。class + interface 在建構時，不需要立即實現，通常是以事後賦予的方式呈現。
 
 abstract class:
 
@@ -203,9 +203,8 @@ button.setOnClickListener(new OnClickListener() {
 
 abstract class 特性：
 
-* 建構依賴性：建構時必須實做，類似建構子的參數，建構依賴
+* 依賴性：使用時必須實做，類似建構子的參數，建構依賴
 * 流程引用性：abstract method 是否都要被 parent 引用？
-
 
 習性：
 
