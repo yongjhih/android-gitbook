@@ -266,3 +266,7 @@ abstract class BaseActivity extends Activity {
     }
 }
 ```
+
+## 什麼是泛形(generic) 以及 `<? super XX>` 與 `<? extends XX>` 的使用時機
+
+...
