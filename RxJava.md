@@ -25,7 +25,8 @@ RxJava 大約從 2013 年中一場[研討會](http://www.infoq.com/presentations
 
 短期效用：有效避免巢狀 callback 增加可讀性以及減少 `List<item>` 的轉換成本。
 
-鑑於 RxJava 太少範例可以參考，才開始撰寫這篇文章偏向範例而不是從學術性角度介紹起，而這篇文章的技術來源大多是閱讀 RxJava 源碼、測試程式源碼以及其 github Wiki 而來。如果有謬誤之處，歡迎用各種方式聯絡我。
+鑑於 RxJava 太少範例可以參考，才開始撰寫這篇文章偏向範例而不是從學術性角度介紹起，筆者相信從對照的方式來學習會遠比從抽象理論學起，來得容易些。
+而這篇文章的技術來源大多是閱讀 RxJava 源碼、測試程式源碼以及其 github Wiki 而來。如果有謬誤之處，歡迎用各種方式聯絡我。
 
 1. *注意：這邊直接使用 lambda &lambda; 的表達式，如果你還不清楚，請跳轉到 [Lambda](lambda.md)*
 2. *java8.stream 也實現了 Reactive。*
