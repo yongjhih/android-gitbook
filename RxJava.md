@@ -87,7 +87,7 @@ List<User> getFemaleList(/* @Writable */List<User> users) {
 After:
 
 ```java
-Observable<User> getFemaleObs(List<User> users) {
+Observable<User> getFemaleObs(Observable<User> users) {
     return Observable.from(users).filter(user -> user.getGender() == User.FEMALE);
 }
 
@@ -128,17 +128,22 @@ List<Integer> getFemaleAgeList(List<User> users) {
 }
 ```
 
-而 Observable 不用刻意改變寫法，直接組起來就好：
+維持一樣的寫法，它會同時做兩件事情：找出女性順便詢問年紀(過濾與轉換)，避免重複的迴圈。
 
 After:
 
 ```java
 Observable<Integer> getFemaleAgeObs(List<User> users) {
-    return getFemaleObs(users).map(user -> user.getAge());
+    return Observable.from(users)
+        .filter(user -> user.getGender() == User.FEMALE)
+        .map(user -> user.getAge());
+}
+
+// 如果你堅持一定要傳遞 List
+List<Integer> getFemaleAgeList(List<User> users) {
+    return getFemaleAgeObs(users).toList().toBlocking().single();
 }
 ```
-
-你可以發現維持一樣的寫法，它會同時做兩件事情：找出女性順便詢問年紀(過濾與轉換)，避免重複的迴圈。
 
 
 
