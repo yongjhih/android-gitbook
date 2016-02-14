@@ -214,7 +214,7 @@ List<User> getList(List<User> users, Func2<Boolean, User, Integer> until, Func2<
     int i = 0;
     for (User user : users) {
         if (!until.call(user, i)) break;
-        if (filter(user, i)) list.add(user);
+        if (filter.call(user, i)) list.add(user);
         i++;
     }
 
