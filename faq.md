@@ -155,6 +155,59 @@ abstract class SimpleOnClickListener2 implements OnClickListener {
 }
 ```
 
-...
-
 *題外話: 這也就是筆者常拿來質疑 abstract class 修飾子的存在意義*
+
+以客觀來說，abstract class 用於分段實做。
+
+以慣例來說，parent 制定大部分流程，必要流程請子嗣實現。
+
+```java
+class DownloadTask extends AsyncTask<String, Long, File> {
+    @Override protected File doInBackground(String... urls) {
+        try {
+            HttpRequest request =  HttpRequest.get(urls[0]);
+            File file = null;
+            if (request.ok()) {
+                file = File.createTempFile("download", ".tmp");
+                request.receive(file);
+                publishProgress(file.length());
+            }
+            return file;
+        } catch (HttpRequestException exception) {
+            return null;
+        }
+    }
+
+    @Override protected void onProgressUpdate(Long... progress) {
+        Log.d("MyApp", "Downloaded bytes: " + progress[0]);
+    }
+
+    @Override protected void onPostExecute(File file) {
+        if (file != null)
+            Log.d("MyApp", "Downloaded file to: " + file.getAbsolutePath());
+        else
+            Log.d("MyApp", "Download failed");
+    }
+}
+
+new DownloadTask().execute("http://google.com");
+```
+
+以另一個慣例來說，parent 制定流程，操作的實體由子嗣實現。
+
+```java
+class SimpleActivity extends BaseActivity {
+    @Override public int getContentView() {
+        return R.layout.main;
+    }
+}
+
+abstract class BaseActivity extends Activity {
+    public abstract int getContentView();
+
+    @Override public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(getContentView());
+    }
+}
+```
