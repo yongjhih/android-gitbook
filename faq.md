@@ -271,4 +271,69 @@ abstract class BaseActivity extends Activity {
 
 ## 什麼是泛形(generic) 以及 `<? super XX>` 與 `<? extends XX>` 的使用時機
 
-...
+我們可以用來簡化轉型步驟：
+
+Before:
+
+```java
+interface OnClickListener {
+    void onClick(View view);
+}
+
+MyActivity extends Activity {
+    // ...
+    imageView.setOnClickListener(new OnClickListener() {
+        @Override public void onClick(View view) {
+            ImageView iv = (ImageView) view;
+            iv.setImageResource(R.drawable.clicked);
+        }
+    });
+}
+```
+
+After:
+
+```java
+interface OnClickListener<T extends View> {
+    void onClick(T view);
+}
+
+
+class ImageView extends View {
+    OnClickListener<? extends ImageView> mOnClickListener;
+
+    public <T extends ImageView> void setOnClickListener(OnClickListener<T> onClickListener) {
+        mOnClickListener = onClickListener;
+    }
+}
+
+MyActivity extends Activity {
+    // ...
+    imageView.setOnClickListener(new OnClickListener<>() {
+        @Override public void onClick(ImageView iv) {
+            iv.setImageResource(R.drawable.clicked);
+        }
+    });
+}
+```
+
+`<? extends T>` 的使用時機:
+
+```java
+interface Collection<E> ... {
+    E get(int index);
+    void addAll(Colletion<? extend E> items);
+}
+```
+
+`<? super T>` 的使用時機:
+
+```java
+```
+
+
+<!--
+## `<? super T>` 的使用時機
+
+## `<? extends T>` 的使用時機
+-->
