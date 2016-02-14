@@ -354,7 +354,7 @@ After:
 NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
 ```
 
-好處是不用在轉型了。
+好處是不用強轉型了。
 
 ```java
 // 另外推薦函式庫 com.github.yongjhih:android-system-services:1.0.0
