@@ -194,12 +194,12 @@ List<User> getFemaleList(List<User> users, int limit) {
 }
 
 // 比較靈活一點的寫法，提供 predicate function
-List<User> getFemaleList(List<User> users, Func2<Boolean, User, Integer> predicate) {
+List<User> getFemaleList(List<User> users, Func1<Boolean, Integer> predicate) {
     List<User> femaleList = new ArrayList<>();
 
     int i = 0;
     for (User user : users) {
-        if (!predicate.call(user, i)) break;
+        if (!predicate.call(i)) break;
         if (user.getGender() == User.FEMALE) femaleList.add(user);
         i++;
     }
@@ -207,8 +207,23 @@ List<User> getFemaleList(List<User> users, Func2<Boolean, User, Integer> predica
     return femaleList;
 }
 
+// 而且 predicate function 可以分 until 或者 filter
+List<User> getList(List<User> users, Func2<Boolean, User, Integer> until, Func2<Boolean, User, Integer> filter) {
+    List<User> list = new ArrayList<>();
+
+    int i = 0;
+    for (User user : users) {
+        if (!until.call(user, i)) break;
+        if (filter(user, i)) list.add(user);
+        i++;
+    }
+
+    return list;
+}
+
 getFemaleList(users, 10);
-getFemaleList(users, (user, i) -> i <= 10); // predicate
+getFemaleList(users, i -> i <= 10); // predicate
+getList(users, (user, i) -> i <= 10, (user, i) -> user.getGender() == User.FEMALE); // predicate
 ```
 
 這種靈活的方法套用在各個資料流身上，也就是 RxJava 所提供的 operators 。
