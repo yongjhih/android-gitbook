@@ -157,8 +157,8 @@ abstract class BaseButton2 implements OnClickListener {
 
 也就是任何 abstract class 你都可以抽出一個 interface ，這樣就排除了一個誤導 abstract class 與 interface 不應該是對等的比較，也就是這是個偽命題，應該要問的是「哪時候使用 abstract class 還是 interface + class」。
 
-*題外話: 這也就是筆者常拿來質疑 abstract class 修飾子的存在意義*
-*解決多重繼承問題：如果你不知道什麼是「多重繼承」，就不需要去了解 interface 是如何解決的，因為對你來說是不存在的問題，很有可能因此混淆*
+* *題外話: 這也就是筆者常拿來質疑 abstract class 修飾子的存在意義*
+* *解決多重繼承問題：如果你不知道什麼是「多重繼承」，就不需要去了解 interface 是如何解決的，因為對你來說是不存在的問題，很有可能因此混淆*
 
 abstract class 在建構時，必須全面實現後才能建構出物件。class + interface 在建構時，不需要立即實現，通常是以事後賦予的方式呈現。
 
