@@ -149,7 +149,7 @@ List<Integer> getFemaleAgeList(List<User> users) {
 
 ## 提前打斷迴圈的能力，避免不必要的過濾與轉換
 
-列出一百名女性使用者：
+列出 Top10 女性使用者：
 
 Before:
 
@@ -158,8 +158,8 @@ List<User> getFemaleList(List<User> users, int limit) {
     return getFemaleList(users).subList(0, limit);
 }
 
-// 這裡會完整繞完萬名使用者，找出千名女性使用者後，才抽出百名。
-getFemaleList(users, 100);
+// 這裡會完整繞完萬名使用者，找出千名女性使用者後，才抽出 Top10。
+getFemaleList(users, 10);
 ```
 
 After:
@@ -169,12 +169,12 @@ Observable<User> getFemaleObs(List<User> users, int limit) {
     return getFemaleObs(users).take(limit);
 }
 
-// 這裡會蒐集到百名女性使用者後，即停止。
-getFemaleObs(users, 100);
+// 這裡會蒐集到十名女性使用者後，即停止。
+getFemaleObs(users, 10);
 ```
 
-我們可以從這裡看到差異，儘管你只要找出百名女性使用者，原本的寫法卻會繞完萬名使用者，找出所有女性使用者，再分割前一百名。
-而 Observable 會聰明的找到第一百名女性使用者就馬上停止。原本的寫法要做到提前停止，就必須改寫：
+我們可以從這裡看到差異，儘管你只要找出十名女性使用者，原本的寫法卻會繞完萬名使用者，找出所有女性使用者，再分割前十名。
+而 Observable 會聰明地蒐集到第十名女性使用者就馬上停止。原本的寫法要做到提前停止，就必須改寫：
 
 ```java
 List<User> getFemaleList(/* @Writable */List<User> users) { ... }
@@ -207,15 +207,15 @@ List<User> getFemaleList(List<User> users, Func2<Boolean, User, Integer> predica
     return femaleList;
 }
 
-getFemaleList(users, 100);
-getFemaleList(users, (user, i) -> i <= 100); // predicate Func2
+getFemaleList(users, 10);
+getFemaleList(users, (user, i) -> i <= 10); // predicate
 ```
 
 這種靈活的方法套用在各個資料流身上，也就是 RxJava 所提供的 operators 。
 
 接下來，開始一點組合應用：
 
-列出前百名女性使用者年齡：
+列出 Top10 女性使用者年齡：
 
 Before:
 
@@ -255,11 +255,11 @@ Observable<Integer> getFemaleAgeObs(List<User> users) {
 }
 ```
 
-只做 100 筆過濾與轉換(女性、年齡)：
+只做 10 筆過濾與轉換(女性、年齡)：
 
 ```java
 getFemaleAgeObs(users)
-    .take(100) // 拿個 100 筆
+    .take(10) // 拿 10 筆
     .toList().toBlocking().single();
 ```
 
