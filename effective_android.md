@@ -235,7 +235,7 @@ return result;
 After:
 
 ```java
-return Objects.hashCode(
+return java.util.Objects.hashCode(
         mBuildConfigFields,
         mResValues,
         mProguardFiles,
