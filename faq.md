@@ -160,7 +160,7 @@ abstract class BaseButton2 implements OnClickListener {
 *題外話: 這也就是筆者常拿來質疑 abstract class 修飾子的存在意義*
 *解決多重繼承問題：如果你不知道什麼是「多重繼承」，就不需要去了解 interface 是如何解決的，因為對你來說是不存在的問題，很有可能因此混淆*
 
-abstract class 在建構時，必須全面實現後才能建構出物件。class + interface 在建構時，不需要立即實現，通常是以事後賦予的方式。
+abstract class 在建構時，必須全面實現後才能建構出物件。class + interface 在建構時，不需要立即實現，通常是以事後賦予的方式呈現。
 
 abstract class:
 
