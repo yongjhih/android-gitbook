@@ -418,7 +418,7 @@ public class SimpleOnPageChangeListener implements OnPageChangeListener {
 由於已經有 lambda 的幫助下，我們可以想到這個用法：
 
 ```java
-pager.setOnPageChangeListener(SimplerOnPageChangeListener.create().onPageSelected(position -> {
+pager.setOnPageChangeListener(new SimplerOnPageChangeListener().onPageSelected(position -> {
    System.out.println(position);
 }));
 
@@ -474,10 +474,6 @@ public class SimplerOnPageChangeListener implements OnPageChangeListener {
 
     public interface Action3<T, T2, T3> {
         void call(T t, T2 t2, T3 t3);
-    }
-
-    public static SimplerOnPageChangeListener create() {
-        return new SimplerOnPageChangeListener();
     }
 }
 ```
