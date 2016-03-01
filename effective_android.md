@@ -433,16 +433,19 @@ pager.setOnPageChangeListener(SimplerOnPageChangeListener.create().onPageSelecte
 public class SimplerOnPageChangeListener implements OnPageChangeListener {
     @Override
     public void onPageScrollStateChanged(int state) {
+        if (onPageScrollStateChanged == null) return;
         onPageScrollStateChanged.call(state);
     }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        if (onPageScrolled == null) return;
         onPageScrolled.call(position, positionOffset, positionOffsetPixels);
     }
 
     @Override
     public void onPageSelected(int position) {
+        if (onPageSelected == null) return;
         onPageSelected.call(position);
     }
 
