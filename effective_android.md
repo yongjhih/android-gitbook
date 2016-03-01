@@ -360,3 +360,121 @@ NotificationManager notificationManager = context.getSystemService(NotificationM
 // 另外推薦函式庫 com.github.yongjhih:android-system-services:1.0.0
 NotificationManager notificationManager = SystemServices.from(context).getNotificationManager();
 ```
+
+## Listener/Callback 設計三兩事
+
+```java
+public interface ViewPager.OnPageChangeListener() {
+    void onPageScrollStateChanged(int state);
+    void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
+    void onPageSelected(int position);
+}
+```
+
+就算我們只想要知道 `onPageSelected(position)` ，但是所有的方法還是都要假實現：
+
+```java
+pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+    @Override
+    public void onPageScrollStateChanged(int state) {
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+       System.out.println(position);
+    }
+});
+```
+
+所以一般我們都習慣寫一個空類別來偷懶一下：
+
+```java
+pager.setOnPageChangeListener(new SimpleOnPageChangeListener() {
+    @Override
+    public void onPageSelected(int position) {
+       System.out.println(position);
+    }
+});
+
+public class SimpleOnPageChangeListener implements OnPageChangeListener {
+    @Override
+    public void onPageScrollStateChanged(int state) {
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+    }
+}
+```
+
+由於已經有 lambda 的幫助下，我們可以想到這個用法：
+
+```java
+pager.setOnPageChangeListener(SimplerOnPageChangeListener.create().onPageSelected(position -> {
+   System.out.println(position);
+}));
+
+pager.setOnPageChangeListener(SimplerOnPageChangeListener.create().onPageSelected(position -> {
+   System.out.println(position);
+}).onPageScrolled((position, positionOffset, positionOffsetPixels) -> {
+   System.out.println(position);
+   System.out.println(positionOffset);
+   System.out.println(positionOffsetPixels);
+}));
+
+public class SimplerOnPageChangeListener implements OnPageChangeListener {
+    @Override
+    public void onPageScrollStateChanged(int state) {
+        onPageScrollStateChanged.call(state);
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        onPageScrolled.call(position, positionOffset, positionOffsetPixels);
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        onPageSelected.call(position);
+    }
+
+    Action1<Integer> onPageScrollStateChanged;
+    Action3<Integer, Float, Integer> onPageScrolled;
+    Action1<Integer> onPageSelected;
+
+    public SimplerOnPageChangeListener onPageScrollStateChanged(Action1<Integer> onPageScrollStateChanged) {
+        this.onPageScrollStateChanged = onPageScrollStateChanged;
+        return this;
+    }
+
+    public SimplerOnPageChangeListener onPageScrolled(Action3<Integer, Float, Integer> onPageScrolled) {
+        this.onPageScrolled = onPageScrolled;
+        return this;
+    }
+
+    public SimplerOnPageChangeListener onPageSelected(Action1<Integer> onPageSelected) {
+        this.onPageSelected = onPageSelected;
+        return this;
+    }
+
+    public interface Action1<T> {
+        void call(T t);
+    }
+
+    public interface Action3<T, T2, T3> {
+        void call(T t, T2 t2, T3 t3);
+    }
+
+    public static SimplerOnPageChangeListener create() {
+        return new SimplerOnPageChangeListener();
+    }
+}
+```
