@@ -424,14 +424,6 @@ public class SimpleOnPageChangeListener implements OnPageChangeListener {
     }
 }
 
-pager.setOnPageChangeListener(SimplerOnPageChangeListener.create().onPageSelected(position -> {
-   System.out.println(position);
-}).onPageScrolled((position, positionOffset, positionOffsetPixels) -> {
-   System.out.println(position);
-   System.out.println(positionOffset);
-   System.out.println(positionOffsetPixels);
-}));
-
 public class SimplerOnPageChangeListener implements OnPageChangeListener {
     @Override
     public void onPageScrollStateChanged(int state) {
