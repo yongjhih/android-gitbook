@@ -363,14 +363,6 @@ NotificationManager notificationManager = SystemServices.from(context).getNotifi
 
 ## Listener/Callback 設計三兩事
 
-```java
-public interface ViewPager.OnPageChangeListener() {
-    void onPageScrollStateChanged(int state);
-    void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
-    void onPageSelected(int position);
-}
-```
-
 就算我們只想要知道 `onPageSelected(position)` ，但是所有的方法還是都要假實現：
 
 ```java
@@ -399,6 +391,24 @@ pager.setOnPageChangeListener(new SimpleOnPageChangeListener() {
        System.out.println(position);
     }
 });
+```
+
+由於已經有 lambda 的幫助下，我們可以想到這個用法：
+
+```java
+pager.setOnPageChangeListener(new SimplerOnPageChangeListener().onPageSelected(position -> {
+   System.out.println(position);
+}));
+```
+
+附錄:
+
+```java
+public interface ViewPager.OnPageChangeListener() {
+    void onPageScrollStateChanged(int state);
+    void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
+    void onPageSelected(int position);
+}
 
 public class SimpleOnPageChangeListener implements OnPageChangeListener {
     @Override
@@ -413,14 +423,6 @@ public class SimpleOnPageChangeListener implements OnPageChangeListener {
     public void onPageSelected(int position) {
     }
 }
-```
-
-由於已經有 lambda 的幫助下，我們可以想到這個用法：
-
-```java
-pager.setOnPageChangeListener(new SimplerOnPageChangeListener().onPageSelected(position -> {
-   System.out.println(position);
-}));
 
 pager.setOnPageChangeListener(SimplerOnPageChangeListener.create().onPageSelected(position -> {
    System.out.println(position);
