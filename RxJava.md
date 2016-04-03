@@ -334,7 +334,7 @@ Observable<ParseProfile> getParseProfile(ParseUser parseUser) { ... }
 File download(String url) { ... return file; }
 
 Observable<File> downloadObs(String url) {
-    return Observable.defer(() -> Observable.just(download(url)));
+    return Observable.fromCallable(() -> download(url));
 }
 ```
 
@@ -345,6 +345,8 @@ downloadObs(url).subscribeOn(Schedulers.io()).subscribe(file -> {
   System.out.println(file);
 });
 ```
+
+ps. 2015/11 v1.0.15 `fromCallable` instead of `defer()`
 
 ### 既有的 callback 改成 Observable
 
