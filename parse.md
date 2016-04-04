@@ -6,7 +6,19 @@
 
 * https://github.com/yongjhih/RxParse
 
-## RxParse 測試
+一旦有了 Rx 的加持，我們可以輕易的做到「找出我留言過的貼文」：
+
+```java
+public static Observable<ParseComment> getMyComments() {
+    return ParseObservable.find(ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()));
+}
+
+public static Observable<ParsePost> getMyCommentedPosts() {
+    return getMyComments.toList().flatMap(comments -> ParsePost.getQuery().whereContainedIn("comments", comments));
+}
+```
+
+## RxParse 測項
 
 ```java
   @Test
