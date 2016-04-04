@@ -9,7 +9,7 @@
 一旦有了 Rx 的加持，我們可以輕易的做到「找出我留言過的貼文」：
 
 ```java
-getMyCommentedPosts.subscribe(comments -> {});
+getMyCommentedPosts().subscribe(comments -> {});
 
 public static Observable<ParseComment> getMyComments() {
     return ParseObservable.find(ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()));
