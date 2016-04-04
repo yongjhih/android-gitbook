@@ -31,17 +31,45 @@ getMyCommentedPosts(new FindCallback() {
         }
     });
 
-public static Observable<ParsePost> getMyCommentedPosts(FindCallback findCallback) {
-    ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInBackground(new FindCallback() {
+public static void getMyComments(FindCallback<ParseComment> findCallback) {
+    ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInBackground(findCallback);
+}
+
+public static void getMyCommentedPosts(FindCallback<ParsePost> findCallback) {
+    getMyComments(new FindCallback<ParseComment> {
         @Override
         public done(List<ParseComment> comments, ParseException e) {
-            if (e != null) return;
+            if (e != null) {
+                findCallback.done(null, e);
+                return;
+            }
 
             ParsePost.getQuery().whereContainedIn("comments", comments).findInBackground(findCallback);
         }
     });
+}
+
 ```
 
+不然就 Bolts:
+
+```java
+public static Task<ParseComment> getMyCommentsTask() {
+    return ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInBackground();
+}
+
+public Task<ParsePost> getMyCommentedPostsTask() {
+    return getMyCommentsTask().continueWithTask(new Continuation<List<ParseObject>, Task<ParseObject>>() {
+        public Task<ParsePost> then(Task<List<ParseComment>> task) throws Exception {
+            if (task.isFaulted()) {
+                return null;
+            }
+
+            return ParsePost.getQuery().whereContainedIn("comments", task.getResult()).findInBackground();
+        }
+    });
+}
+```
 
 ## RxParse 測項
 
