@@ -9,6 +9,8 @@
 一旦有了 Rx 的加持，我們可以輕易的做到「找出我留言過的貼文」：
 
 ```java
+getMyCommentedPosts.subscribe(comments -> {});
+
 public static Observable<ParseComment> getMyComments() {
     return ParseObservable.find(ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()));
 }
@@ -17,6 +19,29 @@ public static Observable<ParsePost> getMyCommentedPosts() {
     return getMyComments.toList().flatMap(comments -> ParsePost.getQuery().whereContainedIn("comments", comments));
 }
 ```
+
+否則：
+
+```java
+getMyCommentedPosts(new FindCallback() {
+        @Override
+        public done(List<ParsePost> posts, ParseException e) {
+            if (e != null) return;
+            // ...
+        }
+    });
+
+public static Observable<ParsePost> getMyCommentedPosts(FindCallback findCallback) {
+    ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInBackground(new FindCallback() {
+        @Override
+        public done(List<ParseComment> comments, ParseException e) {
+            if (e != null) return;
+
+            ParsePost.getQuery().whereContainedIn("comments", comments).findInBackground(findCallback);
+        }
+    });
+```
+
 
 ## RxParse 測項
 
