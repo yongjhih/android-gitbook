@@ -388,9 +388,9 @@ function getEmailAlternative(accessToken) {
 function getEmail(accessToken) {
     return Parse.Cloud.httpRequest({
         url: "https://api.weibo.com/2/account/profile/email.json",
-           params: {
-               access_token: accessToken
-           }
+        params: {
+            access_token: accessToken
+        }
     }).then(function (httpResponse) {
         return JSON.parse(httpResponse.text)[0].email; // [ { email: "abc@example.com" } ]
     });
@@ -405,9 +405,9 @@ function getEmail(accessToken) {
 function getUid(accessToken) {
     return Parse.Cloud.httpRequest({
         url: "https://api.weibo.com/2/account/get_uid.json",
-           params: {
-               access_token: accessToken
-           }
+        params: {
+            access_token: accessToken
+        }
     }).then(function (httpResponse) {
         return JSON.parse(httpResponse.text).uid; // { uid: 5647447265 }
     });
