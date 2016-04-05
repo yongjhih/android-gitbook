@@ -50,13 +50,13 @@ getMyCommentedPostsTask().onSuccess(new Continuation<List<ParsePost>>, Void>() {
     }
 });
 
-public static Task<ParseComment> getMyCommentsTask() {
+public static Task<List<ParseComment>> getMyCommentsTask() {
     return ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInBackground();
 }
 
-public Task<ParsePost> getMyCommentedPostsTask() {
-    return getMyCommentsTask().continueWithTask(new Continuation<List<ParseComment>, Task<ParsePost>>() {
-        public Task<ParsePost> then(Task<List<ParseComment>> task) throws Exception {
+public Task<List<ParsePost>> getMyCommentedPostsTask() {
+    return getMyCommentsTask().continueWithTask(new Continuation<List<ParseComment>, Task<List<ParsePost>>>() {
+        public Task<List<ParsePost>> then(Task<List<ParseComment>> task) throws Exception {
             if (task.isFaulted()) {
                 return null;
             }
