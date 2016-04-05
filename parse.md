@@ -59,7 +59,7 @@ public static Task<ParseComment> getMyCommentsTask() {
 }
 
 public Task<ParsePost> getMyCommentedPostsTask() {
-    return getMyCommentsTask().continueWithTask(new Continuation<List<ParseObject>, Task<ParseObject>>() {
+    return getMyCommentsTask().continueWithTask(new Continuation<List<ParseComment>, Task<ParsePost>>() {
         public Task<ParsePost> then(Task<List<ParseComment>> task) throws Exception {
             if (task.isFaulted()) {
                 return null;
