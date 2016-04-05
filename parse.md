@@ -39,7 +39,7 @@ public static void getMyCommentedPosts(FindCallback<ParsePost> findCallback) {
 
 ```
 
-改成 Bolts 寫法：
+改成 Bolts Promise 寫法：
 
 ```java
 getMyCommentedPostsTask().onSuccess(new Continuation<List<ParsePost>>, Void>() {
