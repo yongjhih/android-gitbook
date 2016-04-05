@@ -42,6 +42,14 @@ public static void getMyCommentedPosts(FindCallback<ParsePost> findCallback) {
 改成 Bolts 寫法：
 
 ```java
+getMyCommentedPostsTask().onSuccess(new Continuation<List<ParsePost>>, Void>() {
+    public Void then(Task<List<ParsePost>> task) throws Exception {
+        List<ParsePost> posts = task.getResult();
+        // ...
+        return null;
+    }
+});
+
 public static Task<ParseComment> getMyCommentsTask() {
     return ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInBackground();
 }
