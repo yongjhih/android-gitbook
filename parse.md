@@ -18,8 +18,8 @@ ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInB
 
         ParsePost.getQuery().whereContainedIn("comments", comments).findInBackground(new FindCallback<ParsePost>() {
             @Override
-            public done(List<ParsePost> posts, ParseException e) {
-                if (e != null) return;
+            public done(List<ParsePost> posts, ParseException e2) {
+                if (e2 != null) return;
 
                 // ...
             }
