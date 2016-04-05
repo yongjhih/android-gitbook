@@ -7,6 +7,7 @@
 * maven
 * gradle
 * sbt
+* kobalt
 
 大多數的樣貌 build.gradle:
 
