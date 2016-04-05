@@ -66,9 +66,7 @@ public static void getMyCommentedPosts(FindCallback<ParsePost> findCallback) {
 ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInBackground()
     .continueWithTask(new Continuation<List<ParseComment>, Task<List<ParsePost>>>() {
         public Task<List<ParsePost>> then(Task<List<ParseComment>> task) throws Exception {
-            if (task.isFaulted()) {
-                return null;
-            }
+            if (task.isFaulted()) return null;
 
             return ParsePost.getQuery().whereContainedIn("comments", task.getResult()).findInBackground();
         }
@@ -101,9 +99,7 @@ public static Task<List<ParseComment>> getMyCommentsTask() {
 public static Task<List<ParsePost>> getMyCommentedPostsTask() {
     return getMyCommentsTask().continueWithTask(new Continuation<List<ParseComment>, Task<List<ParsePost>>>() {
         public Task<List<ParsePost>> then(Task<List<ParseComment>> task) throws Exception {
-            if (task.isFaulted()) {
-                return null;
-            }
+            if (task.isFaulted()) return null;
 
             return ParsePost.getQuery().whereContainedIn("comments", task.getResult()).findInBackground();
         }
