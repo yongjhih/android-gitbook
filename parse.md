@@ -6,21 +6,9 @@
 
 * https://github.com/yongjhih/RxParse
 
-一旦有了 Rx 的加持，我們可以輕易的做到「找出我留言過的貼文」：
+「找出我留言過的貼文」：
 
-```java
-getMyCommentedPosts().subscribe(comments -> {});
-
-public static Observable<ParseComment> getMyComments() {
-    return ParseObservable.find(ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()));
-}
-
-public static Observable<ParsePost> getMyCommentedPosts() {
-    return getMyComments.toList().flatMap(comments -> ParsePost.getQuery().whereContainedIn("comments", comments));
-}
-```
-
-否則：
+原本的 FindCallback 寫法：
 
 ```java
 getMyCommentedPosts(new FindCallback() {
@@ -51,7 +39,7 @@ public static void getMyCommentedPosts(FindCallback<ParsePost> findCallback) {
 
 ```
 
-不然就 Bolts:
+改成 Bolts 寫法：
 
 ```java
 public static Task<ParseComment> getMyCommentsTask() {
@@ -68,6 +56,20 @@ public Task<ParsePost> getMyCommentedPostsTask() {
             return ParsePost.getQuery().whereContainedIn("comments", task.getResult()).findInBackground();
         }
     });
+}
+```
+
+RxParse 寫法：
+
+```java
+getMyCommentedPosts().subscribe(comments -> {});
+
+public static Observable<ParseComment> getMyComments() {
+    return ParseObservable.find(ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()));
+}
+
+public static Observable<ParsePost> getMyCommentedPosts() {
+    return getMyComments.toList().flatMap(comments -> ParsePost.getQuery().whereContainedIn("comments", comments));
 }
 ```
 
