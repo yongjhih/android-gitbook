@@ -113,13 +113,13 @@ RxParse 寫法：
 ParseObservable.find(ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()))
     .toList()
     .flatMap(comments -> ParseObservable.find(ParsePost.getQuery().whereContainedIn("comments", comments)))
-    .subscribe(comments -> {});
+    .subscribe(posts -> {});
 ```
 
 RxParse 拆解寫法：
 
 ```java
-getMyCommentedPosts().subscribe(comments -> {});
+getMyCommentedPosts().subscribe(posts -> {});
 
 public static Observable<ParseComment> getMyComments() {
     return ParseObservable.find(ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()));
