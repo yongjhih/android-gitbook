@@ -16,7 +16,7 @@ ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInB
     public done(List<ParseComment> comments, ParseException e) {
         if (e != null) return;
 
-        ParsePost.getQuery().whereContainedIn("comments", comments).findInBackground(new FindCallback() {
+        ParsePost.getQuery().whereContainedIn("comments", comments).findInBackground(new FindCallback<ParsePost>() {
             @Override
             public done(List<ParsePost> posts, ParseException e) {
                 if (e != null) return;
@@ -31,7 +31,7 @@ ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInB
 FindCallback 拆解寫法：
 
 ```java
-getMyCommentedPosts(new FindCallback() {
+getMyCommentedPosts(new FindCallback<ParsePost>() {
         @Override
         public done(List<ParsePost> posts, ParseException e) {
             if (e != null) return;
