@@ -9,7 +9,6 @@
 * AutoValue?
 * lambdas `setOnClickListener { finish() }`
 * 字串變數 `"Hello, ${username}!"`
-* Jake Wharton 加持 (誤
 
 對於 android 來說，Kotlin 開始知名的時候，大概可以追溯到 2014 年中旬登上 Android 開發週報的：http://blog.gouline.net/2014/08/31/kotlin-the-swift-of-android/ ，不過對於生態成熟度抱著遲疑得態度。
 
