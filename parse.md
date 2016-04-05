@@ -40,10 +40,6 @@ getMyCommentedPosts(new FindCallback<ParsePost>() {
         }
     });
 
-public static void getMyComments(FindCallback<ParseComment> findCallback) {
-    ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInBackground(findCallback);
-}
-
 public static void getMyCommentedPosts(FindCallback<ParsePost> findCallback) {
     getMyComments(new FindCallback<ParseComment> {
         @Override
@@ -56,6 +52,10 @@ public static void getMyCommentedPosts(FindCallback<ParsePost> findCallback) {
             ParsePost.getQuery().whereContainedIn("comments", comments).findInBackground(findCallback);
         }
     });
+}
+
+public static void getMyComments(FindCallback<ParseComment> findCallback) {
+    ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInBackground(findCallback);
 }
 
 ```
@@ -92,10 +92,6 @@ getMyCommentedPostsTask().onSuccess(new Continuation<List<ParsePost>>, Void>() {
     }
 });
 
-public static Task<List<ParseComment>> getMyCommentsTask() {
-    return ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInBackground();
-}
-
 public static Task<List<ParsePost>> getMyCommentedPostsTask() {
     return getMyCommentsTask().continueWithTask(new Continuation<List<ParseComment>, Task<List<ParsePost>>>() {
         public Task<List<ParsePost>> then(Task<List<ParseComment>> task) throws Exception {
@@ -105,6 +101,11 @@ public static Task<List<ParsePost>> getMyCommentedPostsTask() {
         }
     });
 }
+
+public static Task<List<ParseComment>> getMyCommentsTask() {
+    return ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInBackground();
+}
+
 ```
 
 RxParse 寫法：
@@ -121,13 +122,14 @@ RxParse 拆解寫法：
 ```java
 getMyCommentedPosts().subscribe(posts -> {});
 
+public static Observable<ParsePost> getMyCommentedPosts() {
+    return getMyComments().toList().flatMap(comments -> ParseObservable.find(ParsePost.getQuery().whereContainedIn("comments", comments)));
+}
+
 public static Observable<ParseComment> getMyComments() {
     return ParseObservable.find(ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()));
 }
 
-public static Observable<ParsePost> getMyCommentedPosts() {
-    return getMyComments().toList().flatMap(comments -> ParseObservable.find(ParsePost.getQuery().whereContainedIn("comments", comments)));
-}
 ```
 
 ## RxParse 測項
