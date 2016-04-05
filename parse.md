@@ -35,6 +35,7 @@ getMyCommentedPosts(new FindCallback<ParsePost>() {
         @Override
         public done(List<ParsePost> posts, ParseException e) {
             if (e != null) return;
+
             // ...
         }
     });
@@ -74,6 +75,7 @@ ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()).findInB
     }).onSuccess(new Continuation<List<ParsePost>>, Void>() {
         public Void then(Task<List<ParsePost>> task) throws Exception {
             List<ParsePost> posts = task.getResult();
+
             // ...
             return null;
         }
@@ -86,6 +88,7 @@ Bolts Promise 拆解寫法：
 getMyCommentedPostsTask().onSuccess(new Continuation<List<ParsePost>>, Void>() {
     public Void then(Task<List<ParsePost>> task) throws Exception {
         List<ParsePost> posts = task.getResult();
+
         // ...
         return null;
     }
