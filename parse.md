@@ -112,7 +112,7 @@ RxParse 寫法：
 ```java
 ParseObservable.find(ParseComment.getQuery().whereEqualTo("from", ParseUser.getCurrentUser()))
     .toList()
-    .flatMap(comments -> ParsePost.getQuery().whereContainedIn("comments", comments))
+    .flatMap(comments -> ParseObservable.find(ParsePost.getQuery().whereContainedIn("comments", comments)))
     .subscribe(comments -> {});
 ```
 
@@ -126,7 +126,7 @@ public static Observable<ParseComment> getMyComments() {
 }
 
 public static Observable<ParsePost> getMyCommentedPosts() {
-    return getMyComments().toList().flatMap(comments -> ParsePost.getQuery().whereContainedIn("comments", comments));
+    return getMyComments().toList().flatMap(comments -> ParseObservable.find(ParsePost.getQuery().whereContainedIn("comments", comments)));
 }
 ```
 
