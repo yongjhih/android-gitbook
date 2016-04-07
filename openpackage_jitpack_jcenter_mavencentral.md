@@ -78,7 +78,7 @@ POM_DEVELOPER_NAME=Chris Banes
 
 ## jitpack
 
-大約是 2015 年初的時候成立的。最大的特點是，直接支援 github/bitbucket repository 。所以不用特別申請套件中心帳號。因為不是你去放套件，而是它自己來拉你的源碼來編譯 jar/aar。(託運算與儲存的廉價)
+大約是 2015 年初的時候成立的。最大的特點是，直接支援 github/bitbucket repository 。所以不用特別申請套件中心帳號。因為不是你去放套件，而是它自己來拉你的源碼來編譯 jar/aar。
 
 ### jitpack 引用套件
 
