@@ -27,8 +27,6 @@ dependencies {
 
 如果是公司行號要申請，就必須在 ticket 內容寫明你是域名的擁有者，例如：`com.infstory` ，這樣你才能拿到 `com.infstory` Group。
 
-很多上傳的方法，這裡就先不介紹。
-
 mavenCentral 發布指南:
 
 * [OSSRH](http://central.sonatype.org/pages/ossrh-guide.html)
