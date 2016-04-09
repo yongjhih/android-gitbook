@@ -106,6 +106,9 @@ RxJava:
 int evens = Observable.from(1, 2, 3).filter(each -> each % 2 == 0).count().toBlocking().single();
 ```
 
+* io.javaslang:javaslang:2.0.2
+* com.goldmansachs:gs-collections:7.0.0
+
 ## See Also
 
 * https://sourceforge.net/projects/streamsupport/
