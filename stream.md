@@ -55,21 +55,29 @@ public static String[] getNames(User[] users) {
 Java 8:
 
 ```java
-List<Integer> list = Arrays.asList(1, 2, 3, 4, 5).stream().map(String::valueOf).collect(Collectors.toList());
+List<Integer> list = Arrays.asList(1, 2, 3).stream().map(String::valueOf).collect(Collectors.toList());
+```
+
+javaslang:
+
+```java
+List<Integer> list = Stream.of(1, 2, 3).map(String::valueOf).toJavaList();
+// or
+List<Integer> list = javaslang.collection.List.of(1, 2, 3).map(String::valueOf);
 ```
 
 GS-Collections:
 
 ```java
-List<Integer> list = Lists.mutable.of(1, 2, 3, 4, 5).collect(String::valueOf).toList();
+List<Integer> list = Lists.mutable.of(1, 2, 3).collect(String::valueOf).toList();
 // or lazy
-List<Integer> lazyList =  Lists.mutable.of(1, 2, 3, 4, 5).asLazy().collect(String::valueOf).toList();
+List<Integer> lazyList = Lists.mutable.of(1, 2, 3).asLazy().collect(String::valueOf).toList();
 ```
 
 RxJava:
 
 ```java
-List<Integer> list = Observable.from(1, 2, 3, 4, 5).map(String::valueOf).toList().toBlocking().single();
+List<Integer> list = Observable.from(1, 2, 3).map(String::valueOf).toList().toBlocking().single();
 ```
 
 ### count
@@ -77,19 +85,25 @@ List<Integer> list = Observable.from(1, 2, 3, 4, 5).map(String::valueOf).toList(
 Java 8:
 
 ```java
-long evens = Arrays.asList(1, 2, 3, 4, 5).stream().filter(each -> each % 2 == 0).count();
+long evens = Arrays.asList(1, 2, 3).stream().filter(each -> each % 2 == 0).count();
+```
+
+javaslang:
+
+```java
+long evens = javaslang.collection.List.of(1, 2, 3).filter(each -> each % 2 == 0).count();
 ```
 
 GS-Collections:
 
 ```java
-int evens =  Lists.mutable.of(1, 2, 3, 4, 5).count(each -> each % 2 == 0);
+int evens = Lists.mutable.of(1, 2, 3).count(each -> each % 2 == 0);
 ```
 
 RxJava:
 
 ```java
-int evens = Observable.from(1, 2, 3, 4, 5).filter(each -> each % 2 == 0).count().toBlocking().single();
+int evens = Observable.from(1, 2, 3).filter(each -> each % 2 == 0).count().toBlocking().single();
 ```
 
 ## See Also
@@ -99,4 +113,5 @@ int evens = Observable.from(1, 2, 3, 4, 5).filter(each -> each % 2 == 0).count()
 * http://verhoevenv.github.io/2015/08/18/fluentiterable-streamsupport-java8.html
 * https://github.com/goldmansachs/gs-collections
 * http://www.goldmansachs.com/gs-collections/documents/GS%20Collections%20Training%20Session%20and%20Kata%205.0.0.pdf
+* https://github.com/javaslang/javaslang
 
