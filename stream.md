@@ -48,6 +48,26 @@ public static String[] getNames(User[] users) {
 
 * [Bolt-Android](bolts-android.md)
 
+## Collections 資料流
+
+Java 8:
+
+```java
+long evens = Arrays.asList(1, 2, 3, 4, 5).stream().filter(each -> each % 2 == 0).count();
+```
+
+GS-Collections:
+
+```java
+int evens =  Lists.mutable.of(1, 2, 3, 4, 5).count(each -> each % 2 == 0);
+```
+
+RxJava:
+
+```java
+int evens = Observable.from(1, 2, 3, 4, 5).filter(each -> each % 2 == 0).count().toBlocking().single();
+```
+
 ## See Also
 
 * https://sourceforge.net/projects/streamsupport/
