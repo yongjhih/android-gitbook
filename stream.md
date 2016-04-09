@@ -50,6 +50,30 @@ public static String[] getNames(User[] users) {
 
 ## Collections 資料流
 
+### map
+
+Java 8:
+
+```java
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5).stream().map(String::valueOf).collect(Collectors.toList());
+```
+
+GS-Collections:
+
+```java
+List<Integer> list =  Lists.mutable.of(1, 2, 3, 4, 5).collect(String::valueOf).toList();
+// or lazy
+List<Integer> lazyList =  Lists.mutable.of(1, 2, 3, 4, 5).asLazy().collect(String::valueOf).toList();
+```
+
+RxJava:
+
+```java
+List<Integer> list = Observable.from(1, 2, 3, 4, 5).map(String::valueOf).toList().toBlocking().single();
+```
+
+### count
+
 Java 8:
 
 ```java
