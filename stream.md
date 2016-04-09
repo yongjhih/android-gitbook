@@ -63,7 +63,7 @@ javaslang:
 ```java
 List<Integer> list = Stream.of(1, 2, 3).map(String::valueOf).toJavaList();
 // or
-List<Integer> list = javaslang.collection.List.of(1, 2, 3).map(String::valueOf);
+List<Integer> list = javaslang.collection.List.of(1, 2, 3).map(String::valueOf).toJavaList();
 ```
 
 GS-Collections:
