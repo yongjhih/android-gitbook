@@ -77,7 +77,7 @@ List<Integer> lazyList = Lists.mutable.of(1, 2, 3).asLazy().collect(String::valu
 RxJava:
 
 ```java
-List<Integer> list = Observable.from(1, 2, 3).map(String::valueOf).toList().toBlocking().single();
+List<Integer> list = Observable.from(Arrays.asList(1, 2, 3)).map(String::valueOf).toList().toBlocking().single();
 ```
 
 ### count
@@ -103,7 +103,7 @@ int evens = Lists.mutable.of(1, 2, 3).count(each -> each % 2 == 0);
 RxJava:
 
 ```java
-int evens = Observable.from(1, 2, 3).filter(each -> each % 2 == 0).count().toBlocking().single();
+int evens = Observable.from(Arrays.asList(1, 2, 3)).filter(each -> each % 2 == 0).count().toBlocking().single();
 ```
 
 * io.javaslang:javaslang:2.0.2
