@@ -74,7 +74,6 @@ dependencies {
 ```
 
 
-
 ## 有哪些編譯項目可使用
 
 ```sh
@@ -145,13 +144,13 @@ tasks.withType(JavaCompile) {
 ## 安裝 gradle wrapper by gradle
 
 ```gradle
-task wrapper(Wrapper) {
-  gradleVersion = "2.4"
-}
+gradle wrapper --gradle-version 2.13
 ```
 
+## 安裝 gradle wrapper by docker gradle
+
 ```bash
-gradle wrapper
+docker run -it -v $(pwd):/src yongjhih/gradle gradle wrapper --gradle-version 2.13
 ```
 
 ## 升級 gradle wrapper
