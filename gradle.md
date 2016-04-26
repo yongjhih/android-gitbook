@@ -73,6 +73,14 @@ dependencies {
 // ...
 ```
 
+
+
+## 有哪些編譯項目可使用
+
+```sh
+./gradlew tasks
+```
+
 ## 設定快取有效時間
 
 預設 24 小時，每天一開始的編譯都會比較久。為了避免這種情形，可以拉長時間，如有必要再透過強制刷新來解決。
@@ -134,7 +142,7 @@ tasks.withType(JavaCompile) {
 }
 ```
 
-## 安裝 gradle wrapper
+## 安裝 gradle wrapper by gradle
 
 ```gradle
 task wrapper(Wrapper) {
