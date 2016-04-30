@@ -471,3 +471,120 @@ public class SimplerOnPageChangeListener implements OnPageChangeListener {
     }
 }
 ```
+
+## 泛型 Generic 應用於 Callback
+
+如果你是設計一個 Github RESTful API 客戶端，可能會是這樣寫：
+
+```java
+interface RequestListener {
+    void onComplete(String json);
+    void onException(Exception e);
+}
+
+class GitHub {
+    public void request(String endpoint, RequestListener listener) {
+        // ...
+        // listener.onComplete(json); or listener.onException(e);
+    }
+}
+
+github.request("yongjhih/rxparse", new RequestListener() {
+    @Override public void onComplete(String json) {
+        List<Contributor> contributors = Contributors.parse(json);
+        // ...
+    }
+    @Override public void onException(Exception e) {
+    }
+  });
+```
+
+我們可以透過泛型來寫更通用一點介面：
+
+```java
+interface SimpleRequestListener<T> {
+    void onComplete(List<T> list);
+    void onException(Exception e);
+}
+
+class GitHub {
+    // ...
+    public void contributors(String endpoint, SimpleRequestListener<Contributor> listener) {
+        request(endpoint, new RequestListener() {
+            @Override public void onComplete(String json) {
+                listener(Contributors.parse(json));
+            }
+            @Override public void onException(Exception e) {
+                listener(e);
+            }
+        });
+    }
+
+    public void repositories(String endpoint, SimpleRequestListener<Repository> listener) {
+        request(endpoint, new RequestListener() {
+            @Override public void onComplete(String json) {
+                listener(Repositories.parse(json));
+            }
+            @Override public void onException(Exception e) {
+                listener(e);
+            }
+        });
+    }
+}
+
+github.contributors("yongjhih/rxparse", new RequestListener<>() {
+    @Override public void onComplete(List<Contributor> contributors) {
+        // ...
+    }
+    @Override public void onException(Exception e) {
+    }
+  });
+
+github.repositories("yongjhih", new RequestListener<Repository>() {
+    @Override public void onComplete(List<Repository> repositories) {
+        // ...
+    }
+    @Override public void onException(Exception e) {
+    }
+  });
+```
+
+如果有很多 API 要寫，複製貼上的程式碼片段仍然大了一點，所以再設計一個通用的建構方法：
+
+```java
+interface Parsable<T> {
+    T parse(String);
+}
+
+public class Contributor implements Parsable {
+    public Contributor() {}
+    public List<Contributor>(String json) {
+        // ...
+        return contributors;
+    }
+}
+
+class GitHub {
+    // ...
+    public <T extends Parsable> void request(String endpoint, Class<T> clazz, SimpleRequestListener<T> listener) {
+        request(endpoint, new RequestListener() {
+            @Override public void onComplete(String json) {
+                Parsable parser = clazz.newInstance();
+                listener(parser.parse(json));
+            }
+            @Override public void onException(Exception e) {
+                listener(e);
+            }
+        });
+    }
+
+    public void contributors(String endpoint, SimpleRequestListener<Contributor> listener) {
+        request(endpoint, Contributor.class, listener);
+    }
+
+    public void repositories(String endpoint, RequestListener<Repository> listener) {
+        request(endpoint, Repository.class, listener);
+    }
+}
+```
+
