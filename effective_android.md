@@ -540,7 +540,7 @@ github.contributors("yongjhih/rxparse", new RequestListener<>() {
     }
   });
 
-github.repositories("yongjhih", new RequestListener<Repository>() {
+github.repositories("yongjhih", new RequestListener<>() {
     @Override public void onComplete(List<Repository> repositories) {
         // ...
     }
