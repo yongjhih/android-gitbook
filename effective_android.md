@@ -558,7 +558,7 @@ interface Parsable<T> {
 
 public class Contributor implements Parsable {
     public Contributor() {}
-    public List<Contributor>(String json) {
+    public List<Contributor> parse(String json) {
         // ...
         return contributors;
     }
