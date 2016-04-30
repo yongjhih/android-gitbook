@@ -532,7 +532,7 @@ class GitHub {
     }
 }
 
-github.contributors("yongjhih/rxparse", new RequestListener<>() {
+github.contributors("yongjhih/rxparse", new SimpleRequestListener<>() {
     @Override public void onComplete(List<Contributor> contributors) {
         // ...
     }
@@ -540,7 +540,7 @@ github.contributors("yongjhih/rxparse", new RequestListener<>() {
     }
   });
 
-github.repositories("yongjhih", new RequestListener<>() {
+github.repositories("yongjhih", new SimpleRequestListener<>() {
     @Override public void onComplete(List<Repository> repositories) {
         // ...
     }
@@ -582,7 +582,7 @@ class GitHub {
         request(endpoint, Contributor.class, listener);
     }
 
-    public void repositories(String endpoint, RequestListener<Repository> listener) {
+    public void repositories(String endpoint, SimpleRequestListener<Repository> listener) {
         request(endpoint, Repository.class, listener);
     }
 }
