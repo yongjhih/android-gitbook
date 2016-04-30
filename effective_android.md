@@ -499,7 +499,7 @@ github.request("yongjhih/rxparse", new RequestListener() {
   });
 ```
 
-我們可以透過泛型來寫更通用一點介面：
+對外使用的部份，可以看到仍然複雜了一點，我們可以透過泛型來簡化一些，寫更通用一點介面給外部使用：
 
 ```java
 interface SimpleRequestListener<T> {
@@ -549,7 +549,7 @@ github.repositories("yongjhih", new SimpleRequestListener<>() {
   });
 ```
 
-如果有很多 API 要寫，複製貼上的程式碼片段仍然大了一點，所以再設計一個通用的建構方法：
+對內，如果有很多 API 要寫，複製貼上的程式碼片段仍然大了一點，所以再設計一個通用的建構方法：
 
 ```java
 interface Parsable<T> {
