@@ -558,7 +558,7 @@ interface Parsable<T> {
 
 public class Contributor implements Parsable {
     public Contributor() {}
-    public List<Contributor> parse(String json) {
+    public static List<Contributor> parse(String json) {
         // ...
         return contributors;
     }
@@ -569,8 +569,7 @@ class GitHub {
     public <T extends Parsable> void request(String endpoint, Class<T> clazz, SimpleRequestListener<T> listener) {
         request(endpoint, new RequestListener() {
             @Override public void onComplete(String json) {
-                Parsable parser = clazz.newInstance();
-                listener(parser.parse(json));
+                listener(T.parse(json));
             }
             @Override public void onException(Exception e) {
                 listener(e);
