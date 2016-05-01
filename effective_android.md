@@ -657,10 +657,33 @@ public class Contributor implements Parsable {
 留意，泛型目前還沒有重載(Overloading)的能力，所以不能有類似：
 
 ```java
-String toString(List<Repository> repositories) {
-}
+class JsonParser() {
+    String parae(List<Repository> repositories) {
+    }
 
-String toString(List<Contributor> Contributors) {
+    String parae(List<Contributor> Contributors) {
+    }
 }
 ```
 
+所以大多改用介面取代 overloading：
+
+```java
+class JsonParser() {
+    <T extends Parseable> String parae(Collection<T> list) {
+        return T.parse(list);
+    }
+}
+
+interface Parsable<T> {
+    T parse(String);
+}
+
+public class Contributor implements Parsable {
+    public Contributor() {}
+    public static List<Contributor> parse(String json) {
+        // ...
+        return contributors;
+    }
+}
+```
