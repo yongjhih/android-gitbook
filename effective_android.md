@@ -666,7 +666,24 @@ class JsonParser {
 }
 ```
 
-所以大多改用介面取代重載：
+需要表明泛型：
+
+```java
+String contributorsJson = JsonParser.toJson(contributors);
+String repositoriesJson = JsonParser.toJson(repositories);
+
+class JsonParser {
+    static <T extends Contributor> String toJson(Collection<T> list) {
+        return Contributors.toJson(list);
+    }
+    static <T extends Repository> String toJson(Collection<T> list) {
+        return Repositories.toJson(list);
+    }
+}
+```
+
+
+或者改用介面取代重載：
 
 ```java
 class JsonParser {
@@ -688,21 +705,3 @@ public class Contributor implements Jsonable {
 }
 ```
 
-還有個怪怪的方案：
-
-```java
-String contributorsJson = JsonParser.toJson(contributors, (Contributor) null);
-String repositoriesJson = JsonParser.toJson(repositories, (Repository) null);
-
-class JsonParser {
-    static <T extends Contributor> String toJson(Collection<T> list, T defValue) {
-        return Contributors.toJson(list);
-    }
-    static <T extends Repository> String toJson(Collection<T> list, T defValue) {
-        return Repositories.toJson(list);
-    }
-    static <T> String toJson(Collection<T> list, T defValue) {
-        return null; // or throw UnsupportException();
-    }
-}
-```
