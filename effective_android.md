@@ -622,7 +622,7 @@ class GitHub {
 ```java
 class GitHub {
     // ...
-    public <T extends Parsable> void request(String endpoint, Class<T> clazz, SimpleRequestListener<T> listener) {
+    public <T extends Parsable> void request(String endpoint, SimpleRequestListener<T> listener) {
         request(endpoint, new RequestListener() {
             @Override public void onComplete(String json) {
                 listener(T.parse(json));
@@ -634,11 +634,11 @@ class GitHub {
     }
 
     public void contributors(String endpoint, SimpleRequestListener<Contributor> listener) {
-        request(endpoint, Contributor.class, listener);
+        request(endpoint, listener);
     }
 
     public void repositories(String endpoint, SimpleRequestListener<Repository> listener) {
-        request(endpoint, Repository.class, listener);
+        request(endpoint, listener);
     }
 }
 
@@ -653,6 +653,4 @@ public class Contributor implements Parsable {
         return contributors;
     }
 }
-
 ```
-
