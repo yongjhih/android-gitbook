@@ -533,7 +533,7 @@ interface ContributorsRequestListener {
     void onException(Exception e);
 }
 
-interface RepositoriesListener {
+interface RepositoriesRequestListener {
     void onComplete(List<Repository> repositories);
     void onException(Exception e);
 }
@@ -551,7 +551,7 @@ class GitHub {
         });
     }
 
-    public void repositories(String endpoint, RepositoriesListener listener) {
+    public void repositories(String endpoint, RepositoriesRequestListener listener) {
         request(endpoint, new RequestListener() {
             @Override public void onComplete(String json) {
                 listener(Repositories.parse(json));
@@ -564,7 +564,7 @@ class GitHub {
 }
 ```
 
-這樣使用上確實有簡化了，但是這樣的 Listener 的數量就跟著回傳 model 種類成長。
+這樣使用上確實有簡化了，但是這樣的 Listener 的數量就跟著回傳 model 種類成長，會造成維護上的繁瑣。
 
 我們可以透過泛型來簡化，寫更通用一點介面：
 
@@ -617,7 +617,7 @@ class GitHub {
 
 ```
 
-對內，如果有很多 API 要寫，複製貼上的程式碼片段仍然大了一點，所以再設計一個通用的建構方法：
+對內，如果有很多 API 要寫，複製貼上的程式碼片段仍然大了一點，所以再設計一個通用實做：
 
 ```java
 class GitHub {
