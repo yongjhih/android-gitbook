@@ -477,6 +477,24 @@ public class SimplerOnPageChangeListener implements OnPageChangeListener {
 如果你是設計一個 Github RESTful API 客戶端，可能會是這樣寫：
 
 ```java
+github.request("yongjhih/rxparse", new RequestListener() {
+    @Override public void onComplete(String json) {
+        List<Contributor> contributors = Contributors.parse(json);
+        // ...
+    }
+    @Override public void onException(Exception e) {
+    }
+  });
+
+github.request("yongjhih", new RequestListener() {
+    @Override public void onComplete(String json) {
+        List<Repository> repositories = Repositories.parse(json);
+        // ...
+    }
+    @Override public void onException(Exception e) {
+    }
+  });
+
 interface RequestListener {
     void onComplete(String json);
     void onException(Exception e);
@@ -488,18 +506,67 @@ class GitHub {
         // listener.onComplete(json); or listener.onException(e);
     }
 }
+```
 
-github.request("yongjhih/rxparse", new RequestListener() {
-    @Override public void onComplete(String json) {
-        List<Contributor> contributors = Contributors.parse(json);
+我們可以看到，每一個 callback 內都要寫一個 `parse()` 才得以使用，或許你會修改成：
+
+
+```java
+github.contributors("yongjhih/rxparse", new ContributorsRequestListener() {
+    @Override public void onComplete(List<Contributor> contributors) {
         // ...
     }
     @Override public void onException(Exception e) {
     }
   });
+
+github.repositories("yongjhih", new RepositoriesRequestListener() {
+    @Override public void onComplete(List<Repository> repositories) {
+        // ...
+    }
+    @Override public void onException(Exception e) {
+    }
+  });
+
+interface ContributorsRequestListener {
+    void onComplete(List<Contributor> contributors);
+    void onException(Exception e);
+}
+
+interface RepositoriesListener {
+    void onComplete(List<Repository> repositories);
+    void onException(Exception e);
+}
+
+class GitHub {
+    // ...
+    public void contributors(String endpoint, ContributorsRequestListener listener) {
+        request(endpoint, new RequestListener() {
+            @Override public void onComplete(String json) {
+                listener(Contributors.parse(json));
+            }
+            @Override public void onException(Exception e) {
+                listener(e);
+            }
+        });
+    }
+
+    public void repositories(String endpoint, RepositoriesListener listener) {
+        request(endpoint, new RequestListener() {
+            @Override public void onComplete(String json) {
+                listener(Repositories.parse(json));
+            }
+            @Override public void onException(Exception e) {
+                listener(e);
+            }
+        });
+    }
+}
 ```
 
-對外使用的部份，可以看到仍然複雜了一點，我們可以透過泛型來簡化一些，寫更通用一點介面給外部使用：
+這樣使用上確實有簡化了，但是這樣的 Listener 的數量就跟著回傳 model 種類成長。
+
+我們可以透過泛型來簡化，寫更通用一點介面：
 
 ```java
 interface SimpleRequestListener<T> {
