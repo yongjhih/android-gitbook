@@ -642,7 +642,7 @@ class GitHub {
 }
 
 interface Parsable<T> {
-    T parse(String);
+    T parse(String json);
 }
 
 public class Contributor implements Parsable {
@@ -657,11 +657,11 @@ public class Contributor implements Parsable {
 留意，泛型目前還沒有重載(Overloading)的能力，所以不能有類似：
 
 ```java
-class JsonParser() {
-    String parae(List<Repository> repositories) {
+class JsonParser {
+    String toJson(List<Repository> repositories) {
     }
 
-    String parae(List<Contributor> Contributors) {
+    String toJson(List<Contributor> Contributors) {
     }
 }
 ```
@@ -669,21 +669,40 @@ class JsonParser() {
 所以大多改用介面取代重載：
 
 ```java
-class JsonParser() {
-    <T extends Parseable> String parae(Collection<T> list) {
-        return T.parse(list);
+class JsonParser {
+    <T extends Jsonable> String toJson(Collection<T> list) {
+        return T.toJson(list);
     }
 }
 
-interface Parsable<T> {
-    T parse(String);
+interface Jsonable<T> {
+    String toJson(Collection<T> list);
 }
 
-public class Contributor implements Parsable {
+public class Contributor implements Jsonable {
     public Contributor() {}
-    public static List<Contributor> parse(String json) {
+    public static String toJson(Collection<T> list) {
         // ...
         return contributors;
+    }
+}
+```
+
+還有個怪怪的方案：
+
+```java
+String contributorsJson = JsonParser.toJson(contributors, (Contributor) null);
+String repositoriesJson = JsonParser.toJson(repositories, (Repository) null);
+
+class JsonParser {
+    static <T extends Contributor> String toJson(Collection<T> list, T defValue) {
+        return Contributors.toJson(list);
+    }
+    static <T extends Repository> String toJson(Collection<T> list, T defValue) {
+        return Repositories.toJson(list);
+    }
+    static <T> String toJson(Collection<T> list, T defValue) {
+        return null; // or throw UnsupportException();
     }
 }
 ```
