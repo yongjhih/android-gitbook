@@ -380,6 +380,13 @@ pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
        System.out.println(position);
     }
 });
+
+public interface ViewPager.OnPageChangeListener() {
+    void onPageScrollStateChanged(int state);
+    void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
+    void onPageSelected(int position);
+}
+
 ```
 
 所以一般我們都習慣寫一個空類別來偷懶一下：
@@ -391,24 +398,6 @@ pager.setOnPageChangeListener(new SimpleOnPageChangeListener() {
        System.out.println(position);
     }
 });
-```
-
-由於已經有 lambda 的幫助下，我們可以想到這個用法：
-
-```java
-pager.setOnPageChangeListener(new SimplerOnPageChangeListener().onPageSelected(position -> {
-   System.out.println(position);
-}));
-```
-
-附錄:
-
-```java
-public interface ViewPager.OnPageChangeListener() {
-    void onPageScrollStateChanged(int state);
-    void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
-    void onPageSelected(int position);
-}
 
 public class SimpleOnPageChangeListener implements OnPageChangeListener {
     @Override
@@ -423,6 +412,14 @@ public class SimpleOnPageChangeListener implements OnPageChangeListener {
     public void onPageSelected(int position) {
     }
 }
+```
+
+由於已經有 lambda 的幫助下，我們可以想到這個用法：
+
+```java
+pager.setOnPageChangeListener(new SimplerOnPageChangeListener().onPageSelected(position -> {
+   System.out.println(position);
+}));
 
 public class SimplerOnPageChangeListener implements OnPageChangeListener {
     @Override
