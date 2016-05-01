@@ -666,7 +666,7 @@ class JsonParser() {
 }
 ```
 
-所以大多改用介面取代 overloading：
+所以大多改用介面取代重載：
 
 ```java
 class JsonParser() {
