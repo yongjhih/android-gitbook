@@ -614,7 +614,9 @@ class GitHub {
 
 ```
 
-對內，如果有很多 API 要寫，複製貼上的程式碼片段仍然大了一點，所以再設計一個通用實做：
+這樣就可以維持一個 Listener 介面而已。
+
+另外，對內維護上，如果有很多 API 要寫，複製貼上的程式碼片段仍然大了一點，所以再設計一個通用實做：
 
 ```java
 class GitHub {
@@ -651,3 +653,14 @@ public class Contributor implements Parsable {
     }
 }
 ```
+
+留意，泛型目前還沒有重載(Overloading)的能力，所以不能有類似：
+
+```java
+String toString(List<Repository> repositories) {
+}
+
+String toString(List<Contributor> Contributors) {
+}
+```
+
