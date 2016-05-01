@@ -459,6 +459,18 @@ public class SimplerOnPageChangeListener implements OnPageChangeListener {
         return this;
     }
 
+    public SimplerOnPageChangeListener onPageChange(Action1<Integer> onPageSelected) {
+        return onPageSelected(onPageSelected);
+    }
+
+    public SimplerOnPageChangeListener onPageChange(Action1<Integer> onPageSelected, Action1<Integer> onPageScrollStateChanged) {
+        return onPageSelected(onPageSelected).onPageScrollStateChanged(onPageScrollStateChanged);
+    }
+
+    public SimplerOnPageChangeListener onPageChange(Action1<Integer> onPageSelected, Action1<Integer> onPageScrollStateChanged, Action3<Integer, Float, Integer> onPageScrolled) {
+        return onPageSelected(onPageSelected).onPageScrollStateChanged(onPageScrollStateChanged).onPageScrolled(onPageScrolled);
+    }
+
     public interface Action1<T> {
         void call(T t);
     }
