@@ -397,21 +397,21 @@ for (TextView textView : textViews) {
 MapList<T, R> extends ArrayList<R> { // @Unmodifitable
     List<T> list;
     Mappable<T, R> mapper;
-    
+
     public MapList(List<T> list) {
         super();
         this.list = list;
     }
-    
+
     @Override public R get(int i) {
         return mapper.map(list.get(i));
     }
-    
+
     public MapList<T, R> map(Mappable<T, R> mapper) {
         this.mapper = mapper;
         return this;
     }
-    
+
     public interface Mappable<T, R> {
         R map(T t);
     }
@@ -830,7 +830,7 @@ public void onLikeClick(View view) {
 @Override
 public void onResume() {
     super.onResume();
-    
+
     mLikeCountSubject.asObservable().map(view -> 1)
         .scan((count, i) -> count + i)
         .subscribe(count -> likeText.setText(count.toString()));
@@ -960,6 +960,58 @@ switchIf(it -> it != null, it -> login(it));
   .throttleLast(100, TimeUnit.MILLISECONDS)
   .debounce(200, TimeUnit.MILLISECONDS)
   .onBackpressureLatest()
+```
+
+## Single
+
+簡化版本的 Observable。
+
+* 原本的 `Observable.subscribe(item -> {}, e -> {}, () -> {})`
+* 簡化成 `Single.subscribe(item -> {}, e -> {})` 因為數量只有一個，所以不需要告知結束(`onCompleted()`)
+
+Observable 的 Subscriber:
+
+```java
+public abstract class Subscriber<T> implements Observer<T>, Subscription {
+    void onCompleted();
+    void onError(Throwable e);
+    void onNext(T t);
+
+    // ...
+}
+```
+
+```java
+public abstract class SingleSubscriber<T> implements Subscription {
+    public abstract void onSuccess(T value);
+    public abstract void onError(Throwable error);
+
+    // ...
+}
+```
+
+`Single.toObservable()` 類似於 `Observable.single()` 效果
+
+## Completable
+
+簡化版本的 Observable/Single
+
+* 原本的 `Observable.subscribe(item -> {}, e -> {}, () -> {})`
+* 原本的 `Single.subscribe(item -> {}, e -> {})`
+* 簡化成 `Completable.subscribe(() -> {}, e -> {})`
+
+```java
+public interface CompletableSubscriber {
+    void onCompleted();
+    void onError(Throwable e);
+
+    // ...
+}
+```
+
+```java
+Completable.fromAction(() -> System.out.println("Hello World!"))
+.subscribe();
 ```
 
 ## 利用 compose(Transformer) 重用常用的流程組合
