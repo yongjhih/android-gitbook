@@ -607,7 +607,8 @@ Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html")
 如果你有很多網址要下載，你可能會想到：
 
 ```java
-Observable<List<String>> urlList = Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html");
+Observable<List<String>> urlList = Observable.just(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
+    "http://yongjhih.gitbooks.io/feed/content/README.html"));
 ```
 
 你可以留意到這時 Observable 產線上是 `List<String>` 了。所以你可能會這樣做：
@@ -624,24 +625,17 @@ Observable<List<String>> urlList = Observable.just(Arrays.asList("http://yongjhi
     });
 ```
 
-但是這種情況，你應該使用 Observable.from() ：
+但是這種情況，你應該使用 `Observable.from(List<T>)` 或 `Observable.just(T...)`：
 
 ```java
 Observable<String> urls = Observable.from(Arrays.asList("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
     "http://yongjhih.gitbooks.io/feed/content/README.html"));
-```
+// or Observable<String> urls = Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
+    "http://yongjhih.gitbooks.io/feed/content/README.html");
 
-```java
 urls.map(url -> download(url))
     .subscribeOn(Schedulers.io())
     .subscribe(file -> System.out.println(file));
-```
-
-或者
-
-```java
-Observable.just("http://yongjhih.gitbooks.io/feed/content/RxJava.html",
-    "http://yongjhih.gitbooks.io/feed/content/README.html"));
 ```
 
 如果原料是 List，但是加工時，想要一個一個處理，用 Observable.from() 會比較好操作，如果你用 Observable.just() 那就會拿到一個 List 。其實有個方法可以展開： `.flatMap(list -> Observable.from(list))`：
