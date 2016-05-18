@@ -584,7 +584,7 @@ Observable.just("Hello, world!").subscribe(string -> System.out.println(string))
 
 ```java
 Observable.just("Hello, world!")
-    .map(string -> "andrew: " + string) // "andrew: Hello, world!"
+    .map(string -> "yongjhih: " + string) // "yongjhih: Hello, world!"
     .map(string -> string.length())
     .subscribe(length -> System.out.println(length)); // 21, 請不要真的去算長度, 此處僅示意.
 ```
@@ -1260,9 +1260,33 @@ Observable.merge(ParseObservable.getPostsFromLocalDatabase(), ParseObservable.ge
 
 ### TestSubscriber
 
+```java
+TestSubscriber<String> testSubscriber = new TestSubscriber<>();
+Observable.just("yongjhih", "rxassertions").toBlocking().subscribe(testSubscriber);
+testSubscriber.assertNoErrors();
+testSubscriber.assertCompleted();
+testSubscriber.assertValues("yongjhih", "rxassertions");
+```
+
 ### Assertions
 
-Using assertj-rx:
+rxassertions
+
+```java
+RxAssertions.assertThat(Observable.just("yongjhih", "rxassertions"))
+    .withoutErrors()
+    .completes()
+    .expectedValues("yongjhih", "rxassertions");
+```
+
+or
+
+```java
+Single<String> single = Single.fromCallable(() -> "RxJava");
+RxAssertions.assertThat(single).completes().expectedSingleValue("RxJava");
+```
+
+Deprecated: assertj-rx:
 
 ```java
 assertThat(observable.toBlocking())
