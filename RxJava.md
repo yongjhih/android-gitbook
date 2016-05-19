@@ -915,26 +915,9 @@ Observable.just("https://raw.githubusercontent.com/yongjhih/android-gitbook/mast
 
 ## switchMap() 與 flatMap()
 
-置換 Observable 後，就不在接收上層的包裹了。類似： `take(1).flatMap()`
-
-* 同類型 `switchIfEmpty(Observable)`
-
-TODO switchIf()
-
-Before:
-
-```java
-flatMap(it -> it != null ? login(it) : Observable.empty());
-```
-
-After:
-
-```java
-switchIf(it -> it != null, it -> login(it));
-```
+swtichMap 主要用於序列化，而 flatMap 是允許並列。
 
 ## 排序 toSortedList()
-
 
 
 ## 分組 groupBy()
@@ -948,11 +931,11 @@ switchIf(it -> it != null, it -> login(it));
 ## 快取 cache()
 
 
-## 取樣 debounce()/throttleLast()
+## 取樣與防連點 throttleLast()/debounce()
 
 ```java
-  .throttleLast(100, TimeUnit.MILLISECONDS)
-  .debounce(200, TimeUnit.MILLISECONDS)
+  .throttleLast(100, TimeUnit.MILLISECONDS) // 限制流量 (sample())
+  .debounce(200, TimeUnit.MILLISECONDS) // 延遲觸發 (當作詠唱時間)
   .onBackpressureLatest()
 ```
 
