@@ -717,3 +717,16 @@ public class Contributor implements Jsonable {
 }
 ```
 
+## 無參數具回傳值的介面: Callable
+
+```java
+interface java.util.concurrent.Callable<V> {
+    V call();
+}
+```
+
+```java
+interface Runnable {
+    void run();
+}
+
