@@ -1,5 +1,33 @@
 # Assert 斷言 - assertj, truth
 
+斷言：
+
+* junit
+* hamcrest ：結合 junit 內建的斷言，提供較好的斷言語義
+* truth ：仿造 assertj 斷言訊息
+* assertj 提供更好懂的斷言訊息
+
+其中推薦 assertj 斷言家族
+
+測試框架：
+
+* junit
+* testNg ：取代 junit
+
+一般內建的 junit 即可
+
+UI 測試框架：
+
+* Robotium
+* uiautomator
+* espresso
+* Appium
+* Calabash
+
+一般內建的 espresso 即可
+
+跨 iOS 則使用 Appium 或 Calabash
+
 ## assertj-android
 
 * *註: 筆者 2013 下旬發現*
@@ -71,25 +99,7 @@ After(truth):
 "buttonEnabled" was expected to be true, but was false
 ```
 
-## assertj-rx
-
-```java
-assertThat(observable.toBlocking()).completes();
-```
-
-```java
-assertThat(observable.toBlocking())
-    .completes()
-    .emitsSingleValue("hello");
-```
-
-```java
-assertThat(observable.toBlocking()).fails();
-```
-
 ## Hamcrest
-
-
 
 ## See Also
 
