@@ -34,7 +34,7 @@ UI 測試框架：
 * *註: 2013 上旬仿 AssertJ 以 fest-android 名稱釋出，2014 中旬正式加入 AssertJ 家族，更名為 assertj-android*
 * *註: assertj 2011 釋出*
 
-針對 Android 的類別作語法撿結語錯誤訊息的強化。
+針對 Android 強化斷言錯誤訊息以及語法簡潔。
 
 語法的簡潔：
 
