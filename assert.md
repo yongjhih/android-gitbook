@@ -106,9 +106,9 @@ After(truth):
 Google 的 alexruiz 本來在 2011 年有一個 FEST ([fest-assert](https://github.com/alexruiz/fest-assert-2.x)) 主要是可接龍的斷言，2013 Q2 Square 就以此基礎開發了 fest-assert for android 叫做 fest-android
 ，但是後來 2014 Q2 改用 AssertJ Core 為基礎，改名 assertj-android 成為 AssertJ 家族成員。
 
-fest-assert 的第二作者 joel-costigliola 2011 就分家 AssertJ 了，而 fest-assert 看起來 2013 Q2 都沒有什麼動靜了，直到 2014 Q4 Google 另外釋出 [truth](https://github.com/google/truth) ，也是可接龍的斷言，目前似乎與 AssertJ 也沒有太多優勢
+fest-assert 的第二作者 joel-costigliola 2011 就分家 AssertJ 了，而 fest-assert 看起來 2013 Q2 都沒有什麼動靜了，直到 2014 Q4 Google 另外釋出 [truth](https://github.com/google/truth) ，也是可接龍的斷言，不過似乎也沒有太多明顯優勢。
 
-
+以生態來說，仍以 AssertJ 為大宗
 
 ## See Also
 
