@@ -101,6 +101,16 @@ After(truth):
 
 ## Hamcrest
 
+*p.s. 2012 已無動靜*
+
+口語化，但無法接龍
+
+```java
+List<String> list = Arrays.asList("Andrew", "Chen");
+assertThat(list, is(not(empty())));
+assertThat(list, is(contains("Andrew", "Chen")));
+```
+
 ## 小道消息
 
 Google 的 alexruiz 本來在 2011 年有一個 FEST ([fest-assert](https://github.com/alexruiz/fest-assert-2.x)) 主要是可接龍的斷言，2013 Q2 Square 就以此基礎開發了 fest-assert for android 叫做 fest-android
