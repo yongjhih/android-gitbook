@@ -73,7 +73,7 @@ public Task<ParseObject> fetchAsync(ParseObject obj) {
 }
 ```
 
-`Task.callInBackground()` 相當於 `Observable.defer()`:
+`Task.callInBackground()` 相當於 `Observable.defer()`/`Observable.fromCallbable()`:
 
 ```java
  Task<Void> Task.callInBackground(new Callable<Void>() {
@@ -107,12 +107,24 @@ public static <T> T wait(Task<T> task) {
 }
 ```
 
-## RxBolts
+## RxBolts - Task2Observable
+
+Task 轉 Observable
+
+範例：
+
+```java
+TaskObservable.defer(() -> Task.forResult("Hello, world!")).subscribe(it -> {
+  System.out.println(it);
+});
+```
+
+實現：
 
 ref. [yongjhih/RxBolts/.../TaskObservable.java](https://github.com/yongjhih/RxBolts/blob/master/rxbolts/src/main/java/rx/bolts/TaskObservable.java#L36)
 
 ```java
-    public static <R> Observable<R> just(Task<R> task) {
+    public static <R> Observable<R> defer(Task<R> task) {
         return Observable.create(sub -> {
             task.continueWith(t -> {
                 if (t.isCancelled()) {
