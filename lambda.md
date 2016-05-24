@@ -35,7 +35,7 @@ view.setOnClickListener((View v) -> println(v));
 Before:
 
 ```java
-Runnable = new Runnable() {
+Runnable run = new Runnable() {
   @Override public void run() {
     println("yo");
   }
@@ -45,7 +45,7 @@ Runnable = new Runnable() {
 After:
 
 ```java
-Runnable = () -> println("yo");
+Runnable run = () -> println("yo");
 ```
 
 如果你要在 Android 上使用，請參考 [gradle-retrolambda](https://github.com/evant/gradle-retrolambda) 。
