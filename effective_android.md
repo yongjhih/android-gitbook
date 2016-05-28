@@ -246,7 +246,7 @@ return java.util.Objects.hashCode(
         mMultiDexKeepProguard);
 ```
 
-## Activity/Fragment 應該善用 @CallSuper
+## 善用 @CallSuper
 
 ```java
 @CallSuper
@@ -262,8 +262,16 @@ public void onResume() {
 
 ## 不要直接 Handler 成員變數，避免記憶體浪費，可改用 WeakReference 包裝
 
+before:
+
 ```java
 private final Handler mHandler = new Handler();
+```
+
+after:
+
+```java
+private final WeakReference<Handler> mHandler = new WeakReference<>(new Handler());
 ```
 
 ## static final 常數慣用大寫
@@ -305,6 +313,13 @@ static WeakReference<TextView> sView;
 
 ## 工具類別應不給繼承且不給建構子
 
+```java
+public final class Utils {
+    private Utils() {
+        throw new UnsupportedException();
+    }
+}
+```
 
 ## 回傳空 List 應該用 `return Collections.emptyList();` 而不是 `return new ArrayList<>();`
 
