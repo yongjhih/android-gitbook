@@ -1271,6 +1271,34 @@ assertThat(observable.toBlocking())
     .emitsSingleValue("hello");
 ```
 
+## 常見手法
+
+目前似乎還不支援：
+
+* `Observable<Boolean> Observable.isNotEmpty()`
+
+一般的替代作法是：
+
+```java
+obs.isEmpty().map(b -> !b);
+```
+
+目前似乎還不支援：
+
+* `Observable<Boolean> Observable.contains(T... )`
+
+一般的作法是：
+
+```java
+obs.exists(o -> o == v1 || o == v2);
+```
+
+or
+
+```java
+obs.filter(o -> o == v1 || o == v2).isEmpty().map(b -> !b);
+```
+
 ## Hooks
 
 * RxJavaObservableExecutionHook
