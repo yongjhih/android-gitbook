@@ -36,7 +36,7 @@ https://github.com/yongjhih
 
 > LinkedIn?
 
-https://tw.linkedin.com/in/yongjhih
+https://linkedin.com/in/yongjhih
 
 ## 第二作者
 
