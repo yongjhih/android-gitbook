@@ -338,7 +338,7 @@ interface Collection<E> ... {
 ## `<? extends T>` 的使用時機
 -->
 
-## 沒有這些 Http Client Library 你會怎麼做？你直接操作 Socket 會怎麼做？
+## 沒有 Http Client Library 直接操作 Socket 會怎麼做？
 
 或許要問的是，對 Socket 本身的看法吧，我把 Socket 當作一種檔案流，實際上在 POSIX 系統就真的是檔案(其實什麼都檔案)，你先建立一個 listening socket file by ip/port 去聽 (bind and listen)，當然人要丟資料的時候，會開啟一個獨立的 connection socket file (accept)，然後就可以開始讀檔了 `while (inputStream)`。
 
@@ -356,6 +356,12 @@ new Thread(() -> accept(inputStream -> while (inputStream))) // 馬上開一個 
 
 ## Multi-Process 與 Multi-Thread 選擇
 
-Multi-Thread 主要是共用資料區，Multi-Process 沒共用，所以強隔離，但是也是多副本，也有資源損耗問題。如果交換資料頻繁，就用 Multi-Thread 吧，否則 Multi-Process 你交換資料就只能 IPC 基本上都是透過 socket ，不然你就跟 Android 一樣做一個 amem 做 binder 幫你 marshall/unmarshall/de/serialize 。
+如果是只為了 non-blocking：
+
+像是單純的網路服務，process 初始化的低消較大，如果用 fork 更開了副本，也有損耗問題，不過好處是 process management 獨立性，萬一發生什麼問題不會影響到其他人。
+
+而如果有需要交換資料且頻繁，就用 Multi-Thread 吧，否則 Multi-Process 你交換資料就只能 IPC 基本上都是透過 socket ，不然你就跟 Android 一樣做一個 amem 做 binder 幫你 marshall/unmarshall/de/serialize 來減輕低消。
 
 像是 Android Service 宣告，會幫裝在 Process ，透過 AIDL ，generating Stub ，讓 binder 做資料交換，只要宣告 interface 即可。
+
+系統應該要有一個機制去降低 fork process 低消，例如 COW 技術，在開啟新的 process 的時候，並沒有即時產生副本，頂多產生副本 refs ，當有人寫入的時候才進行實體副本。
