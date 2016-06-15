@@ -358,3 +358,4 @@ new Thread(() -> accept(inputStream -> while (inputStream))) // 馬上開一個 
 
 Multi-Thread 主要是共用資料區，Multi-Process 沒共用，所以強隔離，但是也是多副本，也有資源損耗問題。如果交換資料頻繁，就用 Multi-Thread 吧，否則 Multi-Process 你交換資料就只能 IPC 基本上都是透過 socket ，不然你就跟 Android 一樣做一個 amem 做 binder 幫你 marshall/unmarshall/de/serialize 。
 
+像是 Android Service 宣告，會幫裝在 Process ，透過 AIDL ，generating Stub ，讓 binder 做資料交換，只要宣告 interface 即可。
