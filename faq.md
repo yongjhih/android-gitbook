@@ -375,11 +375,11 @@ Observable 表示可被觀測，所以你可以塞一個觀察者 Observer 進�
 以 RxJava 撰寫風格來說：
 
 ```
-getProviderSubject(key).asObservable().subscribe(changed -> button.on());
+getProviderSubject(key).asObservable().subscribe(changed -> changed ? button.on() : button.off());
 ```
 
 稍微接近一點 Android 的寫法，但是我習慣接龍(Fluent)：
 
 ```java
-ContentResolvers.select(key).subscribe(changed -> button.on());
+ContentResolvers.select(key).subscribe(changed -> changed ? button.on() : button.off());
 ```
