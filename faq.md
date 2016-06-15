@@ -370,7 +370,7 @@ new Thread(() -> accept(inputStream -> while (inputStream))) // 馬上開一個 
 
 Observable 表示可被觀測，所以你可以塞一個觀察者 Observer 進去，聆聽一些變動。而 Button 可以 binding 一些變動行為。
 
-一般 Android 實務都是你的某個 ContentProvider 實現了 Observable ，所以你當然可以註冊 Observer 進去，一般也繼承 ContentObsever，為什麼要繼承 ContentObserver ？因為可以給 key 進去，讓 ContentProvider by key calling back 阿。
+一般 Android 實務都是你的某個 ContentProvider 實現了 Observable ，所以你當然可以註冊 Observer 進去，一般也繼承 ContentObsever，為什麼要繼承 ContentObserver ？因為可以給 key 進去，讓 ContentProvider calling back by key 阿。
 
 以 RxJava 撰寫風格來說：
 
