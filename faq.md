@@ -353,3 +353,8 @@ new Thread(() -> accept(inputStream -> while (inputStream))) // 馬上開一個 
 下一個問題，如果很多 reuqest 進來，會不會來不及 `new Thread` 然後下一位的 request 沒聽到怎麼辦？
 
 或許可以一開始就開 multithread 去 listent and accept 額定一個 thread 量，為了要重用 thread 還要開個 thread pool 。
+
+## Multi-Process 與 Multi-Thread 選擇
+
+Multi-Thread 主要是共用資料區，Multi-Process 沒共用，所以強隔離，但是也是多副本，也有資源損耗問題。如果交換資料頻繁，就用 Multi-Thread 吧，否則 Multi-Process 你交換資料就只能 IPC 基本上都是透過 socket ，不然你就跟 Android 一樣做一個 amem 做 binder 幫你 marshall/unmarshall/de/serialize 。
+
