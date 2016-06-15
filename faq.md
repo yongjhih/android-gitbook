@@ -365,3 +365,21 @@ new Thread(() -> accept(inputStream -> while (inputStream))) // 馬上開一個 
 像是 Android Service 宣告，會幫裝在 Process ，透過 AIDL ，generating Stub ，讓 binder 做資料交換，只要宣告 interface 即可。
 
 系統應該要有一個機制去降低 fork process 低消，例如 COW 技術，在開啟新的 process 的時候，並沒有即時產生副本，頂多產生副本 refs ，當有人寫入的時候才進行實體副本。
+
+## Android Observable 與 Button
+
+Observable 表示可被觀測，所以你可以塞一個觀察者 Observer 進去，聆聽一些變動。而 Button 可以 binding 一些變動行為。
+
+一般 Android 實務都是你的某個 ContentProvider 實現了 Observable ，所以你當然可以註冊 Observer 進去，一般也繼承 ContentObsever，為什麼要繼承 ContentObserver ？因為可以給 key 進去，讓 ContentProvider by key calling back 阿。
+
+以 RxJava 撰寫風格來說：
+
+```
+getProviderSubject(key).asObservable().subscribe(changed -> button.on());
+```
+
+稍微接近一點 Android 的寫法，但是我習慣接龍(Fluent)：
+
+```java
+ContentResolvers.select(key).subscribe(changed -> button.on());
+```
