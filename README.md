@@ -22,26 +22,26 @@
 
 * RxJava, RxAndroid
 * retrolambda (java7 + java8)
-* retrofit, [NotRetrofit](https://github.com/yongjhih/NotRetrofit)
+* retrofit, [yongjhih/NotRetrofit](https://github.com/yongjhih/NotRetrofit)
 * okhttp
 * DI: Dagger2
 * AutoParcel, AutoValue, etc.
 * ImageLoader: fresco, AUIL, picasso, glide, etc.
 * json2pojo: jackson, gson, logansquare, etc.
 * Orm: DBFlow, etc.
-* SimpleFacebook, [RetroFacebook](https://github.com/yongjhih/RetroFacebook)
+* SimpleFacebook, [yongjhih/RetroFacebook](https://github.com/yongjhih/RetroFacebook)
 * EventBus/Otto
 * mockito
 * espresso
 * robolectric
 * assertj(fest), truth
 * icepick
-* [auto-parse](https://github.com/yongjhih/auto-parse)
-* [RxParse](https://github.com/yongjhih/RxParse)
-* [RxFacebook](https://github.com/yongjhih/RxFacebook)
-* [proguard annotations](https://github.com/yongjhih/proguard-annotations)
-* [proguard snippets](https://github.com/yongjhih/proguard-snippets)
-* [json2notification](https://github.com/8tory/json2notification)
+* [yongjhih/auto-parse](https://github.com/yongjhih/auto-parse)
+* [yongjhih/RxParse](https://github.com/yongjhih/RxParse)
+* [yongjhih/RxFacebook](https://github.com/yongjhih/RxFacebook)
+* [yongjhih/proguard annotations](https://github.com/yongjhih/proguard-annotations)
+* [yongjhih/proguard snippets](https://github.com/yongjhih/proguard-snippets)
+* [yongjhih/json2notification](https://github.com/8tory/json2notification)
 * kotlin
 * anko
 * ReactNative
