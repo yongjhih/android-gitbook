@@ -383,3 +383,12 @@ getProviderSubject(key).asObservable().subscribe(changed -> changed ? button.on(
 ```java
 ContentResolvers.select(key).subscribe(changed -> changed ? button.on() : button.off());
 ```
+
+## Activity Lifecycle 的排定是為什麼？
+
+為了應用以及不傷身體，為了節省資源回收的時候狀態要告知，才能夠不傷身體。應用則是一些狀態告知可以應用 onPause/onResume ，較多的排定也是為了靈活手機的應用以及硬體限制需要回收的告知對策。
+
+## 隨便 kill 無所謂？
+
+kill 照理說要作到不傷身體，你就該好好告知你的客戶(application)，也有很多 signal 可以 trap ，所以安排了很多告知方法：lifecycle。
+除非你是用 -9 signal ，但是萬一因此傷身，這個應該是發起者後果自負。
