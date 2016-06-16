@@ -405,3 +405,6 @@ p.s. *當天路上忽然想到，好像沒人糾正說講錯，不叫做 push/po
 
 froyo 以前叫做 opencore ，後來叫做 stagefright 。年代久遠，基本上還是要回去看我 [patches](https://drive.google.com/open?id=0B0Q2kL5yaBdRNmtnREFZWUVvS1k) 才會會想起在幹麻了(froyo 的 patches 似乎已經丟失)。
 
+## Java 語言使用上的問題
+
+問題挺多的，就看我寫的一些雞肋函式庫就知道了，不然看看 kotlin 那篇介紹也可以，像是 lambda , pojo getter/setter , nullable/optional, return-type overloading, generic infer
