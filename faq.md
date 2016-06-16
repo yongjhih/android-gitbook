@@ -392,3 +392,7 @@ ContentResolvers.select(key).subscribe(changed -> changed ? button.on() : button
 
 kill 照理說要作到不傷身體，你就該好好告知你的客戶(application)，也有很多 signal 可以 trap ，所以安排了很多告知方法：lifecycle。
 除非你是用 -9 signal ，但是萬一因此傷身，這個應該是發起者後果自負。
+
+## LRUCache
+
+像是行車記錄器會把最後的刪除。忽然話說沒人糾正說講錯，不叫做 push/pop ，有點壞心啊，我經常使用 pushd/ popd 脫口而出。這確實很致命。話說我之前不是好寫了一個簡單的 LURcache 在 simple-parse 不是嗎？
