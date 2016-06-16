@@ -395,4 +395,4 @@ kill 照理說要作到不傷身體，你就該好好告知你的客戶(applicat
 
 ## LRUCache
 
-像是行車記錄器會把最後的刪除。忽然想到話說沒人糾正說講錯，不叫做 push/pop ，有點壞心啊，我不清楚我為什麼脫口而出，也許因為我之前寫過一個 SimpleLruCache 使用 Map 寫的，裡面一堆 map.put() 或者我平常 pushd/popd 用多了？不過回想起來這好蠢喔。SimpleLruCache 我是寫給 simple-parse(f082efe) 為了相容舊版 android ，後來才想到有 support-v4 。很都朋友都知道我神經大條，都會糾正我腦中想的與講的不一致的問題。
+像是行車記錄器會把最後的刪除。忽然想到話說沒人糾正說講錯，不叫做 push/pop ，有點壞心啊，我不清楚我為什麼脫口而出，也許因為我之前寫過一個 SimpleLruCache 使用 Map 寫的，裡面一堆 map.put() 或者我平常 pushd/popd 用多了？不過回想起來這好蠢喔。SimpleLruCache 我是寫給 [simple-parse/f082efe2](https://github.com/yongjhih/simple-parse/commit/f082efe2ce46f40b8b7cd80a50d3d65652fc4ad7) 為了相容舊版 android ，後來才想到有 support-v4 。很都朋友都知道我神經大條，都會糾正我腦中想的與講的不一致的問題。
