@@ -399,7 +399,7 @@ kill 照理說要作到不傷身體，你就該好好告知你的客戶(applicat
 
 像是行車記錄器會把最後的刪除。如果要實現，沒多想，應該直接用 mod index 試試吧。
 
-p.s. *當天路上忽然想到，好像沒人糾正說講錯，不叫做 push/pop ，有點壞心啊，腦袋關聯想左推右彈，嘴巴稱之 push/pop，但是這是錯誤的用詞，也許因為我之前寫過一個 SimpleLruCache 給 [simple-parse/f082efe2](https://github.com/yongjhih/simple-parse/commit/f082efe2ce46f40b8b7cd80a50d3d65652fc4ad7) 用，裡面一堆 map.put() ？不過回想起來這好蠢喔。如果要寫，核心想法就是 mod index ，反正沒 ref 就 gc*
+* p.s. *當天路上忽然想到，好像沒人糾正說講錯，不叫做 push/pop ，有點壞心啊，腦袋關聯想左推右彈，嘴巴稱之 push/pop，但是這是錯誤的用詞，也許因為我之前寫過一個 SimpleLruCache 給 [simple-parse/f082efe2](https://github.com/yongjhih/simple-parse/commit/f082efe2ce46f40b8b7cd80a50d3d65652fc4ad7) 用，裡面一堆 map.put() ？不過回想起來這好蠢喔。如果要寫，核心想法就是 mod index ，反正沒 ref 就 gc*
 
 ## Media Server
 
@@ -408,3 +408,7 @@ froyo 以前叫做 opencore ，後來叫做 stagefright 。年代久遠，基本
 ## Java 語言使用上的問題
 
 問題挺多的，就看我寫的一些雞肋函式庫就知道了，不然看看 kotlin 那篇介紹也可以，像是 lambda , pojo getter/setter , nullable/optional, return-type overloading, generic infer
+
+## 會用 jenkins 嗎？
+
+* 2011 年開始使用 Jenkins 集合 Gerrit 自動 verify ： https://docs.google.com/document/d/1_H2AW-jrpugcq29h8-Uq4ViNnFPSfY9b1zSy3Cttg6w/
