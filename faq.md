@@ -358,7 +358,7 @@ new Thread(() -> accept(inputStream -> while (inputStream))) // 馬上開一個 
 
 如果是只為了 non-blocking：
 
-像是單純的網路服務，process 初始化的低消較大，如果用 fork 更開了副本，也有損耗問題，不過好處是 process management 獨立性，萬一發生什麼問題不會影響到其他人。
+像是單純的網路服務，process 初始化的低消較大，如果用 fork 更開了副本，也有損耗問題，不過好處是 process management 獨立性/隔離性，萬一發生什麼問題不會影響到其他人。
 
 而如果有需要交換資料且頻繁，就用 Multi-Thread 吧，否則 Multi-Process 你交換資料就只能 IPC 基本上都是透過 socket ，不然你就跟 Android 一樣做一個 amem 做 binder 幫你 marshall/unmarshall/de/serialize 來減輕低消。
 
@@ -412,3 +412,21 @@ froyo 以前叫做 opencore ，後來叫做 stagefright 。年代久遠，基本
 ## 會用 jenkins 嗎？
 
 * 2011 年開始使用 Jenkins 集合 Gerrit 自動 verify ： https://docs.google.com/document/d/1_H2AW-jrpugcq29h8-Uq4ViNnFPSfY9b1zSy3Cttg6w/
+* 2011-2013 on-push/on-upload 自動建置 aosp 與其 cts
+* 2013-2016 on-push 自動建置 apk
+
+## 對於 devops 的看法
+
+* 從開發流程到檢驗到佈署的自動化/最佳化
+* 在這之前你應該為了彈性抽換，會有虛擬化/隔離化 e.g. lxc
+* 到資源管理 scheduling
+* 到成本管理
+
+## 測試
+
+優先把重用性高的拆出去成獨立的 lib ，既然已經拆出去，解藕，那麼 Unit Test 就會很好寫了。而商業邏輯在新創公司經常性變動，也就是程式區段生命週期短的部份就不用刻意寫自動化測試，直到穩定成為週期長的程式區段，再進行自動化測試的撰寫。
+
+## 優先做出東西還是優先找最佳解
+
+* 優先做出雛型 - 這要看實際耗時問題，雖然希望優先做出雛型，但是其實往往工程師本位，還是會希望找出正解，否則怎麼會用 RxJava/retrofit/ORM？一開始的 restful client 需求肯定很低的，Model 也少，然後 rx 來做 pipeline 也不多，會什麼要導入 rxjava/retrofit/ORM ? 直接 `db.exec(sql)` 不就好了，直接 `httpclient.get(url)` 取幾個 json 欄位，很快就可以寫好。
+* 不過找最佳解的途中，也許會發現那個東西根本有問題，也就是在釐清問題，收斂問題。
