@@ -384,6 +384,8 @@ getProviderSubject(key).asObservable().subscribe(changed -> changed ? button.on(
 ContentResolvers.select(key).subscribe(changed -> changed ? button.on() : button.off());
 ```
 
+ref. https://github.com/yongjhih/content-observables
+
 ## Activity Lifecycle 的排定是為什麼？
 
 為了應用以及不傷身體，為了節省資源回收的時候狀態要告知，才能夠不傷身體。應用則是一些狀態告知可以應用 onPause/onResume ，較多的排定也是為了靈活手機的應用以及硬體限制需要回收的告知對策。
