@@ -432,3 +432,11 @@ froyo 以前叫做 opencore ，後來叫做 stagefright 。年代久遠，基本
 
 * 優先做出雛型 - 這要看實際耗時問題，雖然希望優先做出雛型，但是其實往往工程師本位，還是會希望找出正解，否則怎麼會用 RxJava/retrofit/ORM？一開始的 restful client 需求肯定很低的，Model 也少，然後 rx 來做 pipeline 也不多，會什麼要導入 rxjava/retrofit/ORM ? 直接 `db.exec(sql)` 不就好了，直接 `httpclient.get(url)` 取幾個 json 欄位，很快就可以寫好。
 * 不過找最佳解的途中，也許會發現那個東西根本有問題，也就是在釐清問題，收斂問題。
+
+## WindowManager
+
+現在我還沒什麼印象，只記得 Phone xx Manager ，跟改過 KeyGuard
+
+## ViewHirarchy TouchEvent
+
+從樹根傳遞，像是 nested scrollview 常需要 Parent Reqesut disallow Inercept
