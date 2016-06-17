@@ -397,7 +397,9 @@ kill 照理說要作到不傷身體，你就該好好告知你的客戶(applicat
 
 ## LRUCache
 
-像是行車記錄器會把最後的刪除。如果要實現，沒多想，應該直接用 mod index 試試吧。
+像是行車記錄器會把最後的刪除。如果要實現，沒多想，直接用 mod index 。
+
+不過這樣讀取就太慢了，如果仍然使用 Map 來裝，要有順序 order index ， on-put dereference 。
 
 * p.s. *當天路上忽然想到，好像沒人糾正說講錯，不叫做 push/pop ，有點壞心啊，腦袋關聯想左推右彈，嘴巴稱之 push/pop，但是這是錯誤的用詞，也許因為我之前寫過一個 SimpleLruCache 給 [simple-parse/f082efe2](https://github.com/yongjhih/simple-parse/commit/f082efe2ce46f40b8b7cd80a50d3d65652fc4ad7) 用，裡面一堆 map.put() ？不過回想起來這好蠢喔。如果要寫，核心想法就是 mod index ，反正沒 ref 就 gc，不過讀取應該就慢爆了吧*
 
