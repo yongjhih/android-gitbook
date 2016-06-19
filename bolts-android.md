@@ -2,7 +2,7 @@
 
 如果你已經在用 RxJava ，那這應該僅供參考。
 
-Bolts 是一款 promise 的實現。由 Parse.com 主持。Facebook 在收購 Parse.com 後，也積極整合 bolts 。
+Bolts 是一款 promise 的實現。由 Parse.com 主持。Facebook 在收購 Parse.com 後，也整合 bolts 了。
 
 `Bolts.Task<T>` 相當於`Observable<T>`
 
