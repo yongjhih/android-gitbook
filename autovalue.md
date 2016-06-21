@@ -1,5 +1,7 @@
 # AutoValue
 
+p.s. *其他類似的專案 [Immutables](https://github.com/immutables/immutables) (誰抄誰就不得而知了)*
+
 一個透過 Annotation Programming 簡化撰寫 identity model 的編譯時期函式庫。
 
 Before:
@@ -137,3 +139,4 @@ parceler 的產生器, 有點獨特..
 * https://github.com/frankiesardo/auto-parcel
 * https://github.com/johncarl81/parceler
 * https://github.com/rharter/auto-value-parcel
+* https://github.com/immutables/immutables
