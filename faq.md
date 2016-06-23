@@ -347,7 +347,11 @@ interface Collection<E> ... {
 
 ```java
 listen(); // blocking until requested
-new Thread(() -> accept(inputStream -> while (inputStream))) // 馬上開一個 thread 去處理讀資料流
+new Thread(() -> {
+    accept(inputStream -> while (inputStream);
+    // business logic
+    socket.getOutputStream().write(xxx);
+    })) // 馬上開一個 thread 去處理讀資料流 (request input stream)
 ```
 
 下一個問題，如果很多 reuqest 進來，會不會來不及 `new Thread` 然後下一位的 request 沒聽到怎麼辦？
