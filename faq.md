@@ -354,7 +354,7 @@ new Thread(() -> accept(inputStream -> while (inputStream))) // 馬上開一個 
 
 或許可以一開始就開 multithread 去 listent and accept 額定一個 thread 量，為了要重用 thread 還要開個 thread pool 。
 
-而客戶端的部份，主要 Socket to InputStream ，只是因為網路存取通常是長時間存取，所以通常會開一個 Thread 出去避免 blocking main-thread ，那麼這種 io/net thread 為了要重用，也有習慣 thread pool 。
+而客戶端的部份，主要 Socket to In/OutputStream ，只是因為網路存取通常是長時間存取，所以通常會開一個 Thread 出去避免 blocking main-thread ，那麼這種 io/net thread 為了要重用，也有習慣 thread pool 。
 
 ## Multi-Process 與 Multi-Thread 選擇
 
