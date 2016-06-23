@@ -9,7 +9,7 @@
 sgrep -i device_provisioned
 ```
 
-另一種，逆向追 code 是誰負責呼叫你的？安插在系統的 broadcaster 身上，印出 setup wizard caller 是誰。
+另一種，逆向追 code 是誰負責呼叫你的？安插在系統的 broadcaster 身上，印出 setup wizard caller 是誰。這個比較黑手一點，當作最終手段吧。
 
 再來另一個線索是，setup wizard 的 manifest ，因為系統還是依據 manifest 某個特殊條件才會呼叫的：
 
