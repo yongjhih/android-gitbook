@@ -442,3 +442,40 @@ froyo 以前叫做 opencore ，後來叫做 stagefright 。年代久遠，基本
 ## ViewHirarchy TouchEvent
 
 從樹根傳遞，像是 nested scrollview 常需要 Parent Reqesut disallow Inercept
+
+## 攤平 callback hell 的一些想法
+
+在談論 Rx 的時候，常常跟朋友提到 callback hell 問題與解法
+
+Before:
+
+```java
+loginFacebook(fbToken -> {
+  loginParse(lastFbToken, parseToken -> {
+    loginOctory(lastParseToken, octoryToken -> {
+    });
+  });
+});
+```
+
+我對於 callback hell 想要攤平，其實比較簡單的概念就是 register 模式：
+
+After:
+
+```java
+Tasks<String> tasks = Tasks.create();
+tasks.add(task -> loginFacebook(fbToken -> { task.next(fbToken); }));
+tasks.add(task -> loginParse(task.get(), parseToken -> { task.next(parseToken); }));
+tasks.add(task -> loginOctory(task.get(), octoryToken -> { task.next(octoryToken); }));
+tasks.execute();
+```
+
+只有型別的部份比較麻煩，所以通常透過 generic infer 來做：
+
+After:
+
+```java
+Task.from(() -> loginFacebook()).then(profile -> loginParse(profile)).then(profile -> loginOctory(profile));
+```
+
+如果這樣寫完，其實就完成了 promise 規範了。
