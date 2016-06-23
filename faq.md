@@ -338,7 +338,7 @@ interface Collection<E> ... {
 ## `<? extends T>` 的使用時機
 -->
 
-## 沒有 Http Client Library 直接操作 Socket 會怎麼做？
+## 沒有 Http Library 直接操作 Socket 會怎麼做？
 
 或許要問的是，對 Socket 本身的看法吧，我把 Socket 當作一種檔案流，實際上在 POSIX 系統就真的是檔案(其實什麼都檔案)，你先建立一個 listening socket file by ip/port 去聽 (bind and listen)，當然人要丟資料的時候，會開啟一個獨立的 connection socket file (accept)，然後就可以開始讀檔了 `while (inputStream)`。
 
@@ -353,6 +353,8 @@ new Thread(() -> accept(inputStream -> while (inputStream))) // 馬上開一個 
 下一個問題，如果很多 reuqest 進來，會不會來不及 `new Thread` 然後下一位的 request 沒聽到怎麼辦？
 
 或許可以一開始就開 multithread 去 listent and accept 額定一個 thread 量，為了要重用 thread 還要開個 thread pool 。
+
+而客戶端的部份，主要 Socket to InputStream ，只是因為網路存取通常是長時間存取，所以通常會開一個 Thread 出去避免 blocking main-thread ，那麼這種 io/net thread 為了要重用，也有習慣 thread pool 。
 
 ## Multi-Process 與 Multi-Thread 選擇
 
