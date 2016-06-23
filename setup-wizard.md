@@ -1,7 +1,7 @@
 # 安裝精靈
 
-最近剛好有人問到，setup wizard 安裝精靈 沒有被呼叫起來的問題。主要以前是配置出廠預設配置，device/product/ ，
-印象比較深刻的是 device_provisioned ，這個在 Android 系統隱私資料庫內，也有記載，主要得知是否已經配置過 provisioned 。
+最近有人問到，setup wizard 安裝精靈沒有被呼叫起來的問題。主要四年前有配置出廠預設過，device/{product}/ ，
+印象比較深刻的是 device_provisioned ，這個在 Android 系統隱私資料庫內(Settings/DatabaseHelper) 也有記載，主要得知是否已經配置過 provisioned 。
 
 一種是正向追 code ：
 
@@ -65,3 +65,8 @@ sgrep -i device_provisioned
 
 不是工廠低階測試以及還沒跑過安裝精靈了話，而且是系統權限的應用程式，而且 SETUP_VERSION 的版本還沒跑過，就顯示安裝精靈。
 對了，如果很多應用程式符合，看得出來它這裡挑第一個符合的應用程式，所以我們可以試著把你的目標安裝精靈的優先度調高 priority 吧。
+
+```sh
+adb-am-start setupwizard
+```
+```
