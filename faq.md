@@ -346,19 +346,23 @@ interface Collection<E> ... {
 但是萬一後面還有人要進來，就沒法聽到了怎麼辦？
 
 ```java
-listen(); // blocking until requested
-new Thread(() -> {
-    accept(inputStream -> while (inputStream);
-    // business logic
-    socket.getOutputStream().write(xxx);
-    })) // 馬上開一個 thread 去處理讀資料流 (request input stream)
+var binder = bind(address);
+while (binder.listen()) { // blocking until requested
+    new Thread(() -> { // 馬上開一個 thread 去處理讀資料流
+        var socket = binder.accept();
+        read(socket);
+        // business logic
+        write(socket);
+        }));
+    // 得以繼續等待下一個 request
+}
 ```
 
 下一個問題，如果很多 reuqest 進來，會不會來不及 `new Thread` 然後下一位的 request 沒聽到怎麼辦？
 
 或許可以一開始就開 multithread 去 listent and accept 額定一個 thread 量，為了要重用 thread 還要開個 thread pool 。
 
-而客戶端的部份，主要 Socket to In/OutputStream ，只是因為網路存取通常是長時間存取，所以通常會開一個 Thread 出去避免 blocking main-thread ，那麼這種 io/net thread 為了要重用，也有習慣 thread pool 。
+而客戶端的部份，一樣主要 Socket to In/OutputStream ，只是因為網路存取通常是長時間存取，所以通常會開一個 Thread 出去避免 blocking main-thread ，那麼這種 io/net thread 為了要重用，也有 io/net thread pool 。
 
 ## Multi-Process 與 Multi-Thread 選擇
 
