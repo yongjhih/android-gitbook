@@ -76,12 +76,17 @@ for ((key, value) in map) {
 
 ## 簡便 getter 與 setter
 
+After:
+
 ```kotlin
-public var context: Context? = null
-  get
+public var name: String? = null
+  get // not override
   set (value) {
-    $context = value
+    $name = if (value != null) ? value.capitalize() : value
   }
+
+name = "andrew";
+assertThat(name).isEqualTo("Andrew");
 ```
 
 # Null Safety
@@ -156,6 +161,16 @@ val resources by lazy { context.getResources() }
 ```
 
 ## Smart cast
+
+Before:
+
+```java
+void setText(View view) {
+  if (view instanceof TextView) {
+    ((TextView) view).setText("hello");
+  }
+}
+```
 
 After:
 
