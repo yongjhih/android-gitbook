@@ -182,7 +182,7 @@ fun setText(view: View) {
 }
 ```
 
-## switch case: when
+## switch case: when with smart cast
 
 After:
 
