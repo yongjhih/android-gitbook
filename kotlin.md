@@ -176,7 +176,7 @@ After:
 
 ```kotlin
 fun setText(view: View) {
-  if (view instanceof TextView) {
+  if (view is TextView) {
     view.setText("hello");
   }
 }
