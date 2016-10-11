@@ -131,3 +131,4 @@ fest-assert 的第二作者 joel-costigliola 2011 就分家 AssertJ 了，而 fe
 * https://github.com/ribot/assertj-rx
 * https://github.com/ubiratansoares/rxassertions
 * https://github.com/hamcrest/JavaHamcrest
+* http://google.github.io/truth/comparison
