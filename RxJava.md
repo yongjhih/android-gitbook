@@ -1313,7 +1313,7 @@ http://yarikx.github.io/NotRxJava/ 也是從這種方式帶領你看發展進程
 
 ## See Also
 
-* 章節：[輕量資料流處理](data_stream.md)
+* 章節：[輕量資料流處理](stream.md)
 
 文獻:
 
