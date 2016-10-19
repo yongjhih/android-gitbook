@@ -16,18 +16,6 @@
 
 一般內建的 junit 即可
 
-UI 測試框架：
-
-* Robotium
-* uiautomator
-* espresso
-* Appium
-* Calabash
-
-一般內建的 espresso 即可
-
-跨 iOS 則使用 Appium 或 Calabash
-
 ## assertj-android
 
 * *註: 筆者 2013 下旬發現*
