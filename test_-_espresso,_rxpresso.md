@@ -1,6 +1,14 @@
-# Test - espresso, rxpresso
+# Test - UI
 
-Ui 操作測試函式庫
+UI 測試框架：
+
+* Robotium
+* uiautomator
+* espresso
+* Appium
+* Calabash
+
+跨 iOS 使用 Appium 或 Calabash
 
 ## RxPresso
 
