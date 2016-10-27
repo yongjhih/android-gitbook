@@ -8,6 +8,8 @@
 
 greenrobot/EventBus 就是走第三種方案。
 
+*我們都知道全域東西都有毒*
+
 ## greenrobot/EventBus vs. Otto
 
 網路上有很多比較，可以參考。
