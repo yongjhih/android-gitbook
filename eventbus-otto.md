@@ -10,7 +10,11 @@ greenrobot/EventBus 就是走第三種方案。
 
 ## greenrobot/EventBus vs. Otto
 
-網路上有很多比較，可以參考。這裡先給個簡單的參考： EventBus 比較快、 Otto 比較小。
+網路上有很多比較，可以參考。
+
+這裡先給個簡單的參考： EventBus 比較快、 Otto 比較小。
+
+Otto 由知名開發商 Square 所維護，可靠度較高
 
 ## 補充 - 回復性、耦合性
 
