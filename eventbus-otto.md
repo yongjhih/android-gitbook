@@ -16,6 +16,8 @@ greenrobot/EventBus 就是走第三種方案。
 
 Otto 由知名開發商 Square 所維護，可靠度較高
 
+*如果已經引進 RxJava 應該使用 RxJava 的 Subject 取代*
+
 ## 補充 - 回復性、耦合性
 
 儲存問題, 可回復性. 如果透過 saveInstanceState 就可以交由系統負責儲存。一種是儲存在 disk 如: sharedPreferences. 再來是 DB 。
