@@ -29,6 +29,8 @@ greenrobot/EventBus 就是走第三種方案。
 
 * [#57 Weak reference to the subscriber](https://github.com/greenrobot/EventBus/issues/57), 解法: [yongjhih/EventBus/commit/3d3c1ca6](https://github.com/yongjhih/EventBus/commit/3d3c1ca6676112bd9dd6bb78245b03b31e5c25fc)
 
+*Otto 名字的辛普森家庭卡通中，校車的司機(bus driver) 就叫做 Otto*
+
 * https://github.com/greenrobot/EventBus
 * https://github.com/square/otto
 * http://endlesswhileloop.com/blog/2015/06/11/stop-using-event-buses/
