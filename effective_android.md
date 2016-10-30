@@ -142,6 +142,16 @@ public class ImageLoader {
 }
 ```
 
+參考樹可能類似：
+
+```
+applicationContext <- activity
+```
+
+如果你只是需要 getResources() 之類的行為，並不需要 activity 整個實體，你可能只需要最基礎的 context 那麼就不需要握著 activity 不讓 gc 去釋出。
+
+詳細的部份， 我們可以看 ContextWrapper/Impl
+
 ## 常見的取得 LayoutInflater
 
 ```java
