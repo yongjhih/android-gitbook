@@ -55,3 +55,4 @@ public class Hugo {
 
 * https://github.com/JakeWharton/hugo
 * https://github.com/orhanobut/tracklytics
+* https://github.com/Archinamon/GradleAspectJ-Android
