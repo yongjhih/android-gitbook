@@ -43,6 +43,14 @@ public class User {
 
 而 Jackson 提供的 streaming 就是正在繞的當下就會呼叫 callback 了。
 
+## flatbuffers & protobuf
+
+They are lightweight serialized data format.
+
+The retrofit supports protobuf.
+
+..
+
 ## See Also
 
 * http://instagram-engineering.tumblr.com/post/97147584853/json-parsing
