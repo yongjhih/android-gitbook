@@ -1,5 +1,7 @@
 # Retrofit 1
 
+ps. We adapted retrofit since 2014, 1.5.0+.
+
 rest api 直接對應成 java interface ，且搭配 Json Mapper 直接轉換。
 
 一個類似於 JAX-RS/JSR-311) 的實現，基於[一些理由](https://github.com/square/retrofit/issues/573)並沒有完全按照 JAX-RS 實現。
