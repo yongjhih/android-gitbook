@@ -53,6 +53,6 @@
 * [Activity 與 Fragment 的日常](activity-fragment.md)
 * [Binder 活頁夾的日常](binder.md)
 * [Background Thread 幕後的日常](background-thread.md)
-* [Firebase](Firebase.md)
+* [Firebase](firebase.md)
 * [系統 - 安裝精靈](setup-wizard.md)
 
